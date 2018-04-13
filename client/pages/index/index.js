@@ -12,6 +12,34 @@ Page({
     },
 
     // 用户登录示例
+    asd:function(){
+      wx.login({
+        success: function (res) {
+          if(res.code){
+            wx.request({
+              url: config.service.cheshiUrl,
+              method:post,
+              data:{
+                code:res.code
+              },
+              success:function(data){
+                console.log(data)
+              }
+            })
+          }else{
+            console.log('登录失败'+res.errMsg);
+          };
+        }
+      });
+      wx.getUserInfo({
+        withCredentials:true,
+        success: function (res) {
+          var userInfo = res.userInfo
+          console.log(userInfo);
+        }
+      });
+    },
+    // 用户登录示例
     login: function() {
         if (this.data.logged) return
 
