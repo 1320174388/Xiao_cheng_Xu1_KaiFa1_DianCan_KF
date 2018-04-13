@@ -3,7 +3,7 @@
  */
 
 // 此处主机域名修改成腾讯云解决方案分配的域名
-var host = 'https://juvr1ujg.qcloud.la';
+var host = 'https://l1ur0jdu.qcloud.la';
 
 var config = {
 
@@ -23,8 +23,11 @@ var config = {
         // 上传图片接口
         uploadUrl: `${host}/weapp/upload`,
 
-        // 测试接口路由地址
-        cheshiUrl: `${host}/weapp/asd`
+        // 测试登录接口,获取令牌
+        cheshiUrl: `${host}/api/login`,
+
+        // 请求用户数据，必须发送令牌
+        tokenUrl: `${host}/api/token`
     }
 };
 

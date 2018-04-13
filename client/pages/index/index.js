@@ -11,19 +11,23 @@ Page({
         requestResult: ''
     },
 
-    // 用户登录示例
+    // 测试登录接口,获取令牌
     asd:function(){
       wx.login({
         success: function (res) {
           if(res.code){
             wx.request({
               url: config.service.cheshiUrl,
-              method:post,
+              header: {
+                "Content-Type": "application/x-www-form-urlencoded"
+              },
               data:{
                 code:res.code
               },
-              success:function(data){
-                console.log(data)
+              method:'POST',
+              success:function(res){
+                console.log(res.data);
+                wx.setStorageSync('token',res.data);
               }
             })
           }else{
@@ -31,13 +35,25 @@ Page({
           };
         }
       });
-      wx.getUserInfo({
-        withCredentials:true,
+    },
+    // 请求用户数据，必须发送令牌
+    token:function(){
+      // 获取缓存中的 token 令牌
+      var token = wx.getStorageSync('token');
+      // 发送 token 令牌到服务器
+      wx.request({
+        url: config.service.tokenUrl,
+        header: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        data:{
+          "token":token
+        },
+        method:"POST",
         success: function (res) {
-          var userInfo = res.userInfo
-          console.log(userInfo);
+          console.log(res.data);
         }
-      });
+      })
     },
     // 用户登录示例
     login: function() {

@@ -1,8 +1,12 @@
 <!--index.wxml-->
 <view class="container">
-    <!-- 用户登录测试 -->
+    <!-- 测试登录接口,获取令牌 -->
     <view class='userinfo' bindtap="asd">
-      测试接口
+      测试登录接口,获取令牌
+    </view>
+    <!-- 请求用户数据，必须发送令牌 -->
+    <view class='userinfo' bindtap="token">
+      请求用户数据，必须发送令牌
     </view>
     <!-- 用户登录测试 -->
     <view class="userinfo" bindtap="login">
