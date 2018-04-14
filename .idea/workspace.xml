@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="24376ce1-35b7-4c77-8c53-d293ae153291" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/server/application/controllers/v1/Position.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/server/application/helpers/administrator_helper.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/server/application/models/admin/Role.php" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/client/config.js" afterPath="$PROJECT_DIR$/client/config.js" />
-      <change beforePath="$PROJECT_DIR$/server/application/config/autoload.php" afterPath="$PROJECT_DIR$/server/application/config/autoload.php" />
-      <change beforePath="$PROJECT_DIR$/server/application/config/database.php" afterPath="$PROJECT_DIR$/server/application/config/database.php" />
-      <change beforePath="$PROJECT_DIR$/server/application/libraries/Configclass.php" afterPath="$PROJECT_DIR$/server/application/libraries/Configclass.php" />
-      <change beforePath="$PROJECT_DIR$/server/config.php" afterPath="$PROJECT_DIR$/server/config.php" />
-    </list>
+    <list default="true" id="24376ce1-35b7-4c77-8c53-d293ae153291" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -109,7 +99,7 @@
       <path value="$PROJECT_DIR$/server/vendor/guzzle/guzzle" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="2" />
     <option name="y" value="21" />
     <option name="width" value="1346" />
@@ -273,16 +263,15 @@
       <workItem from="1523588875236" duration="28061000" />
       <workItem from="1523625388152" duration="695000" />
       <workItem from="1523687790713" duration="1918000" />
-      <workItem from="1523705461777" duration="7374000" />
+      <workItem from="1523705461777" duration="7792000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49546000" />
+    <option name="totallyTimeSpent" value="49964000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="2" y="21" width="1346" height="688" extended-state="1" />
-    <editor active="true" />
+    <frame x="2" y="21" width="1346" height="688" extended-state="0" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30171072" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
