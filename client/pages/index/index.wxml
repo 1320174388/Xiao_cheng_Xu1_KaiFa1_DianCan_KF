@@ -1,67 +1,79 @@
-<!--index.wxml-->
-<view class="container">
-    <!-- 测试登录接口,获取令牌 -->
-    <view class='userinfo' bindtap="asd">
-      测试登录接口,获取令牌
-    </view>
-    <!-- 请求用户数据，必须发送令牌 -->
-    <view class='userinfo' bindtap="token">
-      请求用户数据，必须发送令牌
-    </view>
-    <!-- 用户登录测试 -->
-    <view class="userinfo" bindtap="login">
-        <image
-            class="userinfo-avatar"
-            src="{{logged ? userInfo.avatarUrl : './user-unlogin.png'}}"
-            background-size="cover"
-        ></image>
-        <view>
-            <text class="userinfo-nickname">{{logged ? userInfo.nickName : '点击测试登录接口'}}</text>
-            <text class="userinfo-nickname" wx:if="{{logged}}">{{userInfo.lastLoginTime}}</text>
-        </view>
+<swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image"/>
+    </swiper-item>
+  </block>
+</swiper>
+
+<view class="infoText">
+  <view class="infoTitle">千岛点餐小程序搭建</view>
+  <text class="infoDesc">千岛网络点餐小程序演示系统！！扫码点餐，每个餐桌对应一个二维码桌号，附近五公里自动引入客户！客人付款直达餐厅账户！定制热线17090051724</text>
+
+  <view class="containers">
+      <view class='contain left'>
+          <view class="iconfont icon-dizhi"></view>  
+          <text class="address"  bindtap='maps'>洛阳市西工区王城大道200号</text>
+          <view class="iconfont icon-goto"></view>
+      </view>
+      <view class="iconfont icon-phone right" bindtap='tell'></view>
+  </view>
+</view>
+<!--分类-->
+<view class="cate">
+  <view class="list">
+      <view class='iconfont icon-diancan'></view>
+      <text>点餐</text>
+   </view>
+   <view class="list">
+       <view class='iconfont icon-yuding'></view>
+       <text>预定</text>
+   </view>
+   <view class="list">
+       <view class='iconfont icon-waimai-'></view>
+       <text>外卖</text>
+   </view>
+   <view class="list">
+       <view class='iconfont icon-paiduiquhao0101'></view>
+       <text>排队取号</text>
+   </view>
+</view>
+<text class="title">掌柜推荐</text>
+<view class='proList'>
+    <view class="lists">
+        <image src='/icon/cai1.jpg'></image>
+        <text>巧扮苦菊</text>
+        <text>￥12.00</text>
     </view>
 
-    <!-- 信道连接测试 -->
-    <view class="tunnel">
-        <view class="tunnel-text uploader-text">
-            <text bindtap="doRequest">请求（是否带有登陆态）</text>
-            <switch class="tunnel-switch" bindchange="switchRequestMode" color="#007AFF"/>
-        </view>
-        <view class="tunnel-text" wx:if="{{requestResult}}">
-            <text class="request-text">{{'请求结果：' + requestResult}}</text>
-        </view>
+     <view class="lists">
+        <image src='/icon/cai1.jpg'></image>
+        <text>巧扮苦菊</text>
+        <text>￥12.00</text>
     </view>
 
-    <!-- 上传图片测试 -->
-    <view class="uploader">
-        <view class="uploader-text" bindtap="doUpload">
-            <text>上传图片</text>
-        </view>
-        <view class="uploader-container" wx:if="{{imgUrl}}">
-            <image
-                class="uploader-image"
-                src="{{imgUrl}}"
-                mode="aspectFit"
-                bindtap="previewImg"
-            ></image>
-        </view>
+     <view class="lists">
+        <image src='/icon/cai1.jpg'></image>
+        <text>巧扮苦菊</text>
+        <text>￥12.00</text>
     </view>
 
-    <!-- 信道连接测试 -->
-    <view class="tunnel">
-        <view class="tunnel-text">
-            <text>信道</text>
-            <switch class="tunnel-switch" bindchange="switchChange" color="#007AFF"/>
-        </view>
-        <view class="tunnel-text {{ tunnelStatus && tunnelStatus === 'connected' ? 'active' : 'disable' }}" bindtap="sendMessage">
-            <text>发送消息</text>
-        </view>
+    <view class="lists">
+        <image src='/icon/cai1.jpg'></image>
+        <text>巧扮苦菊</text>
+        <text>￥12.00</text>
     </view>
 
-    <!-- 上传图片测试 -->
-    <view class="uploader">
-        <navigator url="../addCgi/addCgi" open-type="navigate" class="uploader-text">
-            <text>快速增加 CGI</text>
-        </navigator>
+    <view class="lists">
+        <image src='/icon/cai1.jpg'></image>
+        <text>巧扮苦菊</text>
+        <text>￥12.00</text>
+    </view>
+
+    <view class="lists">
+        <image src='/icon/cai1.jpg'></image>
+        <text>巧扮苦菊</text>
+        <text>￥12.00</text>
     </view>
 </view>
