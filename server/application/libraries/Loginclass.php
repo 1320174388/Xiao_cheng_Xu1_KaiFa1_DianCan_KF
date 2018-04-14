@@ -26,11 +26,17 @@ class Loginclass {
         $wxResult = json_decode($result,true);
 
         if(empty($wxResult)){
-            return ['请求失败','errMsg'=>'请求服务器未响应,可能是Code失效'];
+            return [
+                "errNum" => 1,
+                "errMsg" => "请求服务器未响应,可能是Code失效"
+            ];
         }else{
             $loginFile = array_key_exists('errcode',$wxResult);
             if($loginFile){
-                return ['请求错误',$wxResult];
+                return [
+                    "errNum" => 1,
+                    "errMsg" => "腾讯云服务器返回信息错误"
+                ];
             }else{
                 return $this->grantToken($wxResult);
             }
@@ -51,6 +57,12 @@ class Loginclass {
         $this->CI->load->helper('token');
         $token = token();
         $this->CI->cache->file->save($token,$wxResult,7200);
-        return $token;
+        return [
+            "errNum"  => 0,
+            "retMsg"  => "请求成功,成功返回用户Token令牌",
+            "retData" => [
+                "token" => $token
+            ]
+        ];
     }
 }

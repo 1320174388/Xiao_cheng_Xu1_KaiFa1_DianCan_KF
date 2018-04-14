@@ -27,7 +27,7 @@ Page({
               method:'POST',
               success:function(res){
                 console.log(res.data);
-                wx.setStorageSync('token',res.data);
+                wx.setStorageSync('token', res.data.retData.token);
               }
             })
           }else{
