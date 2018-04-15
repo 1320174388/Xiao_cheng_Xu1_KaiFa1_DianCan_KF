@@ -21,6 +21,13 @@ class Loginclass {
 
     public function get(){
 
+        if(empty($this->code)){
+            return [
+                "errNum" => 1,
+                "errMsg" => "没有发送code凭证,请求失败"
+            ];
+        }
+
         $this->CI->load->helper('curl');
         $result = curl_get($this->wxLoginUrl);
         $wxResult = json_decode($result,true);
