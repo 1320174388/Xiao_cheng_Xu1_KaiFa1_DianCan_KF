@@ -8,6 +8,9 @@ function get_token_values($request='') {
     // 通过令牌获取缓存数据
     $CI ->load->driver('cache');
     $values = $CI ->cache->file->get($token);
+    if(empty($values)){
+        return false;
+    }
     // 返回缓存数据
     if(empty($request)){
         return $values;

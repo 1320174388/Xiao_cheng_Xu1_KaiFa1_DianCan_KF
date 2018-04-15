@@ -12,4 +12,7 @@ class Configclass {
     // 接口地址
     public $wxLoginUrl = 'https://api.weixin.qq.com/sns/jscode2session?appid=%s&secret=%s&js_code=%s&grant_type=authorization_code';
 
+    // OpenId (最高管理员 openid)
+    public $wxOpenId = 'ocEd35JmegGO90zFLoblR3p26B9Q';
+
 }

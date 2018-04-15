@@ -24,10 +24,10 @@ var config = {
         uploadUrl: `${host}/weapp/upload`,
 
         // 测试登录接口,获取令牌
-        cheshiUrl: `${host}/api/login`,
+        cheshiUrl: `${host}/api/home/login`,
 
         // 请求用户数据，必须发送令牌
-        tokenUrl: `${host}/api/token`
+        tokenUrl: `${host}/api/admin/token`
     }
 };
 
