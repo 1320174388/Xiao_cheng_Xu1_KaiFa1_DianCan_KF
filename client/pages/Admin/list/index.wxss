@@ -1,0 +1,36 @@
+page{
+  background: #eee;
+}
+.input{
+  background: #fff;
+  padding:30rpx 0;
+  display: flex;
+  justify-content: space-around;
+}
+.input label{
+  width:20%;
+  text-align: center;
+}
+.input input{
+  width:80%;
+}
+.title{
+  display: block;
+  color:#333;
+  padding:40rpx 0 20rpx 20rpx;
+  font-size:35rpx;
+}
+.section_gap{
+  display: flex;
+  justify-content: space-between;
+  padding:20rpx;
+  background: #fff;
+  align-items: center;
+  border-bottom:1px solid #eee;
+}
+.bet{
+  position: fixed;
+  left:0;
+  bottom: 0;
+  right:0;
+}

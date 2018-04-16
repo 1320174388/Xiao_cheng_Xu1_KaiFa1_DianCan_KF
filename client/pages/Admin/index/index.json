@@ -1,0 +1,12 @@
+{
+  "pages": [
+    "pages/Admin/index/index"
+  ],
+   "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "点餐系统管理平台",
+    "navigationBarTextStyle": "black"
+  }
+}

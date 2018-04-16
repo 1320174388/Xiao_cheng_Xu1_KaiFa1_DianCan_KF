@@ -1,0 +1,11 @@
+<view class="admins">
+    <text>管理员的权限管理</text>
+    <view class="adminTop">
+        <button size='default'><i class="iconfont icon-quanxian"></i>权限管理</button>
+        <button size='default'><i class="iconfont icon-liebiao"></i>管理列表</button>
+    </view>
+    <button size='default'><i class="iconfont icon-dianpu"></i>店铺管理</button>
+    <button size='default'><i class="iconfont icon-yonghu3"></i>用户管理</button>
+    <button size='default'><i class="iconfont icon-caipin-"></i>菜品管理</button>
+    <button size='default'><i class="iconfont icon-tubiaolunkuo-"></i>订单管理</button>
+</view>

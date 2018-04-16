@@ -1,0 +1,21 @@
+<view class='people containers'>
+    <view class='left'>
+          <text class='name'>徐强</text>
+          <text class='quanxian'>店铺管理-菜品管理</text>
+    </view>
+    <view class='right'>
+        <button>修改</button>
+        <button>删除</button>
+    </view>
+</view>
+<view class='people containers'>
+    <view class='left'>
+          <text class='name'>徐强</text>
+          <text class='quanxian'>店铺管理-菜品管理</text>
+    </view>
+    <view class='right'>
+        <button>修改</button>
+        <button>删除</button>
+    </view>
+</view>
+<button bindtap="primary" class='det'>添加</button>

@@ -1,38 +1,14 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/foots/foots",
-    "pages/My/my",
-    "pages/map/index"
+    "pages/Admin/index/index",
+    "pages/Admin/people/index",
+    "pages/Admin/list/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "点餐",
-    "navigationBarTextStyle": "black"
-  },
-  "tabBar": {
-    "selectedColor": "#f52207",
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "text": "首页",
-        "iconPath": "icon/home.png",
-        "selectedIconPath": "icon/home1.png"
-      },
-      {
-        "pagePath": "pages/foots/foots",
-        "text": "订单",
-        "iconPath": "icon/order.png",
-        "selectedIconPath": "icon/order1.png"
-      },
-      {
-        "pagePath": "pages/My/my",
-        "text": "我的",
-        "iconPath": "icon/my.png",
-        "selectedIconPath": "icon/my1.png"
-      }
-    ]
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh":true
   }
 }
