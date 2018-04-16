@@ -2,8 +2,6 @@
 
 class Position extends CI_Controller {
 
-<<<<<<< HEAD
-=======
     // 获取权限信息
     public function right()
     {
@@ -22,7 +20,6 @@ class Position extends CI_Controller {
         }
     }
 
->>>>>>> origin/ShiGuangYu
     // 添加角色权限
     public function create()
     {
@@ -30,11 +27,6 @@ class Position extends CI_Controller {
         if(is_system_admin()){
             // 获取角色名称
             $roleName = $this->input->post('roleName');
-<<<<<<< HEAD
-            // 写入数据库
-            $this->load->model('admin/Role');
-            $res = $this->Role->set_role_exist($roleName);
-=======
             // 获取添加权限数组
             $right = $this->input->post('right');
             // 写入数据库
@@ -58,7 +50,6 @@ class Position extends CI_Controller {
             // 获取职位信息数据
             $this->load->model('admin/Role');
             $res = $this->Role->get_role_list();
->>>>>>> origin/ShiGuangYu
             // 返回结果
             $this->json($res);
         }else{
@@ -67,9 +58,6 @@ class Position extends CI_Controller {
                 "errMsg" => "你没有权限进行此操作"
             ]);
         }
-<<<<<<< HEAD
-
-=======
     }
 
     // 删除职位
@@ -114,6 +102,5 @@ class Position extends CI_Controller {
                 "errMsg" => "你没有权限进行此操作"
             ]);
         }
->>>>>>> origin/ShiGuangYu
     }
 }
