@@ -20,3 +20,14 @@ function is_system_admin() {
         return false;
     }
 }
+
+function is_admin_user() {
+    $id = get_token_values('user_id');
+    // 引入CI类
+    $CI =& get_instance();
+    // 获取权限信息
+    $CI->load->model('admin/Admin');
+    $res = $CI->Admin->is_admin_users($id);
+    // 返回结果
+    return $res;
+}
