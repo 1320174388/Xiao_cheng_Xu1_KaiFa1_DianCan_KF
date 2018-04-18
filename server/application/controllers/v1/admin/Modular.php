@@ -20,7 +20,7 @@ class Modular extends CI_Controller {
      */
     public function getUserIsAdmin()
     {
-        if(is_admin_user()) return $this->json([
+        if(is_admin_user() || is_system_admin()) return $this->json([
             "errNum"  => 0,
             "retMsg"  => true,
             "retData" => []
