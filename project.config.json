@@ -12,5 +12,32 @@
 	},
 	"appid": "wx432a86107ed3814a",
 	"projectname": "Xiao_cheng_Xu_kaiFa1",
-	"condition": {}
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 0,
+			"list": [
+				{
+					"id": -1,
+					"name": "123",
+					"pathName": "pages/Admin/index/index",
+					"query": ""
+				}
+			]
+		}
+	}
 }
