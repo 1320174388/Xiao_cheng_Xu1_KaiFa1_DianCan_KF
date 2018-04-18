@@ -6,18 +6,9 @@ class Token extends CI_Controller {
     {
         $token = get_token_values();
         if($token){
-            $this->json([
-                "errNum"  => 0,
-                "retMsg"  => "请求成功,成功返回Token令牌信息",
-                "retData" => [
-                    'token' => $token
-                ]
-            ]);
+            return return_response( 0, '请求成功,成功返回Token令牌信息',['token' => $token]);
         }else{
-            $this->json([
-                "errNum"  => 1,
-                "errMsg"  => "身份令牌已经过期"
-            ]);
+            return return_response( 1, '身份令牌已经过期');
         }
 
     }

@@ -20,15 +20,11 @@ class Modular extends CI_Controller {
      */
     public function getUserIsAdmin()
     {
-        if(is_admin_user() || is_system_admin()) return $this->json([
-            "errNum"  => 0,
-            "retMsg"  => true,
-            "retData" => []
-        ]);
-        else return $this->json([
-            "errNum" => 1,
-            "errMsg" => false
-        ]);
+        if(is_admin_user() || is_system_admin()){
+            return return_response( 0, true);
+        }else{
+            return return_response( 1, false);
+        }
     }
     /**
      * 获取后台管理员管理模块信息
@@ -43,33 +39,19 @@ class Modular extends CI_Controller {
             $Modular_Route = $this->configclass->Modular_Route;
             $Modular_Right = $this->Role->get_right();
             $ModularRoute = array_merge($Modular_Route,$Modular_Right);
-            return $this->json([
-                "errNum"  => 0,
-                "retMsg"  => true,
-                "retData" => $ModularRoute
-            ]);
+            return return_response( 0, true, $ModularRoute);
         }
         // 获取管理员openid
         $openid = get_token_values('openid');
         if(!$openid){
-            return $this->json([
-                "errNum" => 1,
-                "errMsg" => '没有管理员ID'
-            ]);
+            return return_response( 1, '没有管理员ID');
         }
         // 获取管理员权限
         if(is_admin_user()){
             $ModularRoute = $this->Role->getAdminUserRight($openid);
-            return $this->json([
-                "errNum"  => 0,
-                "retMsg"  => true,
-                "retData" => $ModularRoute
-            ]);
+            return return_response( 0, true, $ModularRoute);
         }else{
-            return $this->json([
-                "errNum" => 2,
-                "errMsg" => '对不起,您不是管理员身份'
-            ]);
+            return return_response( 2, '对不起,您不是管理员身份');
         }
     }
 }
