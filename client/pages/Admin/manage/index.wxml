@@ -1,0 +1,37 @@
+<view class="navs">
+    <text data-w="w" class='{{selected ? "changes" : "unchanges"}}' bindtap="select">店铺信息</text>
+    <text data-y="y" class='{{select ? "changes" : "unchanges"}}' bindtap="select">座号管理</text>
+</view>
+
+<view class='{{selected ? "show" : "hide" }}'>
+    <view class='list'>
+          <text class='key'>店铺名称</text>
+          <text class='value'>店铺名称是什么什么什么事面试 面试</text>
+    </view>
+     <view class='list'>
+          <text class='key'>店铺地址</text>
+          <text class='value'>北京市海淀区西土城38号</text>
+    </view>
+    <view class='list'>
+          <text class='key'>电话</text>
+          <text class='value'>17090051724</text>
+    </view>
+    <view class='list'>
+          <text class='key'>介绍</text>
+          <text class='values'>描述文字描述文字描述文字描述文字描述文字描述文字描</text>
+    </view>
+    <view class='pic'>
+        <text class='title'>店铺图片</text>
+        <image src='/icon/pic.jpg'></image>
+    </view>
+    <button bindtap='edits'>修改</button>
+</view>
+
+
+<view class='{{select ? "show" : "hide" }}' id='desks'>
+    <view class='desk' wx:for="{{desk}}" wx:key="{{index}}">
+        <image src='{{item.pic}}'></image>
+        <text>{{item.name}}</text>
+    </view>
+    <button>添加</button>
+</view>

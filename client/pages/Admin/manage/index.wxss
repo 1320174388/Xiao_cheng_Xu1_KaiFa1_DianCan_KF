@@ -1,0 +1,97 @@
+page{
+  background: #eee;
+}
+.navs{
+  width:100%;
+  display: flex;
+  justify-content: space-around;
+  line-height: 3;
+  background: #fff;
+  margin-bottom:50rpx;
+}
+.changes{
+  color:#8FC1FF;
+  border-bottom:5rpx solid #8FC1FF;
+}
+.unchanges{
+  color:#000;
+}
+.show{
+  display: block;
+  background: #fff;
+}
+.hide{
+  display: none;
+  visibility: hidden;
+}
+.list{
+  display: flex;
+  justify-content: space-between;
+  padding:0 15rpx;
+  font-size:35rpx;
+  line-height: 2.4;
+}
+.list text{
+  display: block;
+}
+.list .key{
+  width:30%;
+  text-align: center;
+  color:#AFAFAF;
+  margin-right: 20rpx;
+}
+.list .value{
+  width: 70%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color:#000;
+  text-align: right;
+}
+.values{
+  width:70%;
+  color:#000;
+  line-height: 1.5;
+  text-align: right;
+}
+.pic{
+  width:95%;
+  margin:40rpx auto;
+  border-top:2rpx solid #AFAFAF;
+}
+.pic image{
+  width:100%;
+  max-height: 150rpx;
+}
+.title{
+  color:#AFAFAF;
+  line-height: 2.5;
+  font-size: 35rpx;
+}
+.show button{
+  background-color: #fff !important;
+  color:#90C1FF;
+}
+#desks{
+  width:100%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap:wrap;
+  background: #fff;
+}
+.desk{
+  width:23%;
+  min-height: 200rpx;
+  text-align: center;
+  margin-bottom:40rpx;
+}
+.desk image{
+  width:100%;
+  height: 80%;
+}
+#desks button{
+  position: fixed;
+  bottom:0;
+  left:0;
+  right:0;
+}

@@ -1,21 +1,18 @@
-// pages/Admin/index/index.js
+// pages/Admin/seat/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    ceo:'杨邓'
+  
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      ceo:'尹丹丹'
-    })
-    console.log(this.data.ceo)
+  
   },
 
   /**
@@ -50,25 +47,20 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-      console.log(11111)
+  
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    console.log('下拉')
+  
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    console.log('分享');
-  },
-  tiao:function(){
-    wx.navigateTo({
-      url:'../list/index'
-    })
+  
   }
 })
