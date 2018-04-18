@@ -87,4 +87,18 @@ class Role extends CI_Model {
             }else{ return 3; }
         }else{ return 2; }
     }
+
+    public function getAdminUserRight($openid){
+        // 查看数据库中管理员对应的权限
+        $this->CI->db->select('data_admin_rights.id,data_admin_rights.right_name,data_admin_rights.right_route');
+        $this->CI->db->from('data_home_users');
+        $this->CI->db->join('data_admin_users', 'data_home_users.id = data_admin_users.user_id');
+        $this->CI->db->join('index_user_roles', 'data_admin_users.id = index_user_roles.admin_id');
+        $this->CI->db->join('data_admin_roles', 'index_user_roles.role_id = data_admin_roles.id');
+        $this->CI->db->join('index_role_rights', 'data_admin_roles.id = index_role_rights.role_id');
+        $this->CI->db->join('data_admin_rights', 'index_role_rights.right_id = data_admin_rights.id');
+        $this->CI->db->where('data_home_users.open_id', $openid);
+        $right = $this->CI->db->get();
+        return $right->result();
+    }
 }

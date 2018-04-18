@@ -99,10 +99,6 @@ class Admin extends CI_Model {
     public function is_admin_users($id)
     {
         $admin_user = $this->CI->db->get_where('data_admin_users',['user_id'=>$id]);
-        if($admin_user->result()){
-            return true;
-        }else{
-            return false;
-        }
+        if($admin_user->result()) return true; else return false;
     }
 }
