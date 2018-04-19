@@ -13,11 +13,7 @@
     "pages/Admin/Authority/list/index",
     "pages/Admin/Authority/add/index",
     "pages/Admin/Management/list/index",
-    "pages/Admin/Management/add/index",
-    "pages/manage/list/index",
-    "pages/manage/add/index",
-    "pages/power/list/index",
-    "pages/power/add/index"
+    "pages/Admin/Management/add/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
