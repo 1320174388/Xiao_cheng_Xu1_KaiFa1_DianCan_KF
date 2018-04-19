@@ -1,0 +1,79 @@
+<swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image"/>
+    </swiper-item>
+  </block>
+</swiper>
+
+<view class="infoText">
+  <view class="infoTitle">千岛点餐小程序搭建</view>
+  <text class="infoDesc">千岛网络点餐小程序演示系统！！扫码点餐，每个餐桌对应一个二维码桌号，附近五公里自动引入客户！客人付款直达餐厅账户！定制热线17090051724</text>
+
+  <view class="containers">
+      <view class='contain left'>
+          <view class="iconfont icon-dizhi"></view>  
+          <text class="address"  bindtap='maps'>洛阳市西工区王城大道200号</text>
+          <view class="iconfont icon-goto"></view>
+      </view>
+      <view class="iconfont icon-phone right" bindtap='tell'></view>
+  </view>
+</view>
+<!--分类-->
+<view class="cate">
+  <view class="list">
+      <view class='iconfont icon-diancan'></view>
+      <text>点餐</text>
+   </view>
+   <view class="list">
+       <view class='iconfont icon-yuding'></view>
+       <text>预定</text>
+   </view>
+   <view class="list">
+       <view class='iconfont icon-waimai-'></view>
+       <text>外卖</text>
+   </view>
+   <view class="list">
+       <view class='iconfont icon-paiduiquhao0101'></view>
+       <text>排队取号</text>
+   </view>
+</view>
+<text class="title">掌柜推荐</text>
+<view class='proList'>
+    <view class="lists">
+        <image src='/icon/cai1.jpg'></image>
+        <text>巧扮苦菊</text>
+        <text>￥12.00</text>
+    </view>
+
+     <view class="lists">
+        <image src='/icon/cai1.jpg'></image>
+        <text>巧扮苦菊</text>
+        <text>￥12.00</text>
+    </view>
+
+     <view class="lists">
+        <image src='/icon/cai1.jpg'></image>
+        <text>巧扮苦菊</text>
+        <text>￥12.00</text>
+    </view>
+
+    <view class="lists">
+        <image src='/icon/cai1.jpg'></image>
+        <text>巧扮苦菊</text>
+        <text>￥12.00</text>
+    </view>
+
+    <view class="lists">
+        <image src='/icon/cai1.jpg'></image>
+        <text>巧扮苦菊</text>
+        <text>￥12.00</text>
+    </view>
+
+    <view class="lists">
+        <image src='/icon/cai1.jpg'></image>
+        <text>巧扮苦菊</text>
+        <text>￥12.00</text>
+    </view>
+</view>

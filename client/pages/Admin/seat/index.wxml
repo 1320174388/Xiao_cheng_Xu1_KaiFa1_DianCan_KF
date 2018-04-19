@@ -1,0 +1,6 @@
+<view class='seat'>
+    <text class='title'>座位号</text>
+    <input auto-focus/>
+</view>
+
+<button class='submit'>提交</button>

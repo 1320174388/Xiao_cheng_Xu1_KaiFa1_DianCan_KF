@@ -1,0 +1,39 @@
+<!--职位  -->
+<view class="tunnel">
+        <view class="tunnel-text uploader-text">
+          <view class="v1">
+              <text>管理员名称</text>
+              <text class="tx">职位</text>
+            </view>
+          <view class="v2">
+            <view class="tt1"><text>修改</text></view>
+            <view class="tt2">
+              <text class="tt3">删除</text>
+            </view>
+          </view>
+        </view>
+    </view>
+
+<!--总经理  -->
+    <view class="tunnel">
+        <view class="tunnel-text uploader-text">
+          <view class="v1">
+              <text>管理员名称</text>
+              <text class="tx">总经理</text>
+            </view>
+          <view class="v2">
+            <view class="tt"><text>修改</text></view>
+            <view class="tt2">
+              <text class="tt3">删除</text>
+            </view>
+          </view>
+        </view>
+    </view>
+
+<!--添加  -->
+    <view class="tunne2">
+      <view class="add">
+        <text>添加</text>
+      </view>
+      
+    </view>

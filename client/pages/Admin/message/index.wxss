@@ -1,0 +1,58 @@
+page{
+  background: #eee;
+}
+.edit{
+  background: #fff;
+}
+.list{
+  display: flex;
+  justify-content: space-between;
+  padding:0 15rpx;
+  font-size:35rpx;
+  line-height: 2.7;
+  border-bottom:2rpx solid #eee;
+}
+.list text{
+  display: block;
+}
+.list .key{
+  width:30%;
+  text-align: center;
+  color:#AFAFAF;
+  margin-right: 20rpx;
+}
+.list input{
+  width: 70%;
+  color:#000;
+  height: 90rpx;
+}
+.list .maps{
+  width: 70%;
+  height: 90rpx;
+}
+.list textarea{
+  min-height: 90rpx;
+  line-height: 90rpx;
+}
+.pic{
+  width:95%;
+  margin:40rpx auto;
+  border-top:2rpx solid #AFAFAF;
+}
+.pic image{
+  width:100%;
+  max-height: 150rpx;
+}
+.title{
+  color:#AFAFAF;
+  line-height: 2.5;
+  font-size: 35rpx;
+}
+.edit button{
+  position: fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background-color: #77B3FF;
+  color:#fff;
+}
