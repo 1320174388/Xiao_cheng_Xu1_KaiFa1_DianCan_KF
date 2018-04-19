@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 6,
 			"list": [
 				{
 					"id": 0,
@@ -59,6 +59,18 @@
 					"id": -1,
 					"name": "power-list",
 					"pathName": "pages/power/list/index",
+					"query": ""
+				},
+				{
+					"id": 5,
+					"name": "list",
+					"pathName": "pages/Admin/Management/list/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "add",
+					"pathName": "pages/Admin/Management/add/index",
 					"query": ""
 				}
 			]
