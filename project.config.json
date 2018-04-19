@@ -10,7 +10,7 @@
 		"minified": false,
 		"newFeature": true
 	},
-	"appid": "wx432a86107ed3814a",
+	"appid": "wxed887c831625611b",
 	"projectname": "Xiao_cheng_Xu_kaiFa1",
 	"condition": {
 		"search": {
@@ -29,12 +29,36 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 4,
 			"list": [
 				{
 					"id": 0,
 					"name": "后台首页",
 					"pathName": "pages/Admin/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "manage-list",
+					"pathName": "pages/manage/list/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "manage-add",
+					"pathName": "pages/manage/add/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "power-add",
+					"pathName": "pages/power/add/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "power-list",
+					"pathName": "pages/power/list/index",
 					"query": ""
 				}
 			]
