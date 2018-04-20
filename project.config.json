@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 1,
 			"list": [
 				{
 					"id": 0,
@@ -39,39 +39,21 @@
 					"query": ""
 				},
 				{
-					"id": -1,
-					"name": "manage-list",
-					"pathName": "pages/manage/list/index",
+					"id": 1,
+					"name": "menu",
+					"pathName": "pages/Admin/Management/updateManage/index",
+					"query": ""
+				},
+				{
+					"id": 2,
+					"name": "power",
+					"pathName": "pages/Admin/Authority/updatePower/index",
 					"query": ""
 				},
 				{
 					"id": -1,
-					"name": "manage-add",
-					"pathName": "pages/manage/add/index",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "power-add",
-					"pathName": "pages/power/add/index",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "power-list",
-					"pathName": "pages/power/list/index",
-					"query": ""
-				},
-				{
-					"id": 5,
-					"name": "list",
-					"pathName": "pages/Admin/Management/list/index",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "add",
-					"pathName": "pages/Admin/Management/add/index",
+					"name": "manage",
+					"pathName": "pages/Admin/Management/addManage/index",
 					"query": ""
 				}
 			]

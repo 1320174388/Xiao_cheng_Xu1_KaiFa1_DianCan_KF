@@ -1,0 +1,16 @@
+<view class="tunnel">
+        <view class="tunnel-text uploader-text">
+            <text>地区</text><input type='text' placeholder='我是暗提示'/><span>></span>
+        </view>
+
+         <view class="tunnel-text1 uploader-text1">
+            <text>详细地址</text><input type='text' placeholder='暗提示'/>
+        </view>
+</view>
+
+ <!-- 提交  -->
+    <view class="tunne2">
+      <view class="sure">
+            <text>提交</text>
+        </view>
+    </view>

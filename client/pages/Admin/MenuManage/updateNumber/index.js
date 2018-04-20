@@ -1,36 +1,11 @@
-// pages/manage/list/index.js
+// pages/Admin/MenuManage/updateNumber/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    selectPerson: true,
-    firstPerson: '暗提示',
-    selectArea: false,
-  },
-  //点击选择类型
-  clickPerson: function () {
-    var selectPerson = this.data.selectPerson;
-    if (selectPerson == true) {
-      this.setData({
-        selectArea: true,
-        selectPerson: false,
-      })
-    } else {
-      this.setData({
-        selectArea: false,
-        selectPerson: true,
-      })
-    }
-  },
-  //点击切换
-  mySelect: function (e) {
-    this.setData({
-      firstPerson: e.target.dataset.me,
-      selectPerson: true,
-      selectArea: false,
-    })
+  
   },
 
   /**

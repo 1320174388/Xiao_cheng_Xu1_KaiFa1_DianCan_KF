@@ -1,0 +1,74 @@
+/*背景色  */
+page {
+    background: #F6F6F6;
+}
+/*权限选择  */
+.pow{
+   margin-top: 30rpx;
+}
+/* 权限选择字体样式 */
+.pow-tx{
+  padding-left: 20px;
+  font-size: 12px;
+  color: Gray;
+}
+/*权限选择  */
+/*店铺管理  */
+.tunne2 {
+    margin-top: 10rpx;
+    height: 110rpx;
+    width: 100%;
+    background: #FFF;
+    border-top: 1px solid rgba(0, 0, 0, .1);
+    
+    display: flex;
+    align-items: center;
+    font-family:"LiHei Pro Medium ",儷黑 Pro;
+}
+/*用户、菜单、订单管理  */
+.tunne3 {
+    height: 110rpx;
+    width: 100%;
+    background: #FFF;
+   
+    display: flex;
+    align-items: center;
+    font-family:"LiHei Pro Medium ",儷黑 Pro;
+}
+.uploader-text2, .tunnel-text2 {
+    width: 100%;
+    line-height: 50px;
+    font-size: 35rpx;
+    color: #222;
+    font-family:"LiHei Pro Medium ",儷黑 Pro;
+    padding-left: 20px;
+}
+.tunnel-text2 {
+    position: relative;
+    color: #222;
+    box-sizing: border-box;
+    border-top: 1px solid rgba(0, 0, 0, .1);
+}
+.tunnel-switch {
+    position: absolute;
+    right: 30rpx;
+    top: -2rpx;
+}
+.sum{
+  margin-top:10px; 
+}
+.pow-tx1{
+  padding-left: 20px;
+  font-size: 12px;
+  color: Gray;
+}
+.menu{
+  position: absolute;
+  right: 200px;
+}
+image{
+  height: 30px;
+  width: 32px;
+  position: relative;
+  top:7px;
+}

@@ -1,0 +1,45 @@
+ <view  class="pow">
+        <text class="pow-tx">订单信息</text>
+        <!-- 菜品名称 -->
+        <view class="tunne2">
+              <view class="tunnel-text2 uploader-text2">
+                  <image src='/icon/menu.jpg'></image>
+                  <text class="menu">菜品名称</text>
+                  <text class="tunnel-switch"><text style="color:lightgray">1x</text> ￥28.00</text>
+              </view>
+        </view>
+        <!--菜品名称 -->
+         <view class="tunne3">
+            <view class="tunnel-text2 uploader-text2">
+            <image src='/icon/menu.jpg'></image>
+                <text class="menu">菜品名称</text>
+                <text class="tunnel-switch"><text style="color:lightgray">1x</text> ￥28.00</text>
+            </view>
+         </view>
+        <!-- 菜品名称 -->
+         <view class="tunne3">
+              <view class="tunnel-text2 uploader-text2">
+              <image src='/icon/menu.jpg'></image>
+                  <text class="menu">菜品名称</text>
+                  <text class="tunnel-switch"><text style="color:lightgray">1x</text> ￥28.00</text>
+              </view>
+         </view>
+   </view>
+
+    <view class="sum">
+      <text text class="pow-tx1">总结</text>
+        <!-- 店铺管理 -->
+        <view class="tunne2">
+              <view class="tunnel-text2 uploader-text2">
+                  <text>菜品总数量</text>
+                  <text class="tunnel-switch" style="color:orange">3</text>
+              </view>
+        </view>
+        <!--用户管理 -->
+         <view class="tunne3">
+            <view class="tunnel-text2 uploader-text2">
+                <text>菜品总价</text>
+                <text class="tunnel-switch" style="color:orange">￥84.00</text>
+            </view>
+         </view>
+    </view>

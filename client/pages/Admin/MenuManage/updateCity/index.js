@@ -1,4 +1,4 @@
-// pages/manage/add/index.js
+// pages/Admin/MenuManage/updateCity/index.js
 Page({
 
   /**

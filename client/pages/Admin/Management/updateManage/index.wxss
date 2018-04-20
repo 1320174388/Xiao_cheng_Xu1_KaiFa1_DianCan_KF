@@ -19,7 +19,7 @@
     color: #222;
     font-family:"LiHei Pro Medium ",儷黑 Pro;
     padding-left: 15px;
-    border-right: 1px solid lightgray;
+    border-right: 1px solid	Lavender;
     height: 63px;
 }
 .tx{
@@ -45,7 +45,7 @@
   position: relative;
   width: 70px;
   top:10px;
-  border-bottom:1px solid lightgray;
+  border-bottom:1px solid	Lavender;
 }
 .tt3{
   position: relative;
