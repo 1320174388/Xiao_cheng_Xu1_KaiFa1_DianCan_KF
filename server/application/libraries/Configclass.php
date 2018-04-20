@@ -13,7 +13,7 @@ class Configclass {
     public $wxLoginUrl = 'https://api.weixin.qq.com/sns/jscode2session?appid=%s&secret=%s&js_code=%s&grant_type=authorization_code';
 
     // OpenId (最高管理员 openid)
-    public $wxOpenId = 'ocEd35JmegGO90zFLoblR3p26B9Qs';
+    public $wxOpenId = 'ocEd35JmegGO90zFLoblR3p26B9Q';
 
     // 系统最高管理员管理模块路由
     public $Modular_Route = [

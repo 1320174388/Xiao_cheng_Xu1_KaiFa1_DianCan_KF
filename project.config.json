@@ -7,11 +7,12 @@
 		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
-		"minified": false,
+		"minified": true,
 		"newFeature": true
 	},
 	"appid": "wxed887c831625611b",
 	"projectname": "Xiao_cheng_Xu_kaiFa1",
+	"compileType": "miniprogram",
 	"condition": {
 		"search": {
 			"current": -1,

@@ -44,7 +44,7 @@ class Modular extends CI_Controller {
         // 获取管理员openid
         $openid = get_token_values('openid');
         if(!$openid){
-            return return_response( 1, '没有管理员ID');
+            return return_response( 1, '用户令牌已过期');
         }
         // 获取管理员权限
         if(is_admin_user()){
