@@ -1,0 +1,64 @@
+.section{
+  display: flex;
+  background: #fff;
+  line-height: 2.5;
+  border-bottom:2rpx solid #eee;
+  padding:0 15rpx;
+}
+.section text{
+  width:25%;
+}
+.section input{
+  width:75%;
+  height: 100rpx;
+  text-indent: 20rpx;
+}
+.pric{
+  justify-content: space-between;
+}
+.pric .title{
+  width:25%;
+}
+.pric .comp{
+  display: inline;
+  text-align: right;
+}
+.pric input{
+  width:70%;
+}
+textarea{
+  width:70%;
+  max-height: 150rpx;
+}
+.pic{
+  background: #fff;
+  padding:15rpx;
+}
+.uploads{
+  display: flex;
+}
+.pic image{
+  width:150rpx;
+  height: 150rpx;
+  margin-top:15rpx;
+}
+.pic button{
+  width:150rpx;
+  height: 150rpx;
+  margin:0;
+  padding:0;
+  margin-top:20rpx;
+  margin-left:30rpx;
+}
+.pic button image{
+  width:100%;
+  height: 100%;
+}
+.add{
+  position: fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background: #77B3FF;
+  color:#fff;
+}

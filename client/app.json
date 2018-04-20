@@ -10,7 +10,10 @@
     "pages/Admin/manage/index",
     "pages/Admin/message/index",
     "pages/Admin/maps/index",
-    "pages/Admin/seat/index"
+    "pages/Admin/seat/index",
+    "pages/Admin/menu/index",
+    "pages/Admin/cate/cate",
+    "pages/Admin/addlist/addlist"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

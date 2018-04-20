@@ -1,0 +1,12 @@
+<view class='box'>
+    <view class='list'>
+        <text>分类名称</text>
+        <input/>
+    </view>
+     <view class='list'>
+        <text>分类排序</text>
+        <input/>
+    </view>
+</view>
+
+<button class='submit'>提交</button>
