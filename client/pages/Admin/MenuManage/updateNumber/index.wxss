@@ -1,0 +1,45 @@
+page {
+    background: #F6F6F6;
+}
+/*提示框  */
+input{
+  float: right;
+  margin-top: 13px;
+  margin-right: 120px;
+  font-size: 12px;
+}
+/* 列表布局 */
+.tunnel{
+    margin-top: 40rpx;
+    height: 100rpx;
+    width: 100%;
+    background: #FFF;
+    padding-left: 20px;
+}
+
+.uploader-text, .tunnel-text {
+    width: 100%;
+    line-height: 50px;
+    font-size: 35rpx;
+    color: #007AFF;
+    font-family:"LiHei Pro Medium ",儷黑 Pro;
+}
+
+.tunnel-text {
+    color: #222;
+}
+/* 提交  */
+.tunne2{
+    margin-top: 100%;
+    height: 40px;
+    width: 100%;
+    background:SkyBlue;
+    
+}
+.sure{
+    color: #FFF;
+    line-height: 40px;
+    font-size: 35rpx;
+    font-family:"LiHei Pro Medium ",儷黑 Pro;
+    text-align: center;
+}

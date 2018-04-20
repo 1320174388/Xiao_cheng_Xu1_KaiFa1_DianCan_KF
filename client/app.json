@@ -10,10 +10,14 @@
     "pages/Admin/manage/index",
     "pages/Admin/message/index",
     "pages/Admin/maps/index",
-    "pages/Admin/Authority/list/index",
-    "pages/Admin/Authority/add/index",
-    "pages/Admin/Management/list/index",
-    "pages/Admin/Management/add/index"
+    "pages/Admin/Authority/powerManage/index",
+    "pages/Admin/Authority/updatePower/index",
+    "pages/Admin/Management/addManage/index",
+    "pages/Admin/Management/updateManage/index",
+    "pages/Admin/MenuManage/updateNumber/index",
+    "pages/Admin/MenuManage/updateCity/index",
+    "pages/Admin/MenuManage/orderInfo/index",
+    "pages/Admin/MenuManage/orderManage/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

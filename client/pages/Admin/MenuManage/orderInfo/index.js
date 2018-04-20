@@ -1,4 +1,4 @@
-// pages/power/add/index.js
+// pages/Admin/MenuManage/orderInfo/index.js
 Page({
 
   /**

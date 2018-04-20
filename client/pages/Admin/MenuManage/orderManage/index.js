@@ -1,36 +1,18 @@
-// pages/power/list/index.js
+// pages/Admin/MenuManage/orderManage/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    selectPerson: true,
-    firstPerson: '暗提示',
-    selectArea: false,
+    // 订单管理导航条
+    navbar: ['就餐订单', '外卖订单', '历史订单'],
+    currentTab: 0
   },
-    //点击选择类型
-    clickPerson: function () {
-      var selectPerson = this.data.selectPerson;
-      if (selectPerson == true) {
-        this.setData({
-          selectArea: true,
-          selectPerson: false,
-        })
-      } else {
-        this.setData({
-          selectArea: false,
-          selectPerson: true,
-        })
-      }
-    },
-    //点击切换
-    mySelect: function (e) {
-      this.setData({
-        firstPerson: e.target.dataset.me,
-        selectPerson: true,
-        selectArea: false,
-      })
+  navbarTap: function (e) {
+    this.setData({
+      currentTab: e.currentTarget.dataset.idx
+    })
   },
 
   /**

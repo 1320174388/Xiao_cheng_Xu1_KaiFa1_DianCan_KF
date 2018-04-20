@@ -19,15 +19,29 @@
     color: #222;
     font-family:"LiHei Pro Medium ",儷黑 Pro;
     padding-left: 15px;
-    border-right: 1px solid lightgray;
+    border-right: 1px solid	Lavender;
     height: 63px;
 }
-.tx{
+.tx1{
   position: relative;
   top:20px;
-  right:70px;
+  right:110px;
   color: grey;
-  font-size: 30rpx;
+  font-size: 21rpx;
+}
+.tx2{
+  position: relative;
+  top:20px;
+  right: 55px;
+  color: grey;
+  font-size: 21rpx;
+}
+.tx3{
+  position: relative;
+  top:20px;
+  right:28px;
+  color: grey;
+  font-size: 21rpx;
 }
 /*修改 删除  */
 .v2{
@@ -45,7 +59,7 @@
   position: relative;
   width: 70px;
   top:10px;
-  border-bottom:1px solid lightgray;
+  border-bottom:1px solid	Lavender;
 }
 .tt3{
   position: relative;
@@ -61,6 +75,14 @@
     position: absolute;
     right: 37px;
     top:105px;
+}
+.tt4{
+    font-size: 35rpx;
+    color: #007AFF;
+    font-family:"LiHei Pro Medium ",儷黑 Pro;
+    position: absolute;
+    right: 37px;
+    top:185px;
 }
 /*添加  */
 .tunne2{

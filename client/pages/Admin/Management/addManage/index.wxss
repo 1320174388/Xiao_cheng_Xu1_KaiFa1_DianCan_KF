@@ -11,14 +11,16 @@
   margin-top:0;
   z-index: 100;
   position: absolute;
+  right:-3px;
 } 
+.person_box{
+  padding: 0px;
+}
  .select_one{
-  text-align: center;
   background-color:rgb(239, 239, 239);
-  width:223rpx;
+  width:320px;
   height:100rpx;
   line-height:100rpx;
-  margin-left:205px;
   border-bottom:2rpx solid rgb(255, 255, 255);
 } 
 /*背景色  */
