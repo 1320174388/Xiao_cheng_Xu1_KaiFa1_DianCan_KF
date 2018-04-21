@@ -30,7 +30,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 8,
 			"list": [
 				{
 					"id": 0,
@@ -43,7 +43,8 @@
 					"id": 1,
 					"name": "menu",
 					"pathName": "pages/Admin/Management/updateManage/index",
-					"query": ""
+					"query": "",
+					"scene": "1001"
 				},
 				{
 					"id": 2,
@@ -60,16 +61,16 @@
 					"scene": "1001"
 				},
 				{
-					"id": -1,
+					"id": 4,
 					"name": "list",
-					"pathName": "pages/Admin/people/index",
+					"pathName": "pages/Admin/Management/updateManage/index",
 					"query": "",
 					"scene": "1001"
 				},
 				{
 					"id": 5,
 					"name": "list",
-					"pathName": "pages/Admin/people/index",
+					"pathName": "pages/Admin/MenuManage/orderManage/index",
 					"query": "",
 					"scene": "1001"
 				},
@@ -81,16 +82,16 @@
 					"scene": "1001"
 				},
 				{
-					"id": -1,
+					"id": 7,
 					"name": "manage",
-					"pathName": "pages/Admin/Shop/manage/index",
+					"pathName": "pages/Admin/Authority/updatePower/index",
 					"query": "",
 					"scene": "1001"
 				},
 				{
-					"id": -1,
+					"id": 8,
 					"name": "后台首页",
-					"pathName": "pages/Admin/list/index",
+					"pathName": "pages/Home/index/index",
 					"query": "",
 					"scene": "1001"
 				}

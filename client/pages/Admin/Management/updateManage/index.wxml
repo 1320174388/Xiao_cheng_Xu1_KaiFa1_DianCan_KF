@@ -31,9 +31,4 @@
     </view>
 
 <!--添加  -->
-    <view class="tunne2">
-      <view class="add">
-        <text>添加</text>
-      </view>
-      
-    </view>
+<button bindtap='adds' class='adds'>添加</button>

@@ -63,17 +63,11 @@
     top:105px;
 }
 /*添加  */
-.tunne2{
-    margin-top: 100%;
-    height: 50px;
-    width: 100%;
-    background:#FFF;
-    border-top: 1px solid lightgray;
-}
-.add{
-    color:  #007AFF;
-    line-height: 50px;
-    font-size: 35rpx;
-    font-family:"LiHei Pro Medium ",儷黑 Pro;
-    text-align: center;
+.adds{
+  position: fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  color:  #007AFF;
+  background:#FFF;
 }
