@@ -1,3 +1,4 @@
+var config = require('../../../config')
 Page({
   data: {
     imgUrls: [
