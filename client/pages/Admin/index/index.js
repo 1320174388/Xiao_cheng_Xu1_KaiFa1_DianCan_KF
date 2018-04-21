@@ -67,5 +67,5 @@ Page({
     wx.navigateTo({
       url:'../list/index'
     })
-  }  
+  }
 })
