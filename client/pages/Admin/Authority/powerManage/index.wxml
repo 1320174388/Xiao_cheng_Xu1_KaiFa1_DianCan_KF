@@ -1,64 +1,35 @@
-<view class="tunnel">
-        <view class="tunnel-text uploader-text">
-            <text>职位名称</text>
-             <span class="phone_personal">{{firstPerson}}</span>
-            <view class="phone_one" bindtap="clickPerson">
-                <span class="sp">></span>
-            </view>
-           
-        </view>
+<form bindsubmit="formSubmit">
+  <view class="tunnel">
+          <view class="tunnel-text uploader-text">
+              <text>职位名称</text>
 
-        <view class="person_box">
-            <view class="phone_select" hidden="{{selectPerson}}">
-                <view class="select_one" bindtap="mySelect" data-me="总经理">总经理</view>
-                <view class="select_one" bindtap="mySelect" data-me="大堂经理">大堂经理</view>
-                <view class="select_one" bindtap="mySelect" data-me="店员">店员</view>
+              <input name="roleName" placeholder='我是暗提示' value="{{update_value.roleName}}"></input>  
+              
+                  <span class="sp">></span>
           </view>
-       </view>
+  </view>
+
+      <!--选择权限  -->
+      <view  class="pow">
+          <text class="pow-tx">选择权限</text>
+          <!-- 店铺管理 -->
+         
+          <view class="tunne2"  wx:for="{{array}}" wx:key="{{index}}">
+                <view class="tunnel-text2 uploader-text2">
+                    <text>{{item.right_name}}</text>
+                    <switch class="tunnel-switch" color="	LimeGreen" name="{{item.id}}"/>
+                </view>
+          </view> 
        
-         <view class="tunnel-text uploader-text">
-            <text>管理员ID</text><input type='text' placeholder='暗提示'/>
-        </view>
     </view>
 
-    <!--选择权限  -->
-    <view  class="pow">
-        <text class="pow-tx">选择权限</text>
-        <!-- 店铺管理 -->
-        <view class="tunne2">
-              <view class="tunnel-text2 uploader-text2">
-                  <text>店铺管理</text>
-                  <switch class="tunnel-switch" color="	LimeGreen"/>
-              </view>
-        </view>
-        <!--用户管理 -->
-         <view class="tunne3">
-            <view class="tunnel-text2 uploader-text2">
-                <text>用户管理</text>
-                <switch class="tunnel-switch" color="	LimeGreen"/>
-            </view>
-         </view>
-        <!-- 菜单管理 -->
-         <view class="tunne3">
-              <view class="tunnel-text2 uploader-text2">
-                  <text>菜单管理</text>
-                  <switch class="tunnel-switch" color="	LimeGreen"/>
-              </view>
-         </view>
-         <!-- 订单管理-->
-         <view class="tunne3">
-              <view class="tunnel-text2 uploader-text2">
-                  <text>订单管理</text>
-                  <switch class="tunnel-switch" color="	LimeGreen"/>
-              </view>
-         </view>
-    </view>
     
 <!-- 按钮 -->
- <view class="tunne4">
+    <view class="tunne4">
       <view class="sure">
-            <text>按钮</text>
+            <button class="but" formType="submit">添加</button>
         </view>
     </view>
+ </form>
 
 

@@ -11,6 +11,7 @@
     "pages/Admin/Shop/seat/index",
     "pages/Admin/Authority/powerManage/index",
     "pages/Admin/Authority/updatePower/index",
+    "pages/Admin/Authority/update/index",
     "pages/Admin/Management/addManage/index",
     "pages/Admin/Management/updateManage/index",
     "pages/Admin/MenuManage/updateNumber/index",

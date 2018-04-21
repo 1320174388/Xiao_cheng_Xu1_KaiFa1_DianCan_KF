@@ -1,3 +1,4 @@
+var config = require('../../../../config');
 // pages/power/add/index.js
 Page({
 
@@ -5,21 +6,40 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    array:null,
+    id:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var THIS = this
+    wx.request({
+      url: config.service.getPosition,
+      data:{
+        'token': wx.getStorageSync('token')
+      },
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      method:'POST',
+      success:function(res){
+        if (res.data.retData){
+          THIS.setData({
+            array:res.data.retData.list
+          });
+        };
+        console.log(res.data);
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+   
   },
 
   /**
@@ -62,5 +82,28 @@ Page({
    */
   onShareAppMessage: function () {
   
-  }
+  },
+  // 添加
+  add:function(){
+    wx.navigateTo({
+      url: "/pages/Admin/Authority/powerManage/index",
+  })
+  },
+//修改
+  formSubmit:function(e) {
+    wx.setStorageSync('value', e.detail.value);
+    wx.navigateTo({
+      url: '/pages/Admin/Authority/update/index',
+    })
+    
+  },
+
+//删除
+  del: function () {
+
+    wx.navigateTo({
+
+    })
+  },
+    
 })

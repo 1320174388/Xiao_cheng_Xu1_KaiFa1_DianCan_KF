@@ -6,23 +6,23 @@
 <view class='{{selected ? "show" : "hide" }}' id='shop'>
     <view class='list'>
           <text class='key'>店铺名称</text>
-          <text class='value'>店铺名称是什么什么什么事面试 面试</text>
+          <text class='value'>{{shop.shop_name}}</text>
     </view>
      <view class='list'>
           <text class='key'>店铺地址</text>
-          <text class='value'>北京市海淀区西土城38号</text>
+          <text class='value'>{{shop.shop_addr}}</text>
     </view>
     <view class='list'>
           <text class='key'>电话</text>
-          <text class='value'>17090051724</text>
+          <text class='value'>{{shop.shop_phone}}</text>
     </view>
     <view class='list'>
           <text class='key'>介绍</text>
-          <text class='values'>描述文字描述文字描述文字描述文字描述文字描述文字描</text>
+          <text class='values'>{{shop.shop_info}}</text>
     </view>
     <view class='pic'>
         <text class='title'>店铺图片</text>
-        <image src='/icon/pic.jpg'></image>
+        <image src='{{host}}{{shop.shop_img}}'></image>
     </view>
     <button bindtap='edits'>修改</button>
 </view>

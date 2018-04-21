@@ -16,9 +16,17 @@ class Foods extends CI_Model{
     /**
      * 获取食品列表信息
      */
-    public function get_food_lists()
+    public function get_food_lists($food_name = '')
     {
-        return $this->db->query('select id,food_name,class_id,food_img,food_price,food_sort,food_info from data_admin_foods order by food_sort')->result();
+        $select = 'select id,food_name,class_id,food_img,food_price,food_sort,food_info ';
+        $from   = 'from data_admin_foods ';
+        $where  = 'like "%'.$food_name.'%" ';
+        $order  = 'order by food_sort';
+        if($food_name){
+            return $this->db->query($select.$from.$where.$order)->result();
+        }else{
+            return $this->db->query($select.$from.$order)->result();
+        }
     }
     /**
      * 执行添加菜品

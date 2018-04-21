@@ -1,25 +1,6 @@
 <view class="admins">
     <text>管理员的权限管理</text>
-    <view class="adminTop">
-      <navigator url="/pages/Admin/Authority/updatePower/index">
-          <button size='default'><i class="iconfont icon-quanxian"></i>权限管理</button>
+      <navigator  wx:for="{{datas}}" url="{{item.right_route}}" wx:key="{{index}}">
+          <button size='default'><i class="iconfont icon-quanxian"></i>{{item.right_name}}</button>
       </navigator>
-        
-        <navigator url="/pages/Admin/Management/updateManage/index">
-            <button size='default'><i class="iconfont icon-liebiao"></i>管理列表</button>
-        </navigator>
-
-    </view>
-
-    <navigator url="/pages/Admin/Shop/manage/index">
-        <button size='default'><i class="iconfont icon-dianpu"></i>店铺管理</button>
-    </navigator>
-
-    <navigator url="/pages/Admin/Variety/menu/index">
-        <button size='default'><i class="iconfont icon-caipin-"></i>菜品管理</button>
-    </navigator>
-
-    <navigator url="/pages/Admin/MenuManage/orderManage/index">
-        <button size='default' bindtap='orders'><i class="iconfont icon-tubiaolunkuo-"></i>订单管理</button>
-    </navigator>
 </view>

@@ -25,7 +25,12 @@ class Foodsmana extends CI_Controller
         // 判断用户是不是管理员
         if( is_admin_user() || is_system_admin() ){
             // 获取菜品列表信息
-            $res = $this->Foods->get_food_lists();
+            $food_name = $this->input->post('food_name');
+            if($food_name){
+                $res = $this->Foods->get_food_lists($food_name);
+            }else{
+                $res = $this->Foods->get_food_lists();
+            }
             if($res){
                 return return_response(0,'请求成功',$res);
             }else{

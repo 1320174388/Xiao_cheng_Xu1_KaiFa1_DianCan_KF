@@ -3,25 +3,14 @@
 <text data-y="y" class='{{select ? "changes" : "unchanges"}}' bindtap="select">菜品列表</text>
 </view>
 <view class='{{selected ? "show" : "hide" }}'>
-      <view class='list'>
+      <view class='list' wx:for="{{foodclass}}" wx:key="{{index}}">
             <view class='left'>
-                <view>菜品分类一</view>
-                <text>序号：1</text>
+                <view>{{item.class_name}}</view>
+                <text>序号：{{item.class_sort}}</text>
             </view>
             <view class='right'>
-                  <button class='modify'>修改</button>
-                  <button class='remove'>删除</button>
-            </view>
-      </view>
-
-      <view class='list'>
-            <view class='left'>
-                <view>菜品分类一</view>
-                <text>序号：1</text>
-            </view>
-            <view class='right'>
-                  <button class='modify'>修改</button>
-                  <button class='remove'>删除</button>
+                  <button class='modify' attr="{{item.id}}">修改</button>
+                  <button class='remove' attr="{{item.id}}">删除</button>
             </view>
       </view>
       <button class='add' bindtap='adds'>添加</button>
@@ -32,15 +21,15 @@
         <input placeholder='搜索'/>
     </view>
 
-    <view class='menu'>
+    <view class='menu' wx:for="{{datas}}" wx:key="{{index}}">
         <view class='left'>
-            <image src='/icon/cai1.jpg'></image>
+            <image src='{{host}}{{item.food_img}}'></image>
             <view class='info'>
                 <view class='title'>
-                    <view class='name'>菜品分类一</view>
+                    <view class='name'>{{item.food_name}}</view>
                     <view class='xiangq' bindtap='infomation'>详情>></view>
                 </view>
-                <text class='num'>库号：1</text>
+                <text class='num'>库号：{{item.id}}</text>
                 <view class='price'>￥99：00</view>
             </view>
         </view>

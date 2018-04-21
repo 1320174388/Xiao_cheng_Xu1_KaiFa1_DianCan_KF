@@ -1,10 +1,13 @@
 // pages/Admin/manage/index.js
+var config = require('../../../../config.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    host:null,
+    shop:null,
     select:false,
     selected:true,
     desk:[
@@ -23,7 +26,24 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var THIS = this;
+    wx.request({
+      url: config.service.shoppings, //仅为示例，并非真实的接口地址
+      data: {
+        "token": wx.getStorageSync('token')
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      method:'post',
+      success: function (res) {
+        THIS.setData({
+          host: config.service.host,
+          shop: res.data.retData[0]
+        });
+        console.log(res.data.retData[0]);
+      }
+    })
   },
 
   /**

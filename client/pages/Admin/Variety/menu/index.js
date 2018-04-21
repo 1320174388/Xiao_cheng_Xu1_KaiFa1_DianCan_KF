@@ -1,4 +1,5 @@
 // pages/Admin/menu/index/index.js
+var config = require('../../../../config.js');
 Page({
 
   /**
@@ -7,14 +8,53 @@ Page({
   data: {
     select: false,
     selected: true,
-    showModalStatus: "hide"
+    showModalStatus: "hide",
+    datas: null,
+    host:null,
+    foodclass:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var THIS = this;
+    wx.request({
+      url: config.service.foods, //仅为示例，并非真实的接口地址
+      data: {
+        "token": wx.getStorageSync('token')
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      method: 'POST',
+      success: function (res) {
+        if (res.data.errNum == 0) {
+          THIS.setData({
+            foodclass: res.data.retData
+          })
+          console.log(res.data.retData);
+        }
+      }
+    }),
+      wx.request({
+        url: config.service.foodsList, //仅为示例，并非真实的接口地址
+        data: {
+          "token": wx.getStorageSync('token')
+        },
+        header: {
+          'content-type': 'application/x-www-form-urlencoded' // 默认值
+        },
+        method: 'POST',
+        success: function (res) {
+          if (res.data.errNum == 0) {
+            THIS.setData({
+              host:config.service.host,
+              datas: res.data.retData
+            })
+          }
+        }
+      })
   },
 
   /**
@@ -93,12 +133,12 @@ Page({
   },
   adds:function(){
     wx.navigateTo({
-      url: '/pages/Admin/variety/cate/cate'
+      url: '/pages/Admin/Variety/cate/cate'
     })
   },
   cates:function(){
     wx.navigateTo({
-      url: "/pages/Admin/variety/addlist/addlist"
+      url: "/pages/Admin/Variety/addlist/addlist"
     })
   }
 })

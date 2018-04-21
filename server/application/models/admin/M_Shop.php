@@ -19,10 +19,8 @@ class M_Shop extends CI_Model{
     }
 
     public function get_shop_info(){
-
-        $sql = 'select id, shop_name, shop_img, shop_info, shop_addr, shop_phone, shop_status, ordering_status from data_admin_shop where shop_status = 1 limit 1';
+        $sql = 'select id, shop_name, shop_img, shop_info, shop_addr, shop_phone, shop_status, ordering_status from data_admin_shop limit 1';
         $result = $this->connection->query( $sql );
-
         return $result->result();
     }
 
@@ -71,14 +69,14 @@ class M_Shop extends CI_Model{
         $vaue_str = implode( ',', $vaue_list );
         $query_sql = $insert_clause . $insert_str . $value_clause . $vaue_str . $end_clause;
 
-        $result = $this->connection->qery( $query_sql );
+        $result = $this->connection->query( $query_sql );
 
-        return $result->result();
+        return $result;
     }
 
     public function update( $data ){
 
-        $sql = 'update data_admin_shop ';
+        $sql = 'update data_admin_shop set ';
 
         $update_clause = [];
 //        if( isset( $data['id'] ) || !is_numeric( $data['id'] ) ){
@@ -88,16 +86,16 @@ class M_Shop extends CI_Model{
             $end_sql = ' where id =  '. (int) self::UNIQUE_VALUE;
         }
         if( isset( $data['shop_name'] ) ){
-            $update_clause[] = ' shop_name = '. $data['shop_name'];
+            $update_clause[] = ' shop_name = "'. $data['shop_name'] .'"';
         }
         if( isset( $data['shop_img'] ) ){
-            $update_clause[] = ' shop_img = '. $data['shop_img'];
+            $update_clause[] = ' shop_img = "'. $data['shop_img'] .'"';
         }
         if( isset( $data['shop_info'] ) ){
-            $update_clause[] = ' shop_info = '. $data['shop_info'];
+            $update_clause[] = ' shop_info = "'. $data['shop_info'] .'"';
         }
         if( isset( $data['shop_addr'] ) ){
-            $update_clause[] = ' shop_addr = '. $data['shop_addr'];
+            $update_clause[] = ' shop_addr = "'. $data['shop_addr'] .'"';
         }
         if( isset( $data['shop_phone'] ) ){
             $update_clause[] = ' shop_phone = '. (int) $data['shop_phone'];
@@ -116,12 +114,12 @@ class M_Shop extends CI_Model{
         $set_sql = implode( ',', $update_clause );
         $query_sql = $sql . $set_sql . $end_sql;
 
-        $result = $this->connection->qery( $query_sql );
+        $result = $this->connection->query( $query_sql );
 
-        return $result->result();
+        return $result;
     }
 
-    public function create_table(){
+    public function create_table($data){
 
         $insert_clause = 'insert into data_admin_tables( ';
         $value_clause = ' ) values( ';
@@ -136,9 +134,9 @@ class M_Shop extends CI_Model{
 
         $query_sql = $insert_clause . $value_clause . $end_clause;
 
-        $result = $this->connection->qery( $query_sql );
+        $result = $this->connection->query( $query_sql );
 
-        return $result->result();
+        return $result;
     }
 
 }

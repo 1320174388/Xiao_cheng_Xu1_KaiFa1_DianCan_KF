@@ -1,11 +1,12 @@
 // pages/Admin/cate/cate.js
+var config = require('../../../../config.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    
   },
 
   /**
