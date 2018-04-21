@@ -5,17 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    ceo:'杨邓'
+    
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      ceo:'尹丹丹'
-    })
-    console.log(this.data.ceo)
+   
   },
 
   /**
@@ -70,5 +67,5 @@ Page({
     wx.navigateTo({
       url:'../list/index'
     })
-  }
+  }  
 })

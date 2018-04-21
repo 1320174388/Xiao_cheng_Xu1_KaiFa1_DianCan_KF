@@ -62,5 +62,11 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  adds:function(){
+    console.log(1);
+    wx.navigateTo({
+      url: '/pages/Admin/Management/addManage/index'
+    })
   }
 })

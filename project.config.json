@@ -10,7 +10,7 @@
 		"minified": true,
 		"newFeature": true
 	},
-	"appid": "wxed887c831625611b",
+	"appid": "touristappid",
 	"projectname": "Xiao_cheng_Xu_kaiFa1",
 	"compileType": "miniprogram",
 	"condition": {
@@ -30,13 +30,70 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
+			"current": 8,
 			"list": [
 				{
 					"id": 0,
 					"name": "后台首页",
 					"pathName": "pages/Admin/index/index",
-					"query": ""
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": 1,
+					"name": "menu",
+					"pathName": "pages/Admin/Management/updateManage/index",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": 2,
+					"name": "power",
+					"pathName": "pages/Admin/Authority/updatePower/index",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": 3,
+					"name": "manage",
+					"pathName": "pages/Admin/Shop/manage/index",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": 4,
+					"name": "list",
+					"pathName": "pages/Admin/Management/updateManage/index",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": 5,
+					"name": "list",
+					"pathName": "pages/Admin/MenuManage/orderManage/index",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": -1,
+					"name": "update",
+					"pathName": "pages/Admin/Authority/updatePower/index",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": 7,
+					"name": "manage",
+					"pathName": "pages/Admin/Authority/updatePower/index",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": 8,
+					"name": "后台首页",
+					"pathName": "pages/Home/index/index",
+					"query": "",
+					"scene": "1001"
 				}
 			]
 		}
