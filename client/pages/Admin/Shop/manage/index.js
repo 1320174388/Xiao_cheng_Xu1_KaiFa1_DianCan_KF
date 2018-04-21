@@ -89,7 +89,12 @@ Page({
   },
   edits:function(){
     wx.navigateTo({
-      url: '/pages/Admin/message/index'
+      url: '/pages/Admin/Shop/message/index'
+    })
+  },
+  seats:function(){
+    wx.navigateTo({
+      url: '/pages/Admin/Shop/seat/index',
     })
   }
 })

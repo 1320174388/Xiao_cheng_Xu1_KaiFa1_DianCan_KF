@@ -5,11 +5,10 @@
     "pages/Home/My/my",
     "pages/Home/map/index",
     "pages/Admin/index/index",
-    "pages/Admin/people/index",
-    "pages/Admin/list/index",
-    "pages/Admin/manage/index",
-    "pages/Admin/message/index",
-    "pages/Admin/maps/index",
+    "pages/Admin/Shop/manage/index",
+    "pages/Admin/Shop/message/index",
+    "pages/Admin/Shop/maps/index",
+    "pages/Admin/Shop/seat/index",
     "pages/Admin/Authority/powerManage/index",
     "pages/Admin/Authority/updatePower/index",
     "pages/Admin/Management/addManage/index",
@@ -17,7 +16,10 @@
     "pages/Admin/MenuManage/updateNumber/index",
     "pages/Admin/MenuManage/updateCity/index",
     "pages/Admin/MenuManage/orderInfo/index",
-    "pages/Admin/MenuManage/orderManage/index"
+    "pages/Admin/MenuManage/orderManage/index",
+    "pages/Admin/Variety/menu/index",
+    "pages/Admin/Variety/addlist/addlist",
+    "pages/Admin/Variety/cate/cate"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

@@ -1,4 +1,4 @@
-// pages/Admin/list/index.js
+// pages/Admin/cate/cate.js
 Page({
 
   /**

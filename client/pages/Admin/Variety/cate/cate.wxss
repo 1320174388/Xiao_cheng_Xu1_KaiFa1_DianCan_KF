@@ -1,0 +1,29 @@
+.box{
+  margin-top:40rpx;
+}
+.list{
+  display: flex;
+  align-items: center;
+  background: #fff;
+  line-height: 2;
+  padding:0 20rpx;
+  border-bottom:2rpx solid #eee;
+}
+.list text{
+  display: block;
+  width:25%;
+  font-size:35rpx;
+  line-height: 2;
+}
+.list input{
+  width:80%;
+  height: 80rpx;
+}
+.submit{
+  position: fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background: #77B3FF;
+  color:#fff;
+}

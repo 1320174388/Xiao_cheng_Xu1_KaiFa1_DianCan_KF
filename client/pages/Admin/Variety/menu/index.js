@@ -1,11 +1,13 @@
-// pages/Admin/manage/list/index.js
+// pages/Admin/menu/index/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    select: false,
+    selected: true,
+    showModalStatus: "hide"
   },
 
   /**
@@ -62,5 +64,41 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  select: function (e) {
+    if ('w' == e.currentTarget.dataset.w) {
+      this.setData({
+        select: false,
+        selected: true
+      })
+    } else if ('y' == e.currentTarget.dataset.y) {
+      this.setData({
+        select: true,
+        selected: false
+      })
+    }
+  },
+  infomation:function(){
+    var THIS = this
+    setTimeout(function () { 
+      THIS.setData({
+        showModalStatus:"show"
+      })
+    },1000)
+  },
+  close:function(){
+    this.setData({
+      showModalStatus:"hide"
+    })
+  },
+  adds:function(){
+    wx.navigateTo({
+      url: '/pages/Admin/variety/cate/cate'
+    })
+  },
+  cates:function(){
+    wx.navigateTo({
+      url: "/pages/Admin/variety/addlist/addlist"
+    })
   }
 })

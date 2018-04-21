@@ -1,0 +1,80 @@
+<view class="navs">
+<text data-w="w" class='{{selected ? "changes" : "unchanges"}}' bindtap="select">菜品分类</text>
+<text data-y="y" class='{{select ? "changes" : "unchanges"}}' bindtap="select">菜品列表</text>
+</view>
+<view class='{{selected ? "show" : "hide" }}'>
+      <view class='list'>
+            <view class='left'>
+                <view>菜品分类一</view>
+                <text>序号：1</text>
+            </view>
+            <view class='right'>
+                  <button class='modify'>修改</button>
+                  <button class='remove'>删除</button>
+            </view>
+      </view>
+
+      <view class='list'>
+            <view class='left'>
+                <view>菜品分类一</view>
+                <text>序号：1</text>
+            </view>
+            <view class='right'>
+                  <button class='modify'>修改</button>
+                  <button class='remove'>删除</button>
+            </view>
+      </view>
+      <button class='add' bindtap='adds'>添加</button>
+</view>
+<view class='{{select ? "show" : "hide" }}'>
+    <view class="section">
+        <icon type="search" size="15"/>
+        <input placeholder='搜索'/>
+    </view>
+
+    <view class='menu'>
+        <view class='left'>
+            <image src='/icon/cai1.jpg'></image>
+            <view class='info'>
+                <view class='title'>
+                    <view class='name'>菜品分类一</view>
+                    <view class='xiangq' bindtap='infomation'>详情>></view>
+                </view>
+                <text class='num'>库号：1</text>
+                <view class='price'>￥99：00</view>
+            </view>
+        </view>
+        <view class='right'>
+            <button class='modify'>修改</button>
+            <button class='remove'>删除</button>
+        </view>
+    </view>
+    <button class='add' bindtap='cates'>添加</button>
+</view>
+
+
+ <!--墨台眶-->
+    <view class='{{showModalStatus}}' id='model'>
+          <view class='content'>
+              <view class='cont_title' bindtap='close'><icon type="clear" size="20"/></view>
+
+              <view class='contents'>
+                    <view class='top'>
+                        <image src='/icon/cai1.jpg'></image>
+                        <view class='info'>
+                            <text>菜品分类一</text>
+                            <text class='num'>序号：1</text>
+                            <text class='price'>￥99：00</text>
+                        </view>
+                    </view>
+
+                    <view class='bottom'>菜品排序：<text>123</text></view>
+                    <view class='introduce bottom'>菜品介绍：
+                        <text>d啊哒哒哒大大大大刘嘀嘀嘀嘀嘀滴滴滴</text>
+                    </view>
+              </view>
+          </view>
+           
+    </view>
+
+   
