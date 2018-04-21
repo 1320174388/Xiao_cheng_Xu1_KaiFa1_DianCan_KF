@@ -3,7 +3,7 @@
     <text data-y="y" class='{{select ? "changes" : "unchanges"}}' bindtap="select">座号管理</text>
 </view>
 
-<view class='{{selected ? "show" : "hide" }}'>
+<view class='{{selected ? "show" : "hide" }}' id='shop'>
     <view class='list'>
           <text class='key'>店铺名称</text>
           <text class='value'>店铺名称是什么什么什么事面试 面试</text>
@@ -33,5 +33,5 @@
         <image src='{{item.pic}}'></image>
         <text>{{item.name}}</text>
     </view>
-    <button>添加</button>
+    <button bindtap='seats'>添加</button>
 </view>

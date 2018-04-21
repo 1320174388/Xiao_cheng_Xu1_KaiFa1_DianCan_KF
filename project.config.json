@@ -10,7 +10,7 @@
 		"minified": true,
 		"newFeature": true
 	},
-	"appid": "wxed887c831625611b",
+	"appid": "touristappid",
 	"projectname": "Xiao_cheng_Xu_kaiFa1",
 	"compileType": "miniprogram",
 	"condition": {
@@ -30,13 +30,14 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": -1,
 			"list": [
 				{
 					"id": 0,
 					"name": "后台首页",
 					"pathName": "pages/Admin/index/index",
-					"query": ""
+					"query": "",
+					"scene": "1001"
 				},
 				{
 					"id": 1,
@@ -48,13 +49,50 @@
 					"id": 2,
 					"name": "power",
 					"pathName": "pages/Admin/Authority/updatePower/index",
-					"query": ""
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": 3,
+					"name": "manage",
+					"pathName": "pages/Admin/Shop/manage/index",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": -1,
+					"name": "list",
+					"pathName": "pages/Admin/people/index",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": 5,
+					"name": "list",
+					"pathName": "pages/Admin/people/index",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": -1,
+					"name": "update",
+					"pathName": "pages/Admin/Authority/updatePower/index",
+					"query": "",
+					"scene": "1001"
 				},
 				{
 					"id": -1,
 					"name": "manage",
-					"pathName": "pages/Admin/Management/addManage/index",
-					"query": ""
+					"pathName": "pages/Admin/Shop/manage/index",
+					"query": "",
+					"scene": "1001"
+				},
+				{
+					"id": -1,
+					"name": "后台首页",
+					"pathName": "pages/Admin/list/index",
+					"query": "",
+					"scene": "1001"
 				}
 			]
 		}

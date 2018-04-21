@@ -1,0 +1,35 @@
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view class="section">
+    <text>菜品名称</text>
+    <input />
+  </view>
+  <view class="section">
+    <text>菜品分类</text>
+    <input />
+  </view>
+  <view class="section pric">
+    <text class='title'>菜品价格</text>
+    <input />
+    <text class='comp'>元</text>
+  </view>
+  <view class="section">
+    <text>菜品排序</text>
+    <input />
+  </view>
+  <view class="section">
+    <text>菜品介绍</text>
+    <textarea></textarea>
+  </view>
+
+  <view class="pic">
+      <view>菜品图片</view>
+      <view class='uploads'>
+      <image src='/icon/cai1.jpg'  mode="aspecFill"></image>
+      <button bindtap="bindChooiceProduct">
+          <image src='/icon/uppic.png'></image>
+      </button>  
+      </view>
+  </view>
+
+  <button class="add">提交</button>
+</form>
