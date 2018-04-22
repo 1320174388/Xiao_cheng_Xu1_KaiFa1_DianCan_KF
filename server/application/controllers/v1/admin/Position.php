@@ -27,12 +27,13 @@ class Position extends CI_Controller {
             return return_response( 1, '你没有权限进行此操作');
         }
         // 获取角色名称
-        $roleName = $this->input->post('roleName');
+        $value = $this->input->post('value');
         // 获取添加权限数组
-        $right = $this->input->post('right');
+        $roleName = $value['roleName'];
+        unset($value['roleName']);
         // 写入数据库
         $this->load->model('admin/Role');
-        $res = $this->Role->set_role_exist($roleName,$right);
+        $res = $this->Role->set_role_exist($roleName,$value);
         // 返回结果
         if($res === 2) return return_response( 2, '职位已存在');
         if($res === 0) return return_response( 0, '添加成功');
@@ -86,10 +87,13 @@ class Position extends CI_Controller {
         // 获取职位名称
         $roleName = $this->input->post('roleName');
         // 获取修改权限数组
-        $right = $this->input->post('right');
+        $post = $this->input->post();
+        unset($post['id']);
+        unset($post['token']);
+        unset($post['roleName']);
         // 修改职位数据
         $this->load->model('admin/Role');
-        $res = $this->Role->get_role_update($id,$roleName,$right);
+        $res = $this->Role->get_role_update($id,$roleName,$post);
         // 返回结果
         if($res === 0) return return_response( 0, '修改成功');
         if($res === 2) return return_response( 2, '要修改角色不存在');

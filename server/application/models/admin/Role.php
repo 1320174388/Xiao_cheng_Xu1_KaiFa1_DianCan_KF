@@ -22,16 +22,18 @@ class Role extends CI_Model {
         $role = $this->CI->db->get_where('data_admin_roles',['role_name'=>$roleName]);
         if($role->result()) return 2;
         // 添加这个角色到数据库
+        $this->CI->db->trans_start();
         $res = $this->CI->db->insert('data_admin_roles',['role_name'=> $roleName]);
         if($res){
             // 添加对应权限到数据库
             $role = $this->CI->db->get_where('data_admin_roles',['role_name'=>$roleName]);
             $role_id = $role->result()[0]->id;
             $data = [];
-            foreach($right as $k=>$v){
-                $data[] = ["role_id"=>$role_id,"right_id"=>$v];
+            for($a=0;$a<count($right);$a++){
+                $data[] = ["role_id"=>$role_id,"right_id"=>$right[$a]];
             }
             $ret = $this->CI->db->insert_batch('index_role_rights',$data);
+            $this->CI->db->trans_complete();
             if($ret){return 0;}
         }
     }
@@ -78,8 +80,8 @@ class Role extends CI_Model {
                 $index_row = $this->CI->db->delete('index_role_rights',['role_id' => $id]);
                 if(($res && $index_row)||$res){
                     $data = [];
-                    foreach($right as $k=>$v){
-                        $data[] = ["role_id"=>$id,"right_id"=>$v];
+                    for($a=0;$a<count($right);$a++){
+                        $data[] = ["role_id"=>$role_id,"right_id"=>$right[$a]];
                     }
                     $ret = $this->CI->db->insert_batch('index_role_rights',$data);
                     if($ret){ return 0; }
