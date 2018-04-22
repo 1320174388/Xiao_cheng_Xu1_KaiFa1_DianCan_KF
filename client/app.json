@@ -14,6 +14,7 @@
     "pages/Admin/Authority/update/index",
     "pages/Admin/Management/addManage/index",
     "pages/Admin/Management/updateManage/index",
+    "pages/Admin/Management/updateAdmin/index",
     "pages/Admin/MenuManage/updateNumber/index",
     "pages/Admin/MenuManage/updateCity/index",
     "pages/Admin/MenuManage/orderInfo/index",

@@ -1,34 +1,21 @@
 <!--职位  -->
-<view class="tunnel">
-        <view class="tunnel-text uploader-text">
+<form bindsubmit="addSubmit">
+  <view class="tunnel">
+        <view class="tunnel-text uploader-text"  wx:for="{{array}}" wx:key="{{index}}">
           <view class="v1">
-              <text>管理员名称</text>
-              <text class="tx">职位</text>
+              <text>管理员名称：{{item.admin_name}}</text>
+              <text class="tx">职位：{{item.role_name}}</text>
             </view>
           <view class="v2">
-            <view class="tt1"><text>修改</text></view>
+            <view class="tt1" data-editid="{{item.admin_id}}" bindtap="editUpdate"><text>修改</text></view>
             <view class="tt2">
-              <text class="tt3">删除</text>
+              <button class="tt3" data-editid="{{item.user_id}}" bindtap="deleteClick">删除</button>
             </view>
           </view>
         </view>
     </view>
 
-<!--总经理  -->
-    <view class="tunnel">
-        <view class="tunnel-text uploader-text">
-          <view class="v1">
-              <text>管理员名称</text>
-              <text class="tx">总经理</text>
-            </view>
-          <view class="v2">
-            <view class="tt"><text>修改</text></view>
-            <view class="tt2">
-              <text class="tt3">删除</text>
-            </view>
-          </view>
-        </view>
-    </view>
 
 <!--添加  -->
 <button bindtap='adds' class='adds'>添加</button>
+</form>

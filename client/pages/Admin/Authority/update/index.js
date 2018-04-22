@@ -129,6 +129,9 @@ Page({
         };
 
       }
-    })
+    }),
+      wx.navigateTo({
+        url: "/pages/Admin/Authority/updatePower/index",
+      })
   }
 })

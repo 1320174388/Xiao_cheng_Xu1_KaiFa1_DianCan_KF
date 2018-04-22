@@ -7,7 +7,8 @@ Page({
    */
   data: {
     array:null,
-    id:null
+    id:null,
+    update_value:''
   },
 
   /**
@@ -89,6 +90,7 @@ Page({
       url: "/pages/Admin/Authority/powerManage/index",
   })
   },
+  
 //修改
   formSubmit:function(e) {
     wx.setStorageSync('value', e.detail.value);
@@ -99,11 +101,29 @@ Page({
   },
 
 //删除
-  del: function () {
-
+ 
+  deleteClick: function (event) {
+    var id = event.currentTarget.dataset.editid;
+    console.log(id);
+    wx.request({
+      url: config.service.delPosition,
+      data: {
+        'token': wx.getStorageSync('token'),
+        'id': id
+      },
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      method: 'POST',
+      success: function (res) {
+        
+        console.log(res);
+          
+      }
+    }),
     wx.navigateTo({
-
+      url: "/pages/Admin/Authority/updatePower/index",
     })
-  },
+  }
     
 })
