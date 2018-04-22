@@ -24,8 +24,9 @@ class Order extends CI_Controller {
      */
         public function get_order_list_by_type(){
         $order_type = $this->input->post( 'order_type' );
+        $order_status = $this->input->post( 'order_status' );
 
-        $result = $this->M_Order->find_all( $order_type );
+        $result = $this->M_Order->find_all( $order_type , $order_status);
 
         return_response( '1', '请求成功', $result );
     }
@@ -68,10 +69,18 @@ class Order extends CI_Controller {
             $this->json( [ "errNum" => 0, "retMsg"  => '参数错误', "retData" => [] ] );
             return ;
         }
-
         $result = $this->M_Order->find_order( $order_number );
-
-        return_response( '1', '请求成功', $result );
+        $num   = 0;
+        $print = 0;
+        foreach($result as $k=>$v){
+            $num   += $v->food_number;
+            $print += $v->order_price;
+        }
+        return_response( '1', '请求成功', [
+            'order_info'  => $result,
+            'order_num'   => $num,
+            'order_print' => $print
+        ] );
     }
 
 }

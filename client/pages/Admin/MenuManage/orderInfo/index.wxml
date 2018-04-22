@@ -1,29 +1,13 @@
  <view  class="pow">
         <text class="pow-tx">订单信息</text>
         <!-- 菜品名称 -->
-        <view class="tunne2">
+        <view wx:for="{{order_info}}" wx:key="{{index}}" class="tunne2">
               <view class="tunnel-text2 uploader-text2">
                   <image src='/icon/menu.jpg'></image>
-                  <text class="menu">菜品名称</text>
-                  <text class="tunnel-switch"><text style="color:lightgray">1x</text> ￥28.00</text>
+                  <text class="menu">{{item.food_name}}</text>
+                  <text class="tunnel-switch"><text style="color:lightgray">数量：{{item.food_number}}</text> ￥{{item.order_price}}</text>
               </view>
         </view>
-        <!--菜品名称 -->
-         <view class="tunne3">
-            <view class="tunnel-text2 uploader-text2">
-            <image src='/icon/menu.jpg'></image>
-                <text class="menu">菜品名称</text>
-                <text class="tunnel-switch"><text style="color:lightgray">1x</text> ￥28.00</text>
-            </view>
-         </view>
-        <!-- 菜品名称 -->
-         <view class="tunne3">
-              <view class="tunnel-text2 uploader-text2">
-              <image src='/icon/menu.jpg'></image>
-                  <text class="menu">菜品名称</text>
-                  <text class="tunnel-switch"><text style="color:lightgray">1x</text> ￥28.00</text>
-              </view>
-         </view>
    </view>
 
     <view class="sum">
@@ -32,14 +16,14 @@
         <view class="tunne2">
               <view class="tunnel-text2 uploader-text2">
                   <text>菜品总数量</text>
-                  <text class="tunnel-switch" style="color:orange">3</text>
+                  <text class="tunnel-switch" style="color:orange">{{order_num}}</text>
               </view>
         </view>
         <!--用户管理 -->
          <view class="tunne3">
             <view class="tunnel-text2 uploader-text2">
                 <text>菜品总价</text>
-                <text class="tunnel-switch" style="color:orange">￥84.00</text>
+                <text class="tunnel-switch" style="color:orange">￥{{order_print}}</text>
             </view>
          </view>
     </view>

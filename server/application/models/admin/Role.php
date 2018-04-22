@@ -32,7 +32,7 @@ class Role extends CI_Model {
                 $data[] = ["role_id"=>$role_id,"right_id"=>$v];
             }
             $ret = $this->CI->db->insert_batch('index_role_rights',$data);
-            if($ret) return 0;
+            if($ret){return 0;}
         }
     }
 
@@ -48,14 +48,14 @@ class Role extends CI_Model {
     {
         // 如果职位已经被管理员使用,不可删除
         $user_roles = $this->CI->db->get_where('index_user_roles',['role_id' => $id]);
-        if($user_roles->result())return 2;
+        if($user_roles->result()){return 2;}
         // 删除对应id的角色,同时删除职位对应权限
         $role_rights = $this->CI->db->get_where('index_role_rights',['role_id' => $id]);
         if($role_rights->result()){
             $index_row = $this->CI->db->delete('index_role_rights',['role_id' => $id]);
         }
         $role_row = $this->CI->db->delete('data_admin_roles',['id' => $id]);
-        if(($role_rights && $index_row) || $role_row) return 0; else return 3;
+        if(($role_rights && $index_row) || $role_row){ return 0; }else{ return 3; }
     }
 
     public function get_right(){

@@ -49,6 +49,20 @@ var config = {
 
         //权限管理：删除职位信息
         delPosition: `${host}/api/admin/position/delete`
+    },
+
+    // 订单管理页面路由
+    order:{
+      host,
+
+      // 获取订单列表信息
+      orderList: `${host}/api/admin/order/get_order_list_by_type`,
+
+      // 修改订单座位号
+      orderInfo: `${host}/api/admin/order/get_order_info_by_id`,
+
+      // 修改订单座位号
+      orderEdit: `${host}/api/admin/order/update_order_info`,
     }
 };
 

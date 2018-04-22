@@ -1,3 +1,4 @@
+var config = require('../../../../config');
 // pages/Admin/MenuManage/orderInfo/index.js
 Page({
 
@@ -5,14 +6,37 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    order_info:null,
+    order_num:null,
+    order_print:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var THIS = this;
+    wx.request({
+      url: config.order.orderInfo,
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      data: {
+        'token': wx.getStorageSync('token'),
+        'order_number': wx.getStorageSync('order_id')
+      },
+      method: 'POST',
+      success: function (res) {
+        console.log(res.data.retData);
+        if(res.data.errNum == 1){
+          THIS.setData({
+            order_info: res.data.retData.order_info,
+            order_num: res.data.retData.order_num,
+            order_print: res.data.retData.order_print
+          });
+        }
+      }
+    })
   },
 
   /**

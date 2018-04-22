@@ -2,30 +2,36 @@
     <text data-w="w" class='{{selected ? "changes" : "unchanges"}}' bindtap="select">店铺信息</text>
     <text data-y="y" class='{{select ? "changes" : "unchanges"}}' bindtap="select">座号管理</text>
 </view>
-
-<view class='{{selected ? "show" : "hide" }}' id='shop'>
-    <view class='list'>
-          <text class='key'>店铺名称</text>
-          <text class='value'>{{shop.shop_name}}</text>
-    </view>
-     <view class='list'>
-          <text class='key'>店铺地址</text>
-          <text class='value'>{{shop.shop_addr}}</text>
-    </view>
-    <view class='list'>
-          <text class='key'>电话</text>
-          <text class='value'>{{shop.shop_phone}}</text>
-    </view>
-    <view class='list'>
-          <text class='key'>介绍</text>
-          <text class='values'>{{shop.shop_info}}</text>
-    </view>
-    <view class='pic'>
-        <text class='title'>店铺图片</text>
-        <image src='{{host}}{{shop.shop_img}}'></image>
-    </view>
-    <button bindtap='edits'>修改</button>
-</view>
+<form bindsubmit="edits">
+  <view class='{{selected ? "show" : "hide" }}' id='shop'>
+      <view class='list'>
+            <text class='key'>店铺名称</text>
+            <text class='value'>{{shop.shop_name}}</text>
+            <input hidden name="shop_name" value="{{shop.shop_name}}" ></input>
+      </view>
+      <view class='list'>
+            <text class='key'>店铺地址</text>
+            <text class='value'>{{shop.shop_addr}}</text>
+            <input hidden name="shop_addr" value="{{shop.shop_addr}}" ></input>
+      </view>
+      <view class='list'>
+            <text class='key'>电话</text>
+            <text class='value'>{{shop.shop_phone}}</text>
+            <input hidden name="shop_phone" value="{{shop.shop_phone}}" ></input>
+      </view>
+      <view class='list'>
+            <text class='key'>介绍</text>
+            <text class='values'>{{shop.shop_info}}</text>
+            <input hidden name="shop_info" value="{{shop.shop_info}}" ></input>
+      </view>
+      <view class='pic'>
+          <text class='title'>店铺图片</text>
+          <image src='{{host}}{{shop.shop_img}}'></image>
+          <input hidden name="shop_img" value="{{host}}{{shop.shop_img}}" ></input>
+      </view>
+      <button formType="submit">修改</button>
+  </view>
+</form>
 
 
 <view class='{{select ? "show" : "hide" }}' id='desks'>

@@ -41,7 +41,6 @@ Page({
           host: config.service.host,
           shop: res.data.retData[0]
         });
-        console.log(res.data.retData[0]);
       }
     })
   },
@@ -107,7 +106,8 @@ Page({
         })
      }
   },
-  edits:function(){
+  edits:function(e){
+    wx.setStorageSync('shop_value',e.detail.value);
     wx.navigateTo({
       url: '/pages/Admin/Shop/message/index'
     })

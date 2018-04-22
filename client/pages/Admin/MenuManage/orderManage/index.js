@@ -1,3 +1,4 @@
+var config = require('../../../../config');
 // pages/Admin/MenuManage/orderManage/index.js
 Page({
 
@@ -7,8 +8,32 @@ Page({
   data: {
     // 订单管理导航条
     navbar: ['就餐订单', '外卖订单', '历史订单'],
-    currentTab: 0
+    currentTab: 0,
+    orderlist:null,
+    ordertake:null,
+    orderhist:null
   },
+  // 获取订单详情信息
+  orderinfo:function(e){
+    wx.setStorageSync('order_id', e.currentTarget.dataset.order_id);
+    wx.navigateTo({
+      url: '/pages/Admin/MenuManage/orderInfo/index',
+    })
+  },
+  updateorder:function(e){
+    wx.setStorageSync('order_id', e.currentTarget.dataset.order_id);
+    wx.navigateTo({
+      url: '/pages/Admin/MenuManage/updateNumber/index',
+    })
+  },
+  // 修改地址
+  updateorderaddr:function(e){
+    wx.setStorageSync('order_id', e.currentTarget.dataset.order_id);
+    wx.navigateTo({
+      url: '/pages/Admin/MenuManage/updateCity/index',
+    })
+  },
+  // 修改座号
   navbarTap: function (e) {
     this.setData({
       currentTab: e.currentTarget.dataset.idx
@@ -19,7 +44,57 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var THIS = this;
+    wx.request({
+      url: config.order.orderList,
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      data: {
+        'token':wx.getStorageSync('token'),
+        'order_type':'eat',
+        'order_status':1,
+      },
+      method: 'POST',
+      success: function (res) {
+        THIS.setData({
+          orderlist: res.data.retData
+        })
+      }
+    });
+    wx.request({
+      url: config.order.orderList,
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      data: {
+        'token': wx.getStorageSync('token'),
+        'order_type': 'out',
+        'order_status': 1,
+      },
+      method: 'POST',
+      success: function (res) {
+        THIS.setData({
+          ordertake: res.data.retData
+        })
+      }
+    });
+    wx.request({
+      url: config.order.orderList,
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      data: {
+        'token': wx.getStorageSync('token'),
+        'order_status': 2,
+      },
+      method: 'POST',
+      success: function (res) {
+        THIS.setData({
+          orderhist: res.data.retData
+        })
+      }
+    });
   },
 
   /**

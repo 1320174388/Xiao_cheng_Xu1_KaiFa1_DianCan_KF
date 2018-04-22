@@ -1,25 +1,25 @@
 <view class='edit'>
     <view class='list'>
           <text class='key'>店铺名称</text>
-          <input placeholder="" auto-focus/>
+          <input placeholder="" auto-focus value="{{shop_value.shop_name}}" />
     </view>
      <view class='list'>
           <text class='key'>店铺地址</text>
-          <text class='maps' bindtap='maps'></text>
+          <input  maxlength="11" value="{{shop_value.shop_addr}}"/>
     </view>
     <view class='list'>
           <text class='key'>电话</text>
-          <input  maxlength="11"/>
+          <input  maxlength="11" value="{{shop_value.shop_phone}}"/>
     </view>
     <view class='list'>
           <text class='key'>介绍</text>
-          <textarea auto-height/>
+          <textarea auto-height  value="{{shop_value.shop_info}}"/>
     </view>
     <view class='pic'>
         <text class='title'>店铺图片</text>
         <view class='pics'>
-            <image src='/icon/pic.jpg'></image>
-            
+            <input  maxlength="11" type='file' />
+            <image bindtap="bindChooiceProduct" src='{{shop_value.shop_img}}'></image>
         </view>
     </view>
     <button>确定</button>

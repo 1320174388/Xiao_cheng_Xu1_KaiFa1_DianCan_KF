@@ -19,18 +19,18 @@ class M_Order extends CI_Model{
         $this->connection = $this->load->database( 'default', true );
     }
 
-    public function find_all( $order_type ){
-        $sql = ' select id, order_number, order_type, order_status, order_remarks, order_time ';
-        $end_sql = " from data_orders where order_type = '" . $order_type . "' order by order_time desc ";
-        if( $order_type == self::EAT_ORDER_TYPE ){
-            $sql .= ' ,table_id ';
+    public function find_all( $order_type = '',$order_status){
+        $sql = "select * from data_orders ";
+        $where = " where ";
+        $order_types = " order_type = '".$order_type."' and ";
+        $order_statusss = " order_status = ".$order_status;
+        $order_by = " order by order_time desc ";
+        $sql .= $where;
+        if($order_type) {
+            $sql .= $order_types;
         }
-        if( $order_type == self::OUT_ORDER_TYPE || empty( $order_type ) ) ){
-            $sql .= ' ,user_id ';
-        }
-
-        $sql .= $end_sql;
-
+        $sql .= $order_statusss;
+        $sql .= $order_by;
         $result = $this->connection->query( $sql );
 
         return $result->result();

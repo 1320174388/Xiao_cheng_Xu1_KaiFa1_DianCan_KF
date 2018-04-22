@@ -1,12 +1,13 @@
-<view class="tunnel">
-        <view class="tunnel-text uploader-text">
-            <text>修改座号</text><input type='text' placeholder='我是暗提示'/>
-         </view>   
- </view>
-
- <!-- 提交  -->
-    <view class="tunne2">
-      <view class="sure">
-            <text>提交</text>
-        </view>
-    </view>
+<form bindsubmit="formSubmit">
+  <view class="tunnel">
+          <view class="tunnel-text uploader-text">
+              <text>修改座号</text><input name="number" type='text' placeholder='请输入正确座号'/>
+          </view>   
+  </view>
+  <!-- 提交  -->
+  <view class="tunne2">
+      <view class="sure"> 
+        <button formType="submit">提交</button>
+      </view> 
+  </view>
+</form>
