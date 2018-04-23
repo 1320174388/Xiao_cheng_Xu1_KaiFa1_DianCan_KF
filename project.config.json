@@ -37,12 +37,6 @@
 					"name": "后台首页",
 					"pathName": "pages/Admin/index/index",
 					"query": ""
-				},
-				{
-					"id": 1,
-					"name": "power",
-					"pathName": "pages/Admin/Management/updateManage/index",
-					"query": ""
 				}
 			]
 		}

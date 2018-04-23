@@ -63,5 +63,5 @@ button::after{
 /*添加  */
 .tunne2{
   width: 100%;
-  margin-top:50%; 
+  margin-top:100%; 
 }
