@@ -15,6 +15,12 @@ class Role extends CI_Model {
         parent::__construct();
     }
 
+    public function isSystemAdmin(){
+        // 获取管理员信息信息
+        $res = $this->CI->db->get_where('data_home_users',['id'=>1]);
+        return $res->result()[0];
+    }
+
     // 判断数据库是否有这个角色,如果纯在不处理，不存在添加
     public function set_role_exist($roleName,$right)
     {
