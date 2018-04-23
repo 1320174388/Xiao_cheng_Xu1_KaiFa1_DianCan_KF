@@ -91,47 +91,48 @@ Page({
   // form提交
   formSubmitupdate: function (e) {
     // 修改职位
-    var id = wx.getStorageSync('value').id;
-
+    var role_arr = wx.getStorageSync('value');
+    var id = role_arr.id; // 获取id
     wx.removeStorageSync('value');
     var update = this;
     var roleName = e.detail.value.roleName;
-    var value = e.detail.value;
-    delete value["roleName"];
-    var right = [];
-    var i = 0;
-    for (var key in value) {
-      if (value[key] == true) {
-        right[i] = key;
+    var right = e.detail.value;
+    delete right['roleName'];
+    var assync_c = 0;
+    for (var key in right) {
+      if (right[key] == true) {
+        right['right'+assync_c] = key;
       }
-      i++;
+      delete right[key];
+      assync_c++;
     };
-    console.log(this.update_value);
-    console.log(right);
-    console.log(roleName)
+    var arr = []
+    for (var i in right) {
+      arr.push(right[i]); //属性
+      //arr.push(right[i]); //值
+    }
+    console.log(arr);
     wx.request({
       url: config.service.updatePosition,
       data: {
         'token': wx.getStorageSync('token'),
         'roleName': roleName,
-        'right': right,
-        'id':id,
+        'right':arr,
+        'id':id
       },
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
       },
       method: 'POST',
       success: function (res) {
-        if (res.data.retData) {
-          update.setData({
-            arrayList: res.data.retData
-          });
-        };
-
+        // if (res.data.errNum == 0) {
+        //   console.log(res.data);
+        // };
+        console.log(res.data);
       }
-    }),
-      wx.navigateTo({
-        url: "/pages/Admin/Authority/updatePower/index",
-      })
+    })
+    // wx.navigateTo({
+    //   url: "/pages/Admin/Authority/updatePower/index",
+    // })
   }
 })

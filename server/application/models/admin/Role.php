@@ -72,8 +72,9 @@ class Role extends CI_Model {
         $role = $this->CI->db->get_where('data_admin_roles',['id'=>$id]);
         if($role->result()){
             // 查看数据库中是否有这个角色
+            $this->CI->db->trans_start();
             $role_data = $this->CI->db->get_where('data_admin_roles',['role_name'=>$roleName]);
-            if(!$role_data->result()){
+            if( ($roleName == $role_data->result()[0]->role_name ) || !$role_data->result()){
                 // 修改角色名称
                 $this->CI->db->where('id', $id);
                 $res = $this->CI->db->update('data_admin_roles',['role_name'=>$roleName]);
@@ -81,13 +82,22 @@ class Role extends CI_Model {
                 if(($res && $index_row)||$res){
                     $data = [];
                     for($a=0;$a<count($right);$a++){
-                        $data[] = ["role_id"=>$role_id,"right_id"=>$right[$a]];
+                        $data[] = ["role_id"=>$id,"right_id"=>$right[$a]];
                     }
                     $ret = $this->CI->db->insert_batch('index_role_rights',$data);
-                    if($ret){ return 0; }
-                }else{ return 4; }
-            }else{ return 3; }
-        }else{ return 2; }
+                    $this->CI->db->trans_complete();
+                    if($ret){
+                        return 0;
+                    }
+                }else{
+                    return 4;
+                }
+            }else{
+                return 3;
+            }
+        }else{
+            return 2;
+        }
     }
 
     public function getAdminUserRight($openid){

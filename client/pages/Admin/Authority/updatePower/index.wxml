@@ -10,7 +10,6 @@
                 <input hidden name="id" value="{{item.id}}"></input>
                 <input hidden name="roleName" value="{{item.role_name}}"></input>
                 <button class='modify' form-type="submit">修改</button>
-            
             <!-- 删除  -->
                 <button class="remove" data-editid="{{item.id}}" bindtap="deleteClick">删除</button>
             </view>

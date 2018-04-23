@@ -19,7 +19,7 @@
                     <text>{{item.right_name}}</text>
                     <switch class="tunnel-switch" color="	LimeGreen" name="{{item.id}}"/>
                 </view>
-          </view> 
+          </view>
        
     </view>
 

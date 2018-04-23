@@ -17,7 +17,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var value=wx.getStorageSync('value');
+    var value = wx.getStorageSync('value');
+    console.log(value);
     if (value){
         this.setData({update_value:value});
     }
@@ -99,35 +100,40 @@ Page({
     var add = this;
     var roleName=e.detail.value.roleName;
     var value = e.detail.value;
+    console.log(value);
     delete value["roleName"];
-    var right = [];
     var i = 0;
     for (var key in value) {
       if (value[key] == true) {
-        right[i] = key;
+        value['right'+i] = key;
       }
+      delete value[key];
       i++;
-    }  ;
-    console.log(right);
-    console.log(roleName)
+    };
+    var arr = []
+    for (var i in value) {
+      arr.push(value[i]); //属性
+      //arr.push(value[i]); //值
+    }
+    console.log(value);
     wx.request({
       url: config.service.addPosition,
       data: {
         'token': wx.getStorageSync('token'),
         'roleName':roleName,
-        'right':right,
+        'right': arr,
       },
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
       },
       method: 'POST',
       success: function (res) {
-        if (res.data.retData) {
+        if (res.data.errNum == 0) {
           add.setData({
             arrayList: res.data.retData
           });
+          console.log(res.data);
         };
-        
       }
     }),
       wx.navigateTo({
