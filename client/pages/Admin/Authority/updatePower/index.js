@@ -116,13 +116,11 @@ Page({
       },
       method: 'POST',
       success: function (res) {
-        
-        console.log(res);
-          
+        console.log(res.data);
+        wx.navigateTo({
+          url: "/pages/Admin/Authority/updatePower/index",
+        })
       }
-    }),
-    wx.navigateTo({
-      url: "/pages/Admin/Authority/updatePower/index",
     })
   }
     

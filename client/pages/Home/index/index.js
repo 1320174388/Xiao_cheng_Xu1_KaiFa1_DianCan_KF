@@ -11,6 +11,30 @@ Page({
     interval: 5000,
     duration: 1000
   },
+  onLoad: function () {
+    wx.login({
+      success: function (res) {
+        if (res.code) {
+          wx.request({
+            url: config.service.cheshiUrl,
+            header: {
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+            data: {
+              code: res.code
+            },
+            method: 'POST',
+            success: function (res) {
+              console.log(res.data);
+              wx.setStorageSync('token', res.data.retData.token);
+            }
+          })
+        } else {
+          console.log('登录失败' + res.errMsg);
+        };
+      }
+    });
+  },
   maps:function(){
   },
   tell:function(){
@@ -33,29 +57,5 @@ Page({
         })
       }
     })
-  },
-  onLoad:function(){
-    wx.login({
-      success: function (res) {
-        if(res.code){
-          wx.request({
-            url: config.service.cheshiUrl,
-            header: {
-              "Content-Type": "application/x-www-form-urlencoded"
-            },
-            data:{
-              code:res.code
-            },
-            method:'POST',
-            success:function(res){
-              console.log(res.data);
-              wx.setStorageSync('token', res.data.retData.token);
-            }
-          })
-        }else{
-          console.log('登录失败'+res.errMsg);
-        };
-      }
-    });
   }
 })
