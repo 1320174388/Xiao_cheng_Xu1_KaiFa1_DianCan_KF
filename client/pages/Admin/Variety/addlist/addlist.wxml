@@ -1,7 +1,7 @@
-<form bindsubmit="formSubmit" bindreset="formReset">
+<form bindsubmit="formSubmit">
   <view class="section">
     <text>菜品名称</text>
-    <input />
+    <input name="food_name"/>
   </view>
   <view class="section">
     <text>菜品分类</text>
@@ -9,7 +9,7 @@
   </view>
   <view class="section pric">
     <text class='title'>菜品价格</text>
-    <input />
+    <input name="food_price"/>
     <text class='comp'>元</text>
   </view>
   <view class="section">
@@ -18,7 +18,7 @@
   </view>
   <view class="section">
     <text>菜品介绍</text>
-    <textarea></textarea>
+    <textarea name="food_info"></textarea>
   </view>
 
   <view class="pic">
@@ -31,5 +31,8 @@
       </view>
   </view>
 
-  <button class="add">提交</button>
+  <button class="add" formType="submit">提交</button>
 </form>
+
+
+<input type="file"/>

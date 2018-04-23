@@ -72,8 +72,10 @@ Page({
     wx.request({
       url: config.service.editMenu, //仅为示例，并非真实的接口地址
       data: {
-        "token": wx.getStorageSync('token')
-        
+        "token": wx.getStorageSync('token'),
+        "class_id": e.detail.value.class_id,
+        "class_name": e.detail.value.class_name,
+        "class_sort": e.detail.value.class_sort
       },
       header: {
         'content-type': 'application/x-www-form-urlencoded' // 默认值
