@@ -62,6 +62,9 @@ var config = {
         //管理列表：修改管理员信息
         updateAdmin: `${host}/api/admin/isadmin/update`,
 
+        //管理列表：删除管理员
+         delAdmin: `${host}/api/admin/isadmin/delete`,
+
         //菜品管理 删除
         menuRemove: `${host}/api/admin/classfoods/delete`,
 
