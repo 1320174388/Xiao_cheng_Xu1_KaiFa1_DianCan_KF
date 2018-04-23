@@ -74,6 +74,7 @@ class Admin extends CI_Model {
                 return 5;
             }
         }
+        $this->db->trans_start();
         // 修改管理员名称
         $this->CI->db->where('id', $admin_id);
         $res = $this->CI->db->update('data_admin_users',[
@@ -86,6 +87,7 @@ class Admin extends CI_Model {
                 'role_id'  => $role_id
             ]);
         }
+        $this->db->trans_complete();
         if($res && $ret) return 0; else return 6;
     }
 
