@@ -160,25 +160,16 @@ Page({
         'content-type': 'application/x-www-form-urlencoded' // 默认值
       },
       success: function (res) {
-        console.log(res.data)
         wx.navigateTo({
           url: '/pages/Admin/Variety/menu/index'
         })
       }
     })
   },
-  edits:function(e){
-    var i = e.currentTarget.dataset.remid
-    console.log(i)
-    for(var a=0;a>this.data.foodclass.length;a++){
-        if(this.data.foodclass.id==i){
-          console.log(111)
-          console.log(this.data.foodclass.id)
-        }
-    }
-        // wx.navigateTo({
-        //   url: '/pages/Admin/Variety/edit/edit'
-        // })
-    
+  formSubmit:function(e){
+    wx.setStorageSync('key', e.detail.value);
+    wx.navigateTo({
+      url: '/pages/Admin/Variety/edit/edit'
+    })
   }
 })
