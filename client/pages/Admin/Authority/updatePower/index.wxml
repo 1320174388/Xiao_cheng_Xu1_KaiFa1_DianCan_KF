@@ -1,23 +1,18 @@
 <!--总经理 ID:445678  -->
 <view class="tunnel">
-     <view class="tunnel-text uploader-text"  wx:for="{{array}}" wx:key="{{index}}">
+     <view class="list"  wx:for="{{array}}" wx:key="{{index}}">
         <form bindsubmit="formSubmit" >
-            <view class="v1">
-                <text>职位名称:{{item.role_name}}</text>
+            <view class="left">
+                <view>职位名称:{{item.role_name}}</view>
                 <text class="tx1">职位ID:{{item.id}}</text>
             </view>
-            <view class="v2">
-            
-                <view class="tt1">
+            <view class="right">
                 <input hidden name="id" value="{{item.id}}"></input>
                 <input hidden name="roleName" value="{{item.role_name}}"></input>
-                  <button form-type="submit">修改</button>
-                  </view>
+                <button class='modify' form-type="submit">修改</button>
             
-                  <view class="tt2">
-                    <text class="tt3" form-type="submit">删除</text>
-                  </view>
-             
+            <!-- 删除  -->
+                <button class="remove" data-editid="{{item.id}}" bindtap="deleteClick">删除</button>
             </view>
        </form>
    </view>

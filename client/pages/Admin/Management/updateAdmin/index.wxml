@@ -1,0 +1,38 @@
+<form bindsubmit="formSubmit">
+  <view class="tunnel">
+          <view class="tunnel-text uploader-text">
+              <text>用户ID</text>
+              <input name="user_id" placeholder='我是暗提示' value="{{update_value.user_id}}"></input>
+          </view>
+
+          <view class="tunnel-text uploader-text">
+              <text>管理员名称</text>
+              <input name="admin_name" placeholder='我是暗提示' value="{{update_value.admin_name}}"></input>
+              <span>></span>
+          </view>
+
+          <view class="phone_one" bindtap="clickPerson">
+              <view class="tunnel-text uploader-text">
+                <text>管理员职位</text>
+                <span class="phone_personal">{{firstPerson}}</span>
+                <span class="sp">></span>
+              </view> 
+          </view>
+
+          <view class="person_box" wx:for="{{array}}" wx:key="{{index}}">
+              <view class="phone_select" hidden="{{selectPerson}}">
+              <input name="role_id" value="{{item.role_id}}" hidden></input>
+               <view class="select_one" bindtap="mySelect" data-me="{{item.role_name}}">
+                          {{item.role_name}}
+                </view>
+            </view>
+        </view>
+  </view>
+
+  <!--确定  -->
+  <view class="tunne2">
+    <view class="sure">
+      <button formType="submit">确定</button>
+    </view>
+  </view>
+ </form>

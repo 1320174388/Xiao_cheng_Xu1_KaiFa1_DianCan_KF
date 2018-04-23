@@ -48,7 +48,20 @@ var config = {
         updatePosition: `${host}/api/admin/position/update`,
 
         //权限管理：删除职位信息
-        delPosition: `${host}/api/admin/position/delete`
+        delPosition: `${host}/api/admin/position/delete`,
+
+        //管理列表：获取管理员信息
+        getAdmin: `${host}/api/admin/isadmin/show`,
+
+        //管理列表：获取职位信息
+        getPositionInfo: `${host}/api/admin/isadmin/roles`,
+
+        //管理列表：添加管理员
+        addAdmin: `${host}/api/admin/isadmin/create`,
+
+        //管理列表：修改管理员信息
+        updateAdmin: `${host}/api/admin/isadmin/update`,
+
     },
 
     // 订单管理页面路由
@@ -63,6 +76,7 @@ var config = {
 
       // 修改订单座位号
       orderEdit: `${host}/api/admin/order/update_order_info`,
+
     }
 };
 

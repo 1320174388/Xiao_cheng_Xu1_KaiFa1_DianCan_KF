@@ -12,29 +12,6 @@ Page({
     arrayList: null,
     update_value:'',
   },
-    //点击选择类型
-    clickPerson: function () {
-      var selectPerson = this.data.selectPerson;
-      if (selectPerson == true) {
-        this.setData({
-          selectArea: true,
-          selectPerson: false,
-        })
-      } else {
-        this.setData({
-          selectArea: false,
-          selectPerson: true,
-        })
-      }
-    },
-    //点击切换
-    mySelect: function (e) {
-      this.setData({
-        firstPerson: e.target.dataset.me,
-        selectPerson: true,
-        selectArea: false,
-      })
-  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -152,7 +129,10 @@ Page({
         };
         
       }
-    })
+    }),
+      wx.navigateTo({
+        url: "/pages/Admin/Authority/updatePower/index",
+      })
   }
 
 })
