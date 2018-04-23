@@ -11,7 +11,9 @@ Page({
     showModalStatus: "hide",
     datas: null,
     host:null,
-    foodclass:null
+    foodclass:null,
+    foodInfo:null,
+    edits:null
   },
 
   /**
@@ -33,7 +35,6 @@ Page({
           THIS.setData({
             foodclass: res.data.retData
           })
-          console.log(res.data.retData);
         }
       }
     }),
@@ -118,7 +119,12 @@ Page({
       })
     }
   },
-  infomation:function(){
+  infomation:function(e){
+    var i = e.detail.value.attr
+    this.setData({
+      host: config.service.host,
+      foodInfo:this.data.datas[i]
+    })
     var THIS = this
     setTimeout(function () { 
       THIS.setData({
@@ -140,5 +146,39 @@ Page({
     wx.navigateTo({
       url: "/pages/Admin/Variety/addlist/addlist"
     })
+  },
+  removes:function(e){
+    var i = e.currentTarget.dataset.remid;
+    wx.request({
+      url: config.service.menuRemove, //仅为示例，并非真实的接口地址
+      data: {
+        "token": wx.getStorageSync('token'),
+        "class_id":i
+      },
+      method:'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      success: function (res) {
+        console.log(res.data)
+        wx.navigateTo({
+          url: '/pages/Admin/Variety/menu/index'
+        })
+      }
+    })
+  },
+  edits:function(e){
+    var i = e.currentTarget.dataset.remid
+    console.log(i)
+    for(var a=0;a>this.data.foodclass.length;a++){
+        if(this.data.foodclass.id==i){
+          console.log(111)
+          console.log(this.data.foodclass.id)
+        }
+    }
+        // wx.navigateTo({
+        //   url: '/pages/Admin/Variety/edit/edit'
+        // })
+    
   }
 })

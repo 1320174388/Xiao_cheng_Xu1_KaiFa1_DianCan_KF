@@ -62,6 +62,15 @@ var config = {
         //管理列表：修改管理员信息
         updateAdmin: `${host}/api/admin/isadmin/update`,
 
+        //菜品管理 删除
+        menuRemove: `${host}/api/admin/classfoods/delete`,
+
+        //添加菜品分类
+        addMenu: `${host}/api/admin/classfoods/create`,
+
+        //修改菜品分类
+        editMenu: `${host}/api/admin/classfoods/create`
+
     },
 
     // 订单管理页面路由
@@ -76,7 +85,7 @@ var config = {
 
       // 修改订单座位号
       orderEdit: `${host}/api/admin/order/update_order_info`,
-
+      
     }
 };
 

@@ -5,7 +5,7 @@
   display: flex;
   align-items: center;
   background: #fff;
-  line-height: 2;
+  line-height: 2.5;
   padding:0 20rpx;
   border-bottom:2rpx solid #eee;
 }
@@ -13,11 +13,11 @@
   display: block;
   width:25%;
   font-size:35rpx;
-  line-height: 2;
+  line-height: 2.5;
 }
 .list input{
   width:80%;
-  height: 80rpx;
+  height: 100rpx;
 }
 .submit{
   position: fixed;
