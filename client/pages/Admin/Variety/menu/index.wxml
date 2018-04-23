@@ -9,8 +9,8 @@
                 <text>序号：{{item.class_sort}}</text>
             </view>
             <view class='right'>
-                  <button class='modify' attr="{{item.id}}">修改</button>
-                  <button class='remove' attr="{{item.id}}">删除</button>
+                  <button class='modify' data-remid="{{item.id}}" bindtap='edits'>修改</button>
+                  <button class='remove' data-remid="{{item.id}}" bindtap='removes'>删除</button>
             </view>
       </view>
       <button class='add' bindtap='adds'>添加</button>
@@ -27,15 +27,18 @@
             <view class='info'>
                 <view class='title'>
                     <view class='name'>{{item.food_name}}</view>
-                    <view class='xiangq' bindtap='infomation'>详情>></view>
+                    <form bindsubmit="infomation">
+                        <button  form-type="submit" class='xiangq'>详情</button> 
+                        <input hidden value='{{index}}' name="attr"/>
+                    </form>
                 </view>
                 <text class='num'>库号：{{item.id}}</text>
-                <view class='price'>￥99：00</view>
+                <view class='price'>￥{{item.food_price}}</view>
             </view>
         </view>
         <view class='right'>
-            <button class='modify'>修改</button>
-            <button class='remove'>删除</button>
+            <button class='modify' attr="{{index}}">修改</button>
+            <button class='remove' attr="{{index}}">删除</button>
         </view>
     </view>
     <button class='add' bindtap='cates'>添加</button>
@@ -49,17 +52,17 @@
 
               <view class='contents'>
                     <view class='top'>
-                        <image src='/icon/cai1.jpg'></image>
+                        <image src='{{host}}{{foodInfo.food_img}}'></image>
                         <view class='info'>
-                            <text>菜品分类一</text>
-                            <text class='num'>序号：1</text>
-                            <text class='price'>￥99：00</text>
+                            <text>{{foodInfo.food_name}}</text>
+                            <text class='num'>序号：{{foodInfo.food_sort}}</text>
+                            <text class='price'>￥{{foodInfo.food_price}}</text>
                         </view>
                     </view>
 
-                    <view class='bottom'>菜品排序：<text>123</text></view>
+                    <view class='bottom'>菜品排序：<text>{{foodInfo.food_sort}}</text></view>
                     <view class='introduce bottom'>菜品介绍：
-                        <text>d啊哒哒哒大大大大刘嘀嘀嘀嘀嘀滴滴滴</text>
+                        <text>{{foodInfo.food_info}}</text>
                     </view>
               </view>
           </view>

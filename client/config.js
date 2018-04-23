@@ -48,7 +48,16 @@ var config = {
         updatePosition: `${host}/api/admin/position/update`,
 
         //权限管理：删除职位信息
-        delPosition: `${host}/api/admin/position/delete`
+        delPosition: `${host}/api/admin/position/delete`,
+
+        //菜品管理 删除
+        menuRemove: `${host}/api/admin/classfoods/delete`,
+
+        //添加菜品分类
+        addMenu: `${host}/api/admin/classfoods/create`,
+
+        //修改菜品分类
+        editMenu: `${host}/api/admin/classfoods/create`
     }
 };
 

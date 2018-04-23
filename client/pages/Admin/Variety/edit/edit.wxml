@@ -1,0 +1,14 @@
+<view class='box'>
+<form bindsubmit="formSubmit">
+    <view class='list'>
+        <text>分类名称</text>
+        <input name="class_name" value=""/>
+    </view>
+     <view class='list'>
+        <text>分类排序</text>
+        <input name="class_sort" value=""/>
+    </view>
+    <button class='submit' formType='submit'>提交</button>
+    </form>
+</view>
+

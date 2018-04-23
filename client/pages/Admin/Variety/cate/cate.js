@@ -63,5 +63,26 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+  formSubmit:function(e){
+    var name= e.detail.value.class_name;
+    var sort= e.detail.value.class_sort
+    wx.request({
+      url: config.service.addMenu, //仅为示例，并非真实的接口地址
+      data: {
+        "token": wx.getStorageSync('token'),
+        "class_name":name,
+        "class_sort":sort
+      },
+      method:'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      success: function (res) {
+        wx.navigateTo({
+          url: '/pages/Admin/Variety/menu/index'
+        })
+      }
+    })
   }
 })
