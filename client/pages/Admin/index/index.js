@@ -23,10 +23,12 @@ Page({
       },
       method:'POST',
       success: function (res) {
+      console.log(res.data)
         if(res.data.errNum==0){
           THIS.setData({
             datas: res.data.retData
           })
+          
         }
       }
     }) 
