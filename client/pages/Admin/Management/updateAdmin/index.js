@@ -6,12 +6,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    selectPerson:true,
-    firstPerson: '暗提示',
-    selectArea: false,
+    update_value: '',
+    array:'',
   },
-  //点击选择类型
-  clickPerson: function () {
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
     var THIS = this
     wx.request({
       url: config.service.getPositionInfo,
@@ -31,33 +33,6 @@ Page({
         console.log(res.data);
       }
     });
-
-    var selectPerson = this.data.selectPerson;
-    if (selectPerson == true) {
-      this.setData({
-        selectArea: true,
-        selectPerson: false,
-      })
-    } else {
-      this.setData({
-        selectArea: false,
-        selectPerson: true,
-      })
-    }
-  },
-  //点击切换
-  mySelect: function (e) {
-    this.setData({
-      firstPerson: e.target.dataset.me,
-      selectPerson: true,
-      selectArea: false,
-    })
-  },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
   },
 
   /**
@@ -107,5 +82,52 @@ Page({
    */
   onShareAppMessage: function () {
   
-  }
+  },
+
+  // form提交
+  formSubmit: function (e) {
+    // 修改职位
+    var role_arr = wx.getStorageSync('value');
+    var id = role_arr.id; // 获取id
+    wx.removeStorageSync('value');
+    var update = this;
+    var roleName = e.detail.value.roleName;
+    var right = e.detail.value;
+    delete right['roleName'];
+    var assync_c = 0;
+    for (var key in right) {
+      if (right[key] == true) {
+        right['right' + assync_c] = key;
+      }
+      delete right[key];
+      assync_c++;
+    };
+    var arr = []
+    for (var i in right) {
+      arr.push(right[i]); //属性
+      //arr.push(right[i]); //值
+    }
+    console.log(arr);
+    wx.request({
+      url: config.service.updatePosition,
+      data: {
+        'token': wx.getStorageSync('token'),
+        'roleName': roleName,
+        'right': arr,
+        'id': id
+      },
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      method: 'POST',
+      success: function (res) {
+        // if (res.data.errNum == 0) {
+        //   console.log(res.data);
+        // };
+        console.log(res.data);
+      }
+    })
+    // wx.navigateTo({
+    //   url: "/pages/Admin/Authority/updatePower/index",
+    // })
 })

@@ -1,29 +1,4 @@
- .phone_personal{
-  width: 100%;
-  color:grey;
-  height:100rpx;
-  text-align: center;
-  font-family:"LiHei Pro Medium ",儷黑 Pro;
-  font-size: 15px;
-  margin-left: 30px;
-} 
- 
- .phone_select{
-  margin-top:0;
-  z-index: 100;
-  position: absolute;
-  right:-3px;
-} 
-.person_box{
-  padding: 0px;
-}
- .select_one{
-  background-color:rgb(239, 239, 239);
-  width:320px;
-  height:100rpx;
-  line-height:100rpx;
-  border-bottom:2rpx solid rgb(255, 255, 255);
-} 
+
 /*背景色  */
 page {
     background: #F6F6F6;
@@ -37,7 +12,7 @@ input{
 /* 列表布局 */
 .tunnel{
     margin-top: 40rpx;
-    height: 220rpx;
+    height: 110rpx;
     width: 100%;
     background: #FFF;
     padding-left: 20px;
@@ -81,9 +56,6 @@ input{
     height: 110rpx;
     width: 100%;
     background: #FFF;
-    border: 1px solid rgba(0, 0, 0, .1);
-    border-left: none;
-    border-right: none;
     display: flex;
     align-items: center;
     font-family:"LiHei Pro Medium ",儷黑 Pro;
@@ -135,4 +107,8 @@ input{
     font-size: 35rpx;
     font-family:"LiHei Pro Medium ",儷黑 Pro;
     text-align: center;
+}
+.but{
+  background:lightseagreen;
+  color: #FFF;
 }

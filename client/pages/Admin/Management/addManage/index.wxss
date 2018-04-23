@@ -58,6 +58,7 @@ span{
     font-size: 35rpx;
     font-family:"LiHei Pro Medium ",儷黑 Pro;
     text-align: center;
+    background: lightseagreen;
 }
 
 .uploader-text2, .tunnel-text2 {
@@ -84,16 +85,25 @@ span{
 .choose{
     width: 100%;
     font-size: 35rpx;
-    text-align: center;
     color: #222;
     font-family:"LiHei Pro Medium ",儷黑 Pro;
     background-color: #FFF;
-    flex-direction: row;
-    align-content: center;
-    justify-content: space-between;
-
+    padding-left: 20px;
 }
-
+.chooseText{
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
+  line-height: 15px;
+  padding-bottom: 10px;
+}
+.tunnel-switch{
+  float: right;
+  position: relative;
+  right: 30px;
+}
+.but{
+  background:lightseagreen;
+  color: #FFF;
+}
 
 
 

@@ -7,6 +7,10 @@ Page({
    */
   data: {
     array: null,
+    admin_id:null,
+    admin_name:null,
+    role_id:null,
+
   },
 
   /**
@@ -90,8 +94,9 @@ Page({
   },
 
   //修改
-  editUpdate: function (e) {
+  addSubmit: function (e) {
     wx.setStorageSync('value', e.detail.value);
+    console.log('value');
     wx.navigateTo({
       url: '/pages/Admin/Management/updateAdmin/index',
     })

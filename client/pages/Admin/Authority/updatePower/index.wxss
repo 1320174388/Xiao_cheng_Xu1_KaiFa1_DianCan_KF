@@ -37,6 +37,16 @@
   background: #fff;
   border-radius: none;
 }
+button::after{
+  border-right: none;
+  border-top: none;
+}
+.modify{
+  color: skyblue;
+}
+.remove{
+  color: red;
+}
 /*管理员名称  */
 /* .tunnel{
     margin-top: 40rpx;

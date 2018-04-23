@@ -1,11 +1,9 @@
 <form bindsubmit="formSubmit">
   <view class="tunnel">
           <view class="tunnel-text uploader-text">
-              <text>职位名称</text>
-
-              <input name="roleName" placeholder='我是暗提示' value="{{update_value.roleName}}"></input>  
-              
-                  <span class="sp">></span>
+            <text>职位名称</text>
+            <input name="roleName" placeholder='我是暗提示' value="{{update_value.roleName}}"></input>  
+            <span class="sp">></span>
           </view>
   </view>
 
@@ -14,8 +12,9 @@
           <text class="pow-tx">选择权限</text>
           <!-- 店铺管理 -->
          
+          
           <view class="tunne2"  wx:for="{{array}}" wx:key="{{index}}">
-                <view class="tunnel-text2 uploader-text2">
+               <view class="tunnel-text2 uploader-text2">
                     <text>{{item.right_name}}</text>
                     <switch class="tunnel-switch" color="	LimeGreen" name="{{item.id}}"/>
                 </view>
@@ -27,7 +26,7 @@
 <!-- 按钮 -->
     <view class="tunne4">
       <view class="sure">
-            <button class="but" formType="submit">添加</button>
+            <button class="but" formType="submit">按钮</button>
         </view>
     </view>
  </form>
