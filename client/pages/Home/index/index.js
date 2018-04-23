@@ -12,7 +12,6 @@ Page({
     duration: 1000
   },
   maps:function(){
-    console.log(1)
   },
   tell:function(){
     wx.makePhoneCall({
