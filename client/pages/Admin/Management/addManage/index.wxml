@@ -21,7 +21,7 @@
   </view>
   <view class="choose">
       <radio-group class="radio-group" bindchange="radioChange" name="role_id">
-           <view wx:for="{{array}}" wx:key="{{index}}">
+           <view wx:for="{{array}}" wx:key="{{index}}"  class="chooseText">
                 <view>
                     <text bindtap="mySelect" data-me="{{item.role_name}}">
                               {{item.role_name}}</text>
@@ -34,7 +34,7 @@
   <!--确定  -->
   <view class="tunne2">
     <view class="sure">
-      <button formType="submit">确定</button>
+      <button class="but" formType="submit">确定</button>
     </view>
   </view>
  </form>
