@@ -96,7 +96,7 @@ Page({
   //修改
   addSubmit: function (e) {
     wx.setStorageSync('value', e.detail.value);
-    console.log('value');
+    console.log(e.detail.value);
     wx.navigateTo({
       url: '/pages/Admin/Management/updateAdmin/index',
     })
@@ -104,28 +104,25 @@ Page({
   },
 
   //删除
-
   deleteClick: function (event) {
     var user_id = event.currentTarget.dataset.editid;
     console.log(user_id);
     wx.request({
-      url: config.service.delPosition,
+      url: config.service.delAdmin,
       data: {
-        'token': wx.getStorageSync('token'),
-        'user_id': user_id
+        'token':wx.getStorageSync('token'),
+        'admin_id':user_id
       },
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
       },
       method: 'POST',
       success: function (res) {
-
         console.log(res);
-
       }
     }),
       wx.navigateTo({
-        url: "/pages/Admin/Authority/updatePower/index",
+      url: "/pages/Admin/Management/updateManage/index",
       })
   }
 })

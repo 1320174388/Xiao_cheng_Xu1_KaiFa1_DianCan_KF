@@ -1,24 +1,24 @@
 <!--职位  -->
-<form bindsubmit="addSubmit">
+
   <view class="tunnel">
         <view class="list"  wx:for="{{array}}" wx:key="{{index}}">
-
+<form bindsubmit="addSubmit">
           <view class="left">
               <view>管理员名称：{{item.admin_name}}</view>
               <text class="tx1">职位：{{item.role_name}}</text>
             </view>
 
           <view class="right">
-                <input hidden name="admin_id" value="{{item.admin_id}}"></input>
+                <input hidden name="id" value="{{item.id}}"></input>
                 <input hidden name="admin_name" value="{{item.admin_name}}"></input>
-                <input hidden name="role_id" value="{{item.role_id}}"></input>
                 <button class='modify' form-type="submit">修改</button>
             <!-- 删除  -->
                 <button class="remove" data-editid="{{item.id}}" bindtap="deleteClick">删除</button>
-            </view>
-        </view>
-    </view>
+          </view>
 </form>
+        </view>
+  
+</view> 
 
 <!--添加  -->
 <view class="tunne2">

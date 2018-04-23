@@ -1,13 +1,9 @@
 <form bindsubmit="formSubmit">
   <view class="tunnel">
+  <input hidden name="admin_id" value="{{admin_value.id}}"></input>
           <view class="tunnel-text uploader-text">
-              <text>用户ID</text>
-              <input name="user_id" placeholder='我是暗提示' value="{{update_value.user_id}}"></input>
-          </view>
-
-          <view class="tunnel-text uploader-text">
-              <text>管理员名称</text>
-              <input name="admin_name" placeholder='我是暗提示' value="{{update_value.admin_name}}"></input>
+              <text>管理员名称:</text>
+              <input name="admin_name" value="{{admin_value.admin_name}}"></input>
               <span>></span>
           </view>
 
@@ -20,7 +16,7 @@
           </view>
   </view>
   <view class="choose">
-      <radio-group class="radio-group" bindchange="radioChange" name="role_id">
+      <radio-group class="radio-group" bindchange="radioChange"  name="role_id">
            <view wx:for="{{array}}" wx:key="{{index}}"  class="chooseText">
                 <view>
                     <text bindtap="mySelect" data-me="{{item.role_name}}">

@@ -9,50 +9,7 @@ Page({
     firstPerson: '暗提示',
     array: '',
   },
-  //点击选择类型
-  // clickPerson: function () {
-  //   var THIS = this
-  //   wx.request({
-  //     url: config.service.getPositionInfo,
-  //     data: {
-  //       'token': wx.getStorageSync('token')
-  //     },
-  //     header: {
-  //       "Content-Type": "application/x-www-form-urlencoded"
-  //     },
-  //     method: 'POST',
-  //     success: function (res) {
-  //       if (res.data.retData) {
-  //         THIS.setData({
-  //           array: res.data.retData.list
-  //         });
-  //       };
-  //       console.log(res.data);
-  //     }
-  //   });
-
-  //   var selectPerson = this.data.selectPerson;
-  //   if (selectPerson == true) {
-  //     this.setData({
-  //       selectArea: true,
-  //       selectPerson: false,
-  //     })
-  //   } else {
-  //     this.setData({
-  //       selectArea: false,
-  //       selectPerson: true,
-  //     })
-  //   }
-  // },
-  // //点击切换
-  // mySelect: function (e) {
-  //   this.setData({
-  //     firstPerson: e.target.dataset.me,
-  //     selectPerson: true,
-  //     selectArea: false,
-  //   })
-  // },
-
+  
   /**
    * 生命周期函数--监听页面加载
    */
@@ -156,6 +113,11 @@ Page({
           add.setData({
             arrayList: res.data.retData
           });
+        // 地址跳转
+        wx.navigateTo({
+          url: '/pages/Admin/Management/updateManage/index',
+        })
+
         };
 
       }
