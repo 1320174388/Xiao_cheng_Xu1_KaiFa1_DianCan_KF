@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    order_id:''
   },
   formSubmit:function(e){
     wx.request({
@@ -16,7 +16,8 @@ Page({
       },
       data: {
         'token': wx.getStorageSync('token'),
-        'id': wx.getStorageSync('order_id'),
+        'id': e.detail.value.id,
+        //'id': wx.getStorageSync('order_id'),
         'table_id' : e.detail.value.number
       },
       method: 'POST',
@@ -37,7 +38,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    this.setData({
+      'order_value': wx.getStorageSync('order_id'),
+    });
+    wx.removeStorageSync('order_value');
   },
 
   /**

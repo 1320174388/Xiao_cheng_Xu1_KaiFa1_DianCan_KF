@@ -12,12 +12,17 @@ input{
 /* 列表布局 */
 .tunnel{
     margin-top: 40rpx;
-    height: 360rpx;
+    height: 120rpx;
     width: 100%;
     background: #FFF;
     padding-left: 20px;
+    
 }
-
+.phone_one{
+  width: 100%;
+  background: #FFF;
+  
+}
 .uploader-text, .tunnel-text {
     width: 100%;
     line-height: 50px;
@@ -30,6 +35,7 @@ input{
     color: #222;
     border-bottom: 1px solid rgba(0, 0, 0, .1);
 }
+
 /*下拉选项  */
 span{
   position: absolute;
@@ -42,7 +48,7 @@ span{
   right:15px;
   font-size: 25px;
   color:gainsboro;
-  top:120px;
+  top:68px;
 }
 /*确定  */
 .tunne2{
@@ -60,27 +66,6 @@ span{
     text-align: center;
 }
 
-.uploader-text2, .tunnel-text2 {
-    width: 100%;
-    font-size: 35rpx;
-    text-align: center;
-    color: #222;
-    font-family:"LiHei Pro Medium ",儷黑 Pro;
-    background-color: #FFF;
-    flex-direction: row;
-    align-content: center;
-    justify-content: space-between;
-}
-.tunnel-text2 {
-    position: relative;
-    color: #222;
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    justify-content: space-between;
-    box-sizing: border-box;
-    border-top: 1px solid rgba(0, 0, 0, .1);
-}
 .choose{
     width: 100%;
     font-size: 35rpx;
@@ -88,11 +73,12 @@ span{
     font-family:"LiHei Pro Medium ",儷黑 Pro;
     background-color: #FFF;
     padding-left: 20px;
+    margin-top:0px;
 }
 .chooseText{
   border-bottom: 1px solid rgba(0, 0, 0, .1);
-  line-height: 15px;
-  padding-bottom: 10px;
+  line-height: 20px;
+  padding-top: 30px;
 }
 .tunnel-switch{
   float: right;

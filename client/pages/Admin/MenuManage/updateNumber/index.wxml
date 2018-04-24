@@ -1,8 +1,10 @@
 <form bindsubmit="formSubmit">
   <view class="tunnel">
-          <view class="tunnel-text uploader-text">
-              <text>修改座号</text><input name="number" type='text' placeholder='请输入正确座号'/>
-          </view>   
+  <input hidden name="id" value="{{order_value.order_id}}"></input>
+      <view class="tunnel-text uploader-text">
+        <text>修改座号</text><input name="number" type='text' 
+          placeholder='请输入正确座号' value="{{order_value.table_id}}"/>
+      </view>   
   </view>
   <!-- 提交  -->
   <view class="tunne2">

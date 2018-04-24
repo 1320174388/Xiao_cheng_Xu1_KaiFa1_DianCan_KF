@@ -1,18 +1,23 @@
 // pages/Admin/MenuManage/updateCity/index.js
+var config = require('../../../../config');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    order_value:'',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.setData({
+      'order_value': wx.getStorageSync('order_value'),
+    });
+    wx.removeStorageSync('order_value');
+    
   },
 
   /**
@@ -62,5 +67,29 @@ Page({
    */
   onShareAppMessage: function () {
   
-  }
+  },
+  // 修改地址
+  formSubmit:function(e){
+   console.log(e);
+    wx.request({
+      url: config.order.orderEdit,
+      data: {
+        'token': wx.getStorageSync('token'),
+        'order_addr': e.detail.value.order_addr,//wxml中name的值
+        // 'id'是wxml中的name的值,不管或不获取id都必须传id
+        'id': e.detail.value.id
+
+      },
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      method: 'POST',
+      success: function (res) {
+        console.log(res.data);
+      }
+    }),
+      wx.navigateTo({
+      url: "/pages/Admin/MenuManage/orderManage/index",
+      })
+ }
 })

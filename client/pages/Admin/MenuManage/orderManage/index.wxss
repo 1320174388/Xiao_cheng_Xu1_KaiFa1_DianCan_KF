@@ -108,6 +108,14 @@ page{
   justify-content: center;
   align-items: stretch;
 }
+.textHidden{
+   /* 超出一行文字自动隐藏 */
+  overflow:hidden;  
+   /* //文字隐藏后添加省略号 */
+  text-overflow:ellipsis; 
+   /* //强制不换行 */
+  white-space:nowrap;  
+}
 /*表格单元格设置  */
 .flex-cell{
   flex: 1;

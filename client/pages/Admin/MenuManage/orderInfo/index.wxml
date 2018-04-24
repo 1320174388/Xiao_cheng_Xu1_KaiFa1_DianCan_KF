@@ -3,7 +3,7 @@
         <!-- 菜品名称 -->
         <view wx:for="{{order_info}}" wx:key="{{index}}" class="tunne2">
               <view class="tunnel-text2 uploader-text2">
-                  <image src='/icon/menu.jpg'></image>
+                  <image src='{{host}}{{item.food_img}}'></image>
                   <text class="menu">{{item.food_name}}</text>
                   <text class="tunnel-switch"><text style="color:lightgray">数量：{{item.food_number}}</text> ￥{{item.order_price}}</text>
               </view>

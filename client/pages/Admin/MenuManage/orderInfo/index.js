@@ -8,7 +8,8 @@ Page({
   data: {
     order_info:null,
     order_num:null,
-    order_print:null
+    order_print:null,
+    host: config.service.host
   },
 
   /**
@@ -28,6 +29,7 @@ Page({
       method: 'POST',
       success: function (res) {
         console.log(res.data.retData);
+        console.log(res.data.retData.order_info);
         if(res.data.errNum == 1){
           THIS.setData({
             order_info: res.data.retData.order_info,

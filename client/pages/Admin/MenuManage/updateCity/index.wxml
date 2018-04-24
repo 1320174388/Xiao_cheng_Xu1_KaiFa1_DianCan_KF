@@ -1,16 +1,17 @@
+<form bindsubmit="formSubmit">
 <view class="tunnel">
-        <view class="tunnel-text uploader-text">
-            <text>地区</text><input type='text' placeholder='我是暗提示'/><span>></span>
-        </view>
-
+<!-- {{order_value.order_id}}中的order_id是在跳转页面data-order_id="{{item.order_number}}" 中的order_id -->
+         <input hidden name="id" value="{{order_value.order_id}}"></input>
          <view class="tunnel-text1 uploader-text1">
-            <text>详细地址</text><input type='text' placeholder='暗提示'/>
+          <text>详细地址</text><input type='text' placeholder='暗提示' name="order_addr" 
+            value="{{order_value.order_addr}}"/>
         </view>
 </view>
 
  <!-- 提交  -->
     <view class="tunne2">
       <view class="sure">
-            <text>提交</text>
+            <button formType="submit">提交</button>
         </view>
     </view>
+</form>
