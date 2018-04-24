@@ -15,7 +15,30 @@ Page({
     foodInfo:null,
     edits:null
   },
-
+  delfoods:function(e){
+    var THIS = this;
+    wx.request({
+      url: config.foods.delete, //仅为示例，并非真实的接口地址
+      data: {
+        "token": wx.getStorageSync('token'),
+        'id':e.currentTarget.dataset.id
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      method: 'POST',
+      success: function (res) {
+        if (res.data.errNum == 0) {
+          THIS.setData({
+            foodclass: res.data.retData
+          });
+          wx.navigateTo({
+            url: '/pages/Admin/Variety/menu/index',
+          });
+        }
+      }
+    });
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -37,25 +60,25 @@ Page({
           })
         }
       }
-    }),
-      wx.request({
-        url: config.service.foodsList, //仅为示例，并非真实的接口地址
-        data: {
-          "token": wx.getStorageSync('token')
-        },
-        header: {
-          'content-type': 'application/x-www-form-urlencoded' // 默认值
-        },
-        method: 'POST',
-        success: function (res) {
-          if (res.data.errNum == 0) {
-            THIS.setData({
-              host:config.service.host,
-              datas: res.data.retData
-            })
-          }
+    });
+    wx.request({
+      url: config.service.foodsList, //仅为示例，并非真实的接口地址
+      data: {
+        "token": wx.getStorageSync('token')
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      method: 'POST',
+      success: function (res) {
+        if (res.data.errNum == 0) {
+          THIS.setData({
+            host:config.service.host,
+            datas: res.data.retData
+          })
         }
-      })
+      }
+    });
   },
 
   /**

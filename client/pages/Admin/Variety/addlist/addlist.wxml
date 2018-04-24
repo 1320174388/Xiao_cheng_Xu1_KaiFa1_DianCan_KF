@@ -5,11 +5,11 @@
   </view>
   <view class="section">
     <text>选择分类</text>
-    <picker-view indicator-style="width:100%; height:40px;" style="width:50%; height:40px;" name="class_id" >
-      <picker-view-column>
-        <view wx:for="{{classlist}}" wx:key="{{index}}" style="line-height: 40px">{{item.class_name}}</view>
-      </picker-view-column>
-    </picker-view>
+    <radio-group class="radio-group" name="class_id" >
+      <label class="radio" wx:for="{{classlist}}" wx:key="{{index}}">
+        <radio value="{{item.id}}" />{{item.class_name}}
+      </label>
+    </radio-group>
   </view>
   <view class="section pric">
     <text class='title'>菜品价格</text>
@@ -24,13 +24,11 @@
     <text>菜品介绍</text>
     <textarea name="food_info"></textarea>
   </view>
-
   <view class="pic">
       <view>菜品图片</view>
       <view class='uploads'>
-        <image bindtap="image" src='/icon/uppic.png'></image>
+        <image bindtap="image" src='{{image_url}}'></image>
       </view>
   </view>
-
   <button class="add" formType="submit">提交</button>
 </form>

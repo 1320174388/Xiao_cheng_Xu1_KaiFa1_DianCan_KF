@@ -7,8 +7,37 @@ Page({
    */
   data: {
     productInfo: {},
-    image_url: null,
+    image_url: '/icon/uppic.png',
     classlist:null
+  },
+  // 表单提交事件
+  formSubmit:function(e){
+    var This = this;
+    wx.uploadFile({
+      url: config.foods.create, //仅为示例，并非真实的接口地址
+      filePath: This.data.image_url,
+      name: "food_img",
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      formData: {
+        "token": wx.getStorageSync('token'),
+        "food_name": e.detail.value.food_name,
+        "class_id": e.detail.value.class_id,
+        "food_price": e.detail.value.food_price,
+        "food_sort": e.detail.value.food_sort,
+        "food_info": e.detail.value.food_info,
+      },
+      method: 'POST',
+      success: function (res) {
+        var data = JSON.parse(res.data);
+        if (data.errNum == 0) {
+          wx.navigateTo({
+            url: '/pages/Admin/Variety/menu/index',
+          })
+        }
+      },
+    });
   },
 
   /**
