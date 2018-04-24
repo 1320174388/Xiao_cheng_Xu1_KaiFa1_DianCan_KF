@@ -83,10 +83,10 @@ var config = {
       // 获取订单列表信息
       orderList: `${host}/api/admin/order/get_order_list_by_type`,
 
-      // 修改订单座位号
+      // 订单详情
       orderInfo: `${host}/api/admin/order/get_order_info_by_id`,
 
-      // 修改订单座位号
+      // 修改订单
       orderEdit: `${host}/api/admin/order/update_order_info`,
     },
 

@@ -18,7 +18,7 @@
             <text class="flex-cell1 flex-row1">用户ID</text>
             <text class="flex-cell2 flex-row2">{{item.user_id}}</text>
             <text class="flex-cell3 flex-row3">备注</text>
-            <text class="flex-cell4 flex-row4">{{item.order_remarks}}</text>
+            <text type="text" class="flex-cell4 flex-row4 textHidden">{{item.order_remarks}}</text>
         </view>
         <view class="flex-row flex-cell">
             <text class="flex-cell1 flex-row1">座号</text>
@@ -30,7 +30,8 @@
             <text class="flex-cell1 flex-row5">操作</text>
             <text data-order_id="{{item.id}}" bindtap="orderinfo" class="flex-cell2 flex-row6">详情</text>
             <text class="flex-cell3 flex-row"></text>
-            <text data-order_id="{{item.order_number}}" bindtap="updateorder" class="flex-cell4 flex-row7">修改</text>
+            <text data-order_id="{{item.order_number}}" data-table_id="{{item.table_id}}" 
+             bindtap="updateorder" class="flex-cell4 flex-row7">修改</text>
         </view>
     </view>
 </view>  
@@ -49,11 +50,11 @@
             <text class="flex-cell1 flex-row1">用户ID</text>
             <text class="flex-cell2 flex-row2">{{item.user_id}}</text>
             <text class="flex-cell3 flex-row3">备注</text>
-            <text class="flex-cell4 flex-row4">{{item.order_remarks}}</text>
+            <text class="flex-cell4 flex-row4 textHidden">{{item.order_remarks}}</text>
         </view>
         <view class="flex-row flex-cell">
             <text class="flex-cell1 flex-row1">地址</text>
-            <text class="flex-cell2 flex-row2">{{item.order_addr}}号桌</text>
+            <text class="flex-cell2 flex-row2">{{item.order_addr}}</text>
             <text class="flex-cell3 flex-row3">下单时间</text>
             <text class="flex-cell4 flex-row4">{{item.order_time}}</text>
         </view>
@@ -61,7 +62,7 @@
             <text class="flex-cell1 flex-row5">操作</text>
             <text data-order_id="{{item.id}}" bindtap="orderinfo" class="flex-cell2 flex-row6">详情</text>
             <text class="flex-cell3 flex-row"></text>
-            <text data-order_id="{{item.order_number}}" bindtap="updateorderaddr" class="flex-cell4 flex-row7">修改</text>
+            <text data-order_id="{{item.order_number}}" data-order_addr="{{item.order_addr}}"  bindtap="updateorderaddr" class="flex-cell4 flex-row7">修改</text>
         </view>
     </view>
 </view>  
@@ -79,7 +80,7 @@
         <view class="flex-row flex-cell">
             <text class="flex-cell1 flex-row1">用户ID</text>
             <text class="flex-cell2 flex-row2">{{item.user_id}}</text>
-            <text class="flex-cell3 flex-row3">备注</text>
+            <text class="flex-cell3 flex-row3 textHidden">备注</text>
             <text class="flex-cell4 flex-row4">{{item.order_remarks}}</text>
         </view>
         <view class="flex-row flex-cell">

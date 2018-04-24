@@ -20,20 +20,22 @@ Page({
       url: '/pages/Admin/MenuManage/orderInfo/index',
     })
   },
+  // 修改座号
   updateorder:function(e){
-    wx.setStorageSync('order_id', e.currentTarget.dataset.order_id);
+    wx.setStorageSync('order_id', e.currentTarget.dataset);
+    console.log(e.currentTarget.dataset);
     wx.navigateTo({
       url: '/pages/Admin/MenuManage/updateNumber/index',
     })
   },
   // 修改地址
   updateorderaddr:function(e){
-    wx.setStorageSync('order_id', e.currentTarget.dataset.order_id);
+   wx.setStorageSync('order_value', e.currentTarget.dataset);
     wx.navigateTo({
       url: '/pages/Admin/MenuManage/updateCity/index',
     })
   },
-  // 修改座号
+  
   navbarTap: function (e) {
     this.setData({
       currentTab: e.currentTarget.dataset.idx
