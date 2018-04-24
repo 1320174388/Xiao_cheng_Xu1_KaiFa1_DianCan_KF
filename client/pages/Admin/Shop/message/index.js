@@ -1,3 +1,4 @@
+var config = require('../../../../config.js');
 // pages/Admin/message/index.js
 Page({
 
@@ -5,86 +6,95 @@ Page({
    * 页面的初始数据
    */
   data: {
-    shop_value:null
+    shop_value:null,
+    image_url:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(wx.getStorageSync('shop_value'))
     this.setData({
       shop_value: wx.getStorageSync('shop_value')
     });
-    wx.removeStorageSync('shop_value');
   },
-  //添加Banner  
-  bindChooiceProduct: function () {
-    var that = this;
-
+  image:function(){
+    var This = this;
     wx.chooseImage({
-      count: 1,  //最多可以选择的图片总数  
-      sizeType: ['compressed'], // 可以指定是原图还是压缩图，默认二者都有  
-      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有  
+      count: 1, // 默认9
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
       success: function (res) {
-        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片  
-        var tempFilePaths = res.tempFilePaths;
-        //启动上传等待中...  
-        wx.showToast({
-          title: '正在上传...',
-          icon: 'loading',
-          mask: true,
-          duration: 10000
-        })
-        var uploadImgCount = 0;
-        for (var i = 0, h = tempFilePaths.length; i < h; i++) {
-          wx.uploadFile({
-            url: util.getClientSetting().domainName + '/home/uploadfilenew',
-            filePath: tempFilePaths[i],
-            name: 'uploadfile_ant',
-            formData: {
-              'imgIndex': i
-            },
-            header: {
-              "Content-Type": "multipart/form-data"
-            },
-            success: function (res) {
-              uploadImgCount++;
-              var data = JSON.parse(res.data);
-              //服务器返回格式: { "Catalog": "testFolder", "FileName": "1.jpg", "Url": "https://test.com/1.jpg" }  
-              var productInfo = that.data.productInfo;
-              if (productInfo.bannerInfo == null) {
-                productInfo.bannerInfo = [];
-              }
-              productInfo.bannerInfo.push({
-                "catalog": data.Catalog,
-                "fileName": data.FileName,
-                "url": data.Url
-              });
-              that.setData({
-                productInfo: productInfo
-              });
-
-              //如果是最后一张,则隐藏等待中  
-              if (uploadImgCount == tempFilePaths.length) {
-                wx.hideToast();
-              }
-            },
-            fail: function (res) {
-              wx.hideToast();
-              wx.showModal({
-                title: '错误提示',
-                content: '上传图片失败',
-                showCancel: false,
-                success: function (res) { }
-              })
-            }
-          });
-        }
+        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+        This.setData({
+          image_url: res.tempFilePaths[0]
+        });
+        console.log(res.tempFilePaths[0])
       }
-    });
+    })
   },
-
+  formSubmit:function(e){
+    var This = this;
+    if (This.data.image_url){
+      wx.uploadFile({
+        url: config.shop.update, //仅为示例，并非真实的接口地址
+        filePath: This.data.image_url,
+        name: "shop_img",
+        header: {
+          'content-type': 'application/x-www-form-urlencoded' // 默认值
+        },
+        formData: {
+          "token": wx.getStorageSync('token'),
+          "id": e.detail.value.shop_id,
+          "shop_name": e.detail.value.shop_name,
+          "shop_info": e.detail.value.shop_info,
+          "shop_addr": e.detail.value.shop_addr,
+          "shop_phone": e.detail.value.shop_phone,
+          "food_img_true":1
+        },
+        method: 'POST',
+        success: function (res) {
+          var data = JSON.parse(res.data);
+          if (data.errNum == 0) {
+            wx.navigateTo({
+              url: '/pages/Admin/Shop/manage/index',
+            })
+          }
+        },
+      });
+    }else{
+      wx.request({
+        url: config.shop.update, //仅为示例，并非真实的接口地址
+        header: {
+          'content-type': 'application/x-www-form-urlencoded' // 默认值
+        },
+        data: {
+          "token": wx.getStorageSync('token'),
+          "id": e.detail.value.shop_id,
+          "shop_name": e.detail.value.shop_name,
+          "shop_info": e.detail.value.shop_info,
+          "shop_addr": e.detail.value.shop_addr,
+          "shop_phone": e.detail.value.shop_phone
+        },
+        method: 'POST',
+        success: function (res) {
+          if (res.data.errNum == 0) {
+            wx.navigateTo({
+              url: '/pages/Admin/Shop/manage/index',
+            })
+          }
+        }
+      });
+      ({
+        
+        filePath: This.data.image_url,
+        name: "shop_img",
+        
+        
+        
+      });
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

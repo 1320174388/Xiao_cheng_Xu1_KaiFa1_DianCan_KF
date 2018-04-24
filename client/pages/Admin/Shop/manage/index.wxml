@@ -7,6 +7,7 @@
       <view class='list'>
             <text class='key'>店铺名称</text>
             <text class='value'>{{shop.shop_name}}</text>
+            <input hidden name="shop_id" value="{{shop.id}}" ></input>
             <input hidden name="shop_name" value="{{shop.shop_name}}" ></input>
       </view>
       <view class='list'>

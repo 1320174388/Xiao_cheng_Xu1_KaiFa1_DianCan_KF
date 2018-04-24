@@ -1,3 +1,4 @@
+var config = require('../../../../config.js');
 // pages/Admin/addlist/addlist.js
 Page({
 
@@ -5,14 +6,47 @@ Page({
    * 页面的初始数据
    */
   data: {
-    productInfo: {}
+    productInfo: {},
+    image_url: null,
+    classlist:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var This = this;
+    wx.request({
+      url: config.service.foods,
+      header: {
+        'content-type': 'application/x-www-form-urlencoded' // 默认值
+      },
+      data: {
+        "token": wx.getStorageSync('token'),
+      },
+      method: 'POST',
+      success: function (res) {
+        This.setData({
+            classlist:res.data.retData
+        });
+      }
+    })
+  },
+  // 上传代码
+  image: function () {
+    var This = this;
+    wx.chooseImage({
+      count: 1, // 默认9
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: function (res) {
+        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+        This.setData({
+          image_url: res.tempFilePaths[0]
+        });
+        console.log(res.tempFilePaths[0])
+      }
+    })
   },
 
   /**

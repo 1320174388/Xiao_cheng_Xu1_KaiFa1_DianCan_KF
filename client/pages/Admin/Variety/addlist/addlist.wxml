@@ -4,8 +4,12 @@
     <input name="food_name"/>
   </view>
   <view class="section">
-    <text>菜品分类</text>
-    <input />
+    <text>选择分类</text>
+    <picker-view indicator-style="width:100%; height:40px;" style="width:50%; height:40px;" name="class_id" >
+      <picker-view-column>
+        <view wx:for="{{classlist}}" wx:key="{{index}}" style="line-height: 40px">{{item.class_name}}</view>
+      </picker-view-column>
+    </picker-view>
   </view>
   <view class="section pric">
     <text class='title'>菜品价格</text>
@@ -14,7 +18,7 @@
   </view>
   <view class="section">
     <text>菜品排序</text>
-    <input />
+    <input name="food_sort" />
   </view>
   <view class="section">
     <text>菜品介绍</text>
@@ -24,15 +28,9 @@
   <view class="pic">
       <view>菜品图片</view>
       <view class='uploads'>
-      <image src='/icon/cai1.jpg'  mode="aspecFill"></image>
-      <button bindtap="bindChooiceProduct">
-          <image src='/icon/uppic.png'></image>
-      </button>  
+        <image bindtap="image" src='/icon/uppic.png'></image>
       </view>
   </view>
 
   <button class="add" formType="submit">提交</button>
 </form>
-
-
-<input type="file"/>

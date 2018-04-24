@@ -88,7 +88,15 @@ var config = {
 
       // 修改订单座位号
       orderEdit: `${host}/api/admin/order/update_order_info`,
-      
+    },
+
+    // 店铺管理接口地址
+    shop: {
+      host,
+
+      // 修改店铺信息
+      update: `${host}/api/admin/shop/update_info`,
+
     }
 };
 

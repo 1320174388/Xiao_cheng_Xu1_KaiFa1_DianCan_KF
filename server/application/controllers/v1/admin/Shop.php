@@ -10,6 +10,7 @@ class Shop extends CI_Controller{
     public function __construct(){
         parent::__construct();
         $this->load->model('admin/M_Shop');
+        $this->load->helper('uploads');
         if(!(is_admin_user() || is_system_admin())){
             return return_response( 1, '对不起,您不是管理员身份');
         }
@@ -71,20 +72,24 @@ class Shop extends CI_Controller{
         $post = $this->input->post();
 
         if( count( $post ) <= 1 ){
-            return return_response( '0', '参数错误', [] );
+            return return_response( '1', '参数错误', [] );
         }
 
         // 处理上传图片,获取图片url地址信息
-        $food_img_url = upload_create('shops','shop_img');
-        if($food_img_url) {
-            $post['shop_img'] = $food_img_url;
+        if($post['food_img_true']){
+            $food_img_url = upload_create('shops','shop_img');
+            if($food_img_url) {
+                $post['shop_img'] = $food_img_url;
+            }
         }
+        // 处理菜品数据
+        unset($post['token']);
         $result = $this->M_Shop->update( $post );
 
         if( $result ){
-            return return_response( '1', '修改成功', $result );
+            return return_response( '0', '修改成功', $result );
         }else{
-            return return_response( '0', '修改失败', $result );
+            return return_response( '2', '修改失败', $result );
         }
     }
 
@@ -100,7 +105,6 @@ class Shop extends CI_Controller{
         if( count( $post ) < 0 ){
             return return_response( '0', '参数错误', [] );
         }
-
         $result = $this->M_Shop->create_table( $post );
 
         if( $result ){
