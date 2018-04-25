@@ -72,6 +72,8 @@ var config = {
       host,
       // 添加菜品接口
       create: `${host}/api/admin/Foodsmana/create`,
+      // 修改菜品接口
+      update: `${host}/api/admin/Foodsmana/update`,
       // 删除菜品接口
       delete: `${host}/api/admin/Foodsmana/delete`
     }

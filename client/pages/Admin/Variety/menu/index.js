@@ -15,6 +15,7 @@ Page({
     foodInfo:null,
     edits:null
   },
+  // 删除菜品
   delfoods:function(e){
     var THIS = this;
     wx.request({
@@ -37,6 +38,14 @@ Page({
           });
         }
       }
+    });
+  },
+  // 修改菜品信息
+  editfoods:function(e){
+    var i = e.currentTarget.dataset.index;
+    wx.setStorageSync('editfoods', this.data.datas[i]);
+    wx.navigateTo({
+      url: '/pages/Admin/Variety/editlist/editlist',
     });
   },
   /**

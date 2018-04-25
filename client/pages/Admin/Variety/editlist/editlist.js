@@ -7,44 +7,78 @@ Page({
    */
   data: {
     productInfo: {},
-    image_url: '/icon/uppic.png',
-    classlist:null
+    image_url: null,
+    image_true:null,
+    classlist:null,
+    editfoods:''
   },
   // 表单提交事件
   formSubmit:function(e){
     var This = this;
-    wx.uploadFile({
-      url: config.foods.create, //仅为示例，并非真实的接口地址
-      filePath: This.data.image_url,
-      name: "food_img",
-      header: {
-        'content-type': 'application/x-www-form-urlencoded' // 默认值
-      },
-      formData: {
-        "token": wx.getStorageSync('token'),
-        "food_name": e.detail.value.food_name,
-        "class_id": e.detail.value.class_id,
-        "food_price": e.detail.value.food_price,
-        "food_sort": e.detail.value.food_sort,
-        "food_info": e.detail.value.food_info,
-      },
-      method: 'POST',
-      success: function (res) {
-        var data = JSON.parse(res.data);
-        console.log(data)
-        if (data.errNum == 0) {
-          wx.navigateTo({
-            url: '/pages/Admin/Variety/menu/index',
-          })
+    if (this.data.image_true) {
+      wx.uploadFile({
+        url: config.foods.update, //仅为示例，并非真实的接口地址
+        filePath: This.data.image_url,
+        name: "food_img",
+        header: {
+          'content-type': 'application/x-www-form-urlencoded' // 默认值
+        },
+        formData: {
+          "token": wx.getStorageSync('token'),
+          "id": e.detail.value.id,
+          "food_name": e.detail.value.food_name,
+          "class_id": e.detail.value.class_id,
+          "food_price": e.detail.value.food_price,
+          "food_sort": e.detail.value.food_sort,
+          "food_info": e.detail.value.food_info,
+          "food_img_true": 1
+        },
+        method: 'POST',
+        success: function (res) {
+          var data = JSON.parse(res.data);
+          console.log(data)
+          if (data.errNum == 0) {
+            wx.navigateTo({
+              url: '/pages/Admin/Variety/menu/index',
+            })
+          }
+        },
+      });
+    }else{
+      wx.request({
+        url: config.foods.update, //仅为示例，并非真实的接口地址
+        header: {
+          'content-type': 'application/x-www-form-urlencoded' // 默认值
+        },
+        data: {
+          "token": wx.getStorageSync('token'),
+          "id": e.detail.value.id,
+          "food_name": e.detail.value.food_name,
+          "class_id": e.detail.value.class_id,
+          "food_price": e.detail.value.food_price,
+          "food_sort": e.detail.value.food_sort,
+          "food_info": e.detail.value.food_info,
+        },
+        method: 'POST',
+        success: function (res) {
+          if (res.data.errNum == 0) {
+            wx.navigateTo({
+              url: '/pages/Admin/Variety/menu/index',
+            })
+          }
         }
-      },
-    });
+      });
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      editfoods: wx.getStorageSync('editfoods'),
+      image_url: config.service.host + wx.getStorageSync('editfoods').food_img
+    });
     var This = this;
     wx.request({
       url: config.service.foods,
@@ -62,7 +96,7 @@ Page({
       }
     })
   },
-  // 上传代码
+  // 图片上传代码
   image: function () {
     var This = this;
     wx.chooseImage({
@@ -72,7 +106,8 @@ Page({
       success: function (res) {
         // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
         This.setData({
-          image_url: res.tempFilePaths[0]
+          image_url: res.tempFilePaths[0],
+          image_true: true
         });
         console.log(res.tempFilePaths[0])
       }

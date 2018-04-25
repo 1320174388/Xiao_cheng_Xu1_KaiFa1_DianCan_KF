@@ -21,6 +21,7 @@
     "pages/Admin/MenuManage/orderManage/index",
     "pages/Admin/Variety/menu/index",
     "pages/Admin/Variety/addlist/addlist",
+    "pages/Admin/Variety/editlist/editlist",
     "pages/Admin/Variety/cate/cate",
     "pages/Admin/Variety/edit/edit"
   ],

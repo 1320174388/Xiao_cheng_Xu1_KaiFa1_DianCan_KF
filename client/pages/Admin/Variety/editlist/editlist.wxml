@@ -1,0 +1,35 @@
+<form bindsubmit="formSubmit">
+  <view class="section">
+    <text>菜品名称</text>
+    <input hidden name="id" value="{{editfoods.id}}"/>
+    <input name="food_name" value="{{editfoods.food_name}}"/>
+  </view>
+  <view class="section">
+    <text>选择分类</text>
+    <radio-group class="radio-group" name="class_id" >
+      <label class="radio" wx:for="{{classlist}}" wx:key="{{index}}">
+        <radio value="{{item.id}}" />{{item.class_name}}
+      </label>
+    </radio-group>
+  </view>
+  <view class="section pric">
+    <text class='title'>菜品价格</text>
+    <input name="food_price" value="{{editfoods.food_price}}"/>
+    <text class='comp'>元</text>
+  </view>
+  <view class="section">
+    <text>菜品排序</text>
+    <input name="food_sort" value="{{editfoods.food_sort}}"/>
+  </view>
+  <view class="section">
+    <text>菜品介绍</text>
+    <textarea name="food_info" value="{{editfoods.food_info}}"></textarea>
+  </view>
+  <view class="pic">
+      <view>菜品图片</view>
+      <view class='uploads'>
+        <image bindtap="image" src='{{image_url}}'></image>
+      </view>
+  </view>
+  <button class="add" formType="submit">提交</button>
+</form>

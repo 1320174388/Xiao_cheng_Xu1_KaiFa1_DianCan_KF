@@ -119,24 +119,23 @@ class Foodsmana extends CI_Controller
                 return return_response(8,'菜品名称已存在');
             }
             // 处理上传图片,获取图片url地址信息
-            $food_img_url = upload_create('foods','food_img');
-            if($food_img_url){
-                $post['food_img'] = $food_img_url;
+            if($post['food_img_true']){
+                $food_img_url = upload_create('foods','food_img');
+                if($food_img_url){
+                    $post['food_img'] = $food_img_url;
+                    unset($post['food_img_true']);
+                    $get_food_data = $this->Foods->get_food_data($post['id']);
+                    upload_delete($get_food_data->food_img);
+                }
             }
             // 处理菜品数据
             unset($post['token']);
             // 执行修改菜品操作
-            $get_food_data = $this->Foods->get_food_data($post['id']);
-            $bool = upload_delete($get_food_data->food_img);
-            if($bool){
-                $res = $this->Foods->set_food_update($post);
-                if($res){
-                    return return_response(0,'修改成功',$res);
-                }else{
-                    return return_response(10,'修改失败');
-                }
+            $res = $this->Foods->set_food_update($post);
+            if($res){
+                return return_response(0,'修改成功',$res);
             }else{
-                return return_response(9,'原图片删除失败');
+                return return_response(9,'修改失败');
             }
         }else{
             return return_response( 1, '对不起,您不是管理员身份');
