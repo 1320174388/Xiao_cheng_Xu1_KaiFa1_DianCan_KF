@@ -37,7 +37,7 @@
 
 <view class='{{select ? "show" : "hide" }}' id='desks'>
     <view class='desk' wx:for="{{desk}}" wx:key="{{index}}">
-        <image src='{{item.pic}}'></image>
+        <image src='{{pic}}'></image>
         <text>{{item.name}}</text>
     </view>
     <button bindtap='seats'>添加</button>

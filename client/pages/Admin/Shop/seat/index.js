@@ -16,6 +16,13 @@ Page({
   },
 
   /**
+   * 添加座号函数
+   */
+  submit:function(e){
+    console.log(e.detail.value);
+  },
+
+  /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {

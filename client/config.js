@@ -66,6 +66,8 @@ var config = {
       host,
       // 修改店铺信息
       update: `${host}/api/admin/shop/update_info`,
+      // 获取座号信息
+      get_tables: `${host}/api/admin/shop/get_tables`
     },
     // 菜品管理接口地址
     foods:{

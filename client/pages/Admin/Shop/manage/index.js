@@ -10,6 +10,7 @@ Page({
     shop:null,
     select:false,
     selected:true,
+    pic:"/icon/desk.jpg",
     desk:[
       { pic: "/icon/desk.jpg", name: "1号桌" },
       { pic: "/icon/desk.jpg", name: "1号桌" },
@@ -28,18 +29,33 @@ Page({
   onLoad: function (options) {
     var THIS = this;
     wx.request({
-      url: config.service.shoppings, //仅为示例，并非真实的接口地址
+      url: config.service.shoppings,
       data: {
         "token": wx.getStorageSync('token')
       },
       header: {
-        'content-type': 'application/x-www-form-urlencoded' // 默认值
+        'content-type': 'application/x-www-form-urlencoded'
       },
       method:'post',
       success: function (res) {
         THIS.setData({
           host: config.service.host,
           shop: res.data.retData[0]
+        });
+      }
+    });
+    wx.request({
+      url: config.shop.get_tables,
+      data: {
+        "token": wx.getStorageSync('token')
+      },
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      method: 'post',
+      success: function (res) {
+        console.log(res.data.retData);
+        THIS.setData({
         });
       }
     })

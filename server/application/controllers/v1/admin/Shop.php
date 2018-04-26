@@ -114,5 +114,21 @@ class Shop extends CI_Controller{
         }
     }
 
+    /**
+     * 获取座号
+     *
+     * @access public
+     * @return array 中返回是否请求成功
+     */
+    public function get_tables(){
+
+        $result = $this->M_Shop->get_table_list();
+        if( $result ){
+            return return_response( 0, '请求成功', $result );
+        }else{
+            return return_response( 2, '请求失败', $result );
+        }
+    }
+
 
 }

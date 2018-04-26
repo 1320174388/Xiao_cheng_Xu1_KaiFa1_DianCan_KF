@@ -139,4 +139,13 @@ class M_Shop extends CI_Model{
         return $result;
     }
 
+    public function get_table_list(){
+
+        $query_sql = 'select * from data_admin_tables ';
+
+        $result = $this->connection->query( $query_sql );
+
+        return $result->result();
+    }
+
 }
