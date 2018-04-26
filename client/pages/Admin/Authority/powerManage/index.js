@@ -1,5 +1,6 @@
 // pages/power/list/index.js
 var config = require('../../../../config');
+var app = getApp();
 Page({
 
   /**
@@ -100,7 +101,6 @@ Page({
     var add = this;
     var roleName=e.detail.value.roleName;
     var value = e.detail.value;
-    console.log(value);
     delete value["roleName"];
     var i = 0;
     for (var key in value) {
@@ -131,16 +131,21 @@ Page({
           add.setData({
             arrayList: res.data.retData
           });
-          console.log('添加成功');
-          var pages = getCurrentPages(); // 当前页面  
-          var beforePage = pages[pages.length - 2]; // 前一个页面 
-          wx.navigateBack({
-            success: function () {
-              beforePage.onLoad(); // 执行前一个页面的onLoad方法  
-            }
-          })
+          app.point("成功","success");
+          setTimeout(function(){
+            var pages = getCurrentPages(); // 当前页面  
+            var beforePage = pages[pages.length - 2]; // 前一个页面 
+            wx.navigateBack({
+              success: function () {
+                beforePage.onLoad(); // 执行前一个页面的onLoad方法  
+              }
+            })
+          },1000);
+          
+        } else if (res.data.errNum == 1){
+          app.point("你没有权限进行此操作", "none");
         }else{
-          console.log('添加失败');
+          app.point("职位已存在", "none");
         };
       }
     })

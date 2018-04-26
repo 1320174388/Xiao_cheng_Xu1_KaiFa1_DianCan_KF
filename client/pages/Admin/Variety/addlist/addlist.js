@@ -1,4 +1,5 @@
 var config = require('../../../../config.js');
+var app = getApp();
 // pages/Admin/addlist/addlist.js
 Page({
 
@@ -33,16 +34,34 @@ Page({
         var data = JSON.parse(res.data);
         console.log(data)
         if (data.errNum == 0) {
-          console.log('添加成功');
-          var pages = getCurrentPages(); // 当前页面  
-          var beforePage = pages[pages.length - 2]; // 前一个页面 
-          wx.navigateBack({
-            success: function () {
-              beforePage.onLoad(); // 执行前一个页面的onLoad方法  
-            }
-          })
-        } else {
-          console.log('添加失败');
+          app.point("成功", "success");
+          setTimeout(function () {
+            var pages = getCurrentPages(); // 当前页面  
+            var beforePage = pages[pages.length - 2]; // 前一个页面 
+            wx.navigateBack({
+              success: function () {
+                beforePage.onLoad(); // 执行前一个页面的onLoad方法  
+              }
+            })
+          }, 1000);
+        } else if (data.errNum == 1) {
+          app.point("对不起,您不是管理员身份", "none");
+        } else if (data.errNum == 2) {
+          app.point("没有输入菜品名称", "none");
+        } else if (data.errNum == 3) {
+          app.point("没有选择菜品分类", "none");
+        } else if (data.errNum == 4) {
+          app.point("没有输入菜品价格", "none");
+        } else if (data.errNum == 5) {
+          app.point("没有输入菜品排序", "none");
+        } else if (data.errNum == 6) {
+          app.point("没有输入菜品介绍", "none");
+        } else if (data.errNum == 7) {
+          app.point("菜品名称已存在", "none");
+        } else if (data.errNum == 8) {
+          app.point("图片上传失败", "none");
+        } else{
+          app.point("添加失败", "none");
         }
       },
     });

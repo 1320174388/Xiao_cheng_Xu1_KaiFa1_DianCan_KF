@@ -1,4 +1,5 @@
 var config = require('../../../../config');
+var app = getApp();
 // pages/power/add/index.js
 Page({
 
@@ -118,13 +119,17 @@ Page({
       method: 'POST',
       success: function (res) {
         if (res.data.errNum == 0) {
-          console.log('删除成功');
-          THIS.onLoad();
-         
-        } else {
-          console.log('删除失败');
+          app.point("删除成功", "success");
+          setTimeout(function () {
+            THIS.onLoad()
+          }, 1000);
+        } else if (res.data.errNum == 1) {
+          app.point("你没有权限进行此操作", "none");
+        } else if (res.data.errNum == 2) {
+          app.point("当前职位已被管理员使用,不可删除", "none");
+        }else{
+          app.point("删除失败", "none");
         }
-        
       }
     })
   }

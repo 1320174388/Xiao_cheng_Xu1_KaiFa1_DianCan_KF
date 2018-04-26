@@ -1,5 +1,6 @@
 // pages/Admin/Management/updateAdmin/index.js
 var config = require('../../../../config');
+var app = getApp();
 Page({
 
   /**
@@ -108,16 +109,28 @@ formSubmit: function (e) {
       success: function (res) {
         if (res.data.errNum == 0) {
           wx.removeStorageSync('admin_value');
-          console.log('修改成功');
-          var pages = getCurrentPages(); // 当前页面  
-          var beforePage = pages[pages.length - 2]; // 前一个页面 
-          wx.navigateBack({
-            success: function () {
-              beforePage.onLoad(); // 执行前一个页面的onLoad方法  
-            }
-          })
-        } else {
-          console.log('修改失败');
+          app.point("成功", "success");
+          setTimeout(function () {
+            var pages = getCurrentPages(); // 当前页面  
+            var beforePage = pages[pages.length - 2]; // 前一个页面 
+            wx.navigateBack({
+              success: function () {
+                beforePage.onLoad(); // 执行前一个页面的onLoad方法  
+              }
+            })
+          }, 1000);
+        } else if (res.data.errNum == 1){
+          app.point("你没有权限进行此操作", "none");
+        } else if (res.data.errNum == 2) {
+          app.point("你没有选择管理员", "none");
+        } else if (res.data.errNum == 3) {
+          app.point("没有输入管理员名称", "none");
+        } else if (res.data.errNum == 4) {
+          app.point("没有输入要修改管理员的ID", "none");
+        } else if (res.data.errNum == 5) {
+          app.point("管理员名称已存在", "none");
+        }else{
+          app.point("修改失败", "none");
         }
       }
     })
