@@ -113,7 +113,6 @@ Page({
     var arr = []
     for (var i in value) {
       arr.push(value[i]); //属性
-      //arr.push(value[i]); //值
     }
     console.log(value);
     wx.request({
@@ -132,13 +131,19 @@ Page({
           add.setData({
             arrayList: res.data.retData
           });
-          console.log(res.data);
+          console.log('添加成功');
+          var pages = getCurrentPages(); // 当前页面  
+          var beforePage = pages[pages.length - 2]; // 前一个页面 
+          wx.navigateBack({
+            success: function () {
+              beforePage.onLoad(); // 执行前一个页面的onLoad方法  
+            }
+          })
+        }else{
+          console.log('添加失败');
         };
       }
-    }),
-      wx.navigateTo({
-        url: "/pages/Admin/Authority/updatePower/index",
-      })
+    })
   }
 
 })

@@ -33,9 +33,7 @@ Page({
           THIS.setData({
             foodclass: res.data.retData
           });
-          wx.navigateTo({
-            url: '/pages/Admin/Variety/menu/index',
-          });
+          THIS.onLoad();
         }
       }
     });
@@ -169,18 +167,22 @@ Page({
       showModalStatus:"hide"
     })
   },
+  // 添加菜品分类
   adds:function(){
     wx.navigateTo({
       url: '/pages/Admin/Variety/cate/cate'
     })
   },
+  // 添加菜品列表
   cates:function(){
     wx.navigateTo({
       url: "/pages/Admin/Variety/addlist/addlist"
     })
   },
+  // 删除菜品列表
   removes:function(e){
     var i = e.currentTarget.dataset.remid;
+    var THIS=this;
     wx.request({
       url: config.service.menuRemove, //仅为示例，并非真实的接口地址
       data: {
@@ -192,9 +194,13 @@ Page({
         'content-type': 'application/x-www-form-urlencoded' // 默认值
       },
       success: function (res) {
-        wx.navigateTo({
-          url: '/pages/Admin/Variety/menu/index'
-        })
+        if (res.data.errNum == 0) {
+          THIS.setData({
+            host: config.service.host,
+            datas: res.data.retData
+          })
+          THIS.onLoad();
+        }
       }
     })
   },

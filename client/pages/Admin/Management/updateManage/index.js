@@ -106,6 +106,7 @@ Page({
   //删除
   deleteClick: function (event) {
     var user_id = event.currentTarget.dataset.editid;
+    var THIS=this;
     console.log(user_id);
     wx.request({
       url: config.service.delAdmin,
@@ -118,11 +119,13 @@ Page({
       },
       method: 'POST',
       success: function (res) {
-        console.log(res);
+        if (res.data.errNum == 0) {
+          console.log('删除成功');
+          THIS.onLoad();
+        } else {
+          console.log('删除失败');
+        }
       }
-    }),
-      wx.navigateTo({
-      url: "/pages/Admin/Management/updateManage/index",
-      })
+    })
   }
 })

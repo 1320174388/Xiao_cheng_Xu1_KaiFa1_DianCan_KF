@@ -93,7 +93,6 @@ Page({
     // 修改职位
     var role_arr = wx.getStorageSync('value');
     var id = role_arr.id; // 获取id
-    wx.removeStorageSync('value');
     var update = this;
     var roleName = e.detail.value.roleName;
     var right = e.detail.value;
@@ -109,7 +108,6 @@ Page({
     var arr = []
     for (var i in right) {
       arr.push(right[i]); //属性
-      //arr.push(right[i]); //值
     }
     console.log(arr);
     wx.request({
@@ -125,14 +123,21 @@ Page({
       },
       method: 'POST',
       success: function (res) {
-        // if (res.data.errNum == 0) {
-        //   console.log(res.data);
-        // };
-        console.log(res.data);
+        if (res.data.errNum == 0) {
+          wx.removeStorageSync('value');
+          console.log('修改成功');
+          var pages = getCurrentPages(); // 当前页面  
+          var beforePage = pages[pages.length - 2]; // 前一个页面 
+          wx.navigateBack({
+            success: function () {
+              beforePage.onLoad(); // 执行前一个页面的onLoad方法  
+            }
+          })
+        } else {
+          console.log('修改失败');
+        }
       }
     })
-    wx.navigateTo({
-      url: "/pages/Admin/Authority/updatePower/index",
-    })
+   
   }
 })

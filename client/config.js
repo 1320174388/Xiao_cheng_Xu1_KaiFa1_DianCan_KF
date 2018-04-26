@@ -48,7 +48,7 @@ var config = {
         //添加菜品分类
         addMenu: `${host}/api/admin/classfoods/create`,
         //修改菜品分类
-        editMenu: `${host}/api/admin/classfoods/create`
+        editMenu: `${host}/api/admin/classfoods/update`
 
     },
     // 订单管理页面路由

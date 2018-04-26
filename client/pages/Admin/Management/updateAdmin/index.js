@@ -19,7 +19,6 @@ Page({
     this.setData({
       'admin_value': wx.getStorageSync('value'),
     });
-    wx.removeStorageSync('admin_value');
     var THIS = this
     wx.request({
       url: config.service.getPositionInfo,
@@ -107,11 +106,20 @@ formSubmit: function (e) {
       },
       method: 'POST',
       success: function (res) {
-        console.log(res.data);
+        if (res.data.errNum == 0) {
+          wx.removeStorageSync('admin_value');
+          console.log('修改成功');
+          var pages = getCurrentPages(); // 当前页面  
+          var beforePage = pages[pages.length - 2]; // 前一个页面 
+          wx.navigateBack({
+            success: function () {
+              beforePage.onLoad(); // 执行前一个页面的onLoad方法  
+            }
+          })
+        } else {
+          console.log('修改失败');
+        }
       }
-    }),
-    wx.navigateTo({
-      url: "/pages/Admin/Management/updateManage/index",
     })
  }
 })

@@ -11,7 +11,7 @@
             <view class='right'>
                 <form bindsubmit="formSubmit">
                       <button class='modify' data-remid="{{item.id}}"  formType="submit">修改</button>
-                      <input hidden name="class_id" value='item.id'/>
+                      <input hidden name="class_id" value='{{item.id}}'/>
                       <input hidden name="class_name" value='{{item.class_name}}'/>
                       <input hidden name="class_sort" value='{{item.class_sort}}'/>
                   </form>

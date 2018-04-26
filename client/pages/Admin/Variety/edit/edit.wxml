@@ -1,6 +1,7 @@
 <view class='box'>
 <form bindsubmit="formSubmit">
     <view class='list'>
+    <input hidden name="class_id" value="{{datas.class_id}}"/>
         <text>分类名称</text>
         <input name="class_name" value="{{datas.class_name}}"/>
     </view>

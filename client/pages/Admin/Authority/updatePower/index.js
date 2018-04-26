@@ -104,6 +104,7 @@ Page({
  
   deleteClick: function (event) {
     var id = event.currentTarget.dataset.editid;
+    var THIS=this;
     console.log(id);
     wx.request({
       url: config.service.delPosition,
@@ -116,10 +117,14 @@ Page({
       },
       method: 'POST',
       success: function (res) {
-        console.log(res.data);
-        wx.navigateTo({
-          url: "/pages/Admin/Authority/updatePower/index",
-        })
+        if (res.data.errNum == 0) {
+          console.log('删除成功');
+          THIS.onLoad();
+         
+        } else {
+          console.log('删除失败');
+        }
+        
       }
     })
   }

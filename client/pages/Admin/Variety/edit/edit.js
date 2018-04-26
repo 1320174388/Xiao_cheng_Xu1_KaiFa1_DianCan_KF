@@ -1,4 +1,5 @@
 // pages/Admin/Variety/edit/edit.js
+var config = require('../../../../config.js');
 Page({
 
   /**
@@ -82,7 +83,19 @@ Page({
       },
       method:'POST',
       success: function (res) {
-        console.log(res.data)
+        console.log(res.data);
+        if (res.data.errNum == 0) {
+          console.log('修改成功');
+          var pages = getCurrentPages(); // 当前页面  
+          var beforePage = pages[pages.length - 2]; // 前一个页面 
+          wx.navigateBack({
+            success: function () {
+              beforePage.onLoad(); // 执行前一个页面的onLoad方法  
+            }
+          })
+        } else {
+          console.log('修改失败');
+        }
       }
     })
   }
