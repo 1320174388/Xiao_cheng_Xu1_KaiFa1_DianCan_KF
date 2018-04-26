@@ -1,5 +1,6 @@
 // pages/Admin/menu/index/index.js
 var config = require('../../../../config.js');
+var app = getApp();
 Page({
 
   /**
@@ -33,7 +34,15 @@ Page({
           THIS.setData({
             foodclass: res.data.retData
           });
-          THIS.onLoad();
+          app.point("成功", "success");
+          setTimeout(function () {
+            THIS.onLoad()
+          }, 1000);
+         
+        } else if (res.data.errNum == 1){
+          app.point("对不起,您不是管理员身份", "none");
+        }else{
+          app.point("删除失败", "none");m
         }
       }
     });
@@ -162,6 +171,7 @@ Page({
       })
     },1000)
   },
+
   close:function(){
     this.setData({
       showModalStatus:"hide"
@@ -199,11 +209,23 @@ Page({
             host: config.service.host,
             datas: res.data.retData
           })
-          THIS.onLoad();
+          app.point("成功", "success");
+          setTimeout(function () {
+            THIS.onLoad()
+          }, 1000);
+        } else if (res.data.errNum == 1){
+          app.point("对不起,您不是管理员身份", "none");
+        } else if (res.data.errNum == 2) {
+          app.point("没有接收到修改分类的ID", "none");
+        } else if (res.data.errNum == 3) {
+          app.point("分类下有食品不可删除", "none");
+        } else{
+          app.point("删除失败", "none");
         }
       }
     })
   },
+
   formSubmit:function(e){
     wx.setStorageSync('key', e.detail.value);
     wx.navigateTo({

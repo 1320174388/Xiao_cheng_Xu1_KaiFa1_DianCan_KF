@@ -1,5 +1,6 @@
 // pages/manage/add/index.js
 var config = require('../../../../config');
+var app = getApp();
 Page({
 
   /**
@@ -120,10 +121,17 @@ Page({
       method: 'POST',
       success: function (res) {
         if (res.data.errNum == 0) {
-          console.log('删除成功');
-          THIS.onLoad();
+          app.point("成功", "success");
+          setTimeout(function () {
+            THIS.onLoad()
+          }, 1000);
+         
+        } else if (res.data.errNum == 1) {
+          app.point("你没有权限进行此操作", "none");
+        } else if (res.data.errNum == 2) {
+          app.point("没有输入要删除的管理员ID", "none");
         } else {
-          console.log('删除失败');
+          app.point("删除失败", "none");
         }
       }
     })

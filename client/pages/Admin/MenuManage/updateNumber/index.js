@@ -1,4 +1,5 @@
 var config = require('../../../../config');
+var app = getApp();
 // pages/Admin/MenuManage/updateNumber/index.js
 Page({
 
@@ -8,6 +9,7 @@ Page({
   data: {
     order_id:''
   },
+
   formSubmit:function(e){
     wx.request({
       url: config.order.orderEdit,
@@ -24,16 +26,18 @@ Page({
       success: function (res) {
         if(res.data.errNum == 1){
           wx.removeStorageSync('order_id');
-          console.log('修改成功');
-          var pages = getCurrentPages(); // 当前页面  
-          var beforePage = pages[pages.length - 2]; // 前一个页面 
-          wx.navigateBack({
-            success: function () {
-              beforePage.onLoad(); // 执行前一个页面的onLoad方法  
-            }
-          })
+          app.point("成功", "success");
+          setTimeout(function () {
+            var pages = getCurrentPages(); // 当前页面  
+            var beforePage = pages[pages.length - 2]; // 前一个页面 
+            wx.navigateBack({
+              success: function () {
+                beforePage.onLoad(); // 执行前一个页面的onLoad方法  
+              }
+            })
+          }, 1000);
         }else{
-          console.log('修改失败');
+          app.point("参数错误", "success");
         }
       }
     })

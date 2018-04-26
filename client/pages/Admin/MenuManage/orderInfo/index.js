@@ -1,4 +1,5 @@
 var config = require('../../../../config');
+
 // pages/Admin/MenuManage/orderInfo/index.js
 Page({
 
