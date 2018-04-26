@@ -1,5 +1,6 @@
 // pages/Admin/manage/index.js
 var config = require('../../../../config.js');
+var app = getApp();
 Page({
 
   /**
@@ -44,21 +45,17 @@ Page({
         });
       }
     });
-    wx.request({
-      url: config.shop.get_tables,
-      data: {
+    app.post(
+      config.shop.get_tables, {
         "token": wx.getStorageSync('token')
-      },
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      method: 'post',
-      success: function (res) {
-        console.log(res.data.retData);
-        THIS.setData({
-        });
+      }, function (res) {
+        if (res.data.errNum == 0) {
+          THIS.setData({
+            desk: res.data.retData
+          });
+        }
       }
-    })
+    )
   },
 
   /**

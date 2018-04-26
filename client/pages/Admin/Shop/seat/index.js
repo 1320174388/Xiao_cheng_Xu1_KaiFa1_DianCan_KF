@@ -1,3 +1,5 @@
+var config = require('../../../../config.js');
+var app = getApp();
 // pages/Admin/seat/index.js
 Page({
 
@@ -19,7 +21,17 @@ Page({
    * 添加座号函数
    */
   submit:function(e){
-    console.log(e.detail.value);
+    app.post(
+      config.shop.add_table,{
+        'token': wx.getStorageSync('token'),
+        'table_number':e.detail.value.table_number
+      },function(res){
+        if(res.data.errNum == 0){
+          app.point("成功", "success");
+          app.timeBack(1000);
+        }
+      }
+    )
   },
 
   /**
