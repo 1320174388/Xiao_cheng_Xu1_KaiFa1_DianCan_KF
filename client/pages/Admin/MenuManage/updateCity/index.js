@@ -71,38 +71,19 @@ Page({
   },
   // 修改地址
   formSubmit:function(e){
-   console.log(e);
-    wx.request({
-      url: config.order.orderEdit,
-      data: {
-        'token': wx.getStorageSync('token'),
-        'order_addr': e.detail.value.order_addr,//wxml中name的值
-        // 'id'是wxml中的name的值,不管或不获取id都必须传id
-        'id': e.detail.value.id
-
-      },
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      method: 'POST',
-      success: function (res) {
-        console.log(res.data);
-        if (res.data.errNum == 1){
-          app.point("成功", "success");
-          setTimeout(function () {
-            var pages = getCurrentPages(); // 当前页面  
-            var beforePage = pages[pages.length - 2]; // 前一个页面 
-            wx.navigateBack({
-              success: function () {
-                beforePage.onLoad(); // 执行前一个页面的onLoad方法  
-              }
-            })
-          }, 1000);
-          
-        }else{
-          app.point("参数错误", "success");
-        }
-      }
-     })
+   app.post(
+     config.order.orderEdit, {
+       'token': wx.getStorageSync('token'),
+       'order_addr': e.detail.value.order_addr,
+       'id': e.detail.value.id
+     }, function (res) {
+       if (res.data.errNum == 1) {
+         app.point(res.data.retMsg, "success");
+         app.timeBack(1000);
+       } else {
+         app.point(res.data.retMsg, "none");
+       }; 
+     }
+   );
  }
 })

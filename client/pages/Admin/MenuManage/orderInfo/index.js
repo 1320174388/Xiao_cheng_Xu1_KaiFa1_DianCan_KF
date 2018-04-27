@@ -1,5 +1,5 @@
 var config = require('../../../../config');
-
+var app = getApp();
 // pages/Admin/MenuManage/orderInfo/index.js
 Page({
 
@@ -18,20 +18,12 @@ Page({
    */
   onLoad: function (options) {
     var THIS = this;
-    wx.request({
-      url: config.order.orderInfo,
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      data: {
+    app.post(
+      config.order.orderInfo, {
         'token': wx.getStorageSync('token'),
         'order_number': wx.getStorageSync('order_id')
-      },
-      method: 'POST',
-      success: function (res) {
-        console.log(res.data.retData);
-        console.log(res.data.retData.order_info);
-        if(res.data.errNum == 1){
+      }, function (res) {
+        if (res.data.errNum == 1) {
           THIS.setData({
             order_info: res.data.retData.order_info,
             order_num: res.data.retData.order_num,
@@ -39,7 +31,7 @@ Page({
           });
         }
       }
-    })
+    );
   },
 
   /**

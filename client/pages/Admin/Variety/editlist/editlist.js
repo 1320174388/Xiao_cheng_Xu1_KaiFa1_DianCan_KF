@@ -17,14 +17,11 @@ Page({
   formSubmit:function(e){
     var This = this;
     if (this.data.image_true) {
-      wx.uploadFile({
-        url: config.foods.update, //仅为示例，并非真实的接口地址
-        filePath: This.data.image_url,
-        name: "food_img",
-        header: {
-          'content-type': 'application/x-www-form-urlencoded' // 默认值
-        },
-        formData: {
+      app.point("上传中", "loading", 360000);
+      app.file(
+        config.foods.update,
+        This.data.image_url,
+        "food_img", {
           "token": wx.getStorageSync('token'),
           "id": e.detail.value.id,
           "food_name": e.detail.value.food_name,
@@ -33,54 +30,20 @@ Page({
           "food_sort": e.detail.value.food_sort,
           "food_info": e.detail.value.food_info,
           "food_img_true": 1
-        },
-        method: 'POST',
-        success: function (res) {
+        }, function (res) {
           var data = JSON.parse(res.data);
-          console.log(data)
           if (data.errNum == 0) {
-            app.point("成功", "success");
-            setTimeout(function () {
-              var pages = getCurrentPages(); // 当前页面  
-              var beforePage = pages[pages.length - 2]; // 前一个页面 
-              wx.navigateBack({
-                success: function () {
-                  beforePage.onLoad(); // 执行前一个页面的onLoad方法  
-                }
-              })
-            }, 1000);
-
-          } else if (res.data.errNum == 1) {
-            app.point("对不起,您不是管理员身份", "none");
-          } else if (res.data.errNum == 2) {
-            app.point("没有输入菜品名称", "none");
-          } else if (res.data.errNum == 3) {
-            app.point("没有选择菜品分类", "none");
-          } else if (res.data.errNum == 4) {
-            app.point("没有输入菜品价格", "none");
-          } else if (res.data.errNum == 5) {
-            app.point("没有输入菜品排序", "none");
-          } else if (res.data.errNum == 6) {
-            app.point("没有输入菜品介绍", "none");
-          } else if (res.data.errNum == 7) {
-            app.point("没有发送ID", "none");
-          } else if (res.data.errNum == 8) {
-            app.point("菜品名称已存在", "none");
-          } else if (res.data.errNum == 8) {
-            app.point("原图片删除失败", "none");
+            wx.removeStorageSync('editfoods');
+            app.point(res.data.retMsg, "success");
+            app.timeBack(1000);
           } else {
-            app.point("修改失败", "none");
+            app.point(res.data.retMsg, "none");
           };
-          
         },
-      });
+      );
     }else{ //没有传入图片
-      wx.request({
-        url: config.foods.update, //仅为示例，并非真实的接口地址
-        header: {
-          'content-type': 'application/x-www-form-urlencoded' // 默认值
-        },
-        data: {
+      app.post(
+        config.foods.update, {
           "token": wx.getStorageSync('token'),
           "id": e.detail.value.id,
           "food_name": e.detail.value.food_name,
@@ -88,44 +51,16 @@ Page({
           "food_price": e.detail.value.food_price,
           "food_sort": e.detail.value.food_sort,
           "food_info": e.detail.value.food_info,
-        },
-        method: 'POST',
-        success: function (res) {
-          if (data.errNum == 0) {
-            app.point("成功", "success");
-            setTimeout(function () {
-              var pages = getCurrentPages(); // 当前页面  
-              var beforePage = pages[pages.length - 2]; // 前一个页面 
-              wx.navigateBack({
-                success: function () {
-                  beforePage.onLoad(); // 执行前一个页面的onLoad方法  
-                }
-              })
-            }, 1000);
-
-          } else if (res.data.errNum == 1) {
-            app.point("对不起,您不是管理员身份", "none");
-          } else if (res.data.errNum == 2) {
-            app.point("没有输入菜品名称", "none");
-          } else if (res.data.errNum == 3) {
-            app.point("没有选择菜品分类", "none");
-          } else if (res.data.errNum == 4) {
-            app.point("没有输入菜品价格", "none");
-          } else if (res.data.errNum == 5) {
-            app.point("没有输入菜品排序", "none");
-          } else if (res.data.errNum == 6) {
-            app.point("没有输入菜品介绍", "none");
-          } else if (res.data.errNum == 7) {
-            app.point("没有发送ID", "none");
-          } else if (res.data.errNum == 8) {
-            app.point("菜品名称已存在", "none");
-          } else if (res.data.errNum == 8) {
-            app.point("原图片删除失败", "none");
-          } else {
-            app.point("修改失败", "none");
+        }, function (res) {
+          if (res.data.errNum == 0) {
+            wx.removeStorageSync('editfoods');
+            app.point(res.data.retMsg, "success");
+            app.timeBack(1000);
+          } else{
+            app.point(res.data.retMsg, "none");
           };
         }
-      });
+      );
     }
   },
 
@@ -138,38 +73,27 @@ Page({
       image_url: config.service.host + wx.getStorageSync('editfoods').food_img
     });
     var This = this;
-    wx.request({
-      url: config.service.foods,
-      header: {
-        'content-type': 'application/x-www-form-urlencoded' // 默认值
-      },
-      data: {
+    app.post(
+      config.service.foods, {
         "token": wx.getStorageSync('token'),
-      },
-      method: 'POST',
-      success: function (res) {
-        This.setData({
-            classlist:res.data.retData
-        });
+      }, function (res) {
+        if (res.data.errNum == 0) {
+          This.setData({
+            classlist: res.data.retData
+          });
+        };
       }
-    })
+    );
   },
   // 图片上传代码
   image: function () {
     var This = this;
-    wx.chooseImage({
-      count: 1, // 默认9
-      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
-      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-      success: function (res) {
-        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-        This.setData({
-          image_url: res.tempFilePaths[0],
-          image_true: true
-        });
-        console.log(res.tempFilePaths[0])
-      }
-    })
+    app.imageAdd(function (res) {
+      This.setData({
+        image_url: res.tempFilePaths[0],
+        image_true: true
+      });
+    });
   },
 
   /**
@@ -219,71 +143,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-  //添加Banner  
-  bindChooiceProduct: function () {
-    var that = this;
-
-    wx.chooseImage({
-      count: 3,  //最多可以选择的图片总数  
-      sizeType: ['compressed'], // 可以指定是原图还是压缩图，默认二者都有  
-      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有  
-      success: function (res) {
-        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片  
-        var tempFilePaths = res.tempFilePaths;
-        //启动上传等待中...  
-        wx.showToast({
-          title: '正在上传...',
-          icon: 'loading',
-          mask: true,
-          duration: 10000
-        })
-        var uploadImgCount = 0;
-        for (var i = 0, h = tempFilePaths.length; i < h; i++) {
-          wx.uploadFile({
-            url: util.getClientSetting().domainName + '/home/uploadfilenew',
-            filePath: tempFilePaths[i],
-            name: 'uploadfile_ant',
-            formData: {
-              'imgIndex': i
-            },
-            header: {
-              "Content-Type": "multipart/form-data"
-            },
-            success: function (res) {
-              uploadImgCount++;
-              var data = JSON.parse(res.data);
-              //服务器返回格式: { "Catalog": "testFolder", "FileName": "1.jpg", "Url": "https://test.com/1.jpg" }  
-              var productInfo = that.data.productInfo;
-              if (productInfo.bannerInfo == null) {
-                productInfo.bannerInfo = [];
-              }
-              productInfo.bannerInfo.push({
-                "catalog": data.Catalog,
-                "fileName": data.FileName,
-                "url": data.Url
-              });
-              that.setData({
-                productInfo: productInfo
-              });
-
-              //如果是最后一张,则隐藏等待中  
-              if (uploadImgCount == tempFilePaths.length) {
-                wx.hideToast();
-              }
-            },
-            fail: function (res) {
-              wx.hideToast();
-              wx.showModal({
-                title: '错误提示',
-                content: '上传图片失败',
-                showCancel: false,
-                success: function (res) { }
-              })
-            }
-          });
-        }
-      }
-    });
-  } 
+  }
 })

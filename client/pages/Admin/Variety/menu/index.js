@@ -19,82 +19,54 @@ Page({
   // 删除菜品
   delfoods:function(e){
     var THIS = this;
-    wx.request({
-      url: config.foods.delete, //仅为示例，并非真实的接口地址
-      data: {
+    app.post(
+      config.foods.delete, {
         "token": wx.getStorageSync('token'),
-        'id':e.currentTarget.dataset.id
-      },
-      header: {
-        'content-type': 'application/x-www-form-urlencoded' // 默认值
-      },
-      method: 'POST',
-      success: function (res) {
+        'id': e.currentTarget.dataset.id
+      }, function (res) {
         if (res.data.errNum == 0) {
-          THIS.setData({
-            foodclass: res.data.retData
-          });
-          app.point("成功", "success");
+          app.point(res.data.retMsg,'success');
           setTimeout(function () {
             THIS.onLoad()
           }, 1000);
-         
-        } else if (res.data.errNum == 1){
-          app.point("对不起,您不是管理员身份", "none");
-        }else{
-          app.point("删除失败", "none");m
         }
       }
-    });
+    );
   },
   // 修改菜品信息
   editfoods:function(e){
     var i = e.currentTarget.dataset.index;
     wx.setStorageSync('editfoods', this.data.datas[i]);
-    wx.navigateTo({
-      url: '/pages/Admin/Variety/editlist/editlist',
-    });
+    app.baseUrl('/pages/Admin/Variety/editlist/editlist');
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     var THIS = this;
-    wx.request({
-      url: config.service.foods, //仅为示例，并非真实的接口地址
-      data: {
+    app.post(
+      config.service.foods, {
         "token": wx.getStorageSync('token')
-      },
-      header: {
-        'content-type': 'application/x-www-form-urlencoded' // 默认值
-      },
-      method: 'POST',
-      success: function (res) {
+      }, function (res) {
         if (res.data.errNum == 0) {
           THIS.setData({
             foodclass: res.data.retData
           })
         }
       }
-    });
-    wx.request({
-      url: config.service.foodsList, //仅为示例，并非真实的接口地址
-      data: {
+    );
+    app.post(
+      config.service.foodsList, {
         "token": wx.getStorageSync('token')
-      },
-      header: {
-        'content-type': 'application/x-www-form-urlencoded' // 默认值
-      },
-      method: 'POST',
-      success: function (res) {
+      }, function (res) {
         if (res.data.errNum == 0) {
           THIS.setData({
-            host:config.service.host,
+            host: config.service.host,
             datas: res.data.retData
           })
         }
       }
-    });
+    );
   },
 
   /**
@@ -179,57 +151,38 @@ Page({
   },
   // 添加菜品分类
   adds:function(){
-    wx.navigateTo({
-      url: '/pages/Admin/Variety/cate/cate'
-    })
+    app.baseUrl('/pages/Admin/Variety/cate/cate');
   },
   // 添加菜品列表
   cates:function(){
-    wx.navigateTo({
-      url: "/pages/Admin/Variety/addlist/addlist"
-    })
+    app.baseUrl("/pages/Admin/Variety/addlist/addlist");
   },
   // 删除菜品列表
   removes:function(e){
-    var i = e.currentTarget.dataset.remid;
     var THIS=this;
-    wx.request({
-      url: config.service.menuRemove, //仅为示例，并非真实的接口地址
-      data: {
+    app.post(
+      config.service.menuRemove, {
         "token": wx.getStorageSync('token'),
-        "class_id":i
-      },
-      method:'POST',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded' // 默认值
-      },
-      success: function (res) {
+        "class_id": e.currentTarget.dataset.remid
+      }, function (res) {
         if (res.data.errNum == 0) {
           THIS.setData({
             host: config.service.host,
             datas: res.data.retData
           })
-          app.point("成功", "success");
+          app.point(res.data.retMsg, "success");
           setTimeout(function () {
             THIS.onLoad()
           }, 1000);
-        } else if (res.data.errNum == 1){
-          app.point("对不起,您不是管理员身份", "none");
-        } else if (res.data.errNum == 2) {
-          app.point("没有接收到修改分类的ID", "none");
-        } else if (res.data.errNum == 3) {
-          app.point("分类下有食品不可删除", "none");
-        } else{
-          app.point("删除失败", "none");
-        }
+        } else {
+          app.point(res.data.retMsg, "none");
+        }; 
       }
-    })
+    );
   },
 
   formSubmit:function(e){
     wx.setStorageSync('key', e.detail.value);
-    wx.navigateTo({
-      url: '/pages/Admin/Variety/edit/edit'
-    })
+    app.baseUrl('/pages/Admin/Variety/edit/edit');
   }
 })

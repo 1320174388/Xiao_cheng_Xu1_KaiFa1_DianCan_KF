@@ -17,24 +17,17 @@ Page({
    */
   onLoad: function (options) {
     var THIS = this
-    wx.request({
-      url: config.service.getPosition,
-      data:{
+    app.post(
+      config.service.getPosition, {
         'token': wx.getStorageSync('token')
-      },
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      method:'POST',
-      success:function(res){
-        if (res.data.retData){
+      }, function (res) {
+        if (res.data.retData) {
           THIS.setData({
-            array:res.data.retData.list
+            array: res.data.retData.list
           });
         };
-        console.log(res.data);
       }
-    })
+    );
   },
 
   /**
@@ -87,51 +80,33 @@ Page({
   },
   // 添加
   add:function(){
-    wx.navigateTo({
-      url: "/pages/Admin/Authority/powerManage/index",
-  })
+    app.baseUrl('/pages/Admin/Authority/powerManage/index');
   },
   
 //修改
   formSubmit:function(e) {
     wx.setStorageSync('value', e.detail.value);
-    wx.navigateTo({
-      url: '/pages/Admin/Authority/update/index',
-    })
-    
+    app.baseUrl('/pages/Admin/Authority/update/index');
   },
 
 //删除
  
-  deleteClick: function (event) {
-    var id = event.currentTarget.dataset.editid;
+  deleteClick: function (e) {
     var THIS=this;
-    console.log(id);
-    wx.request({
-      url: config.service.delPosition,
-      data: {
+    app.post(
+      config.service.delPosition, {
         'token': wx.getStorageSync('token'),
-        'id': id
-      },
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      method: 'POST',
-      success: function (res) {
+        'id': e.currentTarget.dataset.editid
+      }, function (res) {
         if (res.data.errNum == 0) {
-          app.point("删除成功", "success");
+          app.point(res.data.retMsg, "success");
           setTimeout(function () {
             THIS.onLoad()
           }, 1000);
-        } else if (res.data.errNum == 1) {
-          app.point("你没有权限进行此操作", "none");
-        } else if (res.data.errNum == 2) {
-          app.point("当前职位已被管理员使用,不可删除", "none");
-        }else{
-          app.point("删除失败", "none");
-        }
+        } else {
+          app.point(res.data.retMsg, "none");
+        };
       }
-    })
+    );
   }
-    
 })

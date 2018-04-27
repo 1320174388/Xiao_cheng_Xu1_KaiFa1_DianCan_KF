@@ -25,25 +25,17 @@ Page({
     }
     wx.removeStorageSync('value');
     var THIS = this
-    wx.request({
-      url: config.service.position,
-      data: {
+    app.post(
+      config.service.position, {
         'token': wx.getStorageSync('token')
-      },
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      method: 'POST',
-      success: function (res) {
-       
+      }, function (res) {
         if (res.data.retData) {
           THIS.setData({
             array: res.data.retData.list
           });
         };
-        console.log(res.data);
       }
-    })
+    );
   },
 
   /**
@@ -114,41 +106,22 @@ Page({
     for (var i in value) {
       arr.push(value[i]); //属性
     }
-    console.log(value);
-    wx.request({
-      url: config.service.addPosition,
-      data: {
+    app.post(
+      config.service.addPosition, {
         'token': wx.getStorageSync('token'),
-        'roleName':roleName,
+        'roleName': roleName,
         'right': arr,
-      },
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      method: 'POST',
-      success: function (res) {
+      },function(res){
         if (res.data.errNum == 0) {
           add.setData({
             arrayList: res.data.retData
           });
-          app.point("成功","success");
-          setTimeout(function(){
-            var pages = getCurrentPages(); // 当前页面  
-            var beforePage = pages[pages.length - 2]; // 前一个页面 
-            wx.navigateBack({
-              success: function () {
-                beforePage.onLoad(); // 执行前一个页面的onLoad方法  
-              }
-            })
-          },1000);
-          
-        } else if (res.data.errNum == 1){
-          app.point("你没有权限进行此操作", "none");
-        }else{
-          app.point("职位已存在", "none");
+          app.point(res.data.retMsg, "success");
+          app.timeBack(1000);
+        } else {
+          app.point(res.data.retMsg, "none");
         };
       }
-    })
+    );
   }
-
 })

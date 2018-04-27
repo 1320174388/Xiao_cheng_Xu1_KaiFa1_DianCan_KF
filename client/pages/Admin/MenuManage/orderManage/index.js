@@ -1,4 +1,5 @@
 var config = require('../../../../config');
+var app = getApp();
 // pages/Admin/MenuManage/orderManage/index.js
 Page({
 
@@ -7,35 +8,28 @@ Page({
    */
   data: {
     // 订单管理导航条
-    navbar: ['就餐订单', '外卖订单', '历史订单'],
+    navbar: ['就餐', '取餐', '外卖', '历史'],
     currentTab: 0,
     orderlist:null,
     ordertake:null,
-    orderhist:null
+    orderhist:null,
+    orderqucan:null
   },
   // 获取订单详情信息
   orderinfo:function(e){
     wx.setStorageSync('order_id', e.currentTarget.dataset.order_id);
-    wx.navigateTo({
-      url: '/pages/Admin/MenuManage/orderInfo/index',
-    })
+    app.baseUrl('/pages/Admin/MenuManage/orderInfo/index');
   },
   // 修改座号
   updateorder:function(e){
     wx.setStorageSync('order_id', e.currentTarget.dataset);
-    console.log(e.currentTarget.dataset);
-    wx.navigateTo({
-      url: '/pages/Admin/MenuManage/updateNumber/index',
-    })
+    app.baseUrl('/pages/Admin/MenuManage/updateNumber/index');
   },
   // 修改地址
   updateorderaddr:function(e){
-   wx.setStorageSync('order_value', e.currentTarget.dataset);
-    wx.navigateTo({
-      url: '/pages/Admin/MenuManage/updateCity/index',
-    })
+    wx.setStorageSync('order_value', e.currentTarget.dataset);
+    app.baseUrl('/pages/Admin/MenuManage/updateCity/index');
   },
-  
   navbarTap: function (e) {
     this.setData({
       currentTab: e.currentTarget.dataset.idx
@@ -47,56 +41,61 @@ Page({
    */
   onLoad: function (options) {
     var THIS = this;
-    wx.request({
-      url: config.order.orderList,
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      data: {
-        'token':wx.getStorageSync('token'),
-        'order_type':'eat',
-        'order_status':1,
-      },
-      method: 'POST',
-      success: function (res) {
-        THIS.setData({
-          orderlist: res.data.retData
-        })
+    // 获取就餐订单
+    app.post(
+      config.order.orderList, {
+        'token': wx.getStorageSync('token'),
+        'order_type': 'eat',
+        'order_status': 1,
+      }, function (res) {
+        if (res.data.errNum == 1) {
+          THIS.setData({
+            orderlist: res.data.retData
+          })
+        }
       }
-    });
-    wx.request({
-      url: config.order.orderList,
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      data: {
+    );
+    // 获取取餐订单
+    app.post(
+      config.order.orderList, {
+        'token': wx.getStorageSync('token'),
+        'order_type': 'take',
+        'order_status': 1,
+      }, function (res) {
+        if (res.data.errNum == 1) {
+          THIS.setData({
+            orderqucan: res.data.retData
+          })
+        }
+      }
+    );
+    // 获取外卖订单
+    app.post(
+      config.order.orderList, {
         'token': wx.getStorageSync('token'),
         'order_type': 'out',
         'order_status': 1,
-      },
-      method: 'POST',
-      success: function (res) {
-        THIS.setData({
-          ordertake: res.data.retData
-        })
+      }, function (res) {
+        if (res.data.errNum == 1) {
+          THIS.setData({
+            ordertake: res.data.retData
+          })
+        }
       }
-    });
-    wx.request({
-      url: config.order.orderList,
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      data: {
+    );
+    // 获取历史订单
+    app.post(
+      config.order.orderList, {
         'token': wx.getStorageSync('token'),
         'order_status': 2,
-      },
-      method: 'POST',
-      success: function (res) {
-        THIS.setData({
-          orderhist: res.data.retData
-        })
+      }, function (res) {
+        if (res.data.errNum == 1) {
+          THIS.setData({
+            orderhist: res.data.retData
+          })
+        }
       }
-    });
+    );
   },
 
   /**

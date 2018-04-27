@@ -19,24 +19,17 @@ Page({
    */
   onLoad: function (options) {
     var THIS = this
-    wx.request({
-      url: config.service.getAdmin,
-      data: {
+    app.post(
+      config.service.getAdmin, {
         'token': wx.getStorageSync('token')
-      },
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      method: 'POST',
-      success: function (res) {
+      }, function (res) {
         if (res.data.retData) {
           THIS.setData({
             array: res.data.retData.list
           });
         };
-        console.log(res.data);
       }
-    })
+    );
   },
 
   /**
@@ -89,51 +82,32 @@ Page({
   },
   // 添加按钮
   adds:function(){
-    wx.navigateTo({
-      url: '/pages/Admin/Management/addManage/index'
-    })
+    app.baseUrl('/pages/Admin/Management/addManage/index');
   },
 
   //修改
   addSubmit: function (e) {
     wx.setStorageSync('value', e.detail.value);
-    console.log(e.detail.value);
-    wx.navigateTo({
-      url: '/pages/Admin/Management/updateAdmin/index',
-    })
-
+    app.baseUrl('/pages/Admin/Management/updateAdmin/index');
   },
 
   //删除
-  deleteClick: function (event) {
-    var user_id = event.currentTarget.dataset.editid;
-    var THIS=this;
-    console.log(user_id);
-    wx.request({
-      url: config.service.delAdmin,
-      data: {
+  deleteClick: function (e) {
+    var THIS = this; 
+    app.post(
+      config.service.delAdmin, {
         'token':wx.getStorageSync('token'),
-        'admin_id':user_id
-      },
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      method: 'POST',
-      success: function (res) {
+        'admin_id':e.currentTarget.dataset.editid
+      }, function (res) {
         if (res.data.errNum == 0) {
-          app.point("成功", "success");
+          app.point(res.data.retMsg, "success");
           setTimeout(function () {
             THIS.onLoad()
           }, 1000);
-         
-        } else if (res.data.errNum == 1) {
-          app.point("你没有权限进行此操作", "none");
-        } else if (res.data.errNum == 2) {
-          app.point("没有输入要删除的管理员ID", "none");
         } else {
-          app.point("删除失败", "none");
-        }
+          app.point(res.data.retMsg, "none");
+        };
       }
-    })
+    );
   }
 })

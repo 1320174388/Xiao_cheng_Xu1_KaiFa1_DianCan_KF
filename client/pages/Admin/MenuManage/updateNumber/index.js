@@ -11,36 +11,20 @@ Page({
   },
 
   formSubmit:function(e){
-    wx.request({
-      url: config.order.orderEdit,
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      data: {
+    app.post(
+      config.order.orderEdit, {
         'token': wx.getStorageSync('token'),
         'id': e.detail.value.id,
-        //'id': wx.getStorageSync('order_id'),
-        'table_id' : e.detail.value.number
-      },
-      method: 'POST',
-      success: function (res) {
-        if(res.data.errNum == 1){
-          wx.removeStorageSync('order_id');
-          app.point("成功", "success");
-          setTimeout(function () {
-            var pages = getCurrentPages(); // 当前页面  
-            var beforePage = pages[pages.length - 2]; // 前一个页面 
-            wx.navigateBack({
-              success: function () {
-                beforePage.onLoad(); // 执行前一个页面的onLoad方法  
-              }
-            })
-          }, 1000);
-        }else{
-          app.point("参数错误", "success");
-        }
+        'table_id': e.detail.value.number
+      }, function (res) {
+        if (res.data.errNum == 1) {
+          app.point(res.data.retMsg, "success");
+          app.timeBack(1000);
+        } else {
+          app.point(res.data.retMsg, "none");
+        }; 
       }
-    })
+    );
   },
   /**
    * 生命周期函数--监听页面加载
