@@ -34,11 +34,17 @@
   </view>
 </form>
 
+<!--座号管理 -->
+<!-- <view > -->
+  <view class='{{select ? "show" : "hide" }}' id='desks'>
 
-<view class='{{select ? "show" : "hide" }}' id='desks'>
-    <view class='desk' wx:for="{{desk}}" wx:key="{{index}}">
-        <image src='{{pic}}'></image>
-        <text>{{item.table_number}}</text>
+    <view class='desk' wx:for="{{desk}}" wx:key="{{index}}" data-tabltnum="{{index}}" bindlongtap="longTap">
+        <!-- <image src='{{pic}}'  bindlongtap="longTap" class="fenxiang-btn"></image> -->
+        <text class='world'>{{item.table_number}}号桌</text>
+        <button class="update" bindtap="hide" hidden="{{item.hidden}}">修改</button>
+        <button class="del" bindtap="hide" hidden="{{item.hidden}}">删除</button>
     </view>
-    <button bindtap='seats'>添加</button>
+
+  <!-- </view>   -->
 </view>
+<button bindtap='seats' class='add'>添加</button>  

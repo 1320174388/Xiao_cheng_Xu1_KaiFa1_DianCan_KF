@@ -1,6 +1,7 @@
 // pages/Admin/manage/index.js
 var config = require('../../../../config.js');
 var app = getApp();
+var time=null;
 Page({
 
   /**
@@ -12,17 +13,37 @@ Page({
     select:false,
     selected:true,
     pic:"/icon/desk.jpg",
-    desk:[
-      { pic: "/icon/desk.jpg", name: "1号桌" },
-      { pic: "/icon/desk.jpg", name: "1号桌" },
-      { pic: "/icon/desk.jpg", name: "1号桌" },
-      { pic: "/icon/desk.jpg", name: "1号桌" },
-      { pic: "/icon/desk.jpg", name: "1号桌" },
-      { pic: "/icon/desk.jpg", name: "1号桌" },
-      { pic: "/icon/desk.jpg", name: "1号桌" },
-      { pic: "/icon/desk.jpg", name: "1号桌" }
-    ]
+    desk:null,
   },
+  /**
+     * 弹出层函数
+     */
+  //出现
+  longTap: function (e) {
+    var This=this;
+    var index = e.currentTarget.dataset.tabltnum;
+    console.log(e);
+    console.log(index);
+    var desk = this.data.desk;
+    for (var i in desk) {
+      desk[i]['hidden'] = true;
+    };
+    console.log(desk[index]);
+    desk[index].hidden = false;
+    this.setData({
+      desk:desk
+    });
+    clearTimeout(time);
+    time=setTimeout(function () {
+      for (var i in desk) {
+        desk[i]['hidden'] = true;
+      }
+      This.setData({
+        desk: desk
+      });
+    }, 3000);
+
+ },
 
   /**
    * 生命周期函数--监听页面加载
@@ -50,9 +71,14 @@ Page({
         "token": wx.getStorageSync('token')
       }, function (res) {
         if (res.data.errNum == 0) {
+          var temp = res.data.retData;
+          for (var i in temp){
+            temp[i]['hidden'] = true;
+          }
           THIS.setData({
-            desk: res.data.retData
+            desk: temp
           });
+          console.log(temp);
         }
       }
     )
