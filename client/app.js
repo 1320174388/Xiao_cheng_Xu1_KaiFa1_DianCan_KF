@@ -1,6 +1,6 @@
 //app.js
-var qcloud = require('./vendor/wafer2-client-sdk/index')
-var config = require('./config')
+var qcloud = require('./vendor/wafer2-client-sdk/index');
+var config = require('./config');
 
 App({
   onLaunch: function () {
@@ -36,7 +36,7 @@ App({
         success: function () {
           beforePage.onLoad(); // 执行前一个页面的onLoad方法  
         }
-      })
+      });
     }, time);
   },
   // 页面跳转
@@ -52,7 +52,7 @@ App({
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
       success: image
-    })
+    });
   },
   // uploadFile 方法封装函数
   file: function (urls, image_url, names,formDatas,res){

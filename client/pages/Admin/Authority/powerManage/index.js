@@ -18,12 +18,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var value = wx.getStorageSync('value');
-    console.log(value);
-    if (value){
-        this.setData({update_value:value});
-    }
-    wx.removeStorageSync('value');
     var THIS = this
     app.post(
       config.service.position, {

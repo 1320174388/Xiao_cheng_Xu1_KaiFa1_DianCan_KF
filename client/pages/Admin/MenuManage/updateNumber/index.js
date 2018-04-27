@@ -17,7 +17,7 @@ Page({
         'id': e.detail.value.id,
         'table_id': e.detail.value.number
       }, function (res) {
-        if (res.data.errNum == 1) {
+        if (res.data.errNum == 0) {
           app.point(res.data.retMsg, "success");
           app.timeBack(1000);
         } else {

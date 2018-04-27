@@ -2,7 +2,7 @@
   <view class="tunnel">
           <view class="tunnel-text uploader-text">
             <text>职位名称</text>
-            <input name="roleName" placeholder='我是暗提示' value="{{update_value.roleName}}"></input>  
+            <input name="roleName" placeholder='我是暗提示' ></input>  
             <span class="sp">></span>
           </view>
   </view>

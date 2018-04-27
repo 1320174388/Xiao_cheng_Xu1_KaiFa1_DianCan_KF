@@ -10,6 +10,7 @@ class Order extends CI_Controller {
     public function __construct(){
         parent::__construct();
         $this->load->model('admin/M_Order');
+        $this->load->library('validateclass');
         if( !(is_admin_user() || is_system_admin()) ){
             return return_response( 1, '对不起,您不是管理员身份');
         }
@@ -43,15 +44,22 @@ class Order extends CI_Controller {
     public function update_order_info(){
         $post = $this->input->post();
         if( count( $post ) < 1 || !isset( $post['id'] ) ){
-            return return_response( '0', '参数错误', [] );
+            return return_response( 1, '参数错误', [] );
+        }
+
+        if($post['table_id']){
+            $var = $this->validateclass->validator($post['table_id'],'int');
+            if(!$var){
+                return return_response( 2, '请正确填写座号');
+            }
         }
 
         $result = $this->M_Order->update( $post );
 
         if( $result ){
-            return return_response( '1', '修改成功', [] );
+            return return_response( 0, '修改成功', [] );
         }else{
-            return return_response( '0', '修改失败', [] );
+            return return_response( 3, '修改失败', [] );
         }
 
     }
