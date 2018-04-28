@@ -11,6 +11,8 @@ class Shop extends LoginController{
         parent::__construct();
         $this->load->model('admin/M_Shop');
         $this->load->helper('uploads');
+        $this->load->helper('deletedir');
+        $this->load->helper('phpqrcode');
     }
 
     /**
@@ -182,6 +184,35 @@ class Shop extends LoginController{
         } else {
             return return_response( 3, '删除失败');
         }
+
+    }
+
+    /**
+     * 生成座号二维码
+     *
+     * @access public
+     * @param int table_number 桌号
+     * @return array 中返回是否修改成功
+     */
+    public function table_number_img(){
+
+        $post = $this->input->post();
+
+        $table_number_info = $post['table_number'];
+
+        $number = mt_rand(100000,999999);
+        $date = date(time());
+        $fileName = md5($number.$date);
+
+        $table_number_urls = './uploads/table_number_img/'.$fileName.'.png';
+
+        deldir('./uploads/table_number_img');
+
+        QRcode::png($table_number_info,$table_number_urls,'QR_ECLEVEL_Q',6,2);
+
+        $table_number_url = ltrim($table_number_urls,'.');
+
+        return return_response( 0, '请求成功',['img'=>$table_number_url]);
 
     }
 
