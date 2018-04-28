@@ -41,8 +41,9 @@
     <view class='desk' wx:for="{{desk}}" wx:key="{{index}}" data-tabltnum="{{index}}" bindlongtap="longTap">
         <!-- <image src='{{pic}}'  bindlongtap="longTap" class="fenxiang-btn"></image> -->
         <text class='world'>{{item.table_number}}号桌</text>
-        <button class="update" bindtap="hide" hidden="{{item.hidden}}">修改</button>
-        <button class="del" bindtap="hide" hidden="{{item.hidden}}">删除</button>
+        <button class="update" bindtap="hideup" hidden="{{item.hidden}}" 
+        data-table_number="{{item.table_number}}"  data-table_id="{{item.id}}">修改</button>
+        <button class="del" bindtap="hidedel" hidden="{{item.hidden}}" data-editid="{{item.id}}">删除</button>
     </view>
 
   <!-- </view>   -->

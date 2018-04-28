@@ -9,6 +9,7 @@
     "pages/Admin/Shop/message/index",
     "pages/Admin/Shop/maps/index",
     "pages/Admin/Shop/seat/index",
+    "pages/Admin/Shop/seatupdate/index",
     "pages/Admin/Authority/powerManage/index",
     "pages/Admin/Authority/updatePower/index",
     "pages/Admin/Authority/update/index",
