@@ -51,22 +51,18 @@ Page({
    */
   onLoad: function (options) {
     var THIS = this;
-    wx.request({
-      url: config.service.shoppings,
-      data: {
+    app.post(
+      config.service.shoppings, {
         "token": wx.getStorageSync('token')
-      },
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      method:'post',
-      success: function (res) {
-        THIS.setData({
-          host: config.service.host,
-          shop: res.data.retData[0]
-        });
+      }, function (res) {
+        if (res.data.errNum == 1) {
+          THIS.setData({
+            host: config.service.host,
+            shop: res.data.retData[0]
+          });
+        }
       }
-    });
+    );
     app.post(
       config.shop.get_tables, {
         "token": wx.getStorageSync('token')
@@ -76,12 +72,12 @@ Page({
             res.data.retData[i]['hidden'] = true;
           }
           THIS.setData({
+            desk:null,
             desk: res.data.retData
           });
-          console.log(res.data.retData);
         }
       }
-    )
+    );
   },
 
 //修改座号
