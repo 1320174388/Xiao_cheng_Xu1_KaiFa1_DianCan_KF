@@ -130,6 +130,7 @@ Page({
       })
     }
   },
+  
   infomation:function(e){
     var i = e.detail.value.attr
     this.setData({
