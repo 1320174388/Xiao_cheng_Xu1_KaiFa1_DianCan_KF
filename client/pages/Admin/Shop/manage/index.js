@@ -72,7 +72,6 @@ Page({
             res.data.retData[i]['hidden'] = true;
           }
           THIS.setData({
-            desk:null,
             desk: res.data.retData
           });
         }
@@ -98,7 +97,7 @@ Page({
           app.point(res.data.retMsg, "success");
           setTimeout(function () {
             del.onLoad(); 
-          }, 1000);
+          }, 3000);
         } else {
           app.point(res.data.retMsg, "none");
         };
