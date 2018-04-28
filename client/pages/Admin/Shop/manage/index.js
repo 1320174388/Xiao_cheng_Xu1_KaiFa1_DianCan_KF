@@ -14,6 +14,7 @@ Page({
     selected:true,
     pic:"/icon/desk.jpg",
     desk:null,
+    table_id:null,
   },
   /**
      * 弹出层函数
@@ -71,19 +72,43 @@ Page({
         "token": wx.getStorageSync('token')
       }, function (res) {
         if (res.data.errNum == 0) {
-          var temp = res.data.retData;
-          for (var i in temp){
-            temp[i]['hidden'] = true;
+          for (var i in res.data.retData){
+            res.data.retData[i]['hidden'] = true;
           }
           THIS.setData({
-            desk: temp
+            desk: res.data.retData
           });
-          console.log(temp);
+          console.log(res.data.retData);
         }
       }
     )
   },
 
+//修改座号
+  hideup: function (e) {
+    console.log(e.currentTarget.dataset);
+    wx.setStorageSync('table_info', e.currentTarget.dataset);
+    app.baseUrl('/pages/Admin/Shop/seatupdate/index');
+  },
+// 删除座号
+  hidedel: function (e) {
+    var del = this;
+    app.post(
+      config.shop.del_tables, {
+        'token': wx.getStorageSync('token'),
+        'table_id': e.currentTarget.dataset.editid
+      }, function (res) {
+        if (res.data.errNum == 0) {
+          app.point(res.data.retMsg, "success");
+          setTimeout(function () {
+            del.onLoad(); 
+          }, 1000);
+        } else {
+          app.point(res.data.retMsg, "none");
+        };
+      }
+    );
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

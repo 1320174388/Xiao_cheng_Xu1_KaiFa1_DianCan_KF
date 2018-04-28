@@ -69,7 +69,11 @@ var config = {
       // 添加座号
       add_table: `${host}/api/admin/shop/add_table`,
       // 获取座号信息
-      get_tables: `${host}/api/admin/shop/get_tables`
+      get_tables: `${host}/api/admin/shop/get_tables`,
+      // 获取座号信息
+      update_tables: `${host}/api/admin/shop/set_tables`,
+      // 获取座号信息
+      del_tables: `${host}/api/admin/shop/remove_tables`,
     },
     // 菜品管理接口地址
     foods:{

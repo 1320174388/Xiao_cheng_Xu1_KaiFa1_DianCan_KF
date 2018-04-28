@@ -1,7 +1,8 @@
 <form bindsubmit="submit">
   <view class='seat'>
+    <input hidden name="table_number" value="{{table_number.table_number}}"></input>
       <text class='title'>座位号</text>
-      <input auto-focus name="table_number"/>
+      <input auto-focus name="table_number" value="{{table_number.table_number}}"/>
   </view>
 
   <button class='submit' form-type='submit'>提交</button>
