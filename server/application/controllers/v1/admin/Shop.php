@@ -101,16 +101,25 @@ class Shop extends CI_Controller{
      * @return array 中返回是否修改成功
      */
     public function add_table(){
+
         $post = $this->input->post();
+
         if( count( $post ) < 0 ){
             return return_response( 1, '参数错误', [] );
         }
+
+        $res  =  $this->M_Shop->find_table( $post['table_number'] );
+
+        if($res){
+            return return_response( 2, '座号已存在' );
+        }
+
         $result = $this->M_Shop->create_table( $post );
 
         if( $result ){
             return return_response( 0, '添加成功', $result );
         }else{
-            return return_response( 2, '添加失败', $result );
+            return return_response( 3, '添加失败', $result );
         }
     }
 

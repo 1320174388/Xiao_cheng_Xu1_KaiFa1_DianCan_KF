@@ -148,4 +148,13 @@ class M_Shop extends CI_Model{
         return $result->result();
     }
 
+    public function find_table($table_number){
+
+        $query_sql = 'select id,table_number from data_admin_tables where table_number = '.$table_number;
+
+        $result = $this->connection->query( $query_sql );
+
+        return $result->result()[0];
+    }
+
 }

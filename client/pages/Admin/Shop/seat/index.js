@@ -26,10 +26,12 @@ Page({
         'token': wx.getStorageSync('token'),
         'table_number':e.detail.value.table_number
       },function(res){
-        if(res.data.errNum == 0){
-          app.point("成功", "success");
+        if (res.data.errNum == 0) {
+          app.point(res.data.retMsg, "success");
           app.timeBack(1000);
-        }
+        } else {
+          app.point(res.data.retMsg, "none");
+        }; 
       }
     )
   },
