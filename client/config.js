@@ -49,6 +49,7 @@ var config = {
         addMenu: `${host}/api/admin/classfoods/create`,
         //修改菜品分类
         editMenu: `${host}/api/admin/classfoods/update`
+        
 
     },
     // 订单管理页面路由
@@ -74,6 +75,8 @@ var config = {
       update_tables: `${host}/api/admin/shop/set_tables`,
       // 获取座号信息
       del_tables: `${host}/api/admin/shop/remove_tables`,
+      // 二维码接口
+      qr_code: `${host}/api/admin/shop/table_number_img`,
     },
     // 菜品管理接口地址
     foods:{

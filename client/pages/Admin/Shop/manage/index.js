@@ -15,6 +15,8 @@ Page({
     pic:"/icon/desk.jpg",
     desk:null,
     table_id:null,
+    showModalStatus: "hide",
+    shoopCode:null,
   },
   /**
      * 弹出层函数
@@ -40,6 +42,7 @@ Page({
         desk[i]['hidden'] = true;
       }
       This.setData({
+        desk:null,
         desk: desk
       });
     }, 3000);
@@ -108,6 +111,34 @@ Page({
         };
       }
     );
+  },
+// 二维码
+  tap:function(e){
+    var This=this;
+    console.log(e);
+    app.post(
+      config.shop.qr_code,{
+        "token": wx.getStorageSync('token'),
+        "table_number": e.currentTarget.dataset.table_number
+      }, function (res) {
+        if (res.data.errNum == 0) {
+          setTimeout(function () {
+            This.setData({
+              host: config.service.host,
+             shoopCode:res.data.retData.img,
+              showModalStatus: "show"
+            })
+          }, 1000)
+        }
+      }
+    );
+   
+    
+  },
+  close: function () {
+    this.setData({
+      showModalStatus: "hide"
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
