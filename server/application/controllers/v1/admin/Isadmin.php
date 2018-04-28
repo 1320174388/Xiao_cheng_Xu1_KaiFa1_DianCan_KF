@@ -5,7 +5,7 @@
  * Date: 2018/4/16 0016
  * Time: 18:26
  */
-class Isadmin extends CI_Controller {
+class Isadmin extends LoginController {
 
     public function __construct(){
         parent::__construct();

@@ -5,7 +5,7 @@
  * Date: 2018/4/20 0020
  * Time: 22:27
  */
-class Foodsmana extends CI_Controller
+class Foodsmana extends LoginController
 {
     public function __construct()
     {
@@ -14,8 +14,8 @@ class Foodsmana extends CI_Controller
         $this->load->helper('uploads');
         $this->load->library('validateclass');
         if(!is_system_admin()){
-        return return_response( 1, '你没有权限进行此操作', NULL );
-    }
+            return return_response( 1, '你没有权限进行此操作', NULL );
+        }
     }
     /**
      * 获取所有菜品信息

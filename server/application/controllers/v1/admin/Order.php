@@ -5,7 +5,7 @@
  * Date: 2018/4/20
  * Time: 23:33
  */
-class Order extends CI_Controller {
+class Order extends LoginController {
 
     public function __construct(){
         parent::__construct();

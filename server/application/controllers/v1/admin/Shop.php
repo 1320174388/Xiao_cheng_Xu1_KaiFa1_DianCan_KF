@@ -5,15 +5,12 @@
  * Date: 2018/4/16
  * Time: 21:53
  */
-class Shop extends CI_Controller{
+class Shop extends LoginController{
 
     public function __construct(){
         parent::__construct();
         $this->load->model('admin/M_Shop');
         $this->load->helper('uploads');
-        if(!(is_admin_user() || is_system_admin())){
-            return return_response( 1, '对不起,您不是管理员身份');
-        }
     }
 
     /**
@@ -137,6 +134,55 @@ class Shop extends CI_Controller{
         }else{
             return return_response( 2, '请求失败', $result );
         }
+    }
+
+    /**
+     * 修改座号
+     *
+     * @access public
+     * @param int table_id 桌号
+     * @param int table_number 桌号
+     * @return array 中返回是否修改成功
+     */
+    public function set_tables(){
+
+        $post = $this->input->post();
+
+        if(!$post['table_id']) return return_response( 2, '没有发送座号ID');
+
+        if(!$post['table_number']) return return_response( 3, '请填写座号');
+
+        $result = $this->M_Shop->update_table( $post );
+
+        if($result){
+            return return_response( 0, '修改成功');
+        } else {
+            return return_response( 4, '修改失败');
+        }
+
+    }
+
+    /**
+     * 删除座号
+     *
+     * @access public
+     * @param int table_id 桌号
+     * @return array 中返回是否修改成功
+     */
+    public function remove_tables(){
+
+        $post = $this->input->post();
+
+        if(!$post['table_id']) return return_response( 2, '没有发送座号ID');
+
+        $result = $this->M_Shop->delete_table( $post['table_id'] );
+
+        if($result){
+            return return_response( 0, '删除成功');
+        } else {
+            return return_response( 3, '删除失败');
+        }
+
     }
 
 

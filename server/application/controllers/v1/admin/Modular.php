@@ -5,7 +5,7 @@
  * Date: 2018/4/18 0018
  * Time: 13:35
  */
-class Modular extends CI_Controller {
+class Modular extends LoginController {
 
     public function __construct(){
         parent::__construct();

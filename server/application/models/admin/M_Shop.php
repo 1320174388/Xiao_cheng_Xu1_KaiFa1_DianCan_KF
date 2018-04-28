@@ -6,8 +6,6 @@
  * Time: 22:14
  */
 
-
-
 class M_Shop extends CI_Model{
     const UNIQUE_VALUE = 1;
     private $connection;
@@ -137,6 +135,26 @@ class M_Shop extends CI_Model{
         $result = $this->connection->query( $query_sql );
 
         return $result;
+    }
+
+    public function update_table($data){
+
+        $update_table = 'update data_admin_tables set table_number = '.$data['table_number'];
+
+        $where = ' where id = '.$data['table_id'];
+
+        $query_sql = $update_table.$where;
+
+        return  $this->connection->query( $query_sql );
+
+    }
+
+    public function delete_table($data){
+
+        $query_sql = 'delete from data_admin_tables where id = '.$data;
+
+        return  $this->connection->query( $query_sql );
+
     }
 
     public function get_table_list(){

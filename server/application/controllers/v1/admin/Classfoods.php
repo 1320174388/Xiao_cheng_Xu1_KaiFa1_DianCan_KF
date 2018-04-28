@@ -5,7 +5,7 @@
  * Date: 2018/4/20 0020
  * Time: 14:11
  */
-class Classfoods extends CI_Controller{
+class Classfoods extends LoginController{
 
     public function __construct()
     {

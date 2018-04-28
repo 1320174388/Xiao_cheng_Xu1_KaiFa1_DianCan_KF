@@ -1,14 +1,11 @@
 <?php
 
-class Position extends CI_Controller {
+class Position extends LoginController {
 
     public function __construct(){
         parent::__construct();
         $this->load->model('admin/Role');
         $this->load->library('validateclass');
-        if(!is_system_admin()){
-            return return_response( 1, '你没有权限进行此操作');
-        }
     }
 
     // 获取权限信息
