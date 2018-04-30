@@ -21,7 +21,7 @@
       <view class='pic'>
           <text class='title'>店铺图片</text>
           <view class='pics'>
-              <image bindtap="image" src='{{shop_value.shop_img}}'></image>
+              <image bindtap="image" src='{{image_url}}'></image>
           </view>
       </view>
       <button formType="submit" >确定</button>
