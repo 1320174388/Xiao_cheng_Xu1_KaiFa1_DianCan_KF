@@ -20,7 +20,7 @@ class Foods extends CI_Model{
     {
         $select = 'select id,food_name,class_id,food_img,food_price,food_sort,food_info ';
         $from   = 'from data_admin_foods ';
-        $where  = 'like "%'.$food_name.'%" ';
+        $where  = ' where food_name like "%'.$food_name.'%" ';
         $order  = 'order by food_sort';
         if($food_name){
             return $this->db->query($select.$from.$where.$order)->result();

@@ -74,8 +74,7 @@ class Order extends LoginController {
     public function get_order_info_by_id(){
         $order_number = $this->input->post( 'order_number' );
         if( !isset( $order_number )){
-            $this->json( [ "errNum" => 0, "retMsg"  => '参数错误', "retData" => [] ] );
-            return ;
+            return $this->json( [ "errNum" => 0, "retMsg"  => '参数错误', "retData" => [] ] );
         }
         $result = $this->M_Order->find_order( $order_number );
         $num   = 0;

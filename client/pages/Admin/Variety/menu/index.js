@@ -68,7 +68,25 @@ Page({
       }
     );
   },
-
+  /**
+   * 搜索菜品
+   */
+  search:function(e){
+    var THIS = this;
+    app.post(
+      config.service.foodsList, {
+        "token": wx.getStorageSync('token'),
+        "food_name_search": e.detail.value.food_name_search
+      }, function (res) {
+        if (res.data.errNum == 0) {
+          THIS.setData({
+            host: config.service.host,
+            datas: res.data.retData
+          })
+        }
+      }
+    );
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -23,7 +23,10 @@
 <view class='{{select ? "show" : "hide" }}'>
     <view class="section">
         <icon type="search" size="15"/>
-        <input placeholder='搜索'/>
+        <form bindsubmit="search">
+            <input placeholder='搜索' name='food_name_search'/>
+            <button formType="submit">Submit</button>
+        </form>
     </view>
 
     <view class='menu' wx:for="{{datas}}" wx:key="{{index}}">

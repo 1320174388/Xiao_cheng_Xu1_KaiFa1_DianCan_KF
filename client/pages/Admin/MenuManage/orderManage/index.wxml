@@ -28,7 +28,7 @@
         </view>
         <view class="flex-row flex-cell">
             <text class="flex-cell1 flex-row5">操作</text>
-            <text data-order_id="{{item.id}}" bindtap="orderinfo" class="flex-cell2 flex-row6">详情</text>
+            <text data-order_id="{{item.order_number}}" bindtap="orderinfo" class="flex-cell2 flex-row6">详情</text>
             <text class="flex-cell3 flex-row"></text>
             <text data-order_id="{{item.order_number}}" data-table_id="{{item.table_id}}" 
              bindtap="updateorder" class="flex-cell4 flex-row7">修改</text>
@@ -60,7 +60,7 @@
         </view>
         <view class="flex-row flex-cell">
             <text class="flex-cell1 flex-row5">操作</text>
-            <text data-order_id="{{item.id}}" bindtap="orderinfo" class="flex-cell2 flex-row6">详情</text>
+            <text data-order_id="{{item.order_number}}" bindtap="orderinfo" class="flex-cell2 flex-row6">详情</text>
             <text class="flex-cell3 flex-row"></text>
             <text class="flex-cell4 flex-row"></text>
         </view>
@@ -91,7 +91,7 @@
         </view>
         <view class="flex-row flex-cell">
             <text class="flex-cell1 flex-row5">操作</text>
-            <text data-order_id="{{item.id}}" bindtap="orderinfo" class="flex-cell2 flex-row6">详情</text>
+            <text data-order_id="{{item.order_number}}" bindtap="orderinfo" class="flex-cell2 flex-row6">详情</text>
             <text class="flex-cell3 flex-row"></text>
             <text data-order_id="{{item.order_number}}" data-order_addr="{{item.order_addr}}"  bindtap="updateorderaddr" class="flex-cell4 flex-row7">修改</text>
         </view>
@@ -124,7 +124,7 @@
         </view>
         <view class="flex-row flex-cell">
             <text class="flex-cell1 flex-row5">操作</text>
-            <text data-order_id="{{item.id}}" bindtap="orderinfo" class="flex-cell2 flex-row6">详情</text>
+            <text data-order_id="{{item.order_number}}" bindtap="orderinfo" class="flex-cell2 flex-row6">详情</text>
             <text class="flex-cell3 flex-row"></text>
             <text class="flex-cell4 flex-row"></text>
         </view>

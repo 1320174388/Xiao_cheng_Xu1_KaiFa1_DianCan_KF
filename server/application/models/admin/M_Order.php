@@ -56,10 +56,10 @@ class M_Order extends CI_Model{
         return $result;
     }
 
-    public function find_order( $order_id ){
-        $sql = 'select o.order_id, o.food_id, f.food_name, f.food_img, o. food_number, o.order_price 
+    public function find_order( $order_number ){
+        $sql = 'select o.order_number, o.food_id, f.food_name, f.food_img, o. food_number, o.order_price 
                 from data_order_details o LEFT JOIN data_admin_foods f ON f.id = o.food_id 
-                where o.order_id = '. (int) $order_id;
+                where o.order_number = '. $order_number;
 
         $result = $this->connection->query( $sql );
 

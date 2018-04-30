@@ -22,11 +22,12 @@ class Foodsmana extends LoginController
      *
      * @success public
      * @parana string token 用户token令牌
+     * @parana string food_name_search 菜品名称
      */
     public function index()
     {
         // 获取菜品列表信息
-        $food_name = $this->input->post('food_name');
+        $food_name = $this->input->post('food_name_search');
         if($food_name){
             $res = $this->Foods->get_food_lists($food_name);
         }else{
