@@ -1,5 +1,6 @@
 <view class="btn-area">
-  <navigator url="/page/index/index" open-type="switchTab" hover-class="other-navigator-hover">点餐 </navigator>
+  <navigator url="/page/index/index" open-type="switchTab" hover-class="other-navigator-hover">点餐
+  </navigator>
   <navigator url="/page/index/index" open-type="switchTab" hover-class="other-navigator-hover">外卖 </navigator>
   <navigator url="/page/index/index" open-type="switchTab" hover-class="other-navigator-hover">预定 </navigator>
   <navigator url="/page/index/index" open-type="switchTab" hover-class="other-navigator-hover">排队 </navigator>

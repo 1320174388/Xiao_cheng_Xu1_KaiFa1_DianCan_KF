@@ -1,1 +1,159 @@
-/* pages/My/my.wxss */
+.top{
+  width: 99%;
+  height: 400rpx;
+  background: linear-gradient(to right, #FF9933 , OrangeRed);
+}
+.pic{
+  width: 25%;
+  height: 180rpx;
+  border:2px solid #fff;
+  margin: 60rpx 270rpx 20rpx 270rpx;
+  border-radius:1200px;
+}
+.context-id{
+  color: #fff;
+  font-size: 25rpx;
+  padding-left: 300rpx;
+}
+/*详情列表  */
+.list{
+  width: 99%;
+  height: 230rpx;
+  background-color: #FFF;
+}
+/*点餐  */
+.bord{
+  width: 25%;
+  position: absolute;
+}
+.order{
+  width: 56%;
+  height: 110rpx;
+  border:2px solid #fff;
+  background-color: #FF9933;
+  border-radius:1200px;
+  margin: 25rpx 0rpx 0rpx 30rpx;
+}
+.context-order{
+  font-size: 35rpx;
+  padding-left: 47rpx;
+}
+/*预定  */
+.bord1{
+  width: 50%;
+  position: relative;
+}
+.order1{
+  width: 28%;
+  height: 100rpx;
+  border:2px solid #fff;
+  background-color: #FF3366;
+  border-radius:1200px;
+  margin: 25rpx 0rpx 0rpx 225rpx;
+}
+.context-schedule{
+  font-size: 35rpx;
+  padding-left:245rpx; 
+}
+
+/*外卖  */
+ .bord2{
+  width: 75%;
+  position: absolute;
+  top:39%;
+  left: 20%;
+}
+.order2{
+  width: 18.5%;
+  height: 100rpx;
+  border:2px solid #fff;
+  background-color: #00FF00;
+  border-radius:1200px;
+  margin: 0rpx 0rpx 0rpx 265rpx;
+}  
+ .context-togo{
+  font-size: 35rpx;
+  position: relative;
+  top: 50rpx;
+  right:90rpx;
+}   
+
+/*排队取号  */
+ .bord3{
+  width: 100%;
+  position: relative;
+  top:-72%;
+  left: 44%;
+}
+.order3{
+  width: 13.5%;
+  height: 100rpx;
+  border:2px solid #fff;
+  background-color: #FF6600;
+  border-radius:1200px;
+  margin: 0rpx 0rpx 0rpx 265rpx;
+}
+ .context-queuenumber{
+  font-size: 35rpx;
+  position: relative;
+  top: 52rpx;
+  right:125rpx;
+}
+ .img{
+  width:70%;
+  height: 70%;
+  padding-left: 17rpx;
+  padding-top:10rpx; 
+} 
+.ico{
+  width:7%;
+  height: 50%;
+}
+.left{
+  font-size:30rpx;
+  float: left;
+  margin-top: 40rpx;
+  height: 110rpx;
+  width: 100%;
+  background: #FFF;
+  padding-left: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+.iconfont{
+  font-size:30rpx;
+}
+ view.iconfont{
+  width:80rpx;
+  line-height: 80rpx;
+  color:black;
+  font-size:35rpx;
+  border-radius: 50%;
+}
+.address{
+  padding-left:10rpx; 
+  color: black;
+  font-size: 35rpx;
+}
+.left1{
+  font-size:30rpx;
+  float: left;
+  height: 110rpx;
+  width: 100%;
+  background: #FFF;
+  padding-left: 10px;
+}
+.sp{
+  position: absolute;
+  right:15px;
+  font-size: 25px;
+  color:gainsboro;
+  bottom: 132px;
+}
+.sp1{
+  position: absolute;
+  right:15px;
+  font-size: 25px;
+  color:gainsboro;
+  bottom: 85px;
+}
+

@@ -1,3 +1,42 @@
-<navigator url='/pages/Admin/index/index' wx:if="{{datas}}">
-    <button>后台管理</button>
-</navigator>
+<view class='top'>
+       <image src='../../../icon/1.jpg' class='pic'></image> 
+    <text class='context-id'>用户ID编号</text>
+</view>
+<!--选项  -->
+<view class='list'>
+    <view class='bord'>
+      <view class='order'>
+        <image src='../../../icon/dfood.png' class='img'></image> 
+      </view>
+        <text class='context-order'>点餐</text>
+    </view>
+    
+  <view class='bord1'>
+         <image src='../../../icon/order1 (2).png' class='order1'></image>
+         <text class='context-schedule'>预定</text>
+  </view>
+     <view class='bord2'>
+         <image src='../../../icon/setfood.png' class='order2'></image>  
+        <text class='context-togo'>外卖</text>
+  </view>
+   <view class='bord3'>
+         <image src='../../../icon/time.png' class='order3'></image> 
+        <text class='context-queuenumber'>排队取号</text>
+  </view> 
+</view>
+
+<!--  -->
+ <view class='contain left'>
+    <image src='../../../icon/manage (2).png' class='ico'></image>
+    <text class="address"  bindtap='maps'>收货地址</text>
+    <span class="sp">></span>
+</view>
+ <view class='contain left1'>
+    <image src='../../../icon/manage (1).png' class='ico'></image>
+    <navigator url='/pages/Admin/index/index' wx:if="{{datas}}">
+    <text class="address" >后台管理</text>
+    </navigator>
+    <span class="sp1">></span>
+</view>
+
+

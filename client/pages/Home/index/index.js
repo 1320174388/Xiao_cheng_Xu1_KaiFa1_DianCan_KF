@@ -35,8 +35,6 @@ Page({
       }
     });
   },
-  maps:function(){
-  },
   tell:function(){
     wx.makePhoneCall({
       phoneNumber: '17090051724'
