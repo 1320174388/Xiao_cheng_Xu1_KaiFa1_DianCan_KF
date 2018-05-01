@@ -1,0 +1,64 @@
+
+  <radio-group class="radio-group" bindchange="radioChange">
+    <label>
+    <!-- 店内就餐 -->
+      <view class='radioone'>
+        <view class='cont'>
+            <text class='context'>店内就餐</text>
+        <radio checked="店内就餐" bindtap="showitem" class='radiocheck'/>
+        </view>
+        <view class="{{open?'display_show':'display_none'}} img">
+          <image src='../../../../icon/管理.png' class='img1'></image>
+          <image src='../../../../icon/扫码.png' class='img2'></image>
+        </view>
+      </view>
+      <!-- 到店取餐 -->
+      <view class='radioone'>
+        <view class='cont-set'>
+          <text class='context'>到店取餐</text>
+          <radio checked="到店取餐" bindtap="showitems" class='radiocheck'/>
+        </view>
+        <view class="{{close?'display_show':'display_none'}} img-set">
+          <view class='addr'>
+            <image src='../../../../icon/地址 (2).png' class='img3'></image>
+            <text class='contextAddr'>北京市海淀区清缘里中区</text>
+          </view>
+          <view class='setout'>
+            <image src='../../../../icon/时间.png' class='img4'></image>
+            <text class='contextTime'>选择取餐时间</text>
+            <view class="iconfont icon-goto"></view>
+          </view>
+        </view>
+      </view>
+    </label>
+ </radio-group>
+
+<!--菜单详情  -->
+ <view class='menu'>
+    <view class='title'>
+        <text class='context-menu'>小标题名称</text>
+    </view>
+    <view class='menuifon'>
+       <image src='../../../../icon/menu.jpg' class='img-menu'></image>
+       <text class='context-name'>菜品名称</text>
+       <text class='context-number'>x1</text>
+       <text class='context-price'>￥18.00</text>
+    </view>
+ </view>
+
+ <!--合计  -->
+ <view class='sum'>
+  <text class='money'>合计：￥39.00</text>
+ </view>
+
+ <!--备注  -->
+ <view class='remarks'>
+    <text class='context-remarks'>备注</text>
+ </view>
+ 
+ <!--确认  -->
+ <view class='last'>
+    <text class='context-sure'>合计：<text class='context-color'>￥36.00</text></text>
+    <button class='sure'>确认</button>
+ </view>
+

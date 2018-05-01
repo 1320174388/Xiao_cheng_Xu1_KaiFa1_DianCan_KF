@@ -1,10 +1,143 @@
-.btn-area{
-  display: flex;
-  justify-content: space-around;
-  line-height: 3;
-  color:#444;
+page{  
+  display: flex;  
+  flex-direction: column;  
+  height: 100%;  
+}  
+.navbar{  
+  flex: none;  
+  display: flex;  
+  background: #fff;  
+}  
+.navbar .item{  
+  position: relative;  
+  flex: auto;  
+  text-align: center;  
+  line-height: 80rpx;  
+}  
+.navbar .item.active{  
+  color:OrangeRed;  
+}  
+.navbar .item.active:after{  
+  content: "";  
+  display: block;  
+  position: absolute;  
+  bottom: 0;  
+  left: 0;  
+  right: 0;  
+  height: 4rpx;  
+  background:OrangeRed;  
 }
-.other-navigator-hover{
-  color:#F52308;
-  border-bottom:2rpx solid #F52308;
+  /*点餐  */
+  .diancan{
+    width: 100%;
+    height: 500rpx;
+    margin-top: 20rpx;
+    background-color: #fff;
+    border-bottom:1rpx solid lightgrey;
+  }
+   .number{
+    width: 100%;
+    height: 100rpx;
+    border-bottom:1rpx solid lightgrey;
+    padding:20rpx 0rpx 0rpx 0rpx;
+  } 
+   .img{
+    width: 10%;
+    height: 80rpx;
+    background-color: #FF9933;
+    border-radius:1200px;
+    margin-left:20rpx;
+  }
+ .img1{
+    width: 70%;
+    height: 48rpx;
+    padding-left:12rpx;
+    padding-top: 15rpx;
+ }
+ .texte{
+    width: 85%;
+    height: 60rpx;
+    position: absolute;
+    left:16%;
+    top:11.5%; 
+    font-size: 35rpx;
+ }
+  .exit{
+    float: right;
+    padding-right:30rpx;
+    color: orange;
+  }
+
+  .xiangqing{
+    width: 100%;
+    height: 250rpx;
+    border-bottom:1rpx solid lightgrey;
+  }
+  .desk{
+    width: 100%;
+    height: 60rpx;
+    padding-bottom: 24rpx;
+    padding-left: 25rpx;
+  }
+  .remarks{
+    color: lightgrey;
+    font-size: 35rpx;
+  }
+  .info{
+    float: right;
+    padding-right:45rpx;
+    font-size: 35rpx;
+    color: DimGray;
+  }
+  .look{
+    width: 32%;
+    float: right;
+    padding-right:30rpx;
+    margin-top: 15rpx;
+  }
+  .look-detailed{
+    background-color: #fff;
+    font-size: 35rpx;
+    color: DarkGray;
+  }
+  .last{
+    width: 100%;
+    height: 50rpx;
+    padding-left: 35%;
+    padding-top: 20rpx;
+  }
+  .context{
+    font-size: 35rpx;
+    color:	Silver;
+  }
+  /*约定  */
+  .all{
+    width: 100%;
+    height: 1200rpx;
+    background-color:black;
+  }
+  span{  
+    /* 
+        文字阴影： 
+        text-shadow: 水平位移 垂直位移  模糊程度  阴影颜色; 
+    */  
+    font: 700 100px "Comic Sans MS";  
+    color: white;  
+    text-shadow: 0 0 20px #fdec84,  
+            10px -10px 30px #ffae35,  
+            20px -20px 40px #ec760c,  
+            -20px -60px 50px #cd4607,  
+            0px -80px 60px #973717,  
+            10px -40px 70px #451b0e;  
+    
+}
+.all-one{
+  padding: 200rpx 0 200rpx 0;
+  margin-left: 50rpx;
+}
+.one{
+  font-size:38px;
+}
+.two{
+  font-size:25px;
 }

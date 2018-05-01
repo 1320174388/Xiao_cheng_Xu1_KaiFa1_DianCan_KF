@@ -4,6 +4,8 @@
     "pages/Home/foots/foots",
     "pages/Home/My/my",
     "pages/Home/map/index",
+    "pages/Home/submit/intoroom/index",
+    "pages/Home/submit/setout/index",
     "pages/Admin/index/index",
     "pages/Admin/Shop/manage/index",
     "pages/Admin/Shop/message/index",

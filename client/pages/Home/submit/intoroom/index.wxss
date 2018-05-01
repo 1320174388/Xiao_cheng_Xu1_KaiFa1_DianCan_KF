@@ -1,0 +1,173 @@
+
+.display_show{  
+    display: block; 
+    padding: 10px;  
+}  
+.display_none{  
+    display: none;
+}
+.radioone{
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 5%;
+  border-radius:10rpx;
+  background-color: white;
+  line-height: 100rpx;
+}
+.cont{
+  border-bottom: 1rpx solid lightgrey; 
+  padding-left: 20rpx; 
+}
+.context{
+  padding-left: 20rpx;
+}
+.radiocheck{
+  position: absolute;
+  left:82%;
+}
+.img{
+  width: 93%;
+  height: 50rpx;
+  background-color: white;
+  border-radius:10rpx;
+}
+.img1{
+  width: 9%;
+  height: 60rpx;
+  position: absolute;
+  top: 13%;
+}
+.img2{
+  width: 9%;
+  height: 65rpx;
+  position: absolute;
+  top: 13%;
+  left:81%; 
+}
+/*取餐  */
+.cont-set{
+  border-bottom: 1rpx solid lightgrey; 
+  padding-left: 20rpx; 
+}
+.addr{
+  border-bottom: 1rpx solid lightgrey; 
+}
+.img-set{
+  width: 93%;
+  height: 200rpx;
+  background-color: white;
+  border-radius:10rpx;
+}
+.img3{
+  width: 9%;
+  height: 60rpx;
+}
+.contextAddr{
+  font-size:35rpx;
+  margin-left:4%;
+  position: relative;
+  bottom:21rpx;
+}
+.img4{
+  width: 9%;
+  height: 60rpx;
+  margin-top: 5%;
+}
+.contextTime{
+  font-size:35rpx;
+  margin-left:4%;
+  position: relative;
+  bottom:21rpx;
+}
+.iconfont{
+  display: inline; 
+  margin-left:45%;
+  position: relative;
+  bottom:21rpx;
+}
+/*菜单  */
+.menu{
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 5%;
+  border-radius:10rpx;
+  background-color: white;
+}
+.title{
+  width: 100%;
+  border-bottom: 1rpx solid lightgray;
+  text-align: center;
+}
+.context-menu{
+  line-height: 100rpx;
+}
+.img-menu{
+  width: 25%;
+  height: 150rpx;
+}
+.menuifon{
+  margin: 20rpx 0 0rpx 0;
+  padding-left: 20rpx;
+  padding-bottom: 18rpx;
+  border-bottom: 1rpx solid lightgray;
+}
+.context-name{
+  position: absolute;
+  padding-left: 20rpx;
+}
+.context-number{
+  position:relative;
+  padding-left: 20rpx;
+  top: -40rpx;
+}
+.context-price{
+  float: right;
+  padding-right: 35rpx;
+}
+/*合计  */
+.sum{
+  width: 90%;
+  margin-left: 5%;
+  border-radius:10rpx;
+  background-color: white;
+  text-align: right;
+}
+.money{
+  line-height: 100rpx;
+  padding-right: 35rpx;
+}
+/*备注  */
+.remarks{
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 5%;
+  border-radius:10rpx;
+  background-color: white;
+}
+.context-remarks{
+  line-height: 100rpx;
+  padding: 20rpx;
+}
+/*确认  */
+.last{
+  position: fixed;
+  bottom: 0%;
+  width: 99%;
+  background-color:#FFF;
+}
+.sure{
+  width: 25%;
+  height: 100rpx;
+  background-color: orange;
+  float: right;
+  color: white;
+}
+.context-sure{
+  margin-left: 5%;
+  line-height: 100rpx;
+  font-size: 35rpx;
+}
+.context-color{
+  color: orange;
+  font-size: 35rpx;
+}

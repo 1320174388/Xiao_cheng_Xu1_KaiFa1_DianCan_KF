@@ -1,7 +1,102 @@
-<view class="btn-area">
-  <navigator url="/page/index/index" open-type="switchTab" hover-class="other-navigator-hover">点餐
-  </navigator>
-  <navigator url="/page/index/index" open-type="switchTab" hover-class="other-navigator-hover">外卖 </navigator>
-  <navigator url="/page/index/index" open-type="switchTab" hover-class="other-navigator-hover">预定 </navigator>
-  <navigator url="/page/index/index" open-type="switchTab" hover-class="other-navigator-hover">排队 </navigator>
-</view>
+<!--导航条-->  
+<view class="navbar">  
+  <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>  
+</view>  
+  
+<!--点餐-->  
+<view hidden="{{currentTab!==0}}">  
+  <view class='diancan'>
+      <view class='number'>
+          <view class='img'>
+            <image src='../../../../icon/mana.png' class='img1'></image> 
+          </view>
+          <view class='texte'>
+            <text class='context-number'>订单号：120012033</text>
+            <text class='exit'>已取消</text>
+          </view>
+      </view>
+
+      <view class='xiangqing'>
+        <view class='desk'>
+          <text class='remarks'>座号</text>
+          <text class='info'>1号桌</text>
+        </view>
+          
+         <view class='desk'>
+          <text class='remarks'>下单时间</text>
+          <text class='info'>2018-05-01 13:57:44</text>
+        </view>
+
+        <view class='desk'>
+          <text class='remarks'>备注</text>
+          <text class='info'>多醋多辣多麻油</text>
+        </view>
+      </view>
+
+      <view class='look'>
+          <button class='look-detailed'>查看详情</button>
+      </view>
+  </view>
+
+  <view class='last'>
+    <text class='context'>没有更多订单了</text> 
+  </view>
+  
+</view>  
+  
+<!--外卖-->  
+<view hidden="{{currentTab!==1}}">  
+  <view class='diancan'>
+      <view class='number'>
+          <view class='img'>
+            <image src='../../../../icon/mana.png' class='img1'></image> 
+          </view>
+          <view class='texte'>
+            <text class='context-number'>订单号：120012033</text>
+            <text class='exit'>已取消</text>
+          </view>
+      </view>
+
+      <view class='xiangqing'>
+        <view class='desk'>
+          <text class='remarks'>地址</text>
+          <text class='info'>海淀区清河文苑701</text>
+        </view>
+          
+         <view class='desk'>
+          <text class='remarks'>下单时间</text>
+          <text class='info'>2018-05-01 13:57:44</text>
+        </view>
+
+        <view class='desk'>
+          <text class='remarks'>备注</text>
+          <text class='info'>多醋多辣多麻油</text>
+        </view>
+      </view>
+
+      <view class='look'>
+          <button class='look-detailed'>查看详情</button>
+      </view>
+  </view>
+
+  <view class='last'>
+    <text class='context'>没有更多订单了</text> 
+  </view> 
+</view>  
+  
+<!-约定-->  
+<view hidden="{{currentTab!==2}}">
+  <view class='all'>
+      <view class='all-one'>  
+        <span class="one">还记得?</span>      
+      </view>
+      <view class='all-two'>
+        <span class="two">我与你之间的那个约定吗!</span> 
+      </view> 
+  </view>
+</view> 
+
+<!-- 排队 -->
+<view hidden="{{currentTab!==3}}">
+  <text>正在排队，请稍等！</text>
+</view> 
