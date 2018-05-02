@@ -15,7 +15,7 @@
   line-height: 100rpx;
 }
 .cont{
-  border-bottom: 1rpx solid lightgrey; 
+  border-bottom: 1px solid rgba(0, 0, 0, .03); 
   padding-left: 20rpx; 
 }
 .context{
@@ -46,11 +46,11 @@
 }
 /*取餐  */
 .cont-set{
-  border-bottom: 1rpx solid lightgrey; 
+  border-bottom: 1px solid rgba(0, 0, 0, .03); 
   padding-left: 20rpx; 
 }
 .addr{
-  border-bottom: 1rpx solid lightgrey; 
+  border-bottom: 1px solid rgba(0, 0, 0, .03); 
 }
 .img-set{
   width: 93%;
@@ -95,7 +95,7 @@
 }
 .title{
   width: 100%;
-  border-bottom: 1rpx solid lightgray;
+  border-bottom: 1px solid rgba(0, 0, 0, .03);
   text-align: center;
 }
 .context-menu{
@@ -109,7 +109,7 @@
   margin: 20rpx 0 0rpx 0;
   padding-left: 20rpx;
   padding-bottom: 18rpx;
-  border-bottom: 1rpx solid lightgray;
+  border-bottom: 1px solid rgba(0, 0, 0, .03);
 }
 .context-name{
   position: absolute;

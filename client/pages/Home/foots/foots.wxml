@@ -84,7 +84,7 @@
   </view> 
 </view>  
   
-<!-约定-->  
+<!--约定-->  
 <view hidden="{{currentTab!==2}}">
   <view class='all'>
       <view class='all-one'>  
