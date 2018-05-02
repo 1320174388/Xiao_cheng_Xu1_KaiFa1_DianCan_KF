@@ -11,26 +11,35 @@
         <text class='context-order'>点餐</text>
     </view>
     
-  <view class='bord1'>
-         <image src='../../../icon/order1 (2).png' class='order1'></image>
+    <view class='bord1'>
+      <view class='order1'>
+        <image src='../../../icon/order1 (2).png' class='img1'></image>
+      </view>
          <text class='context-schedule'>预定</text>
-  </view>
+    </view>
+
      <view class='bord2'>
-         <image src='../../../icon/setfood.png' class='order2'></image>  
+       <view class='order2'>
+          <image src='../../../icon/setfood.png' class='img1'></image> 
+       </view>
         <text class='context-togo'>外卖</text>
   </view>
+
    <view class='bord3'>
-         <image src='../../../icon/time.png' class='order3'></image> 
+      <view class='order3'>
+        <image src='../../../icon/time.png' class='img1'></image> 
+      </view>
         <text class='context-queuenumber'>排队取号</text>
   </view> 
 </view>
 
-<!--  -->
+<!-- 收货地址 -->
  <view class='contain left'>
     <image src='../../../icon/manage (2).png' class='ico'></image>
     <text class="address"  bindtap='maps'>收货地址</text>
     <span class="sp">></span>
 </view>
+<!-- 后台管理 -->
  <view class='contain left1'>
     <image src='../../../icon/manage (1).png' class='ico'></image>
     <navigator url='/pages/Admin/index/index' wx:if="{{datas}}">

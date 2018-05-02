@@ -27,84 +27,92 @@
   position: absolute;
 }
 .order{
-  width: 56%;
-  height: 110rpx;
+  width: 45%;
+  height: 80rpx;
   border:2px solid #fff;
   background-color: #FF9933;
   border-radius:1200px;
-  margin: 25rpx 0rpx 0rpx 30rpx;
+  margin: 40rpx 0rpx 0rpx 30rpx;
 }
 .context-order{
-  font-size: 35rpx;
-  padding-left: 47rpx;
+  font-size: 30rpx;
+  padding-left: 45rpx;
+}
+ .img{
+  width:70%;
+  height: 70%;
+  padding-left: 15rpx;
+  padding-top:10rpx; 
 }
 /*预定  */
 .bord1{
   width: 50%;
   position: relative;
+  top:38rpx;
+  right: 10rpx;
 }
 .order1{
-  width: 28%;
-  height: 100rpx;
+  width: 22.5%;
+  height: 80rpx;
   border:2px solid #fff;
   background-color: #FF3366;
   border-radius:1200px;
-  margin: 25rpx 0rpx 0rpx 225rpx;
+  margin: 25rpx 0rpx 0rpx 220rpx;
 }
 .context-schedule{
-  font-size: 35rpx;
-  padding-left:245rpx; 
+  font-size: 30rpx;
+  padding-left:235rpx; 
+  padding-top:5rpx;
 }
-
+ .img1{
+  width:68%;
+  height: 69%;
+  padding-left: 14.5rpx;
+  padding-top:15rpx; 
+}
 /*外卖  */
  .bord2{
   width: 75%;
-  position: absolute;
-  top:39%;
-  left: 20%;
+  position: relative;
+  top:-44%;
+  left:17%;
 }
 .order2{
-  width: 18.5%;
-  height: 100rpx;
+  width: 15.1%;
+  height: 83rpx;
   border:2px solid #fff;
   background-color: #00FF00;
   border-radius:1200px;
   margin: 0rpx 0rpx 0rpx 265rpx;
 }  
  .context-togo{
-  font-size: 35rpx;
+  font-size: 30rpx;
   position: relative;
-  top: 50rpx;
-  right:90rpx;
+  top: 0rpx;
+  left:50%;
 }   
 
 /*排队取号  */
  .bord3{
   width: 100%;
   position: relative;
-  top:-72%;
+  top:-105%;
   left: 44%;
 }
 .order3{
-  width: 13.5%;
-  height: 100rpx;
+  width: 11.5%;
+  height: 83rpx;
   border:2px solid #fff;
   background-color: #FF6600;
   border-radius:1200px;
   margin: 0rpx 0rpx 0rpx 265rpx;
 }
  .context-queuenumber{
-  font-size: 35rpx;
+  font-size: 30rpx;
   position: relative;
-  top: 52rpx;
-  right:125rpx;
+  top: 5rpx;
+  left:260rpx;
 }
- .img{
-  width:70%;
-  height: 70%;
-  padding-left: 17rpx;
-  padding-top:10rpx; 
-} 
 .ico{
   width:7%;
   height: 50%;
@@ -117,7 +125,7 @@
   width: 100%;
   background: #FFF;
   padding-left: 10px;
-  border-bottom: 1px solid rgba(0, 0, 0, .1);
+  border-bottom: 1px solid rgba(0, 0, 0, .03);
 }
 .iconfont{
   font-size:30rpx;
@@ -143,17 +151,16 @@
   padding-left: 10px;
 }
 .sp{
-  position: absolute;
-  right:15px;
+  position: relative;
+  right:-180px;
   font-size: 25px;
   color:gainsboro;
-  bottom: 132px;
+  bottom: 0px;
 }
 .sp1{
-  position: absolute;
-  right:15px;
+  position: relative;
+  right:-180px;
   font-size: 25px;
   color:gainsboro;
-  bottom: 85px;
+  bottom: 0px;
 }
-
