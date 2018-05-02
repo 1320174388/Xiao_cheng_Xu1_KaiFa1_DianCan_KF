@@ -67,6 +67,8 @@ var config = {
       host,
       // 修改店铺信息
       update: `${host}/api/admin/shop/update_info`,
+      // 上传店铺图片
+      create_img: `${host}/api/admin/shop/create_img`,
       // 添加座号
       add_table: `${host}/api/admin/shop/add_table`,
       // 获取座号信息

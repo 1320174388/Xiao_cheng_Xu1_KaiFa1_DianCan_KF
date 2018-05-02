@@ -17,9 +17,14 @@ class M_Shop extends CI_Model{
     }
 
     public function get_shop_info(){
-        $sql = 'select id, shop_name, shop_img, shop_info, shop_addr, shop_phone, shop_status, ordering_status from data_admin_shop limit 1';
+        $sql = 'select id, shop_name, shop_info, shop_addr, shop_phone, shop_status, ordering_status from data_admin_shop limit 1';
         $result = $this->connection->query( $sql );
-        return $result->result();
+        return $result->result()[0];
+    }
+
+    public function get_shop_img(){
+        $sql = 'select * from data_shop_imgs where shop_id = 1';
+        return  $this->connection->query( $sql )->result();
     }
 
     public function create( $data ){
@@ -115,6 +120,22 @@ class M_Shop extends CI_Model{
         $result = $this->connection->query( $query_sql );
 
         return $result;
+    }
+
+    public function create_img($food_img_url){
+
+        $sql = 'insert into data_shop_imgs(shop_id,shop_img) values(1,"'.$food_img_url.'")';
+
+        return $this->connection->query( $sql );
+
+    }
+
+    public function delete_img(){
+
+        $query_sql = "delete from data_shop_imgs where shop_id = 1";
+
+        return $this->connection->query( $query_sql );
+
     }
 
     public function create_table($data){

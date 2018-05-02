@@ -24,7 +24,8 @@ class Shop extends LoginController{
      */
     public function get_shop_info(){
         $res = $this->M_Shop->get_shop_info();
-        return_response( '1', '请求成功', $res );
+        $ret = $this->M_Shop->get_shop_img();
+        return return_response( '1', '请求成功',['shop'=>$res,'img_url'=>$ret] );
     }
 
     /**
@@ -41,27 +42,57 @@ class Shop extends LoginController{
      * @return array 中返回是否修改成功
      */
     public function update_info(){
+
         $post = $this->input->post();
 
         if( count( $post ) <= 1 ){
             return return_response( '1', '参数错误', [] );
         }
 
-        // 处理上传图片,获取图片url地址信息
-        if($post['food_img_true']){
-            $food_img_url = upload_create('shops','shop_img');
-            if($food_img_url) {
-                $post['shop_img'] = $food_img_url;
-            }
-        }
-        // 处理菜品数据
         unset($post['token']);
+
         $result = $this->M_Shop->update( $post );
 
         if( $result ){
             return return_response( '0', '修改成功', $result );
         }else{
             return return_response( '2', '修改失败', $result );
+        }
+    }
+
+    /**
+     * 更新店铺信息
+     *
+     * @access public
+     * @param string $shop_img 店铺图片
+     * @return array 中返回是否修改成功
+     */
+    public function create_img(){
+
+        $img_num = $this->input->post('img_num');
+
+        if($img_num == 1){
+
+            deldir('./uploads/shops');
+
+            $this->M_Shop->delete_img();
+
+        }
+
+        $food_img_url = upload_create('shops','shop_img');
+
+        if($food_img_url){
+
+            $res = $this->M_Shop->create_img( $food_img_url );
+
+            if($res){
+                return return_response( 0, '上传成功');
+            }else{
+                return return_response( 2, '上传失败');
+            }
+
+        }else{
+            return return_response( 1, '请正确上传图片');
         }
     }
 

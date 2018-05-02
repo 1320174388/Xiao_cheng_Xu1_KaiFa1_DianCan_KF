@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    host: config.service.host,
     shop_value:null,
     image_url:null,
     image_true:false
@@ -16,68 +17,86 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var shop_img = wx.getStorageSync('shop_img');
+    var shop_imgs = []
+    for (var n in shop_img) {
+      shop_imgs[n] = {
+        'shop_img':config.service.host+shop_img[n].shop_img
+      }
+    }
     this.setData({
       shop_value: wx.getStorageSync('shop_value'),
-      image_url:  wx.getStorageSync('shop_value').shop_img, 
+      image_url: shop_imgs
     });
   },
   image:function(){
     var THIS = this;
     wx.chooseImage({
-      count: 1, // 默认9
+      count: 5, // 默认9
       sizeType: ['original', 'compressed'],
       sourceType: ['album', 'camera'],
       success: function (res) {
-        THIS.setData({
-          image_url: res.tempFilePaths[0],
-          image_true:true
-        });
-        console.log(THIS.data.image_url)
+        if(res.tempFilePaths){
+          var i = 0;
+          var num = 1;
+          var length = res.tempFilePaths.length;
+          var tempFilePaths = res.tempFilePaths;
+          appFile(i, num, length, tempFilePaths);
+          function appFile(i, num, length, tempFilePaths){
+            app.point("第" + num + "张图片上传中", "loading", 360000);
+            app.file(
+              config.shop.create_img,
+              res.tempFilePaths[i],
+              "shop_img", {
+                "token": wx.getStorageSync('token'),
+                "img_num": num
+              }, function (res) {
+                var data = JSON.parse(res.data);
+                if (data.errNum == 0) {
+                  app.point(data.retMsg, "success");
+                  i++;
+                  num++;
+                  if (num <= length) {
+                    appFile(i, num, length, tempFilePaths);
+                  }else{
+                    var image_urls = [];
+                    for (var n = 0; n < tempFilePaths.length;n++) {
+                      image_urls[n] = [];
+                      image_urls[n] = {
+                        'shop_img':tempFilePaths[n]
+                      }
+                    }
+                    THIS.setData({
+                      image_url: image_urls
+                    });
+                  }
+                }
+              },
+            );
+          }
+        }
       }
     })
   },
   formSubmit:function(e){
     var This = this;
-    if (This.data.image_true){
-      app.point("上传中", "loading", 360000);
-      app.file(
-        config.shop.update,
-        This.data.image_url,
-        "shop_img", {
-          "token": wx.getStorageSync('token'),
-          "id": e.detail.value.shop_id,
-          "shop_name": e.detail.value.shop_name,
-          "shop_info": e.detail.value.shop_info,
-          "shop_addr": e.detail.value.shop_addr,
-          "shop_phone": e.detail.value.shop_phone,
-          "food_img_true": 1
-        }, function (res) {
-          var data = JSON.parse(res.data);
-          if (data.errNum == 0) {
-            app.point(data.retMsg, "success");
-            app.timeBack(1000);
-          }
-        },
-      );
-    }else{
-      app.post(
-        config.shop.update, {
-          "token": wx.getStorageSync('token'),
-          "id": e.detail.value.shop_id,
-          "shop_name": e.detail.value.shop_name,
-          "shop_info": e.detail.value.shop_info,
-          "shop_addr": e.detail.value.shop_addr,
-          "shop_phone": e.detail.value.shop_phone
-        }, function (res) {
-          if (res.data.errNum == 0) {
-            app.point(res.data.retMsg, "success");
-            app.timeBack(1000);
-          } else {
-            app.point(res.data.retMsg, "none");
-          }; 
-        }
-      );
-    }
+    app.post(
+      config.shop.update, {
+        "token": wx.getStorageSync('token'),
+        "id": e.detail.value.shop_id,
+        "shop_name": e.detail.value.shop_name,
+        "shop_info": e.detail.value.shop_info,
+        "shop_addr": e.detail.value.shop_addr,
+        "shop_phone": e.detail.value.shop_phone
+      }, function (res) {
+        if (res.data.errNum == 0) {
+          app.point(res.data.retMsg, "success");
+          app.timeBack(1000);
+        } else {
+          app.point(res.data.retMsg, "none");
+        }; 
+      }
+    );
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

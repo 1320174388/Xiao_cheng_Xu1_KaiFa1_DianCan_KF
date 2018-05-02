@@ -26,9 +26,8 @@
             <input hidden name="shop_info" value="{{shop.shop_info}}" ></input>
       </view>
       <view class='pic'>
-          <text class='title'>店铺图片</text>
-          <image src='{{host}}{{shop.shop_img}}'></image>
-          <input hidden name="shop_img" value="{{host}}{{shop.shop_img}}" ></input>
+          <image  wx:for="{{img_url}}" wx:key='{{index}}' src='{{host}}{{item.shop_img}}'></image>
+          <input hidden name="shop_img" value="{{img_url}}" ></input>
       </view>
       <button formType="submit">修改</button>
   </view>

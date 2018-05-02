@@ -60,7 +60,7 @@ page{
   border-top:2rpx solid #AFAFAF;
 }
 .pic image{
-  width:100%;
+  width:20%;
   max-height: 150rpx;
 }
 .title{
@@ -90,7 +90,7 @@ page{
   background-size: 100% 100%;
 }
 .desk image{
-  width:100%;
+  width:20%;
   height: 80%;
 }
 

@@ -2,6 +2,7 @@
 var config = require('../../../../config.js');
 var app = getApp();
 var time=null;
+var a = 0;
 Page({
 
   /**
@@ -16,37 +17,36 @@ Page({
     desk:null,
     table_id:null,
     showModalStatus: "hide",
-    shoopCode:null,
+    shoopCode:'/uploads/foods/default_table.jpg',
+    img_url:null
   },
   /**
      * 弹出层函数
      */
   //出现
   longTap: function (e) {
-    var This=this;
+    a = 1;
+    var This = this;
     var index = e.currentTarget.dataset.tabltnum;
-    console.log(e);
-    console.log(index);
     var desk = this.data.desk;
     for (var i in desk) {
       desk[i]['hidden'] = true;
     };
-    console.log(desk[index]);
     desk[index].hidden = false;
     this.setData({
-      desk:desk
+      desk: desk
     });
     clearTimeout(time);
-    time=setTimeout(function () {
+    time = setTimeout(function () {
+      a = 0;
       for (var i in desk) {
         desk[i]['hidden'] = true;
       }
       This.setData({
-        desk:null,
+        desk: null,
         desk: desk
       });
     }, 3000);
-
  },
 
   /**
@@ -61,7 +61,8 @@ Page({
         if (res.data.errNum == 1) {
           THIS.setData({
             host: config.service.host,
-            shop: res.data.retData[0]
+            shop: res.data.retData.shop,
+            img_url: res.data.retData.img_url,
           });
         }
       }
@@ -109,26 +110,25 @@ Page({
   },
 // 二维码
   tap:function(e){
-    var This=this;
-    console.log(e);
-    app.post(
-      config.shop.qr_code,{
-        "token": wx.getStorageSync('token'),
-        "table_number": e.currentTarget.dataset.table_number
-      }, function (res) {
-        if (res.data.errNum == 0) {
-          setTimeout(function () {
-            This.setData({
-              host: config.service.host,
-             shoopCode:res.data.retData.img,
-              showModalStatus: "show"
-            })
-          }, 1000)
+    if(a==0){
+      var This = this;
+      app.post(
+        config.shop.qr_code, {
+          "token": wx.getStorageSync('token'),
+          "table_number": e.currentTarget.dataset.table_number
+        }, function (res) {
+          if (res.data.errNum == 0) {
+            setTimeout(function () {
+              This.setData({
+                host: config.service.host,
+                shoopCode: res.data.retData.img,
+                showModalStatus: "show"
+              })
+            }, 1000)
+          }
         }
-      }
-    );
-   
-    
+      );
+    }
   },
   close: function () {
     this.setData({
@@ -198,6 +198,7 @@ Page({
   },
   edits:function(e){
     wx.setStorageSync('shop_value',e.detail.value);
+    wx.setStorageSync('shop_img', this.data.img_url);
     wx.navigateTo({
       url: '/pages/Admin/Shop/message/index'
     })

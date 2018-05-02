@@ -11,7 +11,7 @@ function deldir($dir)
     $dh=opendir($dir);
     while ($file=readdir($dh))
     {
-        if($file!="." && $file!=".." && $file!="default.jpg")
+        if($file!="." && $file!=".." && $file!="default.jpg" && $file!='default_table.jpg' && $file!='desk.jpg')
         {
             $fullpath=$dir."/".$file;
             if(!is_dir($fullpath))
