@@ -55,5 +55,17 @@ Page({
         })
       }
     })
-  }
+  },
+  // 点餐小图标跳转
+  diancan:function(){
+    wx.navigateTo({
+      url: '/pages/Home/OrderFood/orderMenu/index',
+    })
+  },
+  // 图片跳转
+  imgOrder: function () {
+    wx.navigateTo({
+      url: '/pages/Home/OrderFood/imgOrder/index',
+    })
+  },
 })

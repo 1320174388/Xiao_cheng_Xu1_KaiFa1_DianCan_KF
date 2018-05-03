@@ -1,0 +1,68 @@
+<view class="page">
+  <image src='../../../../icon/cai1.jpg' class='carte'></image>
+  <view class='carte-info'>
+    <view class='carte-name'><text>菜品名称</text></view>
+    <view class='carte-price'><text>￥18.00</text></view>
+    <view class="{{show?'display_show':'display_none'}} foot-right">
+        <view class="iconfont icon-minus2 sign"></view> 
+        <view class="count" data-count="0">0</view>
+        <view class="iconfont icon-plus1 sign"  bindtap="showitem"></view> 
+    </view>  
+      <view class="{{hidden?'display_show':'display_none'}} foot-rightimg">
+      <view class="circle1"></view>
+        <text class='shopcar'>加入购物车</text> 
+      <view class="circle2"></view>
+    </view>  
+  </view>
+  <view>
+    <view class='shop-info'>商品信息</view>
+    <view class='shop-view'><text>有一个故事，说的是一头驴，背着两捆草，饿了，到底放下那一捆来吃呢?一直犹豫不决，结果饿死了。这个故事有些夸张，但人生很多路口，大家都会在路口上徘徊。做选择是很难很痛苦的，这边有诱惑，那边也有诱惑。到底选择哪个?我的同学都出国了，我是不是也应该去新东方学习准备考托福?我的发小考公务员了，我是不是也要买书复习了?电视上说有个人小学没毕业做电商就发财了，我是不是也要到淘宝上开个店铺?</text>
+    </view>
+    <view class='ekse'></view>
+  </view>
+</view>
+<!-- 购物车  -->
+<view class="{{open?'display_show':'display_none'}} cart-wrap">
+  <view class="gouwuche" bindtap="cartClick">
+    <view class="gouwuche-wrap">
+      <text class="iconfont icon-shopping signshop" bindtap="showitems"></text>
+    </view>
+  </view>
+  <view class='info'>
+    <text class='prompt'>客观，看看今天要吃什么呢？</text>
+  </view>
+</view> 
+ <!-- 清空购物车  -->
+<view class="{{close?'display_show':'display_none'}}">
+  <view class="cart-content">
+    <view class="tool">
+      <view class="left">购物车</view>
+      <view class="right-clear" bindtap="showitemes">
+        <text class="iconfont icon-shanchu"></text>
+              清空购物车
+      </view>
+    </view>
+    <scroll-view class="content-scroll"scroll-y="">
+      <view class="content-item">
+        <view class="title">产品1_1</view>
+      </view>
+          <view class="action">
+            <text class="buydel" >-</text>
+            <text class="count">0</text>
+            <text class="buy">+</text>
+          </view>
+    </scroll-view>
+    <view class="cart-wrap">
+      <view class="gouwuche" bindtap="cartClick">
+        <view class="gouwuche-wrap1">
+          <text class="iconfont icon-shopping aftershop"></text>
+        </view>
+        <view class="gouwuche-count">1</view>
+      </view>
+      <view class='info'>
+        <text class='prompt'>￥</text>
+      </view>
+      <view class="jiesuan" bindtap='end'>去下单</view>
+    </view>
+  </view>   
+</view> 
