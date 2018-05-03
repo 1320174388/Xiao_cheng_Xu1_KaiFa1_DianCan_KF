@@ -1,0 +1,13 @@
+<view class="page">
+  <image src='../../../../icon/cai1.jpg' class='carte'></image>
+  <view class='carte-info'>
+    <view class='carte-name'><text>菜品名称</text></view>
+    <view class='carte-price'><text>￥18.00</text></view>
+  </view>
+  <view>
+    <view class='shop-info'>商品信息</view>
+    <view class='shop-view'><text>有一个故事，说的是一头驴，背着两捆草，饿了，到底放下那一捆来吃呢?一直犹豫不决，结果饿死了。这个故事有些夸张，但人生很多路口，大家都会在路口上徘徊。做选择是很难很痛苦的，这边有诱惑，那边也有诱惑。到底选择哪个?我的同学都出国了，我是不是也应该去新东方学习准备考托福?我的发小考公务员了，我是不是也要买书复习了?电视上说有个人小学没毕业做电商就发财了，我是不是也要到淘宝上开个店铺?</text>
+    </view>
+  </view>
+</view>
+<button class='intodiancan'>进入点餐</button>

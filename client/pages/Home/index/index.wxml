@@ -23,8 +23,8 @@
 <!--分类-->
 <view class="cate">
   <view class="list">
-      <view class='iconfont icon-diancan'></view>
-      <text>点餐</text>
+      <view class='iconfont icon-diancan' bindtap='diancan'></view>
+      <text bindtap='diancan'>点餐</text>
    </view>
    <view class="list">
        <view class='iconfont icon-yuding'></view>
@@ -41,7 +41,7 @@
 </view>
 <text class="title">掌柜推荐</text>
 <view class='proList'>
-    <view class="lists">
+    <view class="lists" bindtap='imgOrder'>
         <image src='/icon/cai1.jpg'></image>
         <text>巧扮苦菊</text>
         <text>￥12.00</text>

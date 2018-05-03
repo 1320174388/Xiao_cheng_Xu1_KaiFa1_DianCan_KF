@@ -1,0 +1,312 @@
+.page{
+  width: 100%;
+  height: 1200rpx;
+  background: #fff;
+}
+.carte{
+  width: 100%;
+  height: 400rpx;
+}
+.carte-info{
+  width: 100%;
+  height: 150rpx;
+  border-bottom: 1rpx solid #f4f4f4;
+}
+.carte-name{
+  padding-top: 30rpx;
+  padding-left: 40rpx;
+  color: #666;
+  font-size:30rpx;
+  font-weight: bold;
+}
+.carte-price{
+  margin-top: 13rpx;
+  padding-left: 34rpx;
+  color: #f47d12;
+  font-size:30rpx;
+  font-weight: bold;
+  margin-bottom:0;
+}
+.shop-info{
+  color: #666;
+  font-size:30rpx;
+  font-weight: bold;
+  padding-left: 40rpx;
+}
+.shop-view{
+  width: 88%;
+  color: #666;
+  font-size:30rpx;
+  padding-left: 40rpx;
+  text-indent:15px;
+  word-wrap:break-word;
+  padding-top: 10rpx;
+  line-height: 50rpx;
+}
+.intodiancan{
+  border: none;
+  background: linear-gradient(to right, #FAD35C , #F76b1C);
+  color: white;
+}
+.foot-right{
+  width: 23%;
+  position: relative;
+  top: -60rpx; 
+  left: 75%;
+  flex:1;
+  display:flex;
+  flex-direction:row;
+  justify-content:flex-end;
+  align-items:center;
+  padding-right:10rpx; 
+}
+.iconfont{
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+.sign{
+  font-size: 45rpx;
+  color:#f79f51; 
+}
+ .count{
+  font-size:28rpx;
+  margin:0 20rpx;
+  font-weight:bold;
+}
+.foot-rightimg{
+  position: relative;
+  top: -80rpx;
+  right: 30rpx;
+  flex:1;
+  display:flex;
+  flex-direction:row;
+  justify-content:flex-end;
+  align-items:center;
+ 
+}
+.shopcar{
+  width: 25%;
+  height: 50rpx;
+  color: #fff;
+  font-size:30rpx;
+  background: linear-gradient(to right, #FAD35C , #F76b1C);
+  text-align: center;
+}
+.circle1 {
+    width: 2%;
+    height: 48.4rpx;
+    border-radius: 100% 0 0 100%/50%;
+    border-right: none;
+    background: #FAD35C;
+}
+.circle2 {
+    width: 2%;
+    height: 48.4rpx;
+    background: #F76b1C;
+    border-radius: 0 100% 100% 0/50%;
+    border-top: none;
+}
+/*购物车  */
+.cart-wrap {
+  position:fixed;
+  top:90%; 
+  height:50px;
+  background-color:#fff;
+  border-top: 1rpx solid rgba(0, 0, 0, 0.05);
+  color:#fff;
+  width:100%;
+  display:flex;
+  flex-direction:row;
+  line-height:50px;
+   z-index:2001;
+}
+.cart-wrap .gouwuche {
+  width:150px;
+}
+.cart-wrap .gouwuche .gouwuche-wrap {
+  width:45px;
+  height:45px;
+  text-align:center;
+  background-color:#dcdcdc;
+  border-radius:50%;
+  /* border:2px solid #353535; */
+  position:absolute;
+  bottom:15px;
+  left:15px;
+}
+.cart-wrap .gouwuche text {
+  font-size:28px;
+}
+.iconfont {
+  font-family:"iconfont" !important;
+  font-style:normal;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+.signshop{
+   font-size:16px;
+   color: #969696;
+}
+.cart-wrap .info {
+  width:100%;
+}
+.cart-wrap .info .prompt {
+  width:100%;
+  height:22rpx;
+  line-height:20rpx;
+  font-size: 30rpx;
+  position: relative;
+  left: 150rpx; 
+  color: #999;
+}
+.cart-wrap .gouwuche .gouwuche-count {
+  background-color:#F75164;
+  font-size:12px;
+  color:#fff;
+  width:19px;
+  height:15px;
+  position:absolute;
+  bottom:45px;
+  left:45px;
+  border-radius:50%;
+  line-height:20px;
+  text-align:center;
+  padding-bottom: 11rpx;
+}
+ .cart-wrap .jiesuan {
+  width:150px;
+  background-color:#f5a623;
+  text-align:center;
+  font-size:16px;
+} 
+/*清空购物车  */
+.display_show{  
+    display: flex;
+}  
+.display_none{  
+    display: none;
+}
+.cart-mask {
+  width:100%;
+  height:100%;
+  position:fixed;
+  top:0;
+  left:0;
+  background:#000;
+  opacity:0.2;
+  overflow:hidden;
+  z-index:1000;
+  color:#fff;
+}
+.cart-content {
+  max-height:335px;
+  width:100%;
+  overflow:hidden;
+  position:fixed;
+  bottom:50px;
+  left:0;
+  z-index:2000;
+  background:#fff;
+  background-color:#fff;
+}
+.cart-content .tool {
+  height:35px;
+  display:flex;
+  flex-direction:row;
+  font-size:12px;
+  line-height:35px;
+  border-bottom:1px solid #ededed;
+}
+.cart-content .tool .left {
+  width:70%;
+  height: 70rpx;
+  padding-left:15px;
+  background-color: #faefdd;
+  color: #c0bbb5;
+  font-size:30rpx;
+}
+.right-clear {
+  width:30%;
+  height: 70rpx;
+  float: right;
+  margin-top: 11rpx;
+  text-align:left;
+  background-color: #faefdd;
+  color: #959189;
+  font-size:28rpx;
+}
+.cart-content .content-scroll {
+  width:100%;
+  max-height:300px;
+}
+.cart-content .content-scroll .content-item {
+display:flex;
+flex-direction:row;
+height:50px;
+line-height:50px;
+border-bottom:1px solid #ededed;
+padding-left:15px;
+}
+.cart-content .content-scroll .content-item .title {
+width:100%;
+font-size:14px;
+font-weight:bold;
+}
+.action {
+  width: 30%;
+  text-align:center;
+  position: fixed;
+  left: 70%;
+  bottom:150rpx;
+}
+.buydel {
+font-size:16px;
+ font-weight:bolder; 
+color:#f7b172;
+ border: 1rpx solid #f7b172;
+width:30px;
+height:20px;
+padding:0 7px;
+text-align:center;
+border-radius:50%;
+}
+.cart-content .content-scroll .content-item .action .count {
+font-size:12px;
+color:#b2b2b2;
+min-width:14px;
+text-align:center;
+padding:0 5px;
+}
+.buy {
+font-size:16px;
+font-weight:bolder;
+color:#f7b172;
+border: 1rpx solid #f7b172;
+width:10px;
+height:20px;
+padding:0 7px;
+text-align:center;
+ line-height:20px; 
+border-radius:50%;
+}
+.gouwuche-wrap1{
+  width:45px;
+  height:45px;
+  text-align:center;
+  background-color:#f58623;
+  border-radius:50%;
+  position:absolute;
+  bottom:15px;
+  left:15px;
+}
+.aftershop{
+   font-size:16px;
+   color: #fff;
+}
+.ekse{
+  width: 100%;
+  height: 400rpx;
+}
