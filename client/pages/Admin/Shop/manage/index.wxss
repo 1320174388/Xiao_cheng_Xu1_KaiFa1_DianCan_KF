@@ -60,7 +60,7 @@ page{
   border-top:2rpx solid #AFAFAF;
 }
 .pic image{
-  width:20%;
+  width:33%;
   max-height: 150rpx;
 }
 .title{

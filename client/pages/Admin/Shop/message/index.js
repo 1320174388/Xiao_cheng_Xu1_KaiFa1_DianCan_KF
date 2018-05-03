@@ -32,7 +32,7 @@ Page({
   image:function(){
     var THIS = this;
     wx.chooseImage({
-      count: 5, // 默认9
+      count: 6, // 默认9
       sizeType: ['original', 'compressed'],
       sourceType: ['album', 'camera'],
       success: function (res) {
