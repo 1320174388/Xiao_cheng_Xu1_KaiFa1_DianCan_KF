@@ -33,7 +33,7 @@
             <view wx:for="{{navbar}}" data-idx="{{index}}" 
                 class="swiper-tab-list {{currentTab==index ? 'on' : ''}}" 
                 wx:key="{{index}}" data-current="0" bindtap="swichNav">
-                {{index}}
+                {{item.class_name}}
             </view>
         </view>
       </view>
@@ -41,75 +41,76 @@
     <!--右侧  -->
       <view view class='right'>
         <!-- 热销  -->
-        <view wx:for="{{navbar}}" wx:key="{{index}}" hidden="{{currentTab!==index}}"> 
-          <text class='context-title'>{{index}}</text> 
+        <view wx:for="{{navbar}}" wx:key="index" hidden="{{currentTab!==index}}"> 
+          <text class='context-title'>{{item.class_name}}</text> 
           <view class="weui-cells__title">
-            <view wx:for="{{item}}" class='food-list'>
-              <view class='dianji' bindtap='single'>
-                <image src='{{host}}{{item.food_img}}' class='food-img'></image>
+             <view wx:for="{{item.food_info}}" wx:for-item="items" wx:key="index" class='food-list'>
+              <view class='dianji' data-food_info="{{items}}" data-index="{{index}}" bindtap='single'>
+                <image src='{{host}}{{items.food_img}}' class='food-img'></image>
                 <view  class='context-name'>
-                  <text>{{item.food_name}}</text>
+                  <text>{{items.food_name}}</text>
                 </view>
                 <view class='context-price'>
-                   <text>￥{{item.food_price}}</text>
+                   <text>￥{{items.food_price}}</text>
                 </view>
               </view>
               <view class='foot-right'>
-                <view class="iconfont icon-minus2 sign"></view> 
-                <view class="count" data-count="0">0</view>
-                <view class="iconfont icon-plus1 sign"  bindtap="showitem"></view> 
+                <view class="iconfont icon-minus2 sign" data-index='{{index}}' data-food_id="{{items.id}}" data-del='true'  bindtap="submitCart" ></view> 
+                <view class="count" data-count="0">{{food_info_arr.foods_crat[items.id].food_number}}</view>
+                <view class="iconfont icon-plus1 sign" data-index='{{index}}' data-food_id="{{items.id}}" data-add='true'  bindtap="submitCart"></view> 
               </view>
-            </view>
+            </view> 
           </view>
         </view>
     </view>
     <!-- 购物车  -->
-        <view class="{{open?'display_show':'display_none'}} cart-wrap">
-        <view class="gouwuche" bindtap="cartClick">
-            <view class="gouwuche-wrap">
-              <text class="iconfont icon-shopping signshop" bindtap="showitems"></text>
-            </view>
-        </view>
-        <view class='info'>
-          <text class='prompt'>客观，看看今天要吃什么呢？</text>
-        </view>
+    <view class="{{food_info_arr.foods_crat?'display_none':'display_show'}} cart-wrap">
+      <view class="gouwuche" bindtap="cartClick">
+          <view class="gouwuche-wrap">
+            <text class="iconfont icon-shopping signshop" bindtap="showitems"></text>
+          </view>
+      </view>
+      <view class='info'>
+        <text class='prompt'>客观，看看今天要吃什么呢？</text>
+      </view>
     </view>   
-
     <!-- 清空购物车  -->
         <!-- <view class="cart-mask"></view> -->
-        <view class="{{close?'display_show':'display_none'}}">
-          <view class="cart-content">
-            <view class="tool">
-              <view class="left">购物车</view>
-              <view class="right-clear" bindtap="showitemes">
-                <text class="iconfont icon-shanchu"></text>
-                  清空购物车
-              </view>
-            </view>
-          <scroll-view class="content-scroll"scroll-y="">
-              <view class="content-item">
-                <view class="title">产品1_1</view>
-              </view>
-              <view class="action">
-                <text class="buydel" >-</text>
-                <text class="count">0</text>
-                <text class="buy">+</text>
-              </view>
+    <view class="{{food_info_arr.foods_crat?'display_show':'display_none'}}">
+      <view class="cart-content">
+        <view class="tool">
+          <view class="left">购物车</view>
+          <view class="right-clear" bindtap="showitemes">
+            <text class="iconfont icon-shanchu"></text>
+                清空购物车
+          </view>
+          </view>
+          <scroll-view  class="content-scroll" scroll-y>
+            <block wx:for="{{food_info_arr.foods_crat}}" wx:key="index" wx:if="{{item}}" >
+                <view class="content-item">
+                  <view class="title">{{item.food_name}}</view>
+                </view>
+                <view class="action">
+                  <text class="buydel" data-food_id="{{index}}" data-del='true' bindtap='submitCart' >-</text>
+                  <text class="count">{{item.food_number}}</text>
+                  <text class="buy" data-food_id="{{index}}" data-add='true' bindtap='submitCart' >+</text>
+                </view>
+            </block>
           </scroll-view>
           <view class="cart-wrap">
           <view class="gouwuche" bindtap="cartClick">
               <view class="gouwuche-wrap1">
                 <text class="iconfont icon-shopping aftershop"></text>
               </view>
-              <view class="gouwuche-count">1</view>
+              <view class="gouwuche-count">{{food_info_arr.foods_number}}</view>
           </view>
           <view class='info'>
-            <text class='prompt'>￥</text>
+            <text class='prompt'>￥{{food_info_arr.foods_price}}</text>
           </view>
           <view class="jiesuan" bindtap='end'>去下单</view>
         </view>
       </view>  
-      </view> 
+    </view> 
   </view>
 </view>
 

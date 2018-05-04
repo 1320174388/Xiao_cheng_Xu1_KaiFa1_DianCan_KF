@@ -67,6 +67,35 @@ App({
       method: 'POST',
       success: res
     });
+  },
+  // 判断数组是否为空
+  isArrayNull:function(arr){
+    for(var i in arr){
+      if (i){
+        return true;
+      }
+    }
+  },
+  // 计算购物车总价格及数量
+  orderCrat:function (arr,typeString) {
+    if (typeString == 'price'){
+      var price = 0;
+      for (var i in arr){
+        if (arr[i]) {
+          price += (parseFloat(arr[i].food_price) * parseFloat(arr[i].food_number));
+        }
+      }
+      return price;
+    }
+    if (typeString == 'number') {
+      var food_number = 0;
+      for (var i in arr) {
+        if (arr[i]) {
+          food_number += parseFloat(arr[i].food_number);
+        }
+      }
+      return food_number;
+    }
   }
 });
 

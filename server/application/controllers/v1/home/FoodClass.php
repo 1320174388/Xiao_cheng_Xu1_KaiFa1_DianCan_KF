@@ -16,7 +16,7 @@ class FoodClass extends CI_Controller
     /**
      * 获取菜品分类及信息列表
      */
-    public function food_class_list($class_food = [])
+    public function food_class_list()
     {
         $class = $this->Food_list->select_food_class_list();
 
@@ -26,11 +26,10 @@ class FoodClass extends CI_Controller
 
         foreach($class as $k=>$v){
             $food_list = $this->Food_list->select_class_food_list($v->id);
-            $class_food[$v->class_name] = $food_list;
+            $v->food_info = $food_list;
         }
 
-        if($class_food){
-            return return_response(0,'请求成功',$class_food);
-        }
+        return return_response(0,'请求成功',$class);
+
     }
 }

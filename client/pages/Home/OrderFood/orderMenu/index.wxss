@@ -152,7 +152,6 @@
 .right{
   width: 76%;
   /* height: 600rpx;  */
-  border: 1rpx solid yellow; 
   position: relative;
   left:24%;
   /* bottom:500rpx;  */
@@ -275,7 +274,7 @@
   background-color:#F75164;
   font-size:12px;
   color:#fff;
-  width:19px;
+  width:20px;
   height:15px;
   position:absolute;
   bottom:46px;
@@ -340,16 +339,16 @@
 .right-clear {
   width:30%;
   height: 70rpx;
-  float: right;
   margin-top: 11rpx;
   text-align:left;
   background-color: #faefdd;
   color: #959189;
   font-size:28rpx;
+  margin-left: 560rpx;
 }
 .cart-content .content-scroll {
   width:100%;
-  max-height:300px;
+  max-height:100px;
 }
 .cart-content .content-scroll .content-item {
 display:flex;
@@ -367,9 +366,9 @@ font-weight:bold;
 .action {
   width: 30%;
   text-align:center;
-  position: fixed;
+  position: relative;
   left: 70%;
-  bottom:150rpx;
+  bottom:90rpx; 
 }
 .buydel {
 font-size:16px;
