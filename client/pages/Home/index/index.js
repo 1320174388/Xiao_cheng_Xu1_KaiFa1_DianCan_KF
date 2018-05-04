@@ -1,34 +1,35 @@
-var config = require('../../../config')
+var config = require('../../../config');
+var app = getApp();
 Page({
   data: {
-    imgUrls: [
-      '../../../icon/3.jpg',
-      '../../../icon/2.jpg',
-      '../../../icon/1.jpg'
-    ],
+    host:config.index.host,
+    imgUrls: null,
     indicatorDots: true,
     autoplay: true,
     interval: 5000,
     duration: 1000
   },
   onLoad: function () {
+    var This = this;
+    app.post(
+      config.index.git_sowing_map, {
+      }, function (res) {
+        This.setData({
+          imgUrls: res.data.retData
+        });
+      }
+    );
     wx.login({
       success: function (res) {
         if (res.code) {
-          wx.request({
-            url: config.service.cheshiUrl,
-            header: {
-              "Content-Type": "application/x-www-form-urlencoded"
-            },
-            data: {
+          app.post(
+            config.service.cheshiUrl,{
               code: res.code
-            },
-            method: 'POST',
-            success: function (res) {
+            },function (res) {
               console.log(res.data);
               wx.setStorageSync('token', res.data.retData.token);
             }
-          })
+          );
         } else {
           console.log('登录失败' + res.errMsg);
         };

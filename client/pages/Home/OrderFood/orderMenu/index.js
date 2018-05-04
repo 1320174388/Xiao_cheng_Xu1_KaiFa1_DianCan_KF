@@ -1,3 +1,5 @@
+var config = require('../../../../config');
+var app = getApp();
 // pages/Home/OrderFood/orderMenu/index.js
 Page({
 
@@ -6,7 +8,8 @@ Page({
    */
   data: {
     navbar: ['热销', '热菜素', '热菜荤', '特色菜', '盖浇饭', '面食', '汤类', '主食'],
-    currentTab: 0,
+    host:config.service.host,
+    currentTab: null,
     open: true,
     close: false 
   },
@@ -40,7 +43,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var This = this;
+    app.post(
+      config.order_class_food.get_class_food,{},function(res){
+        console.log(res.data.retData);
+        var i =1;
+        for(var s in res.data.retData){
+          if(i == 1){
+            var index = s;
+            i++;
+          }
+        }
+        This.setData({
+          navbar: res.data.retData,
+          currentTab: index
+        });
+      }
+    );
   },
 
   /**

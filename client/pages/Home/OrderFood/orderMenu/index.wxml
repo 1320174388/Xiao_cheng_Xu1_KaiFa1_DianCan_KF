@@ -32,8 +32,8 @@
         <view class="swiper-tab">
             <view wx:for="{{navbar}}" data-idx="{{index}}" 
                 class="swiper-tab-list {{currentTab==index ? 'on' : ''}}" 
-                wx:key="unique" data-current="0" bindtap="swichNav">
-                {{item}}
+                wx:key="{{index}}" data-current="0" bindtap="swichNav">
+                {{index}}
             </view>
         </view>
       </view>
@@ -41,67 +41,19 @@
     <!--右侧  -->
       <view view class='right'>
         <!-- 热销  -->
-        <view hidden="{{currentTab!==0}}"> 
-          <text class='context-title'>热销</text> 
+        <view wx:for="{{navbar}}" wx:key="{{index}}" hidden="{{currentTab!==index}}"> 
+          <text class='context-title'>{{index}}</text> 
           <view class="weui-cells__title">
-            <view class='food-list'>
+            <view wx:for="{{item}}" class='food-list'>
               <view class='dianji' bindtap='single'>
-                <image src='../../../../icon/cai1.jpg' class='food-img'></image>
-                <text class='context-name'>菜品名称</text>
-                <text class='context-price'>￥18.00</text>
+                <image src='{{host}}{{item.food_img}}' class='food-img'></image>
+                <text class='context-name'>{{item.food_name}}</text>
+                <text class='context-price'>￥{{item.food_price}}</text>
               </view>
               <view class='foot-right'>
                 <view class="iconfont icon-minus2 sign"></view> 
                 <view class="count" data-count="0">0</view>
                 <view class="iconfont icon-plus1 sign"  bindtap="showitem"></view> 
-              </view>
-            </view>
-          </view>
-        </view>
-        <!-- 热菜素  -->
-        <view hidden="{{currentTab!==1}}"> 
-          <text class='context-title'>热菜素</text> 
-          <view class="weui-cells__title">
-            <view class='food-list'>
-              <image src='../../../../icon/cai2.jpg' class='food-img'></image>
-              <text class='context-name'>菜品名称</text>
-              <text class='context-price'>￥18.00</text>
-              <view class='foot-right'>
-                <view class="iconfont icon-minus2 sign"></view> 
-                <view class="count">0</view>
-                <view class="iconfont icon-plus1 sign"></view> 
-              </view>
-            </view>
-          </view>
-        </view>
-        <!-- 热菜荤  -->
-        <view hidden="{{currentTab!==2}}">  
-          <text class='context-title'>热菜荤</text>
-          <view class="weui-cells__title">
-            <view class='food-list'>
-              <image src='../../../../icon/cai2.jpg' class='food-img'></image>
-              <text class='context-name'>菜品名称</text>
-              <text class='context-price'>￥18.00</text>
-              <view class='foot-right'>
-                <view class="iconfont icon-minus2 sign"></view> 
-                <view class="count">0</view>
-                <view class="iconfont icon-plus1 sign"></view> 
-              </view>
-            </view>
-          </view>
-        </view>
-        <!-- 特色菜  -->
-        <view hidden="{{currentTab!==3}}"> 
-          <text class='context-title'>特色菜</text> 
-          <view class="weui-cells__title">
-            <view class='food-list'>
-              <image src='../../../../icon/cai2.jpg' class='food-img'></image>
-              <text class='context-name'>菜品名称</text>
-              <text class='context-price'>￥18.00</text>
-              <view class='foot-right'>
-                <view class="iconfont icon-minus2 sign"></view> 
-                <view class="count">0</view>
-                <view class="iconfont icon-plus1 sign"></view> 
               </view>
             </view>
           </view>
