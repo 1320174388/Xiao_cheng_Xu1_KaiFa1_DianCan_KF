@@ -11,14 +11,14 @@ Page({
   // 单选按钮
   showitem: function () {
     this.setData({
-      open: !this.data.open,
-      close: this.data.close
+      open: true,
+      close: false
     })
   },
   showitems: function () {
     this.setData({
-      close: !this.data.close,
-      open: this.data.open
+      close: true,
+      open: false
     })
   },
   radioChange: function (e) {

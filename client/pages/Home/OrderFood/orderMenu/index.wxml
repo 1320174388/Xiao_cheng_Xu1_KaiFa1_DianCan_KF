@@ -47,8 +47,12 @@
             <view wx:for="{{item}}" class='food-list'>
               <view class='dianji' bindtap='single'>
                 <image src='{{host}}{{item.food_img}}' class='food-img'></image>
-                <text class='context-name'>{{item.food_name}}</text>
-                <text class='context-price'>￥{{item.food_price}}</text>
+                <view  class='context-name'>
+                  <text>{{item.food_name}}</text>
+                </view>
+                <view class='context-price'>
+                   <text>￥{{item.food_price}}</text>
+                </view>
               </view>
               <view class='foot-right'>
                 <view class="iconfont icon-minus2 sign"></view> 
