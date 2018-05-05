@@ -77,6 +77,8 @@ var config = {
       host,
       // 修改店铺信息
       update: `${host}/api/admin/shop/update_info`,
+      // 获取店铺地址信息
+      getShopAddr: `${host}/api/home/Get_Shop/get_shop_addr`,
       // 上传店铺图片
       create_img: `${host}/api/admin/shop/create_img`,
       // 添加座号

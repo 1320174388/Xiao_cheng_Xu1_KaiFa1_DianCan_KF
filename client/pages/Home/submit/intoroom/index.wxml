@@ -7,8 +7,9 @@
             <text class='context'>店内就餐</text>
         <radio checked="店内就餐" bindtap="showitem" class='radiocheck'/>
         </view>
-        <view class="{{open?'display_show':'display_none'}} img">
+        <view class="{{open?'display_show':'display_none'}} img"  bindtap='ScanCode'  >
           <image src='../../../../icon/管理.png' class='img1'></image>
+          <text class='text111' >{{table_number}}</text>
           <image src='../../../../icon/扫码.png' class='img2'></image>
         </view>
       </view>
@@ -21,9 +22,9 @@
         <view class="{{close?'display_show':'display_none'}} img-set">
           <view class='addr'>
             <image src='../../../../icon/地址 (2).png' class='img3'></image>
-            <text class='contextAddr'>北京市海淀区清缘里中区</text>
+            <text class='contextAddr'>{{shop_addr}}</text>
           </view>
-          <view class='setout'>
+          <view class='setout' bindtap='ChoiceTime'  >
             <image src='../../../../icon/时间.png' class='img4'></image>
             <text class='contextTime'>选择取餐时间</text>
             <view class="iconfont icon-goto"></view>
@@ -38,17 +39,17 @@
     <view class='title'>
         <text class='context-menu'>小标题名称</text>
     </view>
-    <view class='menuifon'>
-       <image src='../../../../icon/menu.jpg' class='img-menu'></image>
-       <text class='context-name'>菜品名称</text>
-       <text class='context-number'>x1</text>
-       <text class='context-price'>￥18.00</text>
+    <view wx:for="{{food_info_arr.foods_crat}}" wx:key="{{index}}" wx:if="{{item}}" class='menuifon'>
+       <image src='{{host}}{{item.food_img}}' class='img-menu'></image>
+       <text class='context-name'>{{item.food_name}}</text>
+       <text class='context-number'>x{{item.food_number}}</text>
+       <text class='context-price'>￥{{item.food_price}}</text>
     </view>
  </view>
 
  <!--合计  -->
  <view class='sum'>
-  <text class='money'>合计：￥39.00</text>
+  <text class='money'>合计：￥{{food_info_arr.foods_price}}</text>
  </view>
 
  <!--备注  -->
@@ -58,7 +59,7 @@
  
  <!--确认  -->
  <view class='last'>
-    <text class='context-sure'>合计：<text class='context-color'>￥36.00</text></text>
+    <text class='context-sure'>合计：<text class='context-color'>￥{{food_info_arr.foods_price}}</text></text>
     <button class='sure'>确认</button>
  </view>
 

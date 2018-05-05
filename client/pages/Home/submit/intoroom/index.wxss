@@ -37,6 +37,11 @@
   position: absolute;
   top: 13%;
 }
+.text111{
+  position: absolute;
+  top: 11.5%;
+  left:35%;
+}
 .img2{
   width: 9%;
   height: 65rpx;
