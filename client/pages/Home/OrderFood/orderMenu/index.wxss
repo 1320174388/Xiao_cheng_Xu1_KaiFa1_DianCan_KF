@@ -127,7 +127,7 @@
 .left{
   width: 23%;
   margin-top: 10rpx;
-  position: fixed;
+  position: absolute;
 }
 .swiper-tab {
   width: 100%;

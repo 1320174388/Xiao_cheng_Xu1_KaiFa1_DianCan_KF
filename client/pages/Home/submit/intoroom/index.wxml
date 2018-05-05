@@ -24,11 +24,22 @@
             <image src='../../../../icon/地址 (2).png' class='img3'></image>
             <text class='contextAddr'>{{shop_addr}}</text>
           </view>
-          <view class='setout' bindtap='ChoiceTime'  >
+
+
+          <view class='setout' bindtap='ChoiceTime'>
             <image src='../../../../icon/时间.png' class='img4'></image>
-            <text class='contextTime'>选择取餐时间</text>
+            <picker mode="date" value="{{date}}" start="1978-01-01" 
+                    end="2017-1-23" bindchange="bindDateChange"> 
+              <text class='contextTime1'>{{dates}}</text> 
+            </picker> 
+            <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange"> 
+              <text class='contextTime'> {{times}} </text>
+            </picker>  
             <view class="iconfont icon-goto"></view>
+            
           </view>
+
+
         </view>
       </view>
     </label>

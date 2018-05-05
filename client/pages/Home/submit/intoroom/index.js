@@ -12,7 +12,24 @@ Page({
     shop_addr:null,
     food_info_arr: null,
     open: false,
-    close: false 
+    close: false,
+    dates: '选择日期',
+    times: '选择时间',
+    index: 0,
+  },
+  //  点击时间组件确定事件  
+  bindTimeChange: function (e) {
+    console.log("谁哦按")
+    this.setData({
+      times: e.detail.value
+    })
+  },
+  //  点击日期组件确定事件  
+  bindDateChange: function (e) {
+    console.log(e.detail.value)
+    this.setData({
+      dates: e.detail.value
+    })
   },
   // 单选按钮
   showitem: function () {

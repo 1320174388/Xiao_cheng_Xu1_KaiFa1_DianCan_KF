@@ -78,18 +78,25 @@
   height: 60rpx;
   margin-top: 5%;
 }
+.contextTime1{
+  font-size:35rpx;
+  margin-left:80rpx;
+  position: relative;
+  bottom:115rpx;
+}
 .contextTime{
   font-size:35rpx;
-  margin-left:4%;
+  margin-left:280rpx;
   position: relative;
-  bottom:21rpx;
+  bottom:220rpx;
 }
 .iconfont{
   display: inline; 
-  margin-left:45%;
+  margin-left:90%;
   position: relative;
-  bottom:21rpx;
+  bottom:315rpx;
 }
+
 /*菜单  */
 .menu{
   width: 90%;
