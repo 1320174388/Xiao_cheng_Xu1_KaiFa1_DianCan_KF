@@ -13,6 +13,14 @@ class PlaceOrder extends CI_Controller
         $this->load->model('home/P_Order');
         $this->load->driver('cache');
     }
+
+    /**
+     * 微信支付测试接口
+     */
+    public function CheShi()
+    {
+        // 微信支付测试接口伪代码
+    }
     /**
      * 提交订单
      *

@@ -28,8 +28,8 @@
 
           <view class='setout' bindtap='ChoiceTime'>
             <image src='../../../../icon/时间.png' class='img4'></image>
-            <picker mode="date" value="{{date}}" start="1978-01-01" 
-                    end="2017-1-23" bindchange="bindDateChange"> 
+            <picker mode="date" value="{{date}}" start="1970-01-01" 
+                    end="2036-07-18" bindchange="bindDateChange"> 
               <text class='contextTime1'>{{dates}}</text> 
             </picker> 
             <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindTimeChange"> 
@@ -71,6 +71,6 @@
  <!--确认  -->
  <view class='last'>
     <text class='context-sure'>合计：<text class='context-color'>￥{{food_info_arr.foods_price}}</text></text>
-    <button class='sure'>确认</button>
+    <button class='sure' bindtap='Payment' >确认</button>
  </view>
 

@@ -1,5 +1,6 @@
 var config = require("../../../../config.js");
 var app = getApp();
+var myDate = new Date();
 // pages/Home/submit/intoroom/index.js
 Page({
 
@@ -51,10 +52,25 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
     var This = this;
+
+    var Y = myDate.getFullYear();
+    var m = myDate.getMonth() + 1;
+    var d = myDate.getDate();
+
+    if ( m < 10 ){ m = "0" + m; }
+    if ( d < 10 ){ d = "0" + d; }
+
+    var H = myDate.getHours()+1;
+    var i = myDate.getMinutes()
+    
     This.setData({
       food_info_arr: wx.getStorageSync('food_info_arr'),
+      dates: Y + "-" + m + "-" + d,
+      times: H + ":" + i
     });
+    
     setInterval(function (res) {
       This.setData({
         food_info_arr: wx.getStorageSync('food_info_arr'),
@@ -87,10 +103,22 @@ Page({
     })
   },
   /**
-   * 选择取餐时间
+   * 掉起微信支付功能
    */
-  ChoiceTime:function(res){
-    
+  Payment:function(e){
+    var timestamp = Date.parse(myDate);
+    wx.requestPayment({
+      'appId': 'wx432a86107ed3814a',
+      'timeStamp': timestamp,
+      'nonceStr': '',
+      'package': '',
+      'signType': 'MD5',
+      'paySign': '',
+      'success': function (res) {
+      },
+      'fail': function (res) {
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
