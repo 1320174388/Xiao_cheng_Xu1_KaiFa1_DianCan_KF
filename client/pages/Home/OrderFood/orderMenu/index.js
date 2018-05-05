@@ -65,10 +65,17 @@ Page({
       food_info_arr = null;
     }
 
-    this.setData({
-      food_info_arr: food_info_arr,
-    });
-    wx.setStorageSync('food_info_arr', food_info_arr);
+    if (!food_info_arr.foods_crat[key3] && food_info_arr.foods_price == 0 && food_info_arr.foods_number ==0) {
+      this.setData({
+        food_info_arr: null,
+      });
+      wx.removeStorageSync('food_info_arr');
+    } else {
+      this.setData({
+        food_info_arr: food_info_arr,
+      });
+      wx.setStorageSync('food_info_arr', food_info_arr);
+    }
 
   },
   // 购物车

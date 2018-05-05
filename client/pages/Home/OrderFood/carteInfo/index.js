@@ -9,7 +9,7 @@ Page({
   data: {
     host:config.service.host,
     food_info:null,
-    food_info_arr: null,
+    food_info_arr: wx.getStorageSync('food_info_arr'),
     food_info_index:null,
     foods_number: null,
     foods_price: null,
@@ -36,9 +36,6 @@ Page({
    */
   onLoad: function (options) {
     var This = this;
-    This.setData({
-      food_info_arr: wx.getStorageSync('food_info_arr'),
-    });
     setInterval(function(res){
       This.setData({
         food_info: wx.getStorageSync('food_info'),
@@ -89,11 +86,17 @@ Page({
       food_info_arr = null;
     }
 
-    this.setData({
-      food_info_arr: food_info_arr,
-    });
-    wx.setStorageSync('food_info_arr', food_info_arr);
-
+    if (!food_info_arr.foods_crat[key3] && food_info_arr.foods_price == 0 && food_info_arr.foods_number == 0) {
+      this.setData({
+        food_info_arr: null,
+      });
+      wx.removeStorageSync('food_info_arr');
+    } else {
+      this.setData({
+        food_info_arr: food_info_arr,
+      });
+      wx.setStorageSync('food_info_arr', food_info_arr);
+    }
   },
   // 清空
   showitemes: function () {
