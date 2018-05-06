@@ -9,6 +9,10 @@ var config = {
       // 请求轮播图接口
       git_sowing_map: `${host}/api/home/Sowing_map/git_sowing_map`,
     },
+    wx_payment:{
+      // 微信支付测试接口实验
+      openid: `${host}/api/home/PlaceOrder/WeChat_payment`,
+    },
     order_class_food: {
       host,
       // 请求分类及菜品接口

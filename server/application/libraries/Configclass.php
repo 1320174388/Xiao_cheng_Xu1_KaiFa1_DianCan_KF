@@ -9,7 +9,13 @@ class Configclass {
     // AppSecret(小程序密钥) 
     public $wxAPPSecret = '24d2f33bf8bebfdbe4ae9f9966f27ccc';
 
-    // 接口地址
+    // 微信支付商户号
+    public $mch_id = '1502775551';
+
+    // 微信支付秘钥
+    public $wxZhiFuMiYao = 'weqoiHJLDK46291werpvmdklsDPOS389';
+
+    // 用户登录接口地址
     public $wxLoginUrl = 'https://api.weixin.qq.com/sns/jscode2session?appid=%s&secret=%s&js_code=%s&grant_type=authorization_code';
 
     // 系统最高管理员管理模块路由

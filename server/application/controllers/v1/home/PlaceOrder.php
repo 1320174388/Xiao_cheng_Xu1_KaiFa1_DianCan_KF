@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: Administrator
@@ -12,14 +13,20 @@ class PlaceOrder extends CI_Controller
         parent::__construct();
         $this->load->model('home/P_Order');
         $this->load->driver('cache');
+        $this->load->library('paymentclass');
     }
 
     /**
      * 微信支付测试接口
      */
-    public function CheShi()
+    public function WeChat_payment()
     {
-        // 微信支付测试接口伪代码
+        // 获取用户唯一标识ID
+        $openid =  get_token_values('openid');
+        //
+        $res = $this->paymentclass->prepay();
+
+        return $this->json($res);
     }
     /**
      * 提交订单

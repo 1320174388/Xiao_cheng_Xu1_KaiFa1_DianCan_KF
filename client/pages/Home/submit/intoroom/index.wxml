@@ -71,6 +71,6 @@
  <!--确认  -->
  <view class='last'>
     <text class='context-sure'>合计：<text class='context-color'>￥{{food_info_arr.foods_price}}</text></text>
-    <button class='sure' bindtap='Payment' >确认</button>
+    <button class='sure' data-total_fee='{{food_info_arr.foods_price}}' bindtap='Payment' >确认</button>
  </view>
 

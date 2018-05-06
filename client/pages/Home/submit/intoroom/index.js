@@ -107,18 +107,15 @@ Page({
    */
   Payment:function(e){
     var timestamp = Date.parse(myDate);
-    wx.requestPayment({
-      'appId': 'wx432a86107ed3814a',
-      'timeStamp': timestamp,
-      'nonceStr': '',
-      'package': '',
-      'signType': 'MD5',
-      'paySign': '',
-      'success': function (res) {
-      },
-      'fail': function (res) {
+    app.post(
+      config.wx_payment.openid,{
+        'token':wx.getStorageSync('token'),
+        'body':'商家名称-销售商品类目',
+        'total_fee':e.currentTarget.dataset.total_fee
+      },function(res){
+        console.log(res.data)
       }
-    })
+    );
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
