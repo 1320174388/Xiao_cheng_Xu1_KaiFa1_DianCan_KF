@@ -22,11 +22,13 @@
 </view>
 <view class='{{select ? "show" : "hide" }}'>
     <view class="section">
-        <icon type="search" size="15"/>
+    <view class='look-ico'>
+      <icon type="search" size="15"/>
         <form bindsubmit="search">
             <input placeholder='搜索' name='food_name_search'/>
-            <button formType="submit">Submit</button>
+            <button class='lookup' formType="submit">搜索</button>
         </form>
+    </view>
     </view>
 
     <view class='menu' wx:for="{{datas}}" wx:key="{{index}}">

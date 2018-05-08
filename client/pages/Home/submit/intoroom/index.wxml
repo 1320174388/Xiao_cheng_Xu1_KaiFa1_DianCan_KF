@@ -50,12 +50,16 @@
     <view class='title'>
         <text class='context-menu'>小标题名称</text>
     </view>
-    <view wx:for="{{food_info_arr.foods_crat}}" wx:key="{{index}}" wx:if="{{item}}" class='menuifon'>
-       <image src='{{host}}{{item.food_img}}' class='img-menu'></image>
-       <text class='context-name'>{{item.food_name}}</text>
-       <text class='context-number'>x{{item.food_number}}</text>
-       <text class='context-price'>￥{{item.food_price}}</text>
-    </view>
+    <scroll-view class="content-scroll" scroll-y>
+      <block wx:for="{{food_info_arr.foods_crat}}" wx:key="{{index}}" wx:if="{{item}}" >
+        <view class='menuifon'>
+          <image src='{{host}}{{item.food_img}}' class='img-menu'></image>
+          <text class='context-name'>{{item.food_name}}</text>
+          <text class='context-number'>x{{item.food_number}}</text>
+          <text class='context-price'>￥{{item.food_price}}</text>
+        </view>
+      </block>
+    </scroll-view>
  </view>
 
  <!--合计  -->
@@ -69,7 +73,7 @@
  </view>
  
  <!--确认  -->
- <view class='last'>
+ <view class='last' bindtap='pay'>
     <text class='context-sure'>合计：<text class='context-color'>￥{{food_info_arr.foods_price}}</text></text>
     <button class='sure' data-total_fee='{{food_info_arr.foods_price}}' bindtap='Payment' >确认</button>
  </view>

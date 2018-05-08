@@ -113,6 +113,10 @@
 .context-menu{
   line-height: 100rpx;
 }
+.content-scroll {
+  width:100%;
+  max-height:150px;
+}
 .img-menu{
   width: 25%;
   height: 150rpx;
@@ -162,9 +166,10 @@
 }
 /*确认  */
 .last{
-  position: fixed;
+  position: relative;
   bottom: 0%;
   width: 99%;
+  margin-top: 30rpx;
   background-color:#FFF;
 }
 .sure{

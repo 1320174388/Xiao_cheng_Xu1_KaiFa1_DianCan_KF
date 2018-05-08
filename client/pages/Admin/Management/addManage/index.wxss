@@ -12,7 +12,7 @@ input{
 /* 列表布局 */
 .tunnel{
     margin-top: 40rpx;
-    height: 360rpx;
+    height: 240rpx;
     width: 100%;
     background: #FFF;
     padding-left: 20px;
@@ -43,6 +43,15 @@ span{
   font-size: 25px;
   color:gainsboro;
   top:120px;
+}
+.uploader-text1, .tunnel-text1 {
+  padding-left: 30rpx;
+  margin-top: 30rpx;
+  margin-bottom: 10rpx;
+  line-height: 30rpx;
+  color: rgba(0, 0, 0, 0.3);
+  font-size: 28rpx;
+  font-family:"LiHei Pro Medium ",儷黑 Pro;
 }
 /*确定  */
 .tunne2{

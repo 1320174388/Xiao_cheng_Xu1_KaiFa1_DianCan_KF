@@ -37,7 +37,6 @@
             </view>
         </view>
       </view>
-
     <!--右侧  -->
       <view view class='right'>
         <!-- 热销  -->
@@ -55,7 +54,7 @@
                 </view>
               </view>
               <view class='foot-right'>
-                <view class="iconfont icon-minus2 sign" data-index='{{index}}' data-food_id="{{items.id}}" data-del='true'  bindtap="submitCart" ></view> 
+                <view class="iconfont icon-minus2 sign" data-index='{{index}}' data-food_id="{{items.id}}" data-del='true'  bindtap="submitCart"  wx:if="{{food_info_arr.foods_crat[items.id].food_number>0}}" ></view> 
                 <view class="count" data-count="0">{{food_info_arr.foods_crat[items.id].food_number}}</view>
                 <view class="iconfont icon-plus1 sign" data-index='{{index}}' data-food_id="{{items.id}}" data-add='true'  bindtap="submitCart"></view> 
               </view>
@@ -63,6 +62,7 @@
           </view>
         </view>
     </view>
+    <view class='space'>没有更多了~</view>
     <!-- 购物车  -->
     <view class="{{food_info_arr.foods_crat?'display_none':'display_show'}} cart-wrap">
       <view class="gouwuche" bindtap="cartClick">
@@ -78,28 +78,32 @@
         <!-- <view class="cart-mask"></view> -->
     <view class="{{food_info_arr.foods_crat?'display_show':'display_none'}}">
       <view class="cart-content">
-        <view class="tool">
+        <view class="{{carlist?'display_show':'display_none'}} hid">
+            <view class="tool">
           <view class="left">购物车</view>
           <view class="right-clear" bindtap="showitemes">
             <text class="iconfont icon-shanchu"></text>
                 清空购物车
           </view>
           </view>
-          <scroll-view  class="content-scroll" scroll-y>
+          <scroll-view class="content-scroll" scroll-y>
             <block wx:for="{{food_info_arr.foods_crat}}" wx:key="index" wx:if="{{item}}" >
-                <view class="content-item">
+            <view class='carinfo'>
+                 <view class="content-item">
                   <view class="title">{{item.food_name}}</view>
                 </view>
                 <view class="action">
-                  <text class="buydel" data-food_id="{{index}}" data-del='true' bindtap='submitCart' >-</text>
+                  <text class="iconfont icon-minus2 buydel" data-food_id="{{index}}" data-del='true' bindtap='submitCart' ></text>
                   <text class="count">{{item.food_number}}</text>
-                  <text class="buy" data-food_id="{{index}}" data-add='true' bindtap='submitCart' >+</text>
+                  <text class="iconfont icon-plus1 buy" data-food_id="{{index}}" data-add='true' bindtap='submitCart' ></text>
                 </view>
+            </view>
             </block>
           </scroll-view>
+        </view>
           <view class="cart-wrap">
           <view class="gouwuche" bindtap="cartClick">
-              <view class="gouwuche-wrap1">
+              <view class="gouwuche-wrap1" bindtap='carlist'>
                 <text class="iconfont icon-shopping aftershop"></text>
               </view>
               <view class="gouwuche-count">{{food_info_arr.foods_number}}</view>

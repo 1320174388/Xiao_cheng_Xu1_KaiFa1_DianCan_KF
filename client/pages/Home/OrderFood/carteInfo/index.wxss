@@ -185,6 +185,9 @@
 /*清空购物车  */
 .display_show{  
     display: flex;
+} 
+.display_shows{  
+    display: block;
 }  
 .display_none{  
     display: none;
@@ -242,12 +245,15 @@
   width:100%;
   max-height:300px;
 }
+.carinfo{
+  width:100%;
+  height: 100rpx;
+  border-bottom:1px solid #ededed;
+}
 .cart-content .content-scroll .content-item {
 display:flex;
 flex-direction:row;
-height:50px;
 line-height:50px;
-border-bottom:1px solid #ededed;
 padding-left:15px;
 }
 .cart-content .content-scroll .content-item .title {
@@ -263,15 +269,10 @@ font-weight:bold;
   bottom:90rpx; 
 }
 .buydel {
-font-size:16px;
- font-weight:bolder; 
-color:#f7b172;
- border: 1rpx solid #f7b172;
-width:30px;
-height:20px;
-padding:0 7px;
-text-align:center;
-border-radius:50%;
+  font-size:40rpx;
+  color:#f7b172;
+  padding:0 7px;
+  text-align:center;
 }
 .cart-content .content-scroll .content-item .action .count {
 font-size:12px;
@@ -281,16 +282,10 @@ text-align:center;
 padding:0 5px;
 }
 .buy {
-font-size:16px;
-font-weight:bolder;
-color:#f7b172;
-border: 1rpx solid #f7b172;
-width:10px;
-height:20px;
-padding:0 7px;
-text-align:center;
- line-height:20px; 
-border-radius:50%;
+  font-size:40rpx; 
+  color:#f7b172;
+  padding:0 7px;
+  text-align:center;
 }
 .gouwuche-wrap1{
   width:45px;
@@ -309,4 +304,7 @@ border-radius:50%;
 .ekse{
   width: 100%;
   height: 400rpx;
+}
+.hid{
+  width: 100%;
 }

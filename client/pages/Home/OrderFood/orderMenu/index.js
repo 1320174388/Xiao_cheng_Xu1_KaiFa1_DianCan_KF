@@ -15,7 +15,13 @@ Page({
     open: true,
     close: false ,
     foods_number:null,
-    foods_price:null
+    foods_price:null,
+    carlist:false,
+  },
+  carlist: function (e) {
+    this.setData({
+      carlist:true
+    })
   },
   swichNav: function (e) {
     this.setData({
@@ -25,7 +31,6 @@ Page({
 
   // submitCart
   submitCart: function (e) {
-
     var key1 = this.data.currentTab;
     var key2 = e.currentTarget.dataset.index;
     var key3 = e.currentTarget.dataset.food_id;

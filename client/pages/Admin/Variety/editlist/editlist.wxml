@@ -14,7 +14,9 @@
   </view>
   <view class="section pric">
     <text class='title'>菜品价格</text>
-    <input name="food_price" value="{{editfoods.food_price}}"/>
+    <view class='info'>
+      <input name="food_price" value="{{editfoods.food_price}}"/>
+    </view>
     <text class='comp'>元</text>
   </view>
   <view class="section">

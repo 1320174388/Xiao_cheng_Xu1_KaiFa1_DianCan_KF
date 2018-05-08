@@ -164,5 +164,10 @@ Page({
    */
   onShareAppMessage: function () {
   
-  }
+  },
+  pay: function () {
+    wx.navigateTo({
+      url: '/pages/Home/success/index',
+    })
+  },
 })

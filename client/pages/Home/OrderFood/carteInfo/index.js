@@ -17,6 +17,12 @@ Page({
     close: true,
     show: false,
     hidden: false,
+    carlist: false,
+  },
+  carlist: function (e) {
+    this.setData({
+      carlist: true
+    })
   },
   showitemes: function () {
     this.setData({

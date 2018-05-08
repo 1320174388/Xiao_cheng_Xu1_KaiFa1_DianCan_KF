@@ -72,14 +72,19 @@ button.add{
   padding:20rpx 0;
   position: relative;
 }
-.section input{
-  display: block;
-  width:95%;
-  margin:0 auto;
+.look-ico{
+  width: 95%;
   height: 80rpx;
   background: #eee;
+  margin-left: 20rpx;
+}
+.section input{
+  display: block;
+  width:85%;
+  margin:0 auto;
+  height: 80rpx;
   font-size: 35rpx;
-  text-indent: 2em;
+  margin-left: 100rpx;
 }
 .section icon{
   position: absolute;
@@ -191,4 +196,16 @@ button.add{
 }
 .bottom{
   margin:20rpx 0;
+}
+.lookup{
+  width:15%;
+  height:80rpx;
+  color:rgba(0,0,0,0.4);
+  font-size:25rpx;
+  line-height:80rpx;
+  position:relative;
+  left:300rpx;
+  top:-80rpx;
+  z-index:10;
+  background: none;
 }

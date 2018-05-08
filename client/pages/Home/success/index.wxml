@@ -19,9 +19,9 @@
   </view>  
   <!-- 支付成功 -->
   <view class="{{success?'display_show':'display_none'}} head-info">
-    <view class='nopay'>商家已接单 <text class='iconfont icon-goto right'></text></view>
-    <view class='prom1'><image src='../../../../icon/时间.png' class='img'></image>
-    \t\t\t\t\t\t\t预计送达：<text class='times'> 16:25</text></view>
+    <view class='nopay'>支付成功！</view>
+    <view class='prom1'><!-- <image src='../../../../icon/时间.png' class='img'></image>-->
+      祝您用餐愉快~</view> 
     <view class='choose'>
       <button class='close'>取消订单</button>
     </view>
@@ -31,12 +31,16 @@
     <view class='title'>
       <text class='context-menu'>小标题名称</text>
     </view>
-    <view class='menuifon'>
-      <image src='../../../../icon/menu.jpg' class='img-menu'></image>
-      <text class='context-name'>菜品名称</text>
-      <text class='context-number'>x1</text>
-      <text class='context-price'>￥18.00</text>
-    </view>
+    <scroll-view class="content-scroll" scroll-y>
+      <block>
+        <view class='menuifon'>
+          <image src='../../../../icon/menu.jpg' class='img-menu'></image>
+          <text class='context-name'>菜品名称</text>
+          <text class='context-number'>x1</text>
+          <text class='context-price'>￥18.00</text>
+        </view>
+      </block>
+    </scroll-view>
   </view>
   <!--合计  -->
  <view class='sum'>

@@ -6,14 +6,13 @@
               <input name="admin_name" value="{{admin_value.admin_name}}"></input>
               <span>></span>
           </view>
-
+  </view>
+  
 <!--管理员职位选择  -->
-          <view class="phone_one" bindtap="clickPerson">
-              <view class="tunnel-text uploader-text">
-                <text>请选择管理员职位：</text>
-                <span class="sp">></span>
-              </view> 
-          </view>
+  <view class="phone_one" bindtap="clickPerson">
+    <view class="tunnel-text1 uploader-text1">
+      <text>请选择管理员职位：</text>
+    </view> 
   </view>
   <view class="choose">
       <radio-group class="radio-group" bindchange="radioChange"  name="role_id">
