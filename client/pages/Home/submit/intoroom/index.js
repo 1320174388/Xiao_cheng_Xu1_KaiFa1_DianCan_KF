@@ -107,15 +107,21 @@ Page({
    */
   Payment:function(e){
     var timestamp = Date.parse(myDate);
+    var price = e.currentTarget.dataset.total_fee * 100;
     app.post(
       config.wx_payment.openid,{
         'token':wx.getStorageSync('token'),
         'body':'商家名称-销售商品类目',
-        'total_fee':e.currentTarget.dataset.total_fee
+        'total_fee': price
       },function(res){
         console.log(res.data)
       }
     );
+  },
+  pay: function () {
+    wx.navigateTo({
+      url: '/pages/Home/success/index',
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -164,10 +170,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-  pay: function () {
-    wx.navigateTo({
-      url: '/pages/Home/success/index',
-    })
   },
 })

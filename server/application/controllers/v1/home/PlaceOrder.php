@@ -24,7 +24,7 @@ class PlaceOrder extends CI_Controller
         // 获取用户唯一标识ID
         $openid =  get_token_values('openid');
         //
-        $res = $this->paymentclass->prepay();
+        $res = $this->paymentclass->prepay($openid);
 
         return $this->json($res);
     }
