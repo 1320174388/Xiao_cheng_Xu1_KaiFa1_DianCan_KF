@@ -18,35 +18,49 @@
       </view>
       <view class='text-shopname'><text class='context-shopname'>点餐小程序店铺名称</text></view>
     </view>
-    <view class='notice'>
-      <view class="iconfont icon-prom prom"></view> 
-      <text class='into'>点餐：满100元减10元</text>
-      <text class='setout'>到店取餐：满100元减12元</text>
-    </view>
+    <!-- 走马灯-公告 -->
+      <view class="notice">
+        <!-- 公告小图标 -->
+        <view class="notice-left">
+           <text class="iconfont icon-prom notice-icon"></text>
+        </view>
+       <!-- 公告内容 -->
+        <view class="notice-middle">
+          <swiper autoplay="true" circular="true" vertical="true" interval="3000" duration="500" bindchange="noticesChange">
+              <block wx:for="{{notices}}" wx:key="sid">
+                  <swiper-item>
+                    <text style="display:block">{{item.title}}</text>
+                  </swiper-item>
+              </block>
+          </swiper>
+        </view>
+  </view>
   </view>
 </view>
-  <!-- 左侧栏  -->
+  <!-- 左侧栏   -->
   <view class='nav'>
-    <!--左侧  -->
-      <view class='left'>
+    <scroll-view class="content-scroll-left" scroll-y>
+      <block wx:for="{{navbar}}" wx:key="{{index}}">
         <view class="swiper-tab">
-            <view wx:for="{{navbar}}" data-idx="{{index}}" 
-                class="swiper-tab-list {{currentTab==index ? 'on' : ''}}" 
-                wx:key="{{index}}" data-current="0" bindtap="swichNav">
+          <view data-idx="{{index}}" class="swiper-tab-list {{currentTab==index ? 'on' : ''}}" 
+                data-current="0" bindtap="swichNav">
                 {{item.class_name}}
-            </view>
+          </view>
         </view>
-      </view>
-    <!--右侧  -->
-      <view view class='right'>
-        <!-- 热销  -->
-        <view wx:for="{{navbar}}" wx:key="index" hidden="{{currentTab!==index}}"> 
+      </block>
+    </scroll-view>
+  </view>
+   <!-- 右侧栏   -->
+  <view>
+    <scroll-view class="content-scroll-right" scroll-y>
+      <block wx:for="{{navbar}}" wx:key="index">
+        <view hidden="{{currentTab!==index}}">
           <text class='context-title'>{{item.class_name}}</text> 
           <view class="weui-cells__title">
-             <view wx:for="{{item.food_info}}" wx:for-item="items" wx:key="index" class='food-list'>
+            <view wx:for="{{item.food_info}}" wx:for-item="items" wx:key="index" class='food-list'>
               <view class='dianji' data-food_info="{{items}}" data-index="{{index}}" bindtap='single'>
                 <image src='{{host}}{{items.food_img}}' class='food-img'></image>
-                <view  class='context-name'>
+                 <view  class='context-name'>
                   <text>{{items.food_name}}</text>
                 </view>
                 <view class='context-price'>
@@ -54,15 +68,24 @@
                 </view>
               </view>
               <view class='foot-right'>
-                <view class="iconfont icon-minus2 sign" data-index='{{index}}' data-food_id="{{items.id}}" data-del='true'  bindtap="submitCart"  wx:if="{{food_info_arr.foods_crat[items.id].food_number>0}}" ></view> 
-                <view class="count" data-count="0">{{food_info_arr.foods_crat[items.id].food_number}}</view>
-                <view class="iconfont icon-plus1 sign" data-index='{{index}}' data-food_id="{{items.id}}" data-add='true'  bindtap="submitCart"></view> 
+                <view class="iconfont icon-minus2 sign" data-index='{{index}}' 
+                      data-food_id="{{items.id}}" data-del='true'  bindtap="submitCart"  
+                      wx:if="{{food_info_arr.foods_crat[items.id].food_number>0}}" >
+                </view>
+                <view class="count" data-count="0">
+                    {{food_info_arr.foods_crat[items.id].food_number}}
+                </view>
+                <view class="iconfont icon-plus1 sign" data-index='{{index}}' 
+                      data-food_id="{{items.id}}" data-add='true'  bindtap="submitCart">
+                </view> 
               </view>
-            </view> 
+            </view>
           </view>
         </view>
-    </view>
-    <view class='space'>没有更多了~</view>
+      </block>
+      <view class='space'>没有更多了~</view>
+    </scroll-view>
+  </view>
     <!-- 购物车  -->
     <view class="{{food_info_arr.foods_crat?'display_none':'display_show'}} cart-wrap">
       <view class="gouwuche" bindtap="cartClick">
@@ -115,7 +138,6 @@
         </view>
       </view>  
     </view> 
-  </view>
 </view>
 
 
