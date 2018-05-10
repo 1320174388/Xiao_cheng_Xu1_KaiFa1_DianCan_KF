@@ -1,6 +1,6 @@
 <!--职位  -->
 
-  <view class="tunnel">
+  <view>
         <view class="list"  wx:for="{{array}}" wx:key="{{index}}">
 <form bindsubmit="addSubmit">
           <view class="left">
@@ -11,9 +11,15 @@
           <view class="right">
                 <input hidden name="id" value="{{item.id}}"></input>
                 <input hidden name="admin_name" value="{{item.admin_name}}"></input>
-                <button class='modify' form-type="submit">修改</button>
+                <view class='posion-modify'>
+                  <button class='modify' form-type="submit">修改</button>
+                </view>
+                
             <!-- 删除  -->
-                <button class="remove" data-editid="{{item.id}}" bindtap="deleteClick">删除</button>
+            <view class='posion-remove'>
+              <text class="remove" data-editid="{{item.id}}" bindtap="deleteClick">删除</text>
+            </view>
+                
           </view>
 </form>
         </view>

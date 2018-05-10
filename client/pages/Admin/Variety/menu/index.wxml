@@ -55,14 +55,14 @@
 </view>
 
 
- <!--墨台眶-->
+ <!--模态框-->
     <view class='{{showModalStatus}}' id='model'>
           <view class='content'>
               <view class='cont_title' bindtap='close'><icon type="clear" size="20"/></view>
 
               <view class='contents'>
                     <view class='top'>
-                        <image src='{{host}}{{foodInfo.food_img}}'></image>
+                        <image wx:if='{{host&&foodInfo.food_img}}' src='{{host}}{{foodInfo.food_img}}'></image>
                         <view class='info'>
                             <text>{{foodInfo.food_name}}</text>
                             <text class='num'>序号：{{foodInfo.food_sort}}</text>

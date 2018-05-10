@@ -9,9 +9,14 @@
             <view class="right">
                 <input hidden name="id" value="{{item.id}}"></input>
                 <input hidden name="roleName" value="{{item.role_name}}"></input>
-                <button class='modify' form-type="submit">修改</button>
+                <view  class="posion-modify">
+                  <button class='modify' form-type="submit">修改</button>
+                </view>
             <!-- 删除  -->
-                <button class="remove" data-editid="{{item.id}}" bindtap="deleteClick">删除</button>
+            <view  class="posion-remove">
+              <text class="remove" data-editid="{{item.id}}" bindtap="deleteClick">删除</text>
+            </view>
+                
             </view>
        </form>
    </view>

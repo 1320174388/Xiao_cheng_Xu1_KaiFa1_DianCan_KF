@@ -1,4 +1,5 @@
 // pages/Home/success/index.js
+var config = require('../../../config.js');
 Page({
 
   /**
@@ -7,7 +8,8 @@ Page({
   data: {
     pay: false,
     agains: false,
-    success: true 
+    success: true ,
+    imghost: config.service.imghost
   },
 
   /**

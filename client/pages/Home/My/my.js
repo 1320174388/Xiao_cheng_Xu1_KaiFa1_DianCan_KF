@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    datas:null
+    datas:null,
+    imghost: config.service.imghost
   },
 
   /**

@@ -8,7 +8,7 @@
   <view class='diancan'>
       <view class='number'>
           <view class='img'>
-            <image src='../../../../icon/mana.png' class='img1'></image> 
+            <image src='{{imghost}}mana.png' class='img1'></image> 
           </view>
           <view class='texte'>
             <text class='context-number'>订单号：120012033</text>
@@ -17,9 +17,9 @@
       </view>
 
       <view class='xiangqing'>
-        <view class='desk'>
+        <view class='desk1'>
           <text class='remarks'>座号</text>
-          <text class='info'>1号桌</text>
+          <text class='info1'>1号桌</text>
         </view>
           
          <view class='desk'>
@@ -58,9 +58,9 @@
       </view>
 
       <view class='xiangqing'>
-        <view class='desk'>
+        <view class='desk1'>
           <text class='remarks'>地址</text>
-          <text class='info'>海淀区清河文苑701</text>
+          <text class='info1'>海淀区清河文苑701</text>
         </view>
           
          <view class='desk'>

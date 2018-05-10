@@ -17,7 +17,7 @@ Page({
     desk:null,
     table_id:null,
     showModalStatus: "hide",
-    shoopCode:'/uploads/foods/default_table.jpg',
+    shoopCode:null,
     img_url:null
   },
   /**
