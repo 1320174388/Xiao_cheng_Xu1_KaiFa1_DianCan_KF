@@ -57,7 +57,9 @@ class Paymentclass
         ];
         $unifiedorder['sign'] = self::makeSign($unifiedorder,$key);
 
-        return self::makeSign($unifiedorder,$key);
+        $xmlData = self::arrayXml($unifiedorder);
+        $url = 'https://api.mch.weixin.qq.com/pay/unifiedorder';
+        $res = self::curl_post_ssl($url, $xmlData);
     }
 
     /**
@@ -114,4 +116,61 @@ class Paymentclass
         $result=strtoupper($sign);
         return $result;
     }
+
+    /**
+     * 将一个数组转换为 XML 结构的字符串
+     */
+    public static function arrayXml($arr, $level = 1)
+    {
+        $s = $level == 1 ? "<xml>" : '';
+        foreach($arr as $tagname => $value) {
+            if (is_numeric($tagname)) {
+                $tagname = $value['TagName'];
+                unset($value['TagName']);
+            }
+            if(!is_array($value)) {
+                $s .= "<{$tagname}>".(!is_numeric($value) ? '<![CDATA[' : '').$value.(!is_numeric($value) ? ']]>' : '')."</{$tagname}>";
+            } else {
+                $s .= "<{$tagname}>" . self::arrayXml($value, $level + 1)."</{$tagname}>";
+            }
+        }
+        $s = preg_replace("/([\x01-\x08\x0b-\x0c\x0e-\x1f])+/", ' ', $s);
+        return $level == 1 ? $s."</xml>" : $s;
+    }
+
+    /**
+     * 微信支付发起请求
+     */
+    protected static function curl_post_ssl($url, $xmldata, $second=30,$aHeader=array()){
+        $ch = curl_init();
+        //超时时间
+        curl_setopt($ch,CURLOPT_TIMEOUT,$second);
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER, 1);
+        //这里设置代理，如果有的话
+        //curl_setopt($ch,CURLOPT_PROXY, '10.206.30.98');
+        //curl_setopt($ch,CURLOPT_PROXYPORT, 8080);
+        curl_setopt($ch,CURLOPT_URL,$url);
+        curl_setopt($ch,CURLOPT_SSL_VERIFYPEER,false);
+        curl_setopt($ch,CURLOPT_SSL_VERIFYHOST,false);
+
+
+        if( count($aHeader) >= 1 ){
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $aHeader);
+        }
+
+        curl_setopt($ch,CURLOPT_POST, 1);
+        curl_setopt($ch,CURLOPT_POSTFIELDS,$xmldata);
+        $data = curl_exec($ch);
+        if($data){
+            curl_close($ch);
+            return $data;
+        }
+        else {
+            $error = curl_errno($ch);
+            echo "call faild, errorCode:$error\n";
+            curl_close($ch);
+            return false;
+        }
+    }
+
 }

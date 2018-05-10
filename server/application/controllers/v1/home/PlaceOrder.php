@@ -28,6 +28,7 @@ class PlaceOrder extends CI_Controller
 
         return $this->json($res);
     }
+
     /**
      * 提交订单
      *
@@ -89,4 +90,5 @@ class PlaceOrder extends CI_Controller
         }
 
     }
+
 }
