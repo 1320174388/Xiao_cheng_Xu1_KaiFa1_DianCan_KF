@@ -2,16 +2,17 @@
  page {
     width:100%;
     height: 100%;
-    background: #F6F6F6;
+    background: #f9f9f9;
 }
 .list{
-  width:95%;
+  width:88%;
   background: #fff;
   display: flex;
   justify-content: space-between;
   margin:0 auto;
   margin-bottom:30rpx;
   margin-top:30rpx;
+  margin-right:45rpx;
 }
 .left{
   float: left;
@@ -29,118 +30,49 @@
 }
 .right{
   float: right;
-  position: absolute;
-  left:260px;
+  position: relative;
+  left:185rpx;
 }
 .right button{
-  font-size:35rpx;
+  font-size:30rpx;
   background: #fff;
   border-radius: none;
+  height:81rpx;
+  line-height:81rpx;
+
 }
 button::after{
-  border-right: none;
+  border: none;
   border-top: none;
 }
+.posion-modify{
+  border-left:2rpx solid #eaeaea;
+  border-bottom:1rpx solid #eaeaea;
+}
 .modify{
-  color: skyblue;
+  color: #77b3ff;
+}
+.posion-remove{
+  height:80rpx;
+  line-height:80rpx;
+  font-size:30rpx;
+  text-align:center;
+  border-left:2rpx solid #eaeaea;
 }
 .remove{
-  color: red;
+  color:#f7485d;
 }
-/*管理员名称  */
-/* .tunnel{
-    margin-top: 40rpx;
-    height: 150rpx;
-    width: 90%;
-    background: #FFF;
-    margin-left: 5%;
-} */
-/*管理员名称-职位  */
-/* .v1{
-    float: left;
-    width: 70%;
-    line-height: 45px;
-    font-size: 35rpx;
-    color: #222;
-    font-family:"LiHei Pro Medium ",儷黑 Pro;
-    padding-left: 15px;
-    border-right: 1px solid	Lavender;
-    height: 63px;
-}
-.tx1{
-  position: relative;
-  top:20px;
-  right:110px;
-  color: grey;
-  font-size: 21rpx;
-}
-.tx2{
-  position: relative;
-  top:20px;
-  right: 55px;
-  color: grey;
-  font-size: 21rpx;
-}
-.tx3{
-  position: relative;
-  top:20px;
-  right:28px;
-  color: grey;
-  font-size: 21rpx;
-}
-/*修改 删除  */
-/*.v2{
-  float: right;
-}
-.tt1{
-    font-size: 35rpx;
-    color: #007AFF;
-    font-family:"LiHei Pro Medium ",儷黑 Pro;
-    position: absolute;
-    right: 37px;
-    top:25px;
-}
-.tt2{
-  position: relative;
-  width: 70px;
-  top:10px;
-  border-bottom:1px solid	Lavender;
-}
-.tt3{
-  position: relative;
-  top:25px;
-  left:20px;
-  color: red;
-  font-size: 30rpx;
-}
-.tt{
-  font-size: 35rpx;
-    color: #007AFF;
-    font-family:"LiHei Pro Medium ",儷黑 Pro;
-    position: absolute;
-    right: 37px;
-    top:105px;
-}
-.tt4{
-    font-size: 35rpx;
-    color: #007AFF;
-    font-family:"LiHei Pro Medium ",儷黑 Pro;
-    position: absolute;
-    right: 37px;
-    top:185px;
-} */
+
 /*添加  */
-/* .tunne2{
-    margin-top: 100%;
-    height: 50px;
+ .tunne2{
     width: 100%;
     background:#FFF;
-    border-top: 1px solid lightgray;
+    border-top: 1px solid #dddddd;
 }
 .add{
-    color:  #007AFF;
+    color:  #77b3ff;
     line-height: 50px;
     font-size: 35rpx;
-    font-family:"LiHei Pro Medium ",儷黑 Pro;
+    font-family:PingFangSC;
     text-align: center;
-}  */
+}  

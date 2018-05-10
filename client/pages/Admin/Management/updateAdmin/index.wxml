@@ -2,8 +2,10 @@
   <view class="tunnel">
   <input hidden name="admin_id" value="{{admin_value.id}}"></input>
           <view class="tunnel-text uploader-text">
+            <view class='context-manage'>
               <text>管理员名称:</text>
-              <input name="admin_name" value="{{admin_value.admin_name}}"></input>
+            </view>
+              <input class='getname' name="admin_name" value="{{admin_value.admin_name}}"></input>
               <span>></span>
           </view>
   </view>
@@ -18,9 +20,9 @@
       <radio-group class="radio-group" bindchange="radioChange"  name="role_id">
            <view wx:for="{{array}}" wx:key="{{index}}">
                 <view class="chooseText">
-                    <text bindtap="mySelect" data-me="{{item.role_name}}">
+                    <text class='context-choose' bindtap="mySelect" data-me="{{item.role_name}}">
                               {{item.role_name}}</text>
-                    <radio class="tunnel-switch" color="LimeGreen" value="{{item.id}}"/>
+                    <radio class="tunnel-switch" color="#b2da89" value="{{item.id}}"/>
                 </view>
           </view>
       </radio-group> 

@@ -1,5 +1,5 @@
 <view class='top'>
-       <image src='../../../icon/1.jpg' class='pic'></image> 
+       <image src='{{imghost}}/1.jpg' class='pic'></image> 
     <text class='context-id'>用户ID编号</text>
 </view>
 <!--选项  -->

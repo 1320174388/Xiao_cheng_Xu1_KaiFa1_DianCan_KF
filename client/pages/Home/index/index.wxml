@@ -42,37 +42,37 @@
 <text class="title">掌柜推荐</text>
 <view class='proList'>
     <view class="lists" bindtap='imgOrder'>
-        <image src='/icon/cai1.jpg'></image>
+        <image src='{{imghost}}/cai1.jpg'></image>
         <text>巧扮苦菊</text>
         <text>￥12.00</text>
     </view>
 
      <view class="lists">
-        <image src='/icon/cai1.jpg'></image>
+        <image src='{{imghost}}/cai1.jpg'></image>
         <text>巧扮苦菊</text>
         <text>￥12.00</text>
     </view>
 
      <view class="lists">
-        <image src='/icon/cai1.jpg'></image>
+        <image src='{{imghost}}/cai1.jpg'></image>
         <text>巧扮苦菊</text>
         <text>￥12.00</text>
     </view>
 
     <view class="lists">
-        <image src='/icon/cai1.jpg'></image>
+        <image src='{{imghost}}/cai1.jpg'></image>
         <text>巧扮苦菊</text>
         <text>￥12.00</text>
     </view>
 
     <view class="lists">
-        <image src='/icon/cai1.jpg'></image>
+        <image src='{{imghost}}/cai1.jpg'></image>
         <text>巧扮苦菊</text>
         <text>￥12.00</text>
     </view>
 
     <view class="lists">
-        <image src='/icon/cai1.jpg'></image>
+        <image src='{{imghost}}/cai1.jpg'></image>
         <text>巧扮苦菊</text>
         <text>￥12.00</text>
     </view>

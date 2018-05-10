@@ -34,7 +34,7 @@
     <scroll-view class="content-scroll" scroll-y>
       <block>
         <view class='menuifon'>
-          <image src='../../../../icon/menu.jpg' class='img-menu'></image>
+          <image src='{{imghost}}/menu.jpg' class='img-menu'></image>
           <text class='context-name'>菜品名称</text>
           <text class='context-number'>x1</text>
           <text class='context-price'>￥18.00</text>

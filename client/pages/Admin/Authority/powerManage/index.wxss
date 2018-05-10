@@ -32,10 +32,9 @@ input{
 /*下拉选项  */
 .sp{
   position: absolute;
-  right:15px;
+  right:-470rpx;
   font-size: 25px;
   color:gainsboro;
-  bottom: 445px;
 }
 
 /*权限选择  */
@@ -97,7 +96,6 @@ input{
     margin-top: 100%;
     height: 50px;
     width: 100%;
-    background:SkyBlue;
     
 }
 .sure{
@@ -108,6 +106,6 @@ input{
     text-align: center;
 }
 .but{
-  background:lightseagreen;
+  background:#77b3ff;
   color: #FFF;
 }

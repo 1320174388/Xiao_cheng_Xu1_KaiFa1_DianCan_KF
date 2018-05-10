@@ -110,7 +110,7 @@ span{
   right: 30px;
 }
 .but{
-  background:lightseagreen;
+  background:#77b3ff;
   color: #FFF;
 }
 

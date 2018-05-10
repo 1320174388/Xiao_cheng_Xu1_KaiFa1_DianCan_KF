@@ -86,7 +86,6 @@ page{
   margin-bottom:40rpx;
   margin-top:0rpx;
   padding-top: 0rpx;
-  background-image:url("https://l1ur0jdu.qcloud.la/uploads/shops/desk.jpg");
   background-size: 100% 100%;
 }
 .desk image{

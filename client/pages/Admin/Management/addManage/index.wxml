@@ -23,7 +23,7 @@
                 <view>
                     <text bindtap="mySelect" data-me="{{item.role_name}}">
                               {{item.role_name}}</text>
-                    <radio class="tunnel-switch" color="LimeGreen" value="{{item.id}}"/>
+                    <radio class="tunnel-switch" color="#b2da89" value="{{item.id}}"/>
                 </view>
           </view>
       </radio-group> 

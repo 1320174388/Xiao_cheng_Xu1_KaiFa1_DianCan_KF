@@ -1,3 +1,4 @@
+var config = require('../../../config.js');
 // pages/foots/foots.js
 Page({
 
@@ -6,7 +7,8 @@ Page({
    */
   data: {
     navbar: ['点餐', '外卖', '约定', '排队'],
-    currentTab: 0  
+    currentTab: 0 ,
+    imghost:config.service.imghost
   },
   //选项卡
   navbarTap: function (e) {

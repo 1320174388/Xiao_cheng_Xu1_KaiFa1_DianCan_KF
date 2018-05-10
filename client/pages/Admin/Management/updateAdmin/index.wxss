@@ -35,7 +35,16 @@ input{
     color: #007AFF;
     font-family:"LiHei Pro Medium ",儷黑 Pro;
 }
-
+.context-manage{
+  width:180rpx;
+  line-height:100rpx;
+}
+.getname{
+  width:300rpx;
+  position:relative;
+  bottom:109rpx;
+  right:60rpx;
+}
 .tunnel-text {
     color: #222;
     border-bottom: 1px solid rgba(0, 0, 0, .1);
@@ -43,18 +52,14 @@ input{
 
 /*下拉选项  */
 span{
-  position: absolute;
-  right:15px;
+  position:relative;
+  right:-250px;
+  bottom:112rpx;
   font-size: 25px;
   color:gainsboro;
+
 }
-.sp{
-  position: absolute;
-  right:15px;
-  font-size: 25px;
-  color:gainsboro;
-  top:68px;
-}
+
 /*确定  */
 .tunne2{
     margin-top: 100%;
@@ -83,16 +88,20 @@ span{
 .chooseText{
   border-bottom: 1px solid rgba(0, 0, 0, .1);
   height: 100rpx;
-  line-height: 35px;
+  line-height: 85rpx;
+}
+.context-choose{
+  position:relative;
+  bottom:75rpx;
 }
 .tunnel-switch{
   float: right;
   position: relative;
-  right: 30px;
-  bottom: 5px;
+  right:90rpx;
+  bottom:82rpx
 }
 .but{
-  background:lightseagreen;
+  background:#77b3ff;
   color: #FFF;
 }
 

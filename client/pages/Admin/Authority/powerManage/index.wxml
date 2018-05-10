@@ -16,7 +16,7 @@
           <view class="tunne2"  wx:for="{{array}}" wx:key="{{index}}">
                <view class="tunnel-text2 uploader-text2">
                     <text>{{item.right_name}}</text>
-                    <switch class="tunnel-switch" color="	LimeGreen" name="{{item.id}}"/>
+                    <switch class="tunnel-switch" color="#b2da89" name="{{item.id}}"/>
                 </view>
           </view>
        
