@@ -60,6 +60,41 @@ class Paymentclass
         $xmlData = self::arrayXml($unifiedorder);
         $url = 'https://api.mch.weixin.qq.com/pay/unifiedorder';
         $res = self::curl_post_ssl($url, $xmlData);
+        if(!$res){
+            return return_response(1,'预订单数据请求失败');
+        }
+        $content = self::xmlArray($res);
+        if(strval($content['result_code']) == 'FAIL'){
+            return return_response(2,'err_code_des');
+        }
+        if(strval($content['return_code']) == 'FAIL'){
+            return return_response(3,'return_msg');
+        }
+        return return_response(0,'请求预订单成功',$content);
+    }
+
+    /**
+     * 进行支付接口(POST)
+     */
+    public function pay(){
+
+        $config = $this->config;
+
+        $prepay_id = $this->CI->input->post('prepay_id');
+
+        $key = $this->config['pay_apikey'];
+
+        $data = array(
+            'appId'		=> $config['appid'],
+            'timeStamp'	=> time(),
+            'nonceStr'	=> self::getNonceStr(),
+            'package'	=> 'prepay_id='.$prepay_id,
+            'signType'	=> 'MD5'
+        );
+
+        $data['paySign'] = self::makeSign($data,$key);
+
+        return $data;
     }
 
     /**
@@ -84,7 +119,7 @@ class Paymentclass
     /**
      * 获取IP地址
      */
-    public static function GetIP()
+    protected static function GetIP()
     {
         if(!empty($_SERVER["HTTP_CLIENT_IP"]))
             $cip = $_SERVER["HTTP_CLIENT_IP"];
@@ -100,7 +135,7 @@ class Paymentclass
     /**
      * 生成签名
      */
-    public static function makeSign($data,$key)
+    protected static function makeSign($data,$key)
     {
         // 去空
         $data=array_filter($data);
@@ -120,7 +155,7 @@ class Paymentclass
     /**
      * 将一个数组转换为 XML 结构的字符串
      */
-    public static function arrayXml($arr, $level = 1)
+    protected static function arrayXml($arr, $level = 1)
     {
         $s = $level == 1 ? "<xml>" : '';
         foreach($arr as $tagname => $value) {
@@ -136,6 +171,16 @@ class Paymentclass
         }
         $s = preg_replace("/([\x01-\x08\x0b-\x0c\x0e-\x1f])+/", ' ', $s);
         return $level == 1 ? $s."</xml>" : $s;
+    }
+
+    /**
+     * 将xml转为array
+     */
+    protected function xmlArray($xml){
+        //禁止引用外部xml实体
+        libxml_disable_entity_loader(true);
+        $result= json_decode(json_encode(simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA)), true);
+        return $result;
     }
 
     /**

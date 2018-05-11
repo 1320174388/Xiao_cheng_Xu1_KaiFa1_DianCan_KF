@@ -64,6 +64,9 @@ Page({
 
     var H = myDate.getHours()+1;
     var i = myDate.getMinutes()
+
+    if (H < 10) { H = "0" + H; }
+    if (i < 10) { i = "0" + i; }
     
     This.setData({
       food_info_arr: wx.getStorageSync('food_info_arr'),
@@ -114,7 +117,34 @@ Page({
         'body':'商家名称-销售商品类目',
         'total_fee': price
       },function(res){
-        console.log(res.data)
+        if(res.data.retData){
+          app.post(
+            config.wx_payment.pay,{
+              'prepay_id': res.data.retData.prepay_id
+            },function(res){
+              console.log(res.data.retData)
+              if (res.data.retData){
+                wx.requestPayment(
+                  {
+                    'timeStamp': ""+res.data.retData.timeStamp+"",
+                    'nonceStr': res.data.retData.nonceStr,
+                    'package': res.data.retData.package,
+                    'signType': res.data.retData.signType,
+                    'paySign': res.data.retData.paySign,
+                    'success': function (res) {
+                      
+                    },
+                    'fail': function (res) {
+                      
+                    },
+                    'complete': function (res) {
+                      
+                    }
+                  })
+              }
+            }
+          );
+        }
       }
     );
   },

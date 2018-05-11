@@ -17,7 +17,7 @@ class PlaceOrder extends CI_Controller
     }
 
     /**
-     * 微信支付测试接口
+     * 请求微信支付预订单接口
      */
     public function WeChat_payment()
     {
@@ -26,7 +26,16 @@ class PlaceOrder extends CI_Controller
         //
         $res = $this->paymentclass->prepay($openid);
 
-        return $this->json($res);
+        return $res;
+    }
+
+    /**
+     * 进行支付接口(POST)
+     */
+    public function WxChat_pay()
+    {
+        $res = $this->paymentclass->pay();
+        return return_response( 0, '请求成功',$res);
     }
 
     /**
