@@ -9,7 +9,7 @@
         </view>
         <view class="{{open?'display_show':'display_none'}} img"  bindtap='ScanCode'  >
           <image src='../../../../icon/管理.png' class='img1'></image>
-          <text class='text111' >{{table_number}}</text>
+          <text class='text111' >{{table_base}}</text>
           <image src='../../../../icon/扫码.png' class='img2'></image>
         </view>
       </view>
@@ -69,12 +69,12 @@
 
  <!--备注  -->
  <view class='remarks'>
-    <text class='context-remarks'>备注</text>
+    <input class='context-remarks' bindblur='BeiZhuXinXi' placeholder='请输入备注信息'/>
  </view>
  
  <!--确认  -->
  <view class='last'>
     <text class='context-sure'>合计：<text class='context-color'>￥{{food_info_arr.foods_price}}</text></text>
-    <button class='sure' data-total_fee='{{food_info_arr.foods_price}}' bindtap='Payment' >确认</button>
+    <button class='sure' data-total_fee='{{food_info_arr.foods_price}}' bindtap='submit_order' >确认</button>
  </view>
 

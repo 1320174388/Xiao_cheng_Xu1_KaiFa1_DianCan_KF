@@ -7,7 +7,12 @@
  */
 class P_Order extends CI_Model
 {
-    public function create_order($post,$order = [],$order_detail = [])
+    public function get_openid_id($openid)
+    {
+        return $this->db->get_where('data_home_users', ['open_id'=>$openid])->result()[0]->id;
+    }
+
+    public function create_order($post,$order = [])
     {
         if($post['order_type']){
             $order['order_type'] = $post['order_type'];
@@ -25,10 +30,9 @@ class P_Order extends CI_Model
             $order['order_addr'] = $post['order_addr'];
         }
 
-        $number = mt_rand(1000,9999);
-        $date = date(time());
-
-        $order['order_number'] = $date.$number;
+        if($post['order_number']){
+            $order['order_number'] = $post['order_number'];
+        }
 
         $order['user_id'] = $post['user_id'];
 
@@ -44,18 +48,12 @@ class P_Order extends CI_Model
 
         $res = $this->db->insert('data_orders', $order);
 
-        $num = 1;
-        foreach($post['food_list'] as $k=>$v){
-            $order_detail[$num] = array_merge(['order_number'=>$order['order_number']],$v);
-            $num++;
-        }
-
-        $ret = $this->db->insert_batch('data_order_details',$order_detail);
+        $ret = $this->db->insert_batch('data_order_details',$post['food_list']);
 
         $this->db->trans_complete();
 
         if($res && $ret){
-            return true;
+            return $order['order_number'];
         }else{
             return false;
         }

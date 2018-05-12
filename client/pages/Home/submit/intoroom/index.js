@@ -1,6 +1,7 @@
 var config = require("../../../../config.js");
 var app = getApp();
 var myDate = new Date();
+var order_bindtap_type = 0;
 // pages/Home/submit/intoroom/index.js
 Page({
 
@@ -9,14 +10,14 @@ Page({
    */
   data: {
     host:config.service.host,
-    table_number:'请扫描座号',
-    shop_addr:null,
-    food_info_arr: null,
+    table_base:'请扫描座号',
+    table_number:null,
     open: false,
     close: false,
     dates: '选择日期',
     times: '选择时间',
     index: 0,
+    beizhu:null
   },
   //  点击时间组件确定事件  
   bindTimeChange: function (e) {
@@ -36,13 +37,15 @@ Page({
   showitem: function () {
     this.setData({
       open: true,
-      close: false
+      close: false,
+      order_type:'eat'
     })
   },
   showitems: function () {
     this.setData({
       close: true,
-      open: false
+      open: false,
+      order_type: 'take'
     })
   },
   radioChange: function (e) {
@@ -98,60 +101,84 @@ Page({
     wx.scanCode({
       onlyFromCamera: true,
       success: (res) => {
-        console.log(res.result)
         This.setData({
-          table_number: res.result+'号座'
+          table_number: res.result,
+          table_base:  res.result +'号座就餐'
         });
       }
     })
   },
+
   /**
-   * 掉起微信支付功能
+   * 名称：BeiZhuXinXi
+   * 功能：获取备注信息
    */
-  Payment:function(e){
-    var timestamp = Date.parse(myDate);
-    var price = e.currentTarget.dataset.total_fee * 100;
+  BeiZhuXinXi: function (event){
+    this.setData({
+      beizhu: event.detail.value
+    });
+  },
+  /**
+   * 提交订单信息
+   */
+  submit_order: function (e) {
+    if (order_bindtap_type>0){
+      return false;
+    }
+    order_bindtap_type++;
+    app.point('请求支付中','loading',7200);
+    var food_list_id = [];
+    var food_list_num = [];
+    var food_list_price = [];
+    var s = 0;
+    for (var i in this.data.food_info_arr.foods_crat){
+      if (this.data.food_info_arr.foods_crat[i] !== null){
+        food_list_id[s] = this.data.food_info_arr.foods_crat[i].id;
+        food_list_num[s] = this.data.food_info_arr.foods_crat[i].food_number;
+        food_list_price[s] = this.data.food_info_arr.foods_crat[i].food_price * this.data.food_info_arr.foods_crat[i].food_number;
+        s++;
+      }
+    }
+    var This = this;
     app.post(
-      config.wx_payment.openid,{
+      config.wx_payment.submit_order,{
         'token':wx.getStorageSync('token'),
-        'body':'商家名称-销售商品类目',
-        'total_fee': price
+        'order_type': this.data.order_type,
+        'table_id': this.data.table_number,
+        'take_time': this.data.dates + ' ' + this.data.times,
+        'order_remarks':this.data.beizhu,
+        'food_list_id': food_list_id,
+        'food_list_num': food_list_num,
+        'food_list_price': food_list_price,
+        'order_price': this.data.food_info_arr.foods_price,
       },function(res){
-        if(res.data.retData){
-          app.post(
-            config.wx_payment.pay,{
-              'prepay_id': res.data.retData.prepay_id
+        if(!res.data.errNum){
+          var price = e.currentTarget.dataset.total_fee * 100;
+          var order_number = res.data.retData;
+          app.Payment(
+            order_number,price,function(res){
+              app.baseUrl('/pages/Home/success/index');
+            }, function (res) {
+              app.baseUrl('/pages/Home/success/index');
             },function(res){
-              console.log(res.data.retData)
-              if (res.data.retData){
-                wx.requestPayment(
-                  {
-                    'timeStamp': ""+res.data.retData.timeStamp+"",
-                    'nonceStr': res.data.retData.nonceStr,
-                    'package': res.data.retData.package,
-                    'signType': res.data.retData.signType,
-                    'paySign': res.data.retData.paySign,
-                    'success': function (res) {
-                      
-                    },
-                    'fail': function (res) {
-                      
-                    },
-                    'complete': function (res) {
-                      
-                    }
-                  })
-              }
+              var food_list_info = wx.getStorageSync('food_info_arr');
+              wx.removeStorageSync('food_info_arr');
+              wx.setStorageSync('food_list_info', food_list_info);
+              wx.setStorageSync('food_list_beizhu', This.data.beizhu);
+              wx.setStorageSync('food_list_order_number', order_number);
+            
+              order_bindtap_type--;
             }
           );
+          setTimeout(function(){
+            app.point('等待支付结果', 'loading', 7200);
+          },1000);
+        }else{
+          order_bindtap_type--;
+          app.point(res.data.retMsg,'none');
         }
       }
     );
-  },
-  pay: function () {
-    wx.navigateTo({
-      url: '/pages/Home/success/index',
-    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

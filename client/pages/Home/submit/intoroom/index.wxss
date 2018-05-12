@@ -86,9 +86,9 @@
 }
 .contextTime{
   font-size:35rpx;
-  margin-left:280rpx;
+  margin-left:290rpx;
   position: relative;
-  bottom:220rpx;
+  bottom:217rpx;
 }
 .iconfont{
   display: inline; 

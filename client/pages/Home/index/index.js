@@ -20,22 +20,6 @@ Page({
         });
       }
     );
-    wx.login({
-      success: function (res) {
-        if (res.code) {
-          app.post(
-            config.service.cheshiUrl,{
-              code: res.code
-            },function (res) {
-              console.log(res.data);
-              wx.setStorageSync('token', res.data.retData.token);
-            }
-          );
-        } else {
-          console.log('登录失败' + res.errMsg);
-        };
-      }
-    });
   },
   tell:function(){
     wx.makePhoneCall({

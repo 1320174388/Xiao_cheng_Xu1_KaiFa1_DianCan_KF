@@ -1,10 +1,49 @@
 //app.js
 var qcloud = require('./vendor/wafer2-client-sdk/index');
 var config = require('./config');
+var app = getApp();
 
 App({
   onLaunch: function () {
       qcloud.setLoginUrl(config.service.loginUrl);
+  },
+  /**
+   * 掉起微信支付功能
+   */
+  Payment: function (order_number, price, success, fail, complete) {
+    var myDate = new Date();
+    var timestamp = Date.parse(myDate);
+    var This = this;
+    This.post(
+      config.wx_payment.openid, {
+        'token': wx.getStorageSync('token'),
+        'body': '地老天荒-点餐模板',
+        'total_fee': price,
+        'order_number': order_number
+      }, function (res) {
+        if (res.data.retData) {
+          This.post(
+            config.wx_payment.pay, {
+              'prepay_id': res.data.retData.prepay_id
+            }, function (res) {
+              if (res.data.retData) {
+                wx.requestPayment(
+                  {
+                    'timeStamp': "" + res.data.retData.timeStamp + "",
+                    'nonceStr': res.data.retData.nonceStr,
+                    'package': res.data.retData.package,
+                    'signType': res.data.retData.signType,
+                    'paySign': res.data.retData.paySign,
+                    'success': success,
+                    'fail': fail,
+                    'complete': complete
+                  })
+              }
+            }
+          );
+        }
+      }
+    );
   },
   // 弹框提示
   point:function (title_info, icon_info,time=2000) {
@@ -98,4 +137,34 @@ App({
     }
   }
 });
-
+login_add();
+// 用户登录信息
+function login_add() {
+  setInterval(function () {
+    if (wx.getStorageSync('token')) {
+      return false;
+    }
+    wx.login({
+      success: function (res) {
+        if (res.code) {
+          wx.request({
+            url: config.service.cheshiUrl,
+            data: {
+              code: res.code
+            },
+            header: {
+              'content-type': 'application/x-www-form-urlencoded'
+            },
+            method: 'post',
+            success: function (res) {
+              console.log(res.data);
+              wx.setStorageSync('token', res.data.retData.token);
+            }
+          });
+        } else {
+          console.log('登录失败' + res.errMsg);
+        };
+      }
+    });
+  }, 500);
+};

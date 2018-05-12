@@ -32,7 +32,7 @@ class Paymentclass
      * @param string $total_fee 金额
      * @return  json的数据
      */
-    public function prepay($openid)
+    public function prepay($openid,$order_number)
     {
         $config = $this->config;
 
@@ -48,10 +48,10 @@ class Paymentclass
             'mch_id'           => $config['mch_id'],
             'nonce_str'        => self::getNonceStr(),
             'body'             => $body,
-            'out_trade_no'     => self::get_out_trade_no(),
+            'out_trade_no'     => $order_number,
             'total_fee'        => $total_fee,
             'spbill_create_ip' => self::GetIP(),
-            'notify_url'       => 'https://'.$_SERVER['HTTP_HOST'].'/api/home/placeOrder/submit_order',
+            'notify_url'       => 'https://'.$_SERVER['HTTP_HOST'].'/api/home/placeOrder/WxChat_notify',
             'trade_type'       => 'JSAPI',
             'openid'           => $openid
         ];
@@ -95,6 +95,40 @@ class Paymentclass
         $data['paySign'] = self::makeSign($data,$key);
 
         return $data;
+    }
+
+    /**
+     * 微信支付回调函数
+     */
+    public function notify($xml)
+    {
+        //将服务器返回的XML数据转化为数组
+        $data = self::xmlArray($xml);
+
+        $key = $this->config['pay_apikey'];
+
+//        $str = '';
+//        foreach($data as $k=>$v){
+//            $str .= $k.'='.$v.'<br/>';
+//        }
+//
+//        // 这句file_put_contents是用来查看服务器返回的XML数据 测试完可以删除了
+//        file_put_contents('./text/sss.html','<br/>'.$str);
+
+        // 保存微信服务器返回的签名sign
+        $data_sign = $data['sign'];
+
+        // sign不参与签名算法
+        unset($data['sign']);
+        $sign = self::makeSign($data,$key);
+
+        // 判断签名是否正确  判断支付状态
+        if (($sign===$data_sign) && ($data['return_code']=='SUCCESS') && ($data['result_code']=='SUCCESS') ) {
+            $result = $data;
+        }else{
+            $result = false;
+        }
+        return $result;
     }
 
     /**

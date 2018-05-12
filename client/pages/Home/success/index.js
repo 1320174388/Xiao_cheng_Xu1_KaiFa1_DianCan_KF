@@ -1,5 +1,6 @@
 // pages/Home/success/index.js
 var config = require('../../../config.js');
+var app = getApp();
 Page({
 
   /**
@@ -9,14 +10,22 @@ Page({
     pay: false,
     agains: false,
     success: true ,
-    imghost: config.service.imghost
+    imghost: config.service.host
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var food_list_info   = wx.getStorageSync('food_list_info');
+    var food_list_beizhu = wx.getStorageSync('food_list_beizhu');
+    var food_list_order_number = wx.getStorageSync('food_list_order_number');
+    
+    this.setData({
+      food_list_info: food_list_info,
+      food_list_beizhu: food_list_beizhu,
+      food_list_order_number: food_list_order_number
+    });
   },
 
   /**

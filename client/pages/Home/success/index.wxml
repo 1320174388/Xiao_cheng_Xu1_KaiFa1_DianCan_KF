@@ -29,31 +29,31 @@
   <!-- 中间信息-菜品详情 -->
   <view class='body-info'>
     <view class='title'>
-      <text class='context-menu'>小标题名称</text>
+      <text class='context-menu'>购买清单</text>
     </view>
     <scroll-view class="content-scroll" scroll-y>
       <block>
-        <view class='menuifon'>
-          <image src='{{imghost}}/menu.jpg' class='img-menu'></image>
-          <text class='context-name'>菜品名称</text>
-          <text class='context-number'>x1</text>
-          <text class='context-price'>￥18.00</text>
+        <view class='menuifon' wx:if="{{item}}"  wx:for="{{food_list_info.foods_crat}}" wx:key="index1" >
+          <image src='{{imghost}}{{item.food_img}}' class='img-menu'></image>
+          <text class='context-name'>{{item.food_name}}</text>
+          <text class='context-number'>x{{item.food_number}}</text>
+          <text class='context-price'>￥{{item.food_price}}</text>
         </view>
       </block>
     </scroll-view>
   </view>
   <!--合计  -->
  <view class='sum'>
-  合计：<text class='money'>￥39.00</text>
+  合计：<text class='money'>￥{{food_list_info.foods_price}}</text>
  </view>
   <!-- 备注 -->
    <view class='beizhu'>
-      <text class='context-remarks'>备\t\t\t\t\t注</text>
+      <text class='context-remarks'>备\t\t\t\t\t注{{food_list_beizhu}}</text>
   </view>
   <!-- 订单详情 -->
    <view class='order-info'>
       <view>取餐时间\t\t <text class='context'>2018-05-05\t\t\t\t\t20:45:00</text></view>
-      <view>订单编号\t\t <text class='context'>2521214720180505354119</text></view>
+      <view>订单编号\t\t <text class='context'>{{food_list_order_number}}</text></view>
       <view>订单时间\t\t <text class='context'>2018-05-05\t\t\t\t\t15:48:46</text></view>
   </view>
   <!-- 商家电话 -->

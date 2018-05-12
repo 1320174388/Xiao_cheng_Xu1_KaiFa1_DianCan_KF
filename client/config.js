@@ -10,6 +10,8 @@ var config = {
       git_sowing_map: `${host}/api/home/Sowing_map/git_sowing_map`,
     },
     wx_payment:{
+      // 订单信息提交接口
+      submit_order: `${host}/api/home/PlaceOrder/submit_order`,
       // 微信支付统一下单接口
       openid: `${host}/api/home/PlaceOrder/WeChat_payment`,
       // 微信支付统一下单接口
