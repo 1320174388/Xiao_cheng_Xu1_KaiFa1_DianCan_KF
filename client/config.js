@@ -14,7 +14,7 @@ var config = {
       submit_order: `${host}/api/home/PlaceOrder/submit_order`,
       // 微信支付统一下单接口
       openid: `${host}/api/home/PlaceOrder/WeChat_payment`,
-      // 微信支付统一下单接口
+      // 调用微信支付接口
       pay: `${host}/api/home/PlaceOrder/WxChat_pay`,
     },
     order_class_food: {

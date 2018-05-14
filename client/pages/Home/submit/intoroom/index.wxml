@@ -1,11 +1,11 @@
-
+<view class='page'>
   <radio-group class="radio-group" bindchange="radioChange">
-    <label>
+  
     <!-- 店内就餐 -->
       <view class='radioone'>
         <view class='cont'>
             <text class='context'>店内就餐</text>
-        <radio checked="店内就餐" bindtap="showitem" class='radiocheck'/>
+        <radio checked="true" bindtap="showitem" class='radiocheck' color='#f58623'/>
         </view>
         <view class="{{open?'display_show':'display_none'}} img"  bindtap='ScanCode'  >
           <image src='../../../../icon/管理.png' class='img1'></image>
@@ -17,7 +17,7 @@
       <view class='radioone'>
         <view class='cont-set'>
           <text class='context'>到店取餐</text>
-          <radio checked="到店取餐" bindtap="showitems" class='radiocheck'/>
+          <radio bindtap="showitems" class='radiocheck' color='#f58623'/>
         </view>
         <view class="{{close?'display_show':'display_none'}} img-set">
           <view class='addr'>
@@ -38,11 +38,11 @@
             <view class="iconfont icon-goto"></view>
             
           </view>
-
+          
 
         </view>
       </view>
-    </label>
+    
  </radio-group>
 
 <!--菜单详情  -->
@@ -77,4 +77,5 @@
     <text class='context-sure'>合计：<text class='context-color'>￥{{food_info_arr.foods_price}}</text></text>
     <button class='sure' data-total_fee='{{food_info_arr.foods_price}}' bindtap='submit_order' >确认</button>
  </view>
+</view>
 

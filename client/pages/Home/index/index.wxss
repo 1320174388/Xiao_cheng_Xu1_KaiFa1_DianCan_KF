@@ -1,98 +1,132 @@
+/* 轮播图 */
 swiper{
   width:100%;
-  height: 340rpx;
+  height: 300rpx;
 }
 swiper image{
   width:100%;
   height: 100%;
 }
+/* 小程序介绍 */
 .infoText{
-  padding:20rpx;
+  padding:11rpx 31rpx 0 41rpx; 
   border-bottom:2rep solid #eee;
+  height:240rpx;
+  background-color: #ffffff;
 }
 .infoText .infoTitle{
-  color:#444;
-  font-size:30rpx;
-  line-height: 2;
+  font-family: PingFangSC;
+  font-size: 40rpx;
+  text-align: left;
+  color: #313131;
+  margin-top:17rpx;
 }
 .infoText .infoDesc{
-  color:#666;
-  font-size:25rpx;
-  line-height: 0.6;
+  color:#666666;
+  font-family: PingFangSC;
+  font-size:28rpx;
+  margin-top:30rpx;
 }
 .containers{
-  margin:20rpx 0;
+  height: 170rpx;
+  background-color: #ffffff;
 }
-.left{
-  width:75%;
-  font-size:30rpx;
-  float: left;
+.addres{
+  border-top: 1rpx solid #eee;
+  height: 80rpx;
+  width:95%;
+  margin-left:3%;
 }
-.iconfont{
-  font-size:30rpx;
+.phone{
+  border-top: 1rpx solid #eee;
+  height: 80rpx;
+  width:95%;
+  margin-left:3%;
 }
-.right{
-  width:15%;
-  float:right;
-  text-align: center;
-  border-left:1rpx solid #eee;
+.icoard{
+  width: 23.8px;
+  height: 33.7px;
+  opacity: 0.75;
+  color: #f58623;
+  font-size:40rpx;
+  line-height:80rpx;
 }
 .address{
-  margin:0 5rpx;
+  font-family: PingFangSC;
+  font-size: 30rpx;
+  color: #9b9b9b;
+  margin-left:20rpx;
 }
-.cate{
-  display:flex;
-  justify-content: space-around;
-  text-align: center;
-  margin:0 auto;
+.right{
+  width: 23.8px;
+  height: 33.7px;
+  opacity: 0.75;
+  color: #f58623;
+  font-size:40rpx;
+  line-height:80rpx;
 }
-.cate view.iconfont{
-  width:80rpx;
-  line-height: 80rpx;
-  color:#fff;
-  font-size:35rpx;
-  border-radius: 50%;
+.iphone{
+  font-family: PingFangSC;
+  font-size: 30rpx;
+  color: #9b9b9b;
+  margin-left:20rpx;
 }
-.list text{
-  color:#000;
-  font-size:25rpx;
-}
-.cate view.icon-diancan{
-  background: #D63F1C;
-}
-.cate view.icon-yuding{
-  background: #ED1212;
-}
-.cate view.icon-waimai-{
-  background: #0EC2A2;
-}
-.cate view.icon-paiduiquhao0101{
-  background: #F7E738;
+/* 掌柜推荐 */
+.recommed{
+  background-color: #f9f9f9; 
 }
 .title{
   display: block;
   width:100%;
-  margin:20rpx auto;
+  height: 70rpx;
   text-align: center;
-  font-size:35rpx;
-  color:#333;
+  font-family: PingFangSC;
+  font-size: 32rpx;
+  color: #999999;
+  line-height:95rpx;
 }
 .proList{
   display: flex;
   justify-content: space-around;
   flex-wrap:wrap;
+  padding-left: 20rpx;
+  padding-right: 10rpx;
 }
 .proList .lists{
   width:30%;
-  min-height:330rpx;
+  min-height:230rpx;
   font-size:30rpx;
   text-align: center;
-  margin-bottom:20rpx;
-  border:2rpx solid #eee;
+  margin-top:8px;
+  border-radius: 6px;
+  background-color: #ffffff;
+  border: solid 1px #dddddd;
 }
 .proList .lists image{
   width:100%;
-  height: 70%;
+  height: 60%;
+}
+.lists-name{
+  font-family: PingFangSC;
+  font-size: 24rpx;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #888888;
+}
+.lists-pric{
+  font-family: PingFangSC;
+  font-size: 32rpx;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align:center;
+  color: #333333;
 }
 .proList .lists text{
   display: block;

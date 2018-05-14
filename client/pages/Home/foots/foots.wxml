@@ -3,7 +3,7 @@
   <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" wx:key="unique" bindtap="navbarTap">{{item}}</text>  
 </view>  
   
-<!--点餐-->  
+<!--就餐-->  
 <view hidden="{{currentTab!==0}}">  
   <view class='diancan'>
       <view class='number'>
@@ -34,7 +34,12 @@
       </view>
 
       <view class='look'>
-          <button class='look-detailed'>查看详情</button>
+        <view class='look-detailed'>
+          <text>查看详情</text>
+        </view>
+        <view class='pay-money'>
+          <text>付款</text>
+        </view> 
       </view>
   </view>
 
@@ -44,7 +49,7 @@
   
 </view>  
   
-<!--外卖-->  
+<!--点餐-->  
 <view hidden="{{currentTab!==1}}">  
   <view class='diancan'>
       <view class='number'>
@@ -74,8 +79,13 @@
         </view>
       </view>
 
-      <view class='look'>
-          <button class='look-detailed'>查看详情</button>
+       <view class='look'>
+        <view class='look-detailed'>
+          <text>查看详情</text>
+        </view>
+        <view class='payed-money'>
+          <text>已付款</text>
+        </view> 
       </view>
   </view>
 

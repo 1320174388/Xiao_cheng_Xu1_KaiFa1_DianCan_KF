@@ -1,29 +1,21 @@
 <view class='page'>
 <!-- 头部信息 -->
   <!-- 订单未支付 -->
-   <view class="{{pay?'display_show':'display_none'}} head-info">
+   <view class="{{!payLoser?'display_show':'display_none'}} head-info">
     <view class='nopay'>订单未支付</view>
     <view class='prom'>您的订单尚未支付哦~</view>
     <view class='choose'>
-      <button class='hurry'>立即支付</button>
+      <button class='hurry' bindtap='hurrypay'>立即支付</button>
       <button class='exit'>取消订单</button>
     </view>
   </view> 
-  <!-- 再来一单 -->
-   <view class="{{agains?'display_show':'display_none'}} head-info">
-    <view class='nopay'>订单已取消</view>
-    <view class='prom'>欢迎下次再来哦~</view>
-    <view class='choose'>
-      <button class='again'>再来一单</button>
-    </view>
-  </view>  
   <!-- 支付成功 -->
-  <view class="{{success?'display_show':'display_none'}} head-info">
+  <view class="{{payLoser?'display_show':'display_none'}} head-info">
     <view class='nopay'>支付成功！</view>
     <view class='prom1'><!-- <image src='../../../../icon/时间.png' class='img'></image>-->
       祝您用餐愉快~</view> 
-    <view class='choose'>
-      <button class='close'>取消订单</button>
+    <view class='choose' bindtap='playon'>
+      <button class='close'>继续点餐</button>
     </view>
   </view>
   <!-- 中间信息-菜品详情 -->

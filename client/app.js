@@ -8,7 +8,7 @@ App({
       qcloud.setLoginUrl(config.service.loginUrl);
   },
   /**
-   * 掉起微信支付功能
+   * 调取微信支付功能
    */
   Payment: function (order_number, price, success, fail, complete) {
     var myDate = new Date();

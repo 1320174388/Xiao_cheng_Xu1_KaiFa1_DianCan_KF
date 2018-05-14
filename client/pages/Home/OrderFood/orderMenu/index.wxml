@@ -50,12 +50,13 @@
       </block>
     </scroll-view>
   </view>
+  
    <!-- 右侧栏   -->
   <view>
     <scroll-view class="content-scroll-right" scroll-y>
       <block wx:for="{{navbar}}" wx:key="index">
         <view hidden="{{currentTab!==index}}">
-          <text class='context-title'>{{item.class_name}}</text> 
+          <!-- <text class='context-title'>{{item.class_name}}</text>  -->
           <view class="weui-cells__title">
             <view wx:for="{{item.food_info}}" wx:for-item="items" wx:key="index" class='food-list'>
               <view class='dianji' data-food_info="{{items}}" data-index="{{index}}" bindtap='single'>
@@ -132,7 +133,7 @@
               <view class="gouwuche-count">{{food_info_arr.foods_number}}</view>
           </view>
           <view class='info'>
-            <text class='prompt'>￥{{food_info_arr.foods_price}}</text>
+            <text class='prompt-money'>合计：<text class='p-money'>￥{{food_info_arr.foods_price}}</text></text>
           </view>
           <view class="jiesuan" bindtap='end'>去下单</view>
         </view>

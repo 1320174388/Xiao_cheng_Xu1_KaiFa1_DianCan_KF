@@ -1,15 +1,14 @@
 // pages/Home/success/index.js
 var config = require('../../../config.js');
 var app = getApp();
+var order_bindtap_type = 0;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    pay: false,
-    agains: false,
-    success: true ,
+    payLoser:false,
     imghost: config.service.host
   },
 
@@ -17,15 +16,62 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var food_list_info   = wx.getStorageSync('food_list_info');
-    var food_list_beizhu = wx.getStorageSync('food_list_beizhu');
-    var food_list_order_number = wx.getStorageSync('food_list_order_number');
-    
     this.setData({
-      food_list_info: food_list_info,
-      food_list_beizhu: food_list_beizhu,
-      food_list_order_number: food_list_order_number
+      food_list_info: wx.getStorageSync('food_list_info'),
+      food_list_beizhu: wx.getStorageSync('food_list_beizhu') ? wx.getStorageSync('food_list_beizhu'):'',
+      food_list_order_number: wx.getStorageSync('food_list_order_number')
     });
+    var payLoser=wx.getStorageSync('payLoser');
+      this.setData({
+        payLoser: payLoser,
+      }),
+      wx.removeStorageSync('payLoser');
+  },
+  // 立即支付
+  hurrypay: function () {
+    var order_number = wx.getStorageSync('food_list_order_number');
+    var price = this.data.food_list_info.foods_price;
+    var This=this;
+    order_bindtap_type++;
+    app.point('支付中', 'loading', 7200);
+    app.Payment(
+      order_number, price, function (res) {
+        // 成功
+        wx.setStorageSync("payLoser", true);
+        app.baseUrl('/pages/Home/success/index');
+      }, function (res) {
+        // 失败
+        wx.setStorageSync("payLoser", false);
+        wx.reLaunch({
+          url: '/pages/Home/success/index',
+        })
+        // app.baseUrl('/pages/Home/success/index');
+      }, function (res) {
+        wx.setStorage({
+          key: 'food_list_info',
+          data: This.data.food_list_info,
+        })
+        wx.setStorage({
+          key: 'food_list_beizhu',
+          data: This.data.food_list_beizhu,
+        })
+        wx.setStorage({
+          key: 'food_list_order_number',
+          data: This.data.food_list_order_number,
+        })
+        // wx.setStorageSync('food_list_info', food_list_info);
+        // wx.setStorageSync('food_list_beizhu', This.data.beizhu);
+        // wx.setStorageSync('food_list_order_number', order_number);
+
+        order_bindtap_type--;
+      }
+    );
+  },
+  // 继续点餐
+  playon: function () {
+    wx.switchTab({
+      url: '/pages/Home/OrderFood/orderMenu/index',
+    })
   },
 
   /**

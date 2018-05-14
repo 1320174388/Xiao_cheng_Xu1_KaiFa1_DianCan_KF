@@ -1,4 +1,7 @@
-
+.page{
+  background-color: #f9f9f9;
+  width: 100%;
+}
 .display_show{  
     display: block; 
     padding: 10px;  
@@ -9,7 +12,7 @@
 .radioone{
   width: 90%;
   margin-left: 5%;
-  margin-top: 5%;
+  margin-top: 2%;
   border-radius:10rpx;
   background-color: white;
   line-height: 100rpx;
@@ -27,7 +30,7 @@
 }
 .img{
   width: 93%;
-  height: 50rpx;
+  height: 70rpx;
   background-color: white;
   border-radius:10rpx;
 }
@@ -101,7 +104,7 @@
 .menu{
   width: 90%;
   margin-left: 5%;
-  margin-top: 5%;
+  margin-top: 2%;
   border-radius:10rpx;
   background-color: white;
 }
@@ -156,7 +159,7 @@
 .remarks{
   width: 90%;
   margin-left: 5%;
-  margin-top: 5%;
+  margin-top: 25%;
   border-radius:10rpx;
   background-color: white;
 }
@@ -169,7 +172,7 @@
   position: relative;
   bottom: 0%;
   width: 99%;
-  margin-top: 30rpx;
+  margin-top: 20rpx;
   background-color:#FFF;
 }
 .sure{

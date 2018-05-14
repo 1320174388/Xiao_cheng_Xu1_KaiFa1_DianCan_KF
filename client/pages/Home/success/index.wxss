@@ -41,16 +41,6 @@
   background-color: #FFF;
   color: rgba(0,0,0,0.7);
 }
-/* 再来一单  */
-.again{
-  width: 27%;
-  height: 70rpx;
-  margin-left: 240rpx;
-  font-size: 28rpx;
-  margin-top: 30rpx;
-  background-color: #FF8A09;
-  color: white;
-}
 /* 支付成功 */
 .right{
   padding-left: 20rpx;
@@ -74,8 +64,8 @@
   margin-left: 220rpx;
   font-size: 28rpx;
   margin-top: 20rpx;
-  background-color: #FFF;
-  color: rgba(0,0,0,0.7);
+  background-color:#f5a623;
+  color: white;
 }
 .display_show{  
     display: block; 
@@ -135,7 +125,7 @@
 /*合计  */
 .sum{
   width: 90%;
-  margin-left: 5%;
+  margin-left: 4%;
   border-radius:10rpx;
   background-color: white;
   text-align: right;
@@ -149,7 +139,7 @@
 /* 备注 */
 .beizhu{
   width: 90%;
-  margin-left: 35rpx;
+  margin-left: 32rpx;
   background-color: white;
   margin-top:30rpx;
 }
@@ -161,8 +151,8 @@
 }
 /* 订单详情 */
 .order-info{
-  width: 90%;
-  margin-left: 35rpx;
+  width: 87.5%;
+  margin-left: 32rpx;
   background-color: white;
   margin-top:30rpx;
   line-height:60rpx;

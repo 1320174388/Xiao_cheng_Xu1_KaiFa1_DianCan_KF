@@ -12,7 +12,7 @@ Page({
     host:config.service.host,
     table_base:'请扫描座号',
     table_number:null,
-    open: false,
+    open: true,
     close: false,
     dates: '选择日期',
     times: '选择时间',
@@ -126,7 +126,7 @@ Page({
       return false;
     }
     order_bindtap_type++;
-    app.point('请求支付中','loading',7200);
+    app.point('支付中','loading',7200);
     var food_list_id = [];
     var food_list_num = [];
     var food_list_price = [];
@@ -157,22 +157,38 @@ Page({
           var order_number = res.data.retData;
           app.Payment(
             order_number,price,function(res){
+              // 成功
+              wx.setStorageSync("payLoser", true);
               app.baseUrl('/pages/Home/success/index');
             }, function (res) {
-              app.baseUrl('/pages/Home/success/index');
+              // 失败
+              wx.setStorageSync("payLoser",false);
+              wx.reLaunch({
+                url: '/pages/Home/success/index',
+              })
+              // app.baseUrl('/pages/Home/success/index');
             },function(res){
               var food_list_info = wx.getStorageSync('food_info_arr');
               wx.removeStorageSync('food_info_arr');
-              wx.setStorageSync('food_list_info', food_list_info);
-              wx.setStorageSync('food_list_beizhu', This.data.beizhu);
-              wx.setStorageSync('food_list_order_number', order_number);
+              wx.setStorage({
+                key: 'food_list_info',
+                data: food_list_info,
+              })
+              wx.setStorage({
+                key: 'food_list_beizhu',
+                data: This.data.beizhu,
+              })
+              wx.setStorage({
+                key: 'food_list_order_number',
+                data: order_number,
+              })
+              // wx.setStorageSync('food_list_info', food_list_info);
+              // wx.setStorageSync('food_list_beizhu', This.data.beizhu);
+              // wx.setStorageSync('food_list_order_number', order_number);
             
               order_bindtap_type--;
             }
           );
-          setTimeout(function(){
-            app.point('等待支付结果', 'loading', 7200);
-          },1000);
         }else{
           order_bindtap_type--;
           app.point(res.data.retMsg,'none');
