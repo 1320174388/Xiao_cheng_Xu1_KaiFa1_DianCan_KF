@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    payLoser:false,
+    payLoser:null,
     imghost: config.service.host
   },
 
@@ -21,7 +21,7 @@ Page({
       food_list_beizhu: wx.getStorageSync('food_list_beizhu') ? wx.getStorageSync('food_list_beizhu'):'',
       food_list_order_number: wx.getStorageSync('food_list_order_number')
     });
-    var payLoser=wx.getStorageSync('payLoser');
+    var payLoser = wx.getStorageSync('payLoser');
       this.setData({
         payLoser: payLoser,
       }),
@@ -30,7 +30,7 @@ Page({
   // 立即支付
   hurrypay: function () {
     var order_number = wx.getStorageSync('food_list_order_number');
-    var price = this.data.food_list_info.foods_price;
+    var price = this.data.food_list_info.foods_price*100;
     var This=this;
     order_bindtap_type++;
     app.point('支付中', 'loading', 7200);
@@ -38,14 +38,11 @@ Page({
       order_number, price, function (res) {
         // 成功
         wx.setStorageSync("payLoser", true);
-        app.baseUrl('/pages/Home/success/index');
+        This.onLoad();
       }, function (res) {
         // 失败
         wx.setStorageSync("payLoser", false);
-        wx.reLaunch({
-          url: '/pages/Home/success/index',
-        })
-        // app.baseUrl('/pages/Home/success/index');
+        This.onLoad();
       }, function (res) {
         wx.setStorage({
           key: 'food_list_info',
@@ -59,10 +56,6 @@ Page({
           key: 'food_list_order_number',
           data: This.data.food_list_order_number,
         })
-        // wx.setStorageSync('food_list_info', food_list_info);
-        // wx.setStorageSync('food_list_beizhu', This.data.beizhu);
-        // wx.setStorageSync('food_list_order_number', order_number);
-
         order_bindtap_type--;
       }
     );

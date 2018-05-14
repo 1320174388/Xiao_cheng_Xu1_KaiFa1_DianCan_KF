@@ -145,7 +145,7 @@ class Foodsmana extends LoginController
                 $post['food_img'] = $food_img_url;
                 unset($post['food_img_true']);
                 $get_food_data = $this->Foods->get_food_data($post['id']);
-                upload_delete($get_food_data->food_img);
+                @upload_delete($get_food_data->food_img);
             }
         }
 

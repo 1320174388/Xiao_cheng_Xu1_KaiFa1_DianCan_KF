@@ -31,6 +31,7 @@ Page({
           "food_info": e.detail.value.food_info,
           "food_img_true": 1
         }, function (res) {
+          console.log(res.data);
           var data = JSON.parse(res.data);
           if (data.errNum == 0) {
             wx.removeStorageSync('editfoods');

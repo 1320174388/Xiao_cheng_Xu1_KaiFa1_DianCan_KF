@@ -126,7 +126,7 @@ Page({
       return false;
     }
     order_bindtap_type++;
-    app.point('支付中','loading',7200);
+    app.point('支付中','loading',72000000);
     var food_list_id = [];
     var food_list_num = [];
     var food_list_price = [];
@@ -159,14 +159,15 @@ Page({
             order_number,price,function(res){
               // 成功
               wx.setStorageSync("payLoser", true);
-              app.baseUrl('/pages/Home/success/index');
+              wx.reLaunch({
+                url: '/pages/Home/success/index',
+              })
             }, function (res) {
               // 失败
               wx.setStorageSync("payLoser",false);
               wx.reLaunch({
                 url: '/pages/Home/success/index',
               })
-              // app.baseUrl('/pages/Home/success/index');
             },function(res){
               var food_list_info = wx.getStorageSync('food_info_arr');
               wx.removeStorageSync('food_info_arr');
@@ -182,10 +183,6 @@ Page({
                 key: 'food_list_order_number',
                 data: order_number,
               })
-              // wx.setStorageSync('food_list_info', food_list_info);
-              // wx.setStorageSync('food_list_beizhu', This.data.beizhu);
-              // wx.setStorageSync('food_list_order_number', order_number);
-            
               order_bindtap_type--;
             }
           );
