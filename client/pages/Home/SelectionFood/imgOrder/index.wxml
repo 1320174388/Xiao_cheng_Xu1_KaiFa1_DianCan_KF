@@ -10,4 +10,4 @@
     </view>
   </view>
 </view>
-<button class='intodiancan'>进入点餐</button>
+<button class='intodiancan' bindtap='enterOrder'>进入点餐</button>

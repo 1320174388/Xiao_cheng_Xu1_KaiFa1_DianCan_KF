@@ -1,0 +1,146 @@
+<view class="page">
+  <view class="content-column">
+    <!-- 顶部-logo -->
+    <view style="flex:1">
+      <view class="shopInfo">
+        <view class='shopname'>
+          <view class='shopname-backcolor'>
+            <text class='context-dian'>点餐</text>
+            <text class='context-xiao'>小程序</text>
+          </view>
+          <view class='text-shopname'>
+            <text class='context-shopname'>点餐小程序店铺名</text>
+          </view>
+        </view>
+        <!-- 走马灯-公告 -->
+        <view class="notice">
+          <!-- 公告小图标 -->
+          <view class="notice-left"> 
+            <text class="iconfont icon-prom notice-icon"></text>
+          </view>
+          <!-- 公告内容 -->
+          <view class="notice-middle">
+            <swiper autoplay="true" circular="true" vertical="true" interval="3000" duration="500" bindchange="noticesChange">
+              <block wx:for="{{notices}}" wx:key="sid">
+                <swiper-item>
+                  <text style="display:block">{{item.title}}</text>
+                </swiper-item>
+              </block>
+            </swiper>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 菜单栏 -->
+    <view style="flex:4">
+      <view class="content-row">
+        <!-- 左侧栏   --> 
+        <view  style="flex:1">
+          <view class='nav'>
+            <scroll-view class="content-scroll-left" scroll-y>
+              <block wx:for="{{navbar}}" wx:key="{{index}}">
+                <view class="swiper-tab">
+                  <view data-idx="{{index}}" class="swiper-tab-list {{currentTab==index ? 'on' : ''}}"                    data-current="0" bindtap="swichNav">
+                        {{item.class_name}}
+                  </view>
+                </view>
+              </block>
+            </scroll-view>
+          </view>
+        </view>
+        <!-- 右侧栏  --> 
+        <view style="flex:3;">
+          <scroll-view class="content-scroll-right" scroll-y>
+            <block wx:for="{{navbar}}" wx:key="index">
+              <view hidden="{{currentTab!==index}}">
+                <view class="weui-cells__title">
+                  <view wx:for="{{item.food_info}}" wx:for-item="items" wx:key="index" class='food-list'>
+                    <view class='dianji' data-food_info="{{items}}" data-index="{{index}}" bindtap='single'>
+                      <image src='{{host}}{{items.food_img}}' class='food-img'></image>
+                      <view  class='context-name'>
+                        <text>{{items.food_name}}</text>
+                      </view>
+                      <view class='context-price'>
+                        <text>￥{{items.food_price}}</text>
+                      </view>
+                    </view> 
+                    <view class='foot-right'>
+                      <view class="iconfont icon-minus2 sign" data-index='{{index}}' 
+                          data-food_id="{{items.id}}" data-del='true'  bindtap="submitCart"  
+                          wx:if="{{food_info_arr.foods_crat[items.id].food_number>0}}" >
+                      </view>
+                      <view class="count" data-count="0">
+                        {{food_info_arr.foods_crat[items.id].food_number}}
+                      </view>
+                      <view class="iconfont icon-plus1 sign" data-index='{{index}}' 
+                          data-food_id="{{items.id}}" data-add='true'  bindtap="submitCart">
+                      </view> 
+                    </view> 
+                  </view>
+                </view>
+              </view>
+            </block>
+            <view class='space'>没有更多了~</view>
+          </scroll-view>
+        </view>
+      </view>
+    </view>
+    <!-- 购物车 -->
+    <view style="flex:1" class='flex-shop'>
+      <view class="{{food_info_arr.foods_crat?'display_none':'display_show'}} cart-wrap">
+        <view class="gouwuche" bindtap="cartClick">
+            <view class="gouwuche-wrap">
+              <text class="iconfont icon-shopping signshop" bindtap="showitems"></text>
+            </view>
+        </view>
+        <view class='info'>
+          <text class='prompt'>客观，看看今天要吃什么呢？</text>
+        </view>
+      </view>
+      <!-- 清空购物车  -->
+      <view class="{{food_info_arr.foods_crat?'display_show':'display_none'}}">
+        <view class="cart-content">
+          <view class="{{carlist?'display_show':'display_none'}} hid">
+            <view class="tool">
+              <view class="left">购物车</view>
+              <view class="right-clear" bindtap="showitemes">
+                <text class="iconfont icon-shanchu clear"></text>
+                清空购物车
+              </view>
+            </view>
+            <scroll-view class="content-scroll" scroll-y>
+              <block wx:for="{{food_info_arr.foods_crat}}" wx:key="index" wx:if="{{item}}" >
+                <view class='carinfo'>
+                  <view class="content-item">
+                    <view class="title">{{item.food_name}}</view>
+                  </view>
+                  <view class="action">
+                    <text class="iconfont icon-minus2 buydel" data-food_id="{{index}}" data-del='true' bindtap='submitCart' ></text>
+                    <text class="count">{{item.food_number}}</text>
+                    <text class="iconfont icon-plus1 buy" data-food_id="{{index}}" data-add='true' bindtap='submitCart' ></text>
+                  </view>
+                </view>
+              </block>
+            </scroll-view>
+          </view>
+          <view class="exit-cart-wrap">
+            <view class="gouwuche" bindtap="cartClick">
+                <view class="gouwuche-wrap1" bindtap='carlist'>
+                  <text class="iconfont icon-shopping aftershop"></text>
+                </view>
+                <view class="gouwuche-count">{{food_info_arr.foods_number}}</view>
+            </view>
+            <view class='info'>
+              <text class='prompt-money'>合计：<text class='p-money'>￥{{food_info_arr.foods_price}}</text></text>
+            </view>
+            <view class="jiesuan" bindtap='end'>去下单</view>
+          </view>
+        </view>  
+      </view>
+    </view>
+  </view> 
+</view>
+
+
+
+ 

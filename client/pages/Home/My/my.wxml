@@ -1,51 +1,73 @@
-<view class='top'>
-       <image src='{{imghost}}/1.jpg' class='pic'></image> 
-    <text class='context-id'>用户ID编号</text>
-</view>
-<!--选项  -->
-<view class='list'>
-    <view class='bord'>
-      <view class='order'>
-        <image src='../../../icon/dfood.png' class='img'></image> 
+<view class='page'>
+  <view class="content-column"> 
+    <!-- 用户ID -->
+    <view style="flex:1">
+      <view class='top'>
+        <view class='pic' bindtap='headpic'>
+          <open-data type="userAvatarUrl" class="pic-head"></open-data>
+        </view>
+        
+        <view class="content-column">  
+          <view  style="flex:1" class='context-name'>
+            <open-data type="userNickName"></open-data>
+          </view>
+        </view>
       </view>
-        <text class='context-order'>点餐</text>
+    </view> 
+    <!-- 选项 -->
+    <view style="flex:1" class='list'>
+      <view class="content-row">  
+      <!-- 点餐 -->
+        <view  style="flex:1">
+          <view class="content-column">  
+            <view style="flex:1" class="imgdiancan">
+              <image src='../../../icon/dfood.png' class='img'></image>
+            </view>  
+            <view style="flex:1" class='context-diancan'>点餐</view> 
+          </view>
+        </view>
+          <!-- 预定 -->
+        <view style="flex:1">
+          <view class="content-column">  
+            <view style="flex:1" class="imgyuding">
+              <image src='../../../icon/order1 (2).png' class='img'></image>
+            </view>  
+            <view style="flex:1" class='context-diancan'>预定</view> 
+          </view>
+        </view>
+          <!-- 外卖 -->
+        <view style="flex:1">
+          <view class="content-column">  
+            <view style="flex:1" class="imgwaimai">
+              <image src='../../../icon/setfood.png' class='img'></image>
+            </view>  
+            <view style="flex:1" class='context-diancan'>外卖</view> 
+          </view>
+        </view>
+        <!-- 排队 -->
+        <view style="flex:1">
+          <view class="content-column">  
+            <view style="flex:1" class="imgpaidui">
+              <image src='../../../icon/time.png' class='img'></image>
+            </view>  
+            <view style="flex:1" class='context-diancan'>排队</view> 
+          </view>
+        </view>    
+      </view>  
     </view>
-    
-    <view class='bord1'>
-      <view class='order1'>
-        <image src='../../../icon/order1 (2).png' class='img1'></image>
-      </view>
-         <text class='context-schedule'>预定</text>
-    </view>
-
-     <view class='bord2'>
-       <view class='order2'>
-          <image src='../../../icon/setfood.png' class='img1'></image> 
-       </view>
-        <text class='context-togo'>外卖</text>
+      <!-- 后台管理 -->
+    <view style="flex:1" class="{{datas?'display_show':'display_none'}} manage">
+      <navigator url='/pages/Admin/index/index' wx:if="{{datas}}">
+        <view class="content-row">  
+          <view  style="flex:1">
+            <image src='../../../icon/manage (1).png' class='imgmanage'></image>
+          </view>  
+          <view style="flex:2" class='context-manage'>后台管理</view>
+          <view style="flex:1" class='ico-manage'>></view>  
+        </view>
+      </navigator>
+    </view>  
   </view>
-
-   <view class='bord3'>
-      <view class='order3'>
-        <image src='../../../icon/time.png' class='img1'></image> 
-      </view>
-        <text class='context-queuenumber'>排队取号</text>
-  </view> 
-</view>
-
-<!-- 收货地址 -->
- <view class='contain left'>
-    <image src='../../../icon/manage (2).png' class='ico'></image>
-    <text class="address"  bindtap='maps'>收货地址</text>
-    <span class="sp">></span>
-</view>
-<!-- 后台管理 -->
- <view class='contain left1'>
-    <image src='../../../icon/manage (1).png' class='ico'></image>
-    <navigator url='/pages/Admin/index/index' wx:if="{{datas}}">
-    <text class="address" >后台管理</text>
-    </navigator>
-    <span class="sp1">></span>
-</view>
+</view>  
 
 

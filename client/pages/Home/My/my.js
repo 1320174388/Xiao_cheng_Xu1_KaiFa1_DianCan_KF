@@ -1,19 +1,36 @@
 // pages/My/my.js
-var config = require('../../../config.js')
+var config = require('../../../config.js');
+var app = getApp();
+var headimg = 0;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    datas:null,
-    imghost: config.service.imghost
-  },
+    datas:false,
+    imghost: config.service.imghost,
+    canIUse: wx.canIUse('button.open-type.getUserInfo')
 
+  },
+  // 头像点击事件获取用户ID
+  headpic:function(){
+    if (headimg==6){
+      app.point('你的ID为：00544','none',5000);
+      headimg=0;
+    }else{
+      headimg++;
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.getUserInfo({
+      success:function(res){
+        console.log(res);
+      }
+    });
     var THIS = this
     wx.request({
       url: config.service.adminUser, //仅为示例，并非真实的接口地址
@@ -27,9 +44,14 @@ Page({
       success: function (res) {
         if (res.data.errNum == 0){
           THIS.setData({
+            //true
             datas: res.data.retMsg
           })
-          
+        }else{
+          THIS.setData({
+            //true
+            datas: false
+          })
         }
       }
     })

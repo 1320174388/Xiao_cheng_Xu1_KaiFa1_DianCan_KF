@@ -51,7 +51,7 @@ Page({
   // 图片跳转
   imgOrder: function () {
     wx.navigateTo({
-      url: '/pages/Home/OrderFood/imgOrder/index',
+      url: '/pages/Home/SelectionFood/imgOrder/index',
     })
   },
 })

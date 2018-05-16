@@ -7,10 +7,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    host:config.service.host,
-    food_info:null,
+    host: config.service.host,
+    food_info: null,
     food_info_arr: wx.getStorageSync('food_info_arr'),
-    food_info_index:null,
+    food_info_index: null,
     foods_number: null,
     foods_price: null,
     open: false,
@@ -21,7 +21,7 @@ Page({
   },
   carlist: function (e) {
     this.setData({
-      carlist: true
+      carlist: !this.data.carlist
     })
   },
   showitemes: function () {
@@ -42,13 +42,13 @@ Page({
    */
   onLoad: function (options) {
     var This = this;
-    setInterval(function(res){
+    setInterval(function (res) {
       This.setData({
         food_info: wx.getStorageSync('food_info'),
         food_info_arr: wx.getStorageSync('food_info_arr'),
         food_info_index: wx.getStorageSync('food_info_index'),
       });
-    },500);
+    }, 500);
   },
   // submitCart
   submitCart: function (e) {
@@ -115,49 +115,49 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   },
   // 结账
   end: function () {

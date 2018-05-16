@@ -6,7 +6,7 @@
     <view class='prom'>您的订单尚未支付哦~</view>
     <view class='choose'>
       <button class='hurry' bindtap='hurrypay'>立即支付</button>
-      <button class='exit'>取消订单</button>
+      <button class='exit' bindtap='exitOrder'>取消订单</button>
     </view>
   </view> 
   <!-- 支付成功 -->

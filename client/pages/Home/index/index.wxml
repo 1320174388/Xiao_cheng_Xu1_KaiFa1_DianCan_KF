@@ -1,3 +1,4 @@
+
 <swiper indicator-dots="{{indicatorDots}}"
   autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
   <block wx:for="{{imgUrls}}" wx:key="{{index}}">
@@ -10,7 +11,7 @@
 <view class="infoText">
   <view class="infoTitle">小程序介绍</view>
   <view class="infoDesc">
-    地老天荒公司小程序介绍！！地老天荒公司小程序介绍，地老天荒公司小程序介绍！地老天荒公司小程序介绍！地老天荒公司小程序介绍！地老天荒公司......
+    地老天荒公司小程序介绍！！地老天荒公司小程序介绍，地老天荒公司小程序介绍！地老天荒公司小程序介绍！地老天荒公司小程序介绍！地老天荒公司......地老天荒公司小程序介绍地老天荒公司小程序介绍地老天荒公司小程序介绍
   </view>
 </view>
 <!--介绍-->

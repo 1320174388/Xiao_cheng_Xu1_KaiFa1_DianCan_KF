@@ -1,4 +1,4 @@
-// pages/Home/OrderFood/imgOrder/index.js
+// pages/Home/Order/orderInfo/index.js
 Page({
 
   /**

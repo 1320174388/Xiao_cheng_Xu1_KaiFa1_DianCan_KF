@@ -23,19 +23,20 @@ Page({
     ],
     // 导航条
     navbar: null,
-    host:config.service.host,
-    key2:null,
-    food_info_arr:null,
+    host: config.service.host,
+    key2: null,
+    food_info_arr: null,
     currentTab: 0,
     open: true,
-    close: false ,
-    foods_number:null,
-    foods_price:null,
-    carlist:false,
+    close: false,
+    foods_number: null,
+    foods_price: null,
+    carlist: false,
   },
+  // 购物车图标点击事件
   carlist: function (e) {
     this.setData({
-      carlist:true
+      carlist: !this.data.carlist
     })
   },
   swichNav: function (e) {
@@ -58,7 +59,7 @@ Page({
 
     if (this.data.food_info_arr) {
       var food_info_arr = this.data.food_info_arr;
-    }else{
+    } else {
       var food_info_arr = {
         foods_crat: [],
         foods_number: 0,
@@ -66,7 +67,7 @@ Page({
       };
     }
 
-    if (e.currentTarget.dataset.add){
+    if (e.currentTarget.dataset.add) {
       if (food_info_arr.foods_crat[key3]) {
         ++food_info_arr.foods_crat[key3].food_number;
       } else {
@@ -75,7 +76,7 @@ Page({
       }
     }
 
-    if (e.currentTarget.dataset.del){
+    if (e.currentTarget.dataset.del) {
       if (food_info_arr.foods_crat[key3]) {
         --food_info_arr.foods_crat[key3].food_number;
         if (food_info_arr.foods_crat[key3].food_number == 0) {
@@ -87,11 +88,11 @@ Page({
     if (app.isArrayNull(food_info_arr.foods_crat)) {
       food_info_arr.foods_number = app.orderCrat(food_info_arr.foods_crat, 'number');
       food_info_arr.foods_price = app.orderCrat(food_info_arr.foods_crat, 'price');
-    }else{
+    } else {
       food_info_arr = null;
     }
 
-    if (!food_info_arr.foods_crat[key3] && food_info_arr.foods_price == 0 && food_info_arr.foods_number ==0) {
+    if (!food_info_arr.foods_crat[key3] && food_info_arr.foods_price == 0 && food_info_arr.foods_number == 0) {
       this.setData({
         food_info_arr: null,
       });
@@ -114,7 +115,7 @@ Page({
   // 清空
   showitemes: function () {
     this.setData({
-      food_info_arr:null
+      food_info_arr: null
     })
     wx.removeStorageSync('food_info_arr')
   },
@@ -123,32 +124,6 @@ Page({
    */
   onLoad: function (options) {
     var This = this;
-    // 图片轮播
-    app.post(
-      config.index.git_sowing_map, {
-      }, function (res) {
-        This.setData({
-          imgUrls: res.data.retData
-        });
-      }
-    );
-    // 登录获取token
-    // wx.login({
-    //   success: function (res) {
-    //     if (res.code) {
-    //       app.post(
-    //         config.service.cheshiUrl, {
-    //           code: res.code
-    //         }, function (res) {
-    //           console.log(res.data);
-    //           wx.setStorageSync('token', res.data.retData.token);
-    //         }
-    //       );
-    //     } else {
-    //       console.log('登录失败' + res.errMsg);
-    //     };
-    //   }
-    // });
     // 菜品
     This.setData({
       food_info_arr: wx.getStorageSync('food_info_arr'),
@@ -158,9 +133,8 @@ Page({
         food_info_arr: wx.getStorageSync('food_info_arr'),
       });
     }, 500);
-    var This = this;
     app.post(
-      config.order_class_food.get_class_food,{},function(res){
+      config.order_class_food.get_class_food, {}, function (res) {
         This.setData({
           navbar: res.data.retData
         });
@@ -172,54 +146,54 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   },
   // 结账
-  end: function() {
+  end: function () {
     wx.navigateTo({
-      url: '/pages/Home/submit/intoroom/index',
+      url: '/pages/Home/SelectionFood/submitorder/index',
     })
   },
   // 点击单个菜品
@@ -227,7 +201,7 @@ Page({
     wx.setStorageSync('food_info_index', e.currentTarget.dataset.index);
     wx.setStorageSync('food_info', e.currentTarget.dataset.food_info);
     wx.navigateTo({
-      url: '/pages/Home/OrderFood/carteInfo/index',
+      url: '/pages/Home/SelectionFood/carteInfo/index',
     })
   },
 })

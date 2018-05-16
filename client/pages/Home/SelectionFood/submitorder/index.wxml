@@ -1,6 +1,5 @@
 <view class='page'>
   <radio-group class="radio-group" bindchange="radioChange">
-  
     <!-- 店内就餐 -->
       <view class='radioone'>
         <view class='cont'>
@@ -24,8 +23,6 @@
             <image src='../../../../icon/地址 (2).png' class='img3'></image>
             <text class='contextAddr'>{{shop_addr}}</text>
           </view>
-
-
           <view class='setout' bindtap='ChoiceTime'>
             <image src='../../../../icon/时间.png' class='img4'></image>
             <picker mode="date" value="{{date}}" start="1970-01-01" 
@@ -36,13 +33,9 @@
               <text class='contextTime'> {{times}} </text>
             </picker>  
             <view class="iconfont icon-goto"></view>
-            
           </view>
-          
-
         </view>
       </view>
-    
  </radio-group>
 
 <!--菜单详情  -->

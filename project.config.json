@@ -35,7 +35,7 @@
 				{
 					"id": 0,
 					"name": "后台首页",
-					"pathName": "pages/Admin/index/index",
+					"pathName": "pages/Admin/Variety/menu/index",
 					"query": ""
 				}
 			]

@@ -1,0 +1,350 @@
+.page{
+  width: 100%;
+  height: 1200rpx;
+  background: #fff;
+}
+.carte{
+  width: 100%;
+  height: 400rpx;
+}
+.carte-info{
+  width: 100%;
+  height: 150rpx;
+  border-bottom: 1rpx solid #f4f4f4;
+}
+.carte-name{
+  padding-top: 30rpx;
+  padding-left: 40rpx;
+  color: #666;
+  font-size:30rpx;
+  font-weight: bold;
+}
+.carte-price{
+  margin-top: 13rpx;
+  padding-left: 34rpx;
+  color: #f47d12;
+  font-size:30rpx;
+  font-weight: bold;
+  margin-bottom:0;
+}
+.shop-info{
+  color: #666;
+  font-size:30rpx;
+  font-weight: bold;
+  padding-left: 40rpx;
+}
+.shop-view{
+  width: 88%;
+  color: #666;
+  font-size:30rpx;
+  padding-left: 40rpx;
+  text-indent:15px;
+  word-wrap:break-word;
+  padding-top: 10rpx;
+  line-height: 50rpx;
+}
+.intodiancan{
+  border: none;
+  background: linear-gradient(to right, #FAD35C , #F76b1C);
+  color: white;
+}
+.foot-right{
+  width: 23%;
+  position: relative;
+  top: -60rpx; 
+  left: 75%;
+  flex:1;
+  display:flex;
+  flex-direction:row;
+  justify-content:flex-end;
+  align-items:center;
+  padding-right:10rpx; 
+}
+.iconfont{
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+.sign{
+  font-size: 45rpx;
+  color:#f79f51; 
+}
+ .count{
+  font-size:28rpx;
+  margin:0 20rpx;
+  font-weight:bold;
+}
+.foot-rightimg{
+  position: relative;
+  top: -80rpx;
+  right: 30rpx;
+  flex:1;
+  display:flex;
+  flex-direction:row;
+  justify-content:flex-end;
+  align-items:center;
+ 
+}
+.shopcar{
+  width: 25%;
+  height: 50rpx;
+  color: #fff;
+  font-size:30rpx;
+  background: linear-gradient(to right, #FAD35C , #F76b1C);
+  text-align: center;
+}
+.circle1 {
+    width: 2%;
+    height: 48.4rpx;
+    border-radius: 100% 0 0 100%/50%;
+    border-right: none;
+    background: #FAD35C;
+}
+.circle2 {
+    width: 2%;
+    height: 48.4rpx;
+    background: #F76b1C;
+    border-radius: 0 100% 100% 0/50%;
+    border-top: none;
+}
+
+/*购物车  */
+ .flex-shop{
+  z-index: 2000;
+  position:fixed;
+  top:77%;
+  width:100%;
+  background-color:#fff;
+} 
+.cart-wrap {
+  position:fixed;
+  top:91.7%;
+  background-color:#fff;
+  border-top: 1rpx solid rgba(0, 0, 0, 0.05);
+  color:#fff;
+  width:100%;
+  line-height:50px;
+}
+.cart-wrap .gouwuche {
+  width:150px;
+}
+.cart-wrap .gouwuche .gouwuche-wrap {
+  width:45px;
+  height:45px;
+  text-align:center;
+  background-color:#dcdcdc;
+  border-radius:50%;
+  position:absolute;
+  bottom:15px;
+  left:15px;
+}
+.cart-wrap .gouwuche text {
+  font-size:28px;
+}
+.iconfont {
+  font-family:"iconfont" !important;
+  font-style:normal;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+.signshop{
+   font-size:16px;
+   color: #969696;
+}
+.cart-wrap .info {
+  width:100%;
+}
+.cart-wrap .info .prompt {
+  width:100%;
+  height:22rpx;
+  line-height:20rpx;
+  font-size: 30rpx;
+  position: relative;
+  left: 150rpx; 
+  color: #999;
+}
+.cart-wrap .gouwuche .gouwuche-count {
+  background-color:#F75164;
+  font-size:12px;
+  color:#fff;
+  width:20px;
+  height:15px;
+  position:absolute;
+  bottom:46px;
+  left:45px;
+  border-radius:50%;
+  line-height:20px;
+  text-align:center;
+  padding-bottom: 11rpx;
+}
+ .cart-wrap .jiesuan {
+  width:150px;
+  background-color:#f5a623;
+  text-align:center;
+  font-size:16px;
+} 
+/*清空购物车  */
+.display_show{  
+    /* display: block; */
+}  
+.display_none{  
+    display: none;
+}
+.cart-content {
+  width:100%;
+  overflow:hidden;
+  margin-top:-180rpx;
+}
+.cart-content .tool {
+  display:flex;
+  line-height:70rpx;
+  border-bottom:1px solid #ededed;
+  background-color: #f7f7fa;
+  position:fixed;
+  top:79%;
+  width:100%;
+}
+.cart-content .tool .left {
+  width:70%;
+  height: 70rpx;
+  padding-left:15px;
+  background-color: #f7f7fa;
+  color: #c0bbb5;
+  font-size:26rpx;
+}
+.right-clear {
+  width:30%;
+  height: 70rpx;
+  text-align:left;
+  background-color: #f7f7fa;
+  color: #c0bbb5;
+  font-size:26rpx;
+  padding-left:150rpx;
+}
+.clear{
+  font-size: 28rpx;
+}
+.cart-content .content-scroll {
+  width:100%;
+  max-height:100rpx;
+}
+.carinfo{
+  width:100%;
+  height: 100rpx;
+  border-bottom:1px solid #ededed;
+}
+.cart-content .content-scroll .content-item {
+display:flex;
+flex-direction:row;
+line-height:30px;
+padding-left:15px;
+}
+.cart-content .content-scroll .content-item .title {
+width:100%;
+font-size:14px;
+font-weight:bold;
+}
+.action {
+  width: 30%;
+  text-align:center;
+  position: relative;
+  left: 70%;
+  bottom:57rpx; 
+}
+.buydel {
+  font-size:36rpx;
+  color:#f7b172;
+  text-align:center;
+}
+.cart-content .content-scroll .content-item .action .count {
+font-size:26rpx;
+color:#b2b2b2;
+min-width:14px;
+text-align:center;
+padding:0 5px;
+}
+.buy {
+  font-size:36rpx; 
+  color:#f7b172;
+  text-align:center;
+}
+.exit-cart-wrap{
+  position:fixed;
+  top:88.2%;
+  color:#fff;
+  width:100%;
+  line-height:40px;
+  height:130rpx;
+}
+.exit-cart-wrap .gouwuche .gouwuche-count {
+  background-color:#F75164;
+  font-size:9px;
+  color:#fff;
+  width:15px;
+  height:10px;
+  position:absolute;
+  bottom:85rpx;
+  left:41px;
+  border-radius:50%;
+  line-height:15px;
+  text-align:center;
+  padding-bottom: 11rpx;
+}
+.gouwuche-wrap1{
+  width:38px;
+  height:38px;
+  text-align:center;
+  background-color:#f58623;
+  border-radius:50%;
+  position:absolute;
+  bottom:30rpx;
+  left:15px;
+}
+.aftershop{
+   font-size:22px;
+   color: #fff;
+}
+.prompt-money{
+  font-family: PingFangSC;
+  font-size: 30rpx;
+  color: #333333;
+  margin-left:140rpx;
+  line-height:10rpx;
+}
+.p-money{
+  font-family: PingFangSC;
+  font-size: 30rpx;
+  text-align: left;
+  color:#f58623;
+}
+.exit-cart-wrap .jiesuan {
+ width:100px;
+background-color:#f5a623;
+text-align:center;
+font-size:30rpx;
+margin-top:-80rpx;
+float:right;
+height:80rpx;
+}
+.exit-cart-wrap .info{
+  border-top:1rpx solid rgba(0, 0, 0, 0.05);
+  background-color: #fff;
+  height:80rpx;
+  margin-top:40rpx;
+}
+.dianji{
+  width:100%;
+}
+.hid{
+  width: 100%;
+}
+.space{
+  width: 100%;
+  height:450rpx;
+  text-align: center;
+  margin-top: 20rpx;
+  color: #f58623;
+  font-size: 28rpx;
+}

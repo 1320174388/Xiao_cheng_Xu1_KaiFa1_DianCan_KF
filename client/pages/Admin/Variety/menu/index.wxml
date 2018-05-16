@@ -21,15 +21,23 @@
       <button class='add' bindtap='adds'>添加</button>
 </view>
 <view class='{{select ? "show" : "hide" }}'>
-    <view class="section">
+  <view class="section">
     <view class='look-ico'>
-      <icon type="search" size="15"/>
-        <form bindsubmit="search">
-            <input placeholder='搜索' name='food_name_search'/>
+    <form bindsubmit="search">
+      <view class="content">  
+        <view  style="flex:1">
+          <icon type="search" size="22"/>
+        </view>  
+        <view style="flex:5">
+          <input placeholder='搜索' name='food_name_search'/>
+        </view>  
+        <view style="flex:1">
             <button class='lookup' formType="submit">搜索</button>
-        </form>
+        </view>  
+      </view>
+    </form> 
     </view>
-    </view>
+  </view>
 
     <view class='menu' wx:for="{{datas}}" wx:key="{{index}}">
         <view class='left'>

@@ -1,166 +1,141 @@
-.top{
-  width: 99%;
-  height: 400rpx;
-  background: linear-gradient(to right, #FF9933 , OrangeRed);
+.page{
+  background-color: #f9f9f9;
+  height: 1130rpx;
 }
+.content-column{  
+  display: flex;  
+  flex-direction: column;  
+}
+.top{
+  width: 100%;
+  height: 280rpx;
+  background-image: linear-gradient(136deg, #fad961, #f76b1c);
+}
+/* 头像 */
 .pic{
   width: 25%;
   height: 180rpx;
-  border:2px solid #fff;
-  margin: 60rpx 270rpx 20rpx 270rpx;
+  margin: 0rpx 270rpx 20rpx 270rpx;
   border-radius:1200px;
+  padding-top:20rpx
 }
+.pic-head{
+  width: 100%;
+  height: 180rpx;
+  border:2px solid #fff;
+  border-radius:1200px;
+  overflow: hidden;
+  display: block;
+}
+/* 用户名称 */
+.context-name{
+  color: #fff;
+  font-size: 30rpx;
+  line-height:55rpx;
+  margin-top:-5rpx;
+  text-align:center;
+}
+/* 用户ID编号 */
 .context-id{
   color: #fff;
-  font-size: 25rpx;
-  padding-left: 300rpx;
+  font-size: 30rpx; 
+  text-align:center;
+  line-height:60rpx;
 }
 /*详情列表  */
 .list{
   width: 99%;
-  height: 230rpx;
+  height: 180rpx;
   background-color: #FFF;
 }
-/*点餐  */
-.bord{
-  width: 25%;
-  position: absolute;
-}
-.order{
-  width: 45%;
-  height: 80rpx;
-  border:2px solid #fff;
-  background-color: #FF9933;
-  border-radius:1200px;
-  margin: 40rpx 0rpx 0rpx 30rpx;
-}
-.context-order{
-  font-size: 30rpx;
-  padding-left: 45rpx;
+.content-row{  
+  display: flex;  
+  flex-direction: row;  
+} 
+/* 点餐 */
+.imgdiancan{
+  border-radius:77rpx;
+  background-color: #f5a623;
+  margin-left:54rpx;
+  margin-top:29rpx;
+  width:77rpx;
+  height:77rpx;
 }
  .img{
-  width:70%;
-  height: 70%;
-  padding-left: 15rpx;
-  padding-top:10rpx; 
-}
-/*预定  */
-.bord1{
-  width: 50%;
-  position: relative;
-  top:38rpx;
-  right: 10rpx;
-}
-.order1{
-  width: 22.5%;
-  height: 80rpx;
-  border:2px solid #fff;
-  background-color: #FF3366;
-  border-radius:1200px;
-  margin: 25rpx 0rpx 0rpx 220rpx;
-}
-.context-schedule{
-  font-size: 30rpx;
-  padding-left:235rpx; 
-  padding-top:5rpx;
-}
- .img1{
-  width:68%;
-  height: 69%;
+  width:49rpx;
+  height:40rpx;
   padding-left: 14.5rpx;
   padding-top:15rpx; 
 }
-/*外卖  */
- .bord2{
-  width: 75%;
-  position: relative;
-  top:-44%;
-  left:17%;
+.context-diancan{
+  font-family: PingFangSC;
+  font-size: 28rpx;
+  line-height: 60rpx;
+  letter-spacing: normal;
+  text-align: center;
+  color: #000000;
 }
-.order2{
-  width: 15.1%;
-  height: 83rpx;
-  border:2px solid #fff;
-  background-color: #00FF00;
-  border-radius:1200px;
-  margin: 0rpx 0rpx 0rpx 265rpx;
-}  
- .context-togo{
-  font-size: 30rpx;
-  position: relative;
-  top: 0rpx;
-  left:50%;
-}   
+/*预定  */
+.imgyuding{
+  border-radius:77rpx;
+  background-color: #ff6073;
+  margin-left:54rpx;
+  margin-top:29rpx;
+  width:77rpx;
+  height:77rpx;
+}
+/*外卖  */
+.imgwaimai{
+  border-radius:77rpx;
+  background-color: #7fcf2c;
+  margin-left:54rpx;
+  margin-top:29rpx;
+  width:77rpx;
+  height:77rpx;
+ }
 
 /*排队取号  */
- .bord3{
-  width: 100%;
-  position: relative;
-  top:-105%;
-  left: 44%;
+.imgpaidui{
+  border-radius:77rpx;
+  background-color:#f58623;
+  margin-left:54rpx;
+  margin-top:29rpx;
+  width:77rpx;
+  height:77rpx;
+  } 
+  /* 后台管理 */
+.display_show{  
+  display: block;
+}  
+.display_none{  
+    display: none;
 }
-.order3{
-  width: 11.5%;
-  height: 83rpx;
-  border:2px solid #fff;
-  background-color: #FF6600;
-  border-radius:1200px;
-  margin: 0rpx 0rpx 0rpx 265rpx;
+  .manage{
+    width: 747rpx;
+    height: 90rpx;
+    background-color: #ffffff;
+    margin-top: 20rpx;
+  }
+.imgmanage{
+  width: 40rpx;
+  height: 41rpx;
+  margin-left: 47rpx;
+  margin-top: 29rpx;
 }
- .context-queuenumber{
+.context-manage{
+  font-family: PingFangSC;
   font-size: 30rpx;
-  position: relative;
-  top: 5rpx;
-  left:260rpx;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 95rpx;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
 }
-.ico{
-  width:7%;
-  height: 50%;
-}
-.left{
-  font-size:30rpx;
-  float: left;
-  margin-top: 40rpx;
-  height: 110rpx;
-  width: 100%;
-  background: #FFF;
-  padding-left: 10px;
-  border-bottom: 1px solid rgba(0, 0, 0, .03);
-}
-.iconfont{
-  font-size:30rpx;
-}
- view.iconfont{
-  width:80rpx;
-  line-height: 80rpx;
-  color:black;
-  font-size:35rpx;
-  border-radius: 50%;
-}
-.address{
-  padding-left:10rpx; 
-  color: black;
-  font-size: 35rpx;
-}
-.left1{
-  font-size:30rpx;
-  float: left;
-  height: 110rpx;
-  width: 100%;
-  background: #FFF;
-  padding-left: 10px;
-}
-.sp{
-  position: relative;
-  right:-180px;
-  font-size: 25px;
-  color:gainsboro;
-  bottom: 0px;
-}
-.sp1{
-  position: relative;
-  right:-180px;
-  font-size: 25px;
-  color:gainsboro;
-  bottom: 0px;
+.ico-manage{
+  color: #c7c7cc;
+  margin-left:300rpx;
+  font-size:60rpx;
+  text-align:center;
 }
