@@ -166,6 +166,7 @@ function login_add(number = 1) {
             success: function (res) {
               console.log(res.data);
               wx.setStorageSync('token', res.data.retData.token);
+              wx.setStorageSync('userId', res.data.retData.userId);
             }
           });
         } else {

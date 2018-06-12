@@ -10,13 +10,13 @@ Page({
   data: {
     datas:false,
     imghost: config.service.imghost,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
-
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    userId:"",
   },
   // 头像点击事件获取用户ID
   headpic:function(){
-    if (headimg==6){
-      app.point('你的ID为：00544','none',5000);
+    if (headimg==5){
+      app.point('你的ID为：'+this.data.userId,'none',5000);
       headimg=0;
     }else{
       headimg++;
@@ -27,6 +27,9 @@ Page({
    */
   onLoad: function (options) {
     var THIS = this
+    THIS.setData({
+      userId:wx.getStorageSync('userId')
+    })
     wx.request({
       url: config.service.adminUser, //仅为示例，并非真实的接口地址
       data: {
