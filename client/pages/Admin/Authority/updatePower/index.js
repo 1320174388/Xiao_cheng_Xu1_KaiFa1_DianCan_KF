@@ -93,20 +93,32 @@ Page({
  
   deleteClick: function (e) {
     var THIS=this;
-    app.post(
-      config.service.delPosition, {
-        'token': wx.getStorageSync('token'),
-        'id': e.currentTarget.dataset.editid
-      }, function (res) {
-        if (res.data.errNum == 0) {
-          app.point(res.data.retMsg, "success");
-          setTimeout(function () {
-            THIS.onLoad()
-          }, 1000);
-        } else {
-          app.point(res.data.retMsg, "none");
-        };
+    wx.showModal({
+      title: '提示',
+      content: '确定要删除吗？',
+      success:function(res){
+        if(res.confirm){
+          // 删除的api
+          app.post(
+            config.service.delPosition, {
+              'token': wx.getStorageSync('token'),
+              'id': e.currentTarget.dataset.editid
+            }, function (res) {
+              if (res.data.errNum == 0) {
+                app.point(res.data.retMsg, "success");
+                setTimeout(function () {
+                  THIS.onLoad()
+                }, 1000);
+              } else {
+                app.point(res.data.retMsg, "none");
+              };
+            }
+          );
+        }
+       
+        
       }
-    );
+    })
+    
   }
 })

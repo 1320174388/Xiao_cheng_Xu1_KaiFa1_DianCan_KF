@@ -16,12 +16,12 @@
 </view>
 <!--介绍-->
 <view class="containers">
-  <view class='addres'>
+  <view class='addres'  bindtap='maps'>
     <text class="iconfont icon-dizhi icoard"></text>  
-    <text class="address"  bindtap='maps'>洛阳市西工区王城大道200号</text>
+    <text class="address">地老天荒科技有限公司</text>
   </view>
-  <view class='phone'>
-     <text class="iconfont icon-phone right" bindtap='tell'></text> 
+  <view class='phone' bindtap='tell'>
+     <text class="iconfont icon-phone right" ></text> 
      <text class="iphone">010-9558867</text>
   </view>
 </view>

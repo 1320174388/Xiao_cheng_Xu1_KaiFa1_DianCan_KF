@@ -7,7 +7,7 @@
           <text>管理员名称:</text>
         </view>
         <view style="flex:1.5" class='content-prom'>
-          <input class='getname' name="admin_name" value="{{admin_value.admin_name}}"></input>  
+          <input class='getname' name="admin_name" value="{{admin_value.admin_name}}" placeholder='我是暗提示' placeholder-style='color:#ccc;' style='color:#666;'></input>  
         </view>
         <view style="flex:1" class='content-ico'>
           >

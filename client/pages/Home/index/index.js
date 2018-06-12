@@ -27,20 +27,14 @@ Page({
     })
   },
   maps: function () {
-    wx.getLocation({
-      type: 'gcj02', //返回可以用于wx.openLocation的经纬度  
+    wx.openLocation({
+      latitude: 39.636547,
+      longitude: 116.327238,
+      name: '地老天荒科技有限公司',
       success: function (res) {
-        var latitude = res.latitude
-        var longitude = res.longitude
-        wx.openLocation({
-          latitude: latitude,
-          longitude: longitude,
-          name: "花园桥肯德基",
-          address:"十三陵景区",
-          scale: 28
-        })
+        console.log(res);
       }
-    })
+    });
   },
   // 点餐小图标跳转
   diancan:function(){

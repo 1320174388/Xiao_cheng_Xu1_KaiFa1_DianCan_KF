@@ -6,16 +6,17 @@
   </view>
   <view class="section">
     <text>选择分类</text>
-    <radio-group class="radio-group" name="class_id" >
-      <label class="radio" wx:for="{{classlist}}" wx:key="{{index}}">
-        <radio value="{{item.id}}" />{{item.class_name}}
-      </label>
-    </radio-group>
+    <picker-view class="picker_view"indicator-class='picker_kuang' bindchange="slide_change">
+        <picker-view-column>
+            <view wx:for="{{classlist}}" wx:key="index" id='{{item.id}}'>{{item.class_name}}</view>
+        </picker-view-column>
+    </picker-view>
+    <image src='https://lg-3fm9mghs-1253290031.cos.ap-shanghai.myqcloud.com/up-down.png' class='up_down'></image>
   </view>
   <view class="section pric">
     <text class='title'>菜品价格</text>
-    <view class='info'>
-      <input name="food_price" value="{{editfoods.food_price}}"/>
+    <view class='info' style='margin-left:20rpx;'>
+      <input name="food_price" value="{{editfoods.food_price}}" style='margin:0;text-align:left;padding:0 20rpx;width:100%;box-sizing:border-box;'/>
     </view>
     <text class='comp'>元</text>
   </view>

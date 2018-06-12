@@ -19,19 +19,29 @@ Page({
   // 删除菜品
   delfoods:function(e){
     var THIS = this;
-    app.post(
-      config.foods.delete, {
-        "token": wx.getStorageSync('token'),
-        'id': e.currentTarget.dataset.id
-      }, function (res) {
-        if (res.data.errNum == 0) {
-          app.point(res.data.retMsg,'success');
-          setTimeout(function () {
-            THIS.onLoad()
-          }, 1000);
+    wx.showModal({
+      title: '提示',
+      content: '确定要删除吗？',
+      success:function(res){
+        if(res.confirm){
+          // 删除的api
+          app.post(
+            config.foods.delete, {
+              "token": wx.getStorageSync('token'),
+              'id': e.currentTarget.dataset.id
+            }, function (res) {
+              if (res.data.errNum == 0) {
+                app.point(res.data.retMsg, 'success');
+                setTimeout(function () {
+                  THIS.onLoad()
+                }, 1000);
+              }
+            }
+          );
         }
       }
-    );
+    })
+    
   },
   // 修改菜品信息
   editfoods:function(e){
@@ -179,25 +189,35 @@ Page({
   // 删除菜品列表
   removes:function(e){
     var THIS=this;
-    app.post(
-      config.service.menuRemove, {
-        "token": wx.getStorageSync('token'),
-        "class_id": e.currentTarget.dataset.remid
-      }, function (res) {
-        if (res.data.errNum == 0) {
-          THIS.setData({
-            host: config.service.host,
-            datas: res.data.retData
-          })
-          app.point(res.data.retMsg, "success");
-          setTimeout(function () {
-            THIS.onLoad()
-          }, 1000);
-        } else {
-          app.point(res.data.retMsg, "none");
-        }; 
+    wx.showModal({
+      title: '提示',
+      content: '确定要删除吗？',
+      success:function(res){
+        if(res.confirm){
+          // 删除的api
+          app.post(
+            config.service.menuRemove, {
+              "token": wx.getStorageSync('token'),
+              "class_id": e.currentTarget.dataset.remid
+            }, function (res) {
+              if (res.data.errNum == 0) {
+                THIS.setData({
+                  host: config.service.host,
+                  datas: res.data.retData
+                })
+                app.point(res.data.retMsg, "success");
+                setTimeout(function () {
+                  THIS.onLoad()
+                }, 1000);
+              } else {
+                app.point(res.data.retMsg, "none");
+              };
+            }
+          );
+        }
       }
-    );
+    })
+    
   },
 
   formSubmit:function(e){

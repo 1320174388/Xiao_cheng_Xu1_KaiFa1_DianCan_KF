@@ -4,6 +4,7 @@
   line-height: 2.5;
   border-bottom:2rpx solid #eee;
   padding:0 15rpx;
+  position: relative;
 }
 .section text{
   width:25%;
@@ -66,4 +67,19 @@ textarea{
   text-align: right;
   display: inline;
   border: 1rpx solid red;
+}
+/*滚动选择器  */
+.picker_view{
+  height: 100rpx;
+  width: 60%;
+}
+.picker_kuang{
+  padding: 18rpx;
+}
+.up_down{
+  width: 35rpx;
+  height: 50rpx;
+  position: absolute;
+  left: 700rpx;
+  top: 25rpx
 }

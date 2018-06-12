@@ -1,5 +1,7 @@
 var config = require('../../../../config.js');
 var app = getApp();
+// 滚动选择器
+var picker_value = 0;
 // pages/Admin/addlist/addlist.js
 Page({
 
@@ -16,6 +18,8 @@ Page({
   // 表单提交事件
   formSubmit:function(e){
     var This = this;
+    var classlist = This.data.classlist;
+    var class_id = classlist[picker_value].id;
     if (this.data.image_true) {
       app.point("上传中", "loading", 360000);
       app.file(
@@ -25,7 +29,7 @@ Page({
           "token": wx.getStorageSync('token'),
           "id": e.detail.value.id,
           "food_name": e.detail.value.food_name,
-          "class_id": e.detail.value.class_id,
+          "class_id": class_id,
           "food_price": e.detail.value.food_price,
           "food_sort": e.detail.value.food_sort,
           "food_info": e.detail.value.food_info,
@@ -48,7 +52,7 @@ Page({
           "token": wx.getStorageSync('token'),
           "id": e.detail.value.id,
           "food_name": e.detail.value.food_name,
-          "class_id": e.detail.value.class_id,
+          "class_id": class_id,
           "food_price": e.detail.value.food_price,
           "food_sort": e.detail.value.food_sort,
           "food_info": e.detail.value.food_info,
@@ -95,6 +99,10 @@ Page({
         image_true: true
       });
     });
+  },
+  // 选择分类
+  slide_change: function (res) {
+    picker_value = res.detail.value[0];
   },
 
   /**
