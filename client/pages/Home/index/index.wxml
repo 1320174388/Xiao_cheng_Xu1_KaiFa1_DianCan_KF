@@ -69,4 +69,11 @@
       </view>
     </view>
   </view>
+  <!--地老天荒的logo和电话  -->
+    <view class='dlth' bindtap='phone_dlth'>
+        <image src='https://lg-3fm9mghs-1253290031.cos.ap-shanghai.myqcloud.com/logo.png' class='dlth_logo'  mode="widthFix"></image>
+        <view>
+          售后电话\t:\t<text>010-86220269</text>
+        </view>
+    </view>
 
