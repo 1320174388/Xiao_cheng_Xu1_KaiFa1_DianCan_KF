@@ -1,37 +1,40 @@
 <form bindsubmit="formSubmit">
-  <view class="tunnel">
-  <input hidden name="admin_id" value="{{admin_value.id}}"></input>
-          <view class="tunnel-text uploader-text">
-            <view class='context-manage'>
-              <text>管理员名称:</text>
+  <view class="content-column">
+    <view  style="flex:1" class='header'>
+      <view class="content-row">
+        <input hidden name="admin_id" value="{{admin_value.id}}"></input>
+        <view style="flex:1" class='content-name'>
+          <text>管理员名称:</text>
+        </view>
+        <view style="flex:1.5" class='content-prom'>
+          <input class='getname' name="admin_name" value="{{admin_value.admin_name}}"></input>  
+        </view>
+        <view style="flex:1" class='content-ico'>
+          >
+        </view>
+      </view>
+    </view>
+    <view style="flex:1" class='context-choose'>
+      <text class="pow-tx">请选择管理员职位：</text>
+      <view class='bord'>
+        <view class="choose">
+          <radio-group class="radio-group" bindchange="radioChange"  name="role_id">
+            <view wx:for="{{array}}" wx:key="{{index}}" class="chooseText" wx:if="{{item}}">
+              <view>
+                <text class='context-choose' bindtap="mySelect" data-me="{{item.role_name}}">
+                    {{item.role_name}}</text>
+                <radio class="tunnel-switch" color="#b2da89" value="{{item.id}}"/>
+              </view>
             </view>
-              <input class='getname' name="admin_name" value="{{admin_value.admin_name}}"></input>
-              <span>></span>
-          </view>
+          </radio-group> 
+        </view>
+      </view>
+    </view>
   </view>
-  
-<!--管理员职位选择  -->
-  <view class="phone_one" bindtap="clickPerson">
-    <view class="tunnel-text1 uploader-text1">
-      <text>请选择管理员职位：</text>
-    </view> 
-  </view>
-  <view class="choose">
-      <radio-group class="radio-group" bindchange="radioChange"  name="role_id">
-           <view wx:for="{{array}}" wx:key="{{index}}">
-                <view class="chooseText">
-                    <text class='context-choose' bindtap="mySelect" data-me="{{item.role_name}}">
-                              {{item.role_name}}</text>
-                    <radio class="tunnel-switch" color="#b2da89" value="{{item.id}}"/>
-                </view>
-          </view>
-      </radio-group> 
-  </view>
-
   <!--确定  -->
-  <view class="tunne2">
+   <view class="tunne2">
     <view class="sure">
       <button class="but" formType="submit">确定</button>
     </view>
-  </view>
+  </view> 
  </form>

@@ -1,38 +1,49 @@
 <form bindsubmit="formSubmit">
-  <view class="tunnel">
-          <view class="tunnel-text uploader-text">
+  <view class="content-column">
+    <view  style="flex:1" class='header'>
+      <view class="content-column">
+        <view  style="flex:1" class='header'>
+          <view class="content-row">
+            <view style="flex:1" class='content-name'>
               <text>用户ID</text>
+            </view>
+            <view style="flex:2.5" class='content-prom'>
               <input name="user_id" placeholder='我是暗提示' value="{{update_value.user_id}}"></input>
+            </view>
           </view>
-
-          <view class="tunnel-text uploader-text">
-              <text>管理员名称</text>
+        </view>
+        <view  style="flex:1" class='header'>
+          <view class="content-row">
+            <view style="flex:1" class='content-name'>
+               <text>管理员名称</text>
+            </view>
+            <view style="flex:1.5" class='content-prom'>
               <input name="admin_name" placeholder='我是暗提示' value="{{update_value.admin_name}}"></input>
-              <span>></span>
+            </view>
+            <view style="flex:1" class='content-ico'>
+              >
+            </view>
           </view>
-  </view>
-  <!--管理员职位选择  -->
-  <view class="phone_one" bindtap="clickPerson">
-    <view class="tunnel-text1 uploader-text1">
-      <text>请选择管理员职位：</text>
-    </view> 
-  </view>
-  <view class="choose">
-      <radio-group class="radio-group" bindchange="radioChange" name="role_id">
-           <view wx:for="{{array}}" wx:key="{{index}}"  class="chooseText">
+        </view>
+      </view>
+      <!-- 管理员职位选择 -->
+      <view  style="flex:1" class='context-choose'>
+        <text class="pow-tx">请选择管理员职位：</text>
+        <view class='bord'>
+          <view class="choose">
+            <radio-group class="radio-group" bindchange="radioChange" name="role_id">
+              <view wx:for="{{array}}" wx:key="{{index}}"  class="chooseText" wx:if="{{item}}">
                 <view>
-                    <text bindtap="mySelect" data-me="{{item.role_name}}">
-                              {{item.role_name}}</text>
-                    <radio class="tunnel-switch" color="#b2da89" value="{{item.id}}"/>
+                  <text bindtap="mySelect" data-me="{{item.role_name}}">{{item.role_name}}</text>
+                  <radio class="tunnel-switch" color="#b2da89" value="{{item.id}}"/>
                 </view>
+              </view>
+            </radio-group> 
           </view>
-      </radio-group> 
-  </view>
-
-  <!--确定  -->
-  <view class="tunne2">
-    <view class="sure">
-      <button class="but" formType="submit">确定</button>
+        </view>
+      </view>
     </view>
   </view>
- </form>
+  <!--确定  -->
+  <button class="but" formType="submit">确定</button>
+</form>

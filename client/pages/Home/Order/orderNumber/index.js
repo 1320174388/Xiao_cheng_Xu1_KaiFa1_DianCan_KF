@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    navbar: ['就餐', '点餐', '预定', '排队'],
+    navbar: ['就餐', '点餐','历史'],
     currentTab: 0,
     imghost: config.service.imghost
   },

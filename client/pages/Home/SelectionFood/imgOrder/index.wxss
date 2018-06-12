@@ -44,6 +44,9 @@
   line-height: 50rpx;
 }
 .intodiancan{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   border: none;
   background: linear-gradient(to right, #FAD35C , #F76b1C);
   color: white;

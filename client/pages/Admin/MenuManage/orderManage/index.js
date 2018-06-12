@@ -8,7 +8,7 @@ Page({
    */
   data: {
     // 订单管理导航条
-    navbar: ['就餐', '取餐', '外卖', '历史'],
+    navbar: ['就餐', '点餐', '历史'],
     currentTab: 0,
     orderlist:null,
     ordertake:null,

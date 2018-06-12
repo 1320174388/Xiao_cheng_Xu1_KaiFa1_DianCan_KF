@@ -1,81 +1,87 @@
-
 /*背景色  */
 page {
     background: #F6F6F6;
 }
-/*提示框  */
-input{
+.content-column{
+  display: flex;  
+  flex-direction: column;
+  width: 100%;
+  margin-top: 10rpx;
+}
+.header{
+  height: 100rpx;
+  background: #FFF;
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+.content-row{  
+  display: flex;  
+  flex-direction: row;
+}
+.content-name{
+  font-size: 35rpx;
+  color: #000000;
+  line-height:100rpx;
+  padding-left:30rpx;
+}
+.content-prom{
+  font-size: 35rpx;
+  padding-top:24rpx;
+  color: #cccccc;
+}
+.content-ico{
   float: right;
-  margin-top: 13px;
-  margin-right: 80px;
+  color: #cccccc;
+  font-size:55rpx;
+  text-align:right;
+  padding-right:30rpx;
+  padding-top:10rpx;
 }
-/* 列表布局 */
-.tunnel{
-    margin-top: 40rpx;
-    height: 110rpx;
-    width: 100%;
-    background: #FFF;
-    padding-left: 20px;
+.context-choose{
+  margin-top: 15rpx;
 }
-
-.uploader-text, .tunnel-text {
-    width: 100%;
-    line-height: 45px;
-    font-size: 35rpx;
-    color: #007AFF;
-    font-family:PingFangSC;
-}
-
-.tunnel-text {
-    color: #222;
-    border-bottom: 1px solid #dddddd;
-}
-/*下拉选项  */
-.sp{
-  position: relative;
-  right:-480rpx;
-  font-size: 25px;
-  color:gainsboro;
-}
-
 /*权限选择  */
 .pow{
    margin-top: 30rpx;
+   background-color: #f9f9f9;
 }
 /* 权限选择字体样式 */
 .pow-tx{
-  padding-left: 20px;
-  font-size: 12px;
+  padding-left: 30rpx;
+  font-size: 26rpx;
   color: Gray;
+}
+.choose-column{
+  display: flex;  
+  flex-direction: column;
 }
 /*权限选择  */
 /*店铺管理  */
 .tunne2 {
-    margin-top: 10rpx;
-    height: 110rpx;
-    width: 100%;
-    background: #FFF;
-    display: flex;
-    align-items: center;
-    font-family:PingFangSC;
+  height: 107rpx;
+  width: 100%;
+  background: #FFF;
+  display: flex;
+  align-items: center;
+  font-family:"LiHei Pro Medium ",儷黑 Pro;
+  margin-top:5rpx;
 }
 /*用户、菜单、订单管理  */
 .tunne3 {
-    height: 110rpx;
+    height: 100rpx;
     width: 100%;
     background: #FFF;
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
     display: flex;
     align-items: center;
-    font-family:PingFangSC;
+    font-family:"LiHei Pro Medium ",儷黑 Pro;
 }
 .uploader-text2, .tunnel-text2 {
     width: 100%;
     line-height: 50px;
     font-size: 35rpx;
     color: #222;
-    font-family:PingFangSC;
-    padding-left: 20px;
+    font-family:"LiHei Pro Medium ",儷黑 Pro;
+    padding-left: 30rpx;
 }
 .tunnel-text2 {
     position: relative;
@@ -85,7 +91,10 @@ input{
     align-content: center;
     justify-content: space-between;
     box-sizing: border-box;
-    border-top: 1px solid #dddddd;
+}
+.bord{
+  border-top: 1px solid rgba(0, 0, 0, .1);
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
 }
 .tunnel-switch {
     position: absolute;
@@ -94,7 +103,8 @@ input{
 }
 /*确定  */
 .tunne4{
-    margin-top: 100%;
+    position:fixed;
+    bottom:0;
     height: 50px;
     width: 100%;
     
@@ -103,7 +113,7 @@ input{
     color: #FFF;
     line-height: 50px;
     font-size: 35rpx;
-    font-family: PingFangSC;
+    font-family:"LiHei Pro Medium ",儷黑 Pro;
     text-align: center;
 }
 .but{

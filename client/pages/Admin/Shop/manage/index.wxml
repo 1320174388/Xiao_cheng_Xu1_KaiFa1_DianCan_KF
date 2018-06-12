@@ -34,7 +34,6 @@
 </form>
 
 <!--座号管理 -->
-<!-- <view > -->
   <view class='{{select ? "show" : "hide" }}' id='desks'>
     <view class='desk' wx:for="{{desk}}" wx:key="{{index}}" data-tabltnum="{{index}}" 
     bindtap="tap" bindlongtap="longTap" data-table_number="{{item.table_number}}"
@@ -45,13 +44,9 @@
         data-table_number="{{item.table_number}}"  data-table_id="{{item.id}}">修改</button>
         <button class="del" bindtap="hidedel" hidden="{{item.hidden}}" data-editid="{{item.id}}">删除</button>
     </view>
-
-  <!-- </view>   -->
 </view>
 
 <!--模态框  -->
  <view class='{{showModalStatus}}' id='model'  bindtap='close'>
     <image wx:if='{{shoopCode}}' src='{{host}}{{shoopCode}}' class='content'></image>
 </view> 
-
-<button bindtap='seats' class='add'>添加</button>  

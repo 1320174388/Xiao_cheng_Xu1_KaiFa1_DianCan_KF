@@ -1,19 +1,20 @@
  /*页面背景色  */
  page {
     width:100%;
-    background: #F6F6F6;
+    background: #f9f9f9;
     
 }
-.list{
-  width:88%;
-  background: #fff;
-  display: flex;
-  justify-content: space-between;
-  margin:0 auto;
-  margin-bottom:30rpx;
-  margin-top:30rpx;
-  margin-right:45rpx;
+.content-row{  
+  display: flex;  
+  flex-direction: row;
+  background: #fff;  
+  margin-bottom: 15rpx;
+  height: 130rpx;
+  width:90%;
+  margin-left:35rpx;
+  margin-top: 30rpx;
 }
+
 .left{
   float: left;
   height: 63px;
@@ -28,41 +29,36 @@
   color: grey;
   font-size:31rpx;
 }
-.right{
-  float: right;
-  position: relative;
-  left:240rpx;
+/* 修改删除 */
+.content-right{
+  border-left:1rpx solid #eaeaea;
 }
-.right button{
-  font-size:30rpx;
-  background: #fff;
-  border-radius: none;
-  height:81rpx;
-  line-height:81rpx;
+.content-column{
+  display: flex;  
+  flex-direction: column;
 }
-button::after{
-  border: none;
-  border-top: none;
-}
-.posion-modify{
-  border-left:2rpx solid #eaeaea;
+.content-xiugai{
+  height: 65rpx;
   border-bottom:1rpx solid #eaeaea;
+}
+.content-shanchu{
+  height: 65rpx;
+  text-align: center;
 }
 .modify{
   color: #77b3ff;
-}
-.posion-remove{
-  height:80rpx;
-  line-height:80rpx;
-  font-size:30rpx;
-  text-align:center;
-  border-left:2rpx solid #eaeaea;
+  background-color: #fff;
+  height: 55rpx;
+  text-align: center;
+  font-size: 29rpx;
+} 
+ .modify::after{
+  border: none;
 }
 .remove{
   color:#f7485d;
+  font-size: 29rpx;
 }
-
-
 
 /*管理员名称  */
 .tunnel{
@@ -77,8 +73,6 @@ button::after{
 /*添加  */
 .tunne2{
   width: 100%;
-  background:#FFF;
-  border-top: 1px solid #dddddd;
 }
 .add{
     color:  #77b3ff;
@@ -86,4 +80,5 @@ button::after{
     font-size: 35rpx;
     font-family:PingFangSC;
     text-align: center;
+    background:#FFF;
 }

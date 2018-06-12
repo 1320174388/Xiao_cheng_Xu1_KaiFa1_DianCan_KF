@@ -1,33 +1,41 @@
-.page{
+page{
   width: 100%;
-  height: 1130rpx;
   background-color: #fff;
 }
-.content-column{  
-  /* height: 600px;   */
+.content-column{ 
   display: flex;  
   flex-direction: column;  
-} 
-/*logo  */
- .shopInfo{
-  width: 100%;
-  height: 235rpx;
+}
+.content-row{  
+  display: flex;  
+  flex-direction: row;  
+}
+.display_show{  
+    display: block;
+}  
+.display_none{  
+    display: none;
+}
+/* 渐变背景色 */
+.shopInfo{
+  height: 220rpx;
   background: linear-gradient(to right, #FAD35C , #F79E3C);
 }
-.shopname{
-  width: 88%;
-  height: 160rpx;
-  border-bottom: 1rpx dashed white;
-  margin-left: 40rpx;
-  padding-top: 10rpx;
+/* 走马灯与店铺名称的分割虚线 */
+.top-head{
+  border-bottom: 1rpx dashed #fff;
+  padding-bottom: 7rpx;
 }
+/* 正方形名称框 */
 .shopname-backcolor{
-  width: 20%;
+  width: 130rpx;
   height: 120rpx;
-  margin-top:21rpx;
+  margin-top:30rpx;
   background:linear-gradient(#F89E3C , #F76E1E);
   border-radius: 5px;
-} 
+  margin-left:35rpx;
+}
+/* 正方形名称框-点餐字样 */
 .context-dian{
   width: 90%;
   color: white;
@@ -36,6 +44,7 @@
   padding-top: 22rpx;
   display: block;
 }
+/* 正方形名称框-小程序字样 */
 .context-xiao{
   width: 90%;
   text-align: center;
@@ -43,47 +52,23 @@
   font-size: 26rpx;
   display: block;
 }
-.text-shopname{
-  position: relative;
-  left:23%;
-  top:-50%;
-}
+/* 正方形名称框右边-店铺名称字样 */
 .context-shopname{
   color: white;
   font-family:"STHeiti Light ",华文细黑;
-  font-size: 32rpx;
+  line-height:160rpx;
+  font-size: 32rpx; 
 }
-.notice{
+/* 走马灯 */
+.notice {
   width: 90%;
   height: 60rpx;
   margin-left: 20rpx;
-}
-.prom{
-  width:6%;
-  height: 40rpx;
-  position: absolute;
-  margin-top: 10rpx;
-  color: #fff;
-}
-.into{
-  color: white;
-  font-size: 28rpx;
-  position: relative;
-  left:8%;
-}
-.setout{
-  color: white;
-  font-size: 28rpx;
-  position: relative;
-  left:12%;
-}
-/* 走马灯-公告 */
-.notice {
   position: relative;
   z-index: 999;
   font-size: 14px;
   color: #fff;
-  line-height: 70rpx;
+  line-height: 50rpx;
   display: flex;
   flex-direction: row;
 }
@@ -103,15 +88,11 @@
   font-size: 30rpx;
   color: #fff;
 }
+/* 走马灯滚动高度 */
 .notice .notice-middle swiper {
-  height: 60rpx;
+  height: 50rpx;
 }
-
 /* 左侧栏 */
-.content-row{  
-  display: flex;  
-  flex-direction: row;  
-}  
 .nav{
   background-color:#FFF;
 }
@@ -120,9 +101,8 @@
   height: 0;
   color: transparent;
 }
-/*左侧  */
 .content-scroll-left{
-  max-height:800rpx;
+   max-height:850rpx; 
   background-color:#FFF;
 }
 .swiper-tab {
@@ -131,14 +111,12 @@
   line-height: 88.7rpx;
   background-color:#f5f5f5;
 }
-
 .swiper-tab-list {
   font-size: 30rpx;
   display: inline-block;
   width: 100%;
   border-bottom: 1rpx solid rgba(0, 0, 0, 0.04);
 }
-
 .on {
   background-color:#FFF;
   color: #434343;
@@ -146,54 +124,39 @@
 }
 /*右侧  */
 .content-scroll-right{
-  max-height:800rpx;
+   max-height:850rpx; 
 }
-.context-title{
-  color: #777;
-  font-size: 25rpx;
-}
-.food-list{
-  width: 91.8%;
-  height: 180rpx;
-  border-bottom: 1rpx solid rgba(0, 0, 0, 0.05);
-  margin-left: 35rpx;
+/* 右侧图片 */
+.food-leftimg{
+  text-align: center;
 }
 .food-img{
   width: 120rpx;
   height: 120rpx;
-  padding-top: 35rpx;
+  padding-top: 15rpx; 
   border-radius:8rpx;
 }
- .context-name{
+/* 右侧中间菜品信息 */
+.context-name{
   width: 72%;
-  position: relative;
-  top:-125rpx; 
-  left:150rpx;   
+  padding-top: 20rpx;
   font-size: 30rpx;
   color: #646464;
 }
+/* 右侧中间菜品价格 */
 .context-price{
   width: 72%;
-  position: relative;
-  top:-124rpx;
-  left:145.5rpx; 
+  padding-top: 5rpx;
   font-size: 30rpx;
   color: #F64257;
 }
+/* 右下角加减标志 */
 .foot-right{
-  width: 23%;
-  position: relative;
-  left: 76%;
-  top:-82%;
-  flex:1;
-  display:flex;
-  flex-direction:row;
-  justify-content:flex-end;
-  align-items:center;
-  padding-right:10rpx;
   font-weight: lighter;
-
+  width: 160rpx;
+  margin-top:50%;
 }
+/* ico小图标 */
 .iconfont{
   font-family:"iconfont" !important;
   font-size:16px;
@@ -201,47 +164,55 @@
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
 }
+/* 加减号 */
 .sign{
   font-size: 40rpx;
   color:#f79f51; 
 }
+/* 数量 */
+.foot-count{
+  text-align: center;
+  padding-top: 5rpx;
+}
  .count{
   font-size:28rpx;
-  margin:0 20rpx;
   font-weight:bold;
 }
-/*购物车  */
- .flex-shop{
-  z-index: 2000;
-  position:fixed;
-  top:77%;
-  width:100%;
-  background-color:#fff;
-} 
-.cart-wrap {
-  position:fixed;
-  top:91.7%;
-  background-color:#fff;
-  border-top: 1rpx solid rgba(0, 0, 0, 0.05);
-  color:#fff;
-  width:100%;
-  line-height:50px;
+/* 没有更多了~ */
+.space{
+  width: 100%;
+  height:450rpx;
+  text-align: center;
+  margin-top: 20rpx;
+  color: #f58623;
+  font-size: 28rpx;
 }
-.cart-wrap .gouwuche {
-  width:150px;
+/*购物车  */
+.flex-shop{
+   width:99%;
+   position:fixed;
+   bottom: 0; 
+   background-color:#fff; 
+}
+.cart-wrap {
+  border-top: 1rpx solid rgba(0, 0, 0, 0.05);
+  padding-left: 40rpx;
 }
 .cart-wrap .gouwuche .gouwuche-wrap {
-  width:45px;
-  height:45px;
+  width:100rpx;
+  height:100rpx;
   text-align:center;
   background-color:#dcdcdc;
   border-radius:50%;
   position:absolute;
-  bottom:15px;
-  left:15px;
+  bottom:10px;
+  left:15px; 
 }
+/* 购物车小图标文本 */
 .cart-wrap .gouwuche text {
   font-size:28px;
+  position: relative;
+  top:20rpx;
 }
 .iconfont {
   font-family:"iconfont" !important;
@@ -250,147 +221,78 @@
   -moz-osx-font-smoothing:grayscale;
 }
 .signshop{
-   font-size:16px;
    color: #969696;
 }
+/* 购物车提示文字 */
 .cart-wrap .info {
   width:100%;
 }
 .cart-wrap .info .prompt {
   width:100%;
   height:22rpx;
-  line-height:20rpx;
+  line-height:80rpx;
   font-size: 30rpx;
-  position: relative;
-  left: 150rpx; 
-  color: #999;
+  color: #9b9b9b;
 }
-.cart-wrap .gouwuche .gouwuche-count {
-  background-color:#F75164;
-  font-size:12px;
-  color:#fff;
-  width:20px;
-  height:15px;
-  position:absolute;
-  bottom:46px;
-  left:45px;
-  border-radius:50%;
-  line-height:20px;
-  text-align:center;
-  padding-bottom: 11rpx;
-}
- .cart-wrap .jiesuan {
-  width:150px;
-  background-color:#f5a623;
-  text-align:center;
-  font-size:16px;
-} 
-/*清空购物车  */
-.display_show{  
-    display: block;
-}  
-.display_none{  
-    display: none;
-}
-.cart-content {
-  width:100%;
-  overflow:hidden;
-}
-.cart-content .tool {
-  display:flex;
-  line-height:70rpx;
-  border-bottom:1px solid #ededed;
+/* 购物车有数据时的状态 */
+/* 购物车头部信息 */
+.clear-context-head{
   background-color: #f7f7fa;
 }
-.cart-content .tool .left {
-  width:70%;
-  height: 70rpx;
+/* 左侧-购物车字样 */
+.clear-context-left{
   padding-left:15px;
-  background-color: #f7f7fa;
   color: #c0bbb5;
   font-size:26rpx;
+  line-height: 60rpx;
 }
-.right-clear {
-  width:30%;
-  height: 70rpx;
-  text-align:left;
-  background-color: #f7f7fa;
+/* 右侧-清空购物车字样 */
+.clear-context-right{
+  text-align: right;
+  padding-right: 30rpx;
   color: #c0bbb5;
   font-size:26rpx;
-  padding-left:150rpx;
+  line-height: 60rpx;
 }
+/* 右侧-清空购物车小图标 */
 .clear{
-  font-size: 28rpx;
+  padding-right: 10rpx;
 }
-.cart-content .content-scroll {
+/* 购物车菜品购买详情 */
+.content-scroll {
   width:100%;
-  max-height:100rpx;
+  max-height:87rpx;
 }
-.carinfo{
-  width:100%;
-  height: 100rpx;
-  border-bottom:1px solid #ededed;
+.clear-context-foodName{
+  padding-left:25rpx;
 }
-.cart-content .content-scroll .content-item {
-display:flex;
-flex-direction:row;
-line-height:40px;
-padding-left:15px;
-}
-.cart-content .content-scroll .content-item .title {
-width:100%;
-font-size:14px;
-font-weight:bold;
-}
-.action {
-  width: 30%;
-  text-align:center;
-  position: relative;
-  left: 70%;
-  bottom:70rpx; 
-}
-.buydel {
-  font-size:36rpx;
-  color:#f7b172;
-  text-align:center;
-}
-.cart-content .content-scroll .content-item .action .count {
-font-size:26rpx;
-color:#b2b2b2;
-min-width:14px;
-text-align:center;
-padding:0 5px;
-}
-.buy {
-  font-size:36rpx; 
-  color:#f7b172;
-  text-align:center;
-}
-.exit-cart-wrap{
-  position:fixed;
-  top:88.2%;
-  color:#fff;
-  width:100%;
+.clear-foodName{
   line-height:40px;
-  height:130rpx;
+  font-size:14px;
+  font-weight:bold;
+  color: #333333;
 }
-.exit-cart-wrap .gouwuche .gouwuche-count {
-  background-color:#F75164;
-  font-size:9px;
-  color:#fff;
-  width:15px;
-  height:10px;
-  position:absolute;
-  bottom:85rpx;
-  left:41px;
-  border-radius:50%;
-  line-height:15px;
+/* 购物车菜品购买详情-加减图标 */
+.clear-context-icon{
+  padding-top: 10rpx;
+}
+ .buydel {
+  font-size:40rpx;
+  color:#f79f51;
   text-align:center;
-  padding-bottom: 11rpx;
+} 
+.clear-context-count{
+  text-align: center;
+}
+/* 购物车尾部信息以及提交订单 */
+.clear-select-gouwuche{
+  position:fixed;
+  bottom: 0;
+  line-height:40px;
 }
 .gouwuche-wrap1{
-  width:38px;
-  height:38px;
+  width:100rpx;
+  height:100rpx;
   text-align:center;
   background-color:#f58623;
   border-radius:50%;
@@ -398,49 +300,60 @@ padding:0 5px;
   bottom:30rpx;
   left:15px;
 }
+.clear-select-gouwuche .gouwuche-wrap1 text {
+  font-size:28px;
+  position: relative;
+  top:10rpx;
+}
 .aftershop{
-   font-size:22px;
+   font-size:30px;
    color: #fff;
+}
+.gouwuche-count {
+  background-color:#F75164;
+  font-size:9px;
+  color:#fff;
+  width:15px;
+  height:10px;
+  border-radius:50%;
+  line-height:15px;
+  text-align:center;
+  padding-bottom: 11rpx;
+  position: relative;
+  bottom: 100rpx;
+  left:103rpx;
+}
+.clear-select-info{
+  line-height: 40rpx;
+}
+.clear-select-sum{
+   text-align: right;
+   position: relative;
+   bottom: 20rpx;
+   left: 35rpx; 
 }
 .prompt-money{
   font-family: PingFangSC;
   font-size: 30rpx;
   color: #333333;
-  margin-left:140rpx;
-  line-height:10rpx;
+}
+.clear-select-money{
+  position: relative;
+  bottom: 20rpx;
+  left: 20rpx; 
 }
 .p-money{
   font-family: PingFangSC;
   font-size: 30rpx;
-  text-align: left;
   color:#f58623;
 }
-.exit-cart-wrap .jiesuan {
- width:100px;
-background-color:#f5a623;
-text-align:center;
-font-size:30rpx;
-margin-top:-80rpx;
-float:right;
-height:80rpx;
-}
-.exit-cart-wrap .info{
-  border-top:1rpx solid rgba(0, 0, 0, 0.05);
-  background-color: #fff;
-  height:80rpx;
-  margin-top:40rpx;
-}
-.dianji{
-  width:100%;
-}
-.hid{
-  width: 100%;
-}
-.space{
-  width: 100%;
-  height:450rpx;
+.clear-select-sub{
+  background-color:#f5a623;
   text-align: center;
-  margin-top: 20rpx;
-  color: #f58623;
-  font-size: 28rpx;
+}
+.jiesuan {
+  background-color:#f5a623;
+  font-size:30rpx;
+  line-height: 100rpx;
+  color: #fff;
 }

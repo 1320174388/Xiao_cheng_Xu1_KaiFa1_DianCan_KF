@@ -41,72 +41,44 @@ page{
   background:#fff;
   margin-top:20px; 
   width: 90%;
-  margin-left: 10px;
+  margin-left: 30rpx;
 }
 
 #panel text{
   line-height: 5vh;
-  font-size: 10px;
+  font-size: 22rpx;
   font-family:"LiHei Pro Medium ",儷黑 Pro;
+  padding-left: 15rpx;
 }
-/*表格文本内容设置  */
-.flex-row{
-  display: flex;
-  flex-direction: row;
-}
-.flex-row1{
-  display: flex;
-  flex-direction: row;
-  padding-left: 20px;
-  border-bottom: 1rpx solid #ddd;
-  border-right: 1rpx solid #ddd;
-}
-.flex-row2{
-  display: flex;
-  flex-direction: row;
-  text-align: left;
-  padding-left: 5px;
-  border-bottom: 1rpx solid #ddd;
-  border-right: 1rpx solid #ddd;
-}
-.flex-row3{
-  display: flex;
-  flex-direction: row;
-   padding-left: 5px;
-  border-bottom: 1rpx solid #ddd;
-  border-right: 1rpx solid #ddd;
-}
-.flex-row4{
-  display: flex;
-  flex-direction: row;
-  padding-left: 5px;
-  border-bottom: 1rpx solid #ddd;
-}
-.flex-row5{
-   display: flex;
-  flex-direction: row;
-  padding-left: 17px;
-  border-right: 1rpx solid #ddd;
-}
-.flex-row6{
-    display: flex;
-    flex-direction: row;
-    float: right;
-    position: relative;
-    left: 70px;
-   color: skyblue;
-}
-.flex-row7{
-   display: flex;
-  flex-direction: row;
-  padding-right: 0px;
-   color: red;
-}
-.flex-column{
-  display: flex;
+.content-column{
+  display: flex;  
   flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
+}
+.content-row{  
+  display: flex;  
+  flex-direction: row;
+}
+.content-numName{
+  border-bottom:solid 1px #eaeaea;
+  border-right:solid 1px #eaeaea;
+}
+.content-Number{
+  border-bottom:solid 1px #eaeaea;
+  border-right:solid 1px #eaeaea;
+}
+.content-statusName{
+  border-bottom:solid 1px #eaeaea;
+  border-right:solid 1px #eaeaea;
+}
+.content-status{
+  border-bottom:solid 1px #eaeaea;
+}
+.content-numNames{
+  border-right:solid 1px #eaeaea;
+  text-align: center;
+}
+.content-Numbers{
+  text-align: right;
 }
 .textHidden{
    /* 超出一行文字自动隐藏 */
@@ -116,22 +88,7 @@ page{
    /* //强制不换行 */
   white-space:nowrap;  
 }
-/*表格单元格设置  */
-.flex-cell{
-  flex: 1;
-}
-.flex-cell1{
-  flex: 1.5;
-}
-.flex-cell2{
-  flex: 3;
-}
-.flex-cell3{
-  flex: 1.5;
-}
-.flex-cell4{
-  flex: 3;
-}
+
 
 
 

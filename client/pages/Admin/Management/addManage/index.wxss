@@ -3,63 +3,59 @@
 page {
     background: #F6F6F6;
 }
-/*提示框  */
-input{
+.content-column{
+  display: flex;  
+  flex-direction: column;
+  width: 100%;
+  margin-top: 10rpx;
+}
+.header{
+  height: 100rpx;
+  background: #FFF;
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+.content-row{  
+  display: flex;  
+  flex-direction: row;
+}
+.content-name{
+  font-size: 35rpx;
+  color: #000000;
+  line-height:100rpx;
+  padding-left:30rpx;
+}
+.content-prom{
+  font-size: 35rpx;
+  padding-top:24rpx;
+  color: #cccccc;
+}
+.content-ico{
   float: right;
-  margin-top: 13px;
-  margin-right: 80px;
+  color: #cccccc;
+  font-size:55rpx;
+  text-align:right;
+  padding-right:30rpx;
+  padding-top:10rpx;
 }
-/* 列表布局 */
-.tunnel{
-    margin-top: 40rpx;
-    height: 240rpx;
-    width: 100%;
-    background: #FFF;
-    padding-left: 20px;
+.context-choose{
+  margin-top: 15rpx;
 }
-
-.uploader-text, .tunnel-text {
-    width: 100%;
-    line-height: 50px;
-    font-size: 35rpx;
-    color: #007AFF;
-    font-family:"LiHei Pro Medium ",儷黑 Pro;
-}
-
-.tunnel-text {
-    color: #222;
-    border-bottom: 1px solid rgba(0, 0, 0, .1);
-}
-/*下拉选项  */
-span{
-  position: absolute;
-  right:15px;
-  font-size: 25px;
-  color:gainsboro;
-}
-.sp{
-  position: absolute;
-  right:15px;
-  font-size: 25px;
-  color:gainsboro;
-  top:120px;
-}
-.uploader-text1, .tunnel-text1 {
+.pow-tx{
   padding-left: 30rpx;
-  margin-top: 30rpx;
-  margin-bottom: 10rpx;
-  line-height: 30rpx;
-  color: rgba(0, 0, 0, 0.3);
-  font-size: 28rpx;
-  font-family:"LiHei Pro Medium ",儷黑 Pro;
+  font-size: 26rpx;
+  color: Gray;
 }
+.bord{
+  border-top: 1px solid rgba(0, 0, 0, .1);
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
 /*确定  */
 .tunne2{
     margin-top: 100%;
     height: 50px;
     width: 100%;
     background:SkyBlue;
-    
 }
 .sure{
     color: #FFF;
@@ -97,21 +93,24 @@ span{
     color: #222;
     font-family:"LiHei Pro Medium ",儷黑 Pro;
     background-color: #FFF;
-    padding-left: 20px;
 }
 .chooseText{
   border-bottom: 1px solid rgba(0, 0, 0, .1);
-  line-height: 15px;
-  padding-bottom: 10px;
+  line-height: 90rpx;
+  padding-left: 30rpx;
 }
 .tunnel-switch{
   float: right;
   position: relative;
   right: 30px;
 }
+/*确定  */
 .but{
   background:#77b3ff;
   color: #FFF;
+  width: 100%;
+  position:fixed;
+  bottom: 0;
 }
 
 

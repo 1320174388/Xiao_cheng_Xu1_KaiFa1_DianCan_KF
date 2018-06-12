@@ -3,21 +3,23 @@
     <!-- 顶部-logo -->
     <view style="flex:1">
       <view class="shopInfo">
-        <view class='shopname'>
-          <view class='shopname-backcolor'>
-            <text class='context-dian'>点餐</text>
-            <text class='context-xiao'>小程序</text>
-          </view>
-          <view class='text-shopname'>
-            <text class='context-shopname'>点餐小程序店铺名</text>
+        <view class="content-row top-head">
+          <view style="flex:1">
+            <view class='shopname-backcolor'>
+              <text class='context-dian'>点餐</text>
+              <text class='context-xiao'>小程序</text>
+            </view>
+          </view> 
+          <view style="flex:3">
+             <text class='context-shopname'>点餐小程序店铺名</text>  
           </view>
         </view>
         <!-- 走马灯-公告 -->
-        <view class="notice">
+        <view class="notice">  
           <!-- 公告小图标 -->
-          <view class="notice-left"> 
+           <view class="notice-left"> 
             <text class="iconfont icon-prom notice-icon"></text>
-          </view>
+          </view>  
           <!-- 公告内容 -->
           <view class="notice-middle">
             <swiper autoplay="true" circular="true" vertical="true" interval="3000" duration="500" bindchange="noticesChange">
@@ -31,52 +33,76 @@
         </view>
       </view>
     </view>
-    <!-- 菜单栏 -->
-    <view style="flex:4">
+    <!-- 中间菜单栏 -->
+    <view style="flex:1">
       <view class="content-row">
-        <!-- 左侧栏   --> 
-        <view  style="flex:1">
-          <view class='nav'>
-            <scroll-view class="content-scroll-left" scroll-y>
-              <block wx:for="{{navbar}}" wx:key="{{index}}">
-                <view class="swiper-tab">
-                  <view data-idx="{{index}}" class="swiper-tab-list {{currentTab==index ? 'on' : ''}}"                    data-current="0" bindtap="swichNav">
-                        {{item.class_name}}
-                  </view>
+      <!-- 左侧栏   --> 
+      <view  style="flex:1">
+        <view class='nav'>
+          <scroll-view class="content-scroll-left" scroll-y>
+            <block wx:for="{{navbar}}" wx:key="{{index}}">
+              <view class="swiper-tab">
+                <view data-idx="{{index}}" class="swiper-tab-list {{currentTab==index ? 'on' : ''}}"                    data-current="0" bindtap="swichNav">
+                  {{item.class_name}}
                 </view>
-              </block>
-            </scroll-view>
-          </view>
+              </view>
+            </block>
+            <view style='height:80rpx;background-color: #eee;'></view> 
+          </scroll-view>
         </view>
-        <!-- 右侧栏  --> 
+      </view>
+      <!-- 右侧栏  --> 
         <view style="flex:3;">
           <scroll-view class="content-scroll-right" scroll-y>
             <block wx:for="{{navbar}}" wx:key="index">
               <view hidden="{{currentTab!==index}}">
-                <view class="weui-cells__title">
+                <view>
                   <view wx:for="{{item.food_info}}" wx:for-item="items" wx:key="index" class='food-list'>
-                    <view class='dianji' data-food_info="{{items}}" data-index="{{index}}" bindtap='single'>
-                      <image src='{{host}}{{items.food_img}}' class='food-img'></image>
-                      <view  class='context-name'>
-                        <text>{{items.food_name}}</text>
+                    <view class="content-row">
+                      <view style="flex:2.5">
+                        <view data-food_info="{{items}}" data-index="{{index}}" bindtap='single'>
+                          <view class="content-row">
+                            <!-- 左边菜品图片 -->
+                            <view style="flex:1" class='food-leftimg'>
+                              <image src='{{host}}{{items.food_img}}' class='food-img'></image>
+                            </view>
+                            <!-- 中间菜品信息 -->
+                            <view style="flex:1.7">
+                              <view  class='context-name'>
+                                <text>{{items.food_name}}</text>
+                              </view>
+                              <view class='context-price'>
+                                <text>￥{{items.food_price}}</text>
+                              </view>
+                            </view>
+                          </view>
+                        </view>
                       </view>
-                      <view class='context-price'>
-                        <text>￥{{items.food_price}}</text>
+                      <!-- 右下角加减标志 -->
+                      <view style="flex:0.5">
+                        <view class="content-row foot-right">
+                          <view style="flex:1">
+                            <view class="iconfont icon-minus2 sign" data-index='{{index}}' 
+                              data-food_id="{{items.id}}" data-del='true'
+                              bindtap="submitCart"  
+                              wx:if="{{food_info_arr.foods_crat[items.id].food_number>0}}" >
+                            </view>
+                          </view>
+                          <view style="flex:1" class='foot-count'>
+                            <view class="count" data-count="0">
+                              {{food_info_arr.foods_crat[items.id].food_number}}
+                            </view>
+                          </view>
+                          <view style="flex:1">
+                            <view class="iconfont icon-plus1 sign" data-index='{{index}}' 
+                              data-food_id="{{items.id}}" data-add='true'
+                              bindtap="submitCart">
+                            </view>
+                          </view>
+                        </view>
                       </view>
-                    </view> 
-                    <view class='foot-right'>
-                      <view class="iconfont icon-minus2 sign" data-index='{{index}}' 
-                          data-food_id="{{items.id}}" data-del='true'  bindtap="submitCart"  
-                          wx:if="{{food_info_arr.foods_crat[items.id].food_number>0}}" >
-                      </view>
-                      <view class="count" data-count="0">
-                        {{food_info_arr.foods_crat[items.id].food_number}}
-                      </view>
-                      <view class="iconfont icon-plus1 sign" data-index='{{index}}' 
-                          data-food_id="{{items.id}}" data-add='true'  bindtap="submitCart">
-                      </view> 
-                    </view> 
-                  </view>
+                    </view>
+                  </view> 
                 </view>
               </view>
             </block>
@@ -85,62 +111,119 @@
         </view>
       </view>
     </view>
-    <!-- 购物车 -->
+    <!-- 尾部购物车 -->
     <view style="flex:1" class='flex-shop'>
+      <!-- 购物车无数据时的状态 -->
       <view class="{{food_info_arr.foods_crat?'display_none':'display_show'}} cart-wrap">
-        <view class="gouwuche" bindtap="cartClick">
-            <view class="gouwuche-wrap">
-              <text class="iconfont icon-shopping signshop" bindtap="showitems"></text>
-            </view>
-        </view>
-        <view class='info'>
-          <text class='prompt'>客观，看看今天要吃什么呢？</text>
-        </view>
-      </view>
-      <!-- 清空购物车  -->
-      <view class="{{food_info_arr.foods_crat?'display_show':'display_none'}}">
-        <view class="cart-content">
-          <view class="{{carlist?'display_show':'display_none'}} hid">
-            <view class="tool">
-              <view class="left">购物车</view>
-              <view class="right-clear" bindtap="showitemes">
-                <text class="iconfont icon-shanchu clear"></text>
-                清空购物车
+        <view class="content-row">
+          <!-- 购物车图标 -->
+          <view style="flex:0.4">
+            <view class="gouwuche" bindtap="cartClick">
+              <view class="gouwuche-wrap">
+                <text class="iconfont icon-shopping signshop" bindtap="showitems"></text>
               </view>
             </view>
-            <scroll-view class="content-scroll" scroll-y>
-              <block wx:for="{{food_info_arr.foods_crat}}" wx:key="index" wx:if="{{item}}" >
-                <view class='carinfo'>
-                  <view class="content-item">
-                    <view class="title">{{item.food_name}}</view>
-                  </view>
-                  <view class="action">
-                    <text class="iconfont icon-minus2 buydel" data-food_id="{{index}}" data-del='true' bindtap='submitCart' ></text>
-                    <text class="count">{{item.food_number}}</text>
-                    <text class="iconfont icon-plus1 buy" data-food_id="{{index}}" data-add='true' bindtap='submitCart' ></text>
-                  </view>
-                </view>
-              </block>
-            </scroll-view>
           </view>
-          <view class="exit-cart-wrap">
-            <view class="gouwuche" bindtap="cartClick">
-                <view class="gouwuche-wrap1" bindtap='carlist'>
-                  <text class="iconfont icon-shopping aftershop"></text>
-                </view>
-                <view class="gouwuche-count">{{food_info_arr.foods_number}}</view>
-            </view>
+          <!-- 购物车提示文字 -->
+          <view style="flex:2">
             <view class='info'>
-              <text class='prompt-money'>合计：<text class='p-money'>￥{{food_info_arr.foods_price}}</text></text>
+              <text class='prompt'>客观，看看今天要吃什么呢？</text>
             </view>
-            <view class="jiesuan" bindtap='end'>去下单</view>
-          </view>
-        </view>  
+          </view>  
+        </view>
       </view>
-    </view>
-  </view> 
+      <!-- 购物车有数据时的状态 -->
+      <view class="{{food_info_arr.foods_crat?'display_show':'display_none'}}">
+        <view class="content-column">
+          <!-- 购物车头部信息以及菜品购买详情 -->
+          <view class="{{carlist?'display_show':'display_none'}} hid">
+            <view style="flex:1">
+              <view class="content-column">
+                <!-- 购物车头部信息 -->
+                <view style="flex:1" class='clear-context-head'>
+                  <view class="content-row">
+                    <!-- 左侧-购物车字样 -->
+                    <view style="flex:1">
+                      <view class="clear-context-left">购物车</view>
+                    </view>
+                    <!-- 右侧-清空购物车字样 -->
+                    <view style="flex:1" class='clear-context-right' bindtap='showitemes'>
+                      <text class="iconfont icon-shanchu clear"></text>
+                      <text>清空购物车</text> 
+                    </view> 
+                  </view>
+                </view>
+                <!-- 购物车菜品购买详情 -->
+                <view style="flex:1">
+                  <scroll-view class="content-scroll" scroll-y>
+                    <block wx:for="{{food_info_arr.foods_crat}}" wx:key="index" wx:if="{{item}}" >
+                      <view class="content-row">
+                        <!-- 菜品名称 -->
+                        <view style="flex:1" class='clear-context-foodName'>
+                          <view class="clear-foodName">{{item.food_name}}</view>
+                        </view>
+                        <!-- 加减数量 -->
+                        <view style="flex:0.27"
+                               class='clear-context-icon'>
+                          <view class="content-row">
+                            <!-- 减号 -->
+                            <view style="flex:1">
+                              <text class="iconfont icon-minus2 buydel" data-food_id="{{index}}" data-del='true' bindtap='submitCart' ></text>
+                            </view>
+                            <!-- 数量 -->
+                            <view style="flex:1" class='clear-context-count'>
+                              <text class="count">{{item.food_number}}</text>
+                            </view> 
+                            <!-- 加号 -->
+                            <view style="flex:1">
+                              <text class="iconfont icon-plus1 buydel" data-food_id="{{index}}" data-add='true' bindtap='submitCart' ></text>
+                            </view> 
+                          </view>
+                        </view>  
+                      </view>
+                    </block>
+                  </scroll-view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <!-- 购物车尾部信息以及提交订单 -->
+        <view style="flex:1">
+          <view class="content-row">
+            <!-- 购物车图标 -->
+              <view style="flex:0.4">
+                <view class="clear-select-gouwuche" bindtap="cartClick">
+                  <view class="gouwuche-wrap1" bindtap='carlist'>
+                    <text class="iconfont icon-shopping aftershop"></text>
+                  </view>
+                  <view class="gouwuche-count">{{food_info_arr.foods_number}}</view> 
+                </view>
+              </view>
+              <!-- 购物车提示文字 -->
+               <view style="flex:2">
+                <view class="content-row clear-select-info">
+                  <!-- 合计 -->
+                  <view style="flex:0.21" class="clear-select-sum">
+                    <text class='prompt-money'>
+                      合计：
+                    </text>
+                  </view>
+                  <!-- 显示价钱 -->
+                   <view style="flex:0.5" class="clear-select-money">
+                    <text class='p-money'>
+                      ￥{{food_info_arr.foods_price}}
+                    </text>
+                  </view> 
+                </view>
+              </view> 
+              <!-- 购物车提示去下单 -->
+              <view style="flex:0.64" class="clear-select-sub">
+                <view class="jiesuan" bindtap='end'>去下单</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+  </view>
 </view>
-
-
-
- 

@@ -78,8 +78,8 @@
         <view class='look-detailed'>
           <text>查看详情</text>
         </view>
-        <view class='payed-money'>
-          <text>已付款</text>
+        <view class='pay-money'>
+          <text>付款</text>
         </view> 
       </view>
   </view>
@@ -91,17 +91,41 @@
   
 <!--约定-->  
 <view hidden="{{currentTab!==2}}">
-  <view class='all'>
-      <view class='all-one'>  
-        <span class="one">还记得?</span>      
+  <view class='diancan'>
+      <view class='number'>
+          <view class='img'>
+            <image src='{{imghost}}mana.png' class='img1'></image> 
+          </view>
+          <view class='texte'>
+            <text class='context-number'>订单号：120012033</text>
+            <text class='exit'>已取消</text>
+          </view>
       </view>
-      <view class='all-two'>
-        <span class="two">我与你之间的那个约定吗!</span> 
-      </view> 
-  </view>
-</view> 
 
-<!-- 排队 -->
-<view hidden="{{currentTab!==3}}">
-  <text>正在排队，请稍等！</text>
+      <view class='xiangqing'>
+        <view class='desk1'>
+          <text class='remarks'>座号</text>
+          <text class='info1'>1号桌</text>
+        </view>
+          
+         <view class='desk'>
+          <text class='remarks'>下单时间</text>
+          <text class='info'>2018-05-01 13:57:44</text>
+        </view>
+
+        <view class='desk'>
+          <text class='remarks'>备注</text>
+          <text class='info'>多醋多辣多麻油</text>
+        </view>
+      </view>
+
+      <view class='look'>
+        <view class='look-detailed'>
+          <text bindtap='lookInfo'>查看详情</text>
+        </view>
+        <view class='payed-money'>
+          <text>已付款</text>
+        </view> 
+      </view>
+  </view>
 </view> 

@@ -126,13 +126,17 @@ button.add{
 .title .name{
   float:left;
 }
-.title .xiangq{
+.xiangq{
   float:right;
   color:#666;
   font-size:30rpx;
   padding:0;
   margin:0;
   background: #fff;
+  line-height: 62rpx;
+}
+.xiangq::after{
+  border:none;
 }
 .num{
   color: #666;
@@ -206,5 +210,23 @@ button.add{
   background: none;
 }
 .lookup::after{
+  border: none;
+}
+.menu .right{
+  border-left:1rpx solid #eaeaea; 
+}
+button.modifys{
+  color:#9ECDF8;
+  margin-top: 20rpx;
+}
+button.modifys::after{
+  border: none;
+  border-bottom:1rpx solid #eaeaea; 
+}
+button.removes{
+  padding-top: 10rpx;
+  color:#F86374;
+}
+button.removes::after{
   border: none;
 }

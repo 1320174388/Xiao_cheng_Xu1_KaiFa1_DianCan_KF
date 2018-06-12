@@ -143,8 +143,8 @@ page{
   .payed-money{
     font-size: 30rpx;
     color:#fff;
-    border-radius: 8px;
-    background-color: #dddddd;
+    border-radius: 4px;
+    background-color: lightgreen;
     width: 161rpx;
     height: 60rpx;
     text-align: center;

@@ -1,28 +1,32 @@
 <!--总经理 ID:445678  -->
 <view class="tunnel">
-     <view class="list"  wx:for="{{array}}" wx:key="{{index}}">
+     <view class="list"  wx:for="{{array}}" wx:key="index" wx:if="{{item}}">
         <form bindsubmit="formSubmit" >
-            <view class="left">
+          <view class="content-row">
+            <view  style="flex:4" class='content-left'>
+            <!-- 名称 -->
+              <view class="left">
                 <view>职位名称:{{item.role_name}}</view>
                 <text class="tx1">职位ID:{{item.id}}</text>
+              </view>
             </view>
-            <view class="right">
-                <input hidden name="id" value="{{item.id}}"></input>
-                <input hidden name="roleName" value="{{item.role_name}}"></input>
-                <view  class="posion-modify">
-                  <button class='modify' form-type="submit">修改</button>
+            <!-- 修改删除 -->
+            <view  style="flex:1" class='content-right'>
+              <view class="content-column">
+                <view  style="flex:1" class='content-xiugai'>
+                  <input hidden name="id" value="{{item.id}}"></input>
+                  <input hidden name="roleName" value="{{item.role_name}}"></input>
+                    <button class='modify' form-type="submit">修改</button>
                 </view>
-            <!-- 删除  -->
-            <view  class="posion-remove">
-              <text class="remove" data-editid="{{item.id}}" bindtap="deleteClick">删除</text>
+                <view  style="flex:1" class='content-shanchu'>
+                  <text class="remove" data-editid="{{item.id}}" bindtap="deleteClick">删除</text>
+                </view>
+              </view>
             </view>
-                
-            </view>
+          </view>
        </form>
    </view>
 </view>
-
-
 <!--添加  -->
     <view class="tunne2">
       <button class="add" bindtap="add">添加</button>

@@ -17,40 +17,40 @@
     <!-- 选项 -->
     <view style="flex:1" class='list'>
       <view class="content-row">  
-      <!-- 点餐 -->
+      <!-- 首页 -->
         <view  style="flex:1">
           <view class="content-column">  
             <view style="flex:1" class="imgdiancan">
               <image src='../../../icon/dfood.png' class='img'></image>
             </view>  
-            <view style="flex:1" class='context-diancan'>点餐</view> 
+            <view style="flex:1" class='context-diancan'>首页</view> 
           </view>
         </view>
-          <!-- 预定 -->
+          <!-- 点餐 -->
         <view style="flex:1">
           <view class="content-column">  
             <view style="flex:1" class="imgyuding">
               <image src='../../../icon/order1 (2).png' class='img'></image>
             </view>  
-            <view style="flex:1" class='context-diancan'>预定</view> 
+            <view style="flex:1" class='context-diancan'>点餐</view> 
           </view>
         </view>
-          <!-- 外卖 -->
+          <!-- 订单 -->
         <view style="flex:1">
           <view class="content-column">  
             <view style="flex:1" class="imgwaimai">
               <image src='../../../icon/setfood.png' class='img'></image>
             </view>  
-            <view style="flex:1" class='context-diancan'>外卖</view> 
+            <view style="flex:1" class='context-diancan'>订单</view> 
           </view>
         </view>
-        <!-- 排队 -->
+        <!-- 预约 -->
         <view style="flex:1">
           <view class="content-column">  
             <view style="flex:1" class="imgpaidui">
               <image src='../../../icon/time.png' class='img'></image>
             </view>  
-            <view style="flex:1" class='context-diancan'>排队</view> 
+            <view style="flex:1" class='context-diancan'>预约</view> 
           </view>
         </view>    
       </view>  
