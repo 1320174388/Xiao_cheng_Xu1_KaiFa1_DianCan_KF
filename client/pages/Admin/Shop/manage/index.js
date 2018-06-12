@@ -10,6 +10,7 @@ Page({
    */
   data: {
     host:null,
+    imgUrl: config.service.imgUrl,
     shop:null,
     select:false,
     selected:true,

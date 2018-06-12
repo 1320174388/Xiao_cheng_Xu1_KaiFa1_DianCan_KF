@@ -8,6 +8,7 @@ Page({
    */
   data: {
     host: config.service.host,
+    imgUrl: config.service.imgUrl,
     shop_value:null,
     image_url:null,
     image_true:false

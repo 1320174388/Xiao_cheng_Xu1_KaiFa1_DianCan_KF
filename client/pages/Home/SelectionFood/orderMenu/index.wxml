@@ -37,7 +37,7 @@
     <view style="flex:1">
       <view class="content-row">
       <!-- 左侧栏   --> 
-      <view  style="flex:1">
+      <view  style="flex:1;background-color: #f5f5f5">
         <view class='nav'>
           <scroll-view class="content-scroll-left" scroll-y>
             <block wx:for="{{navbar}}" wx:key="{{index}}">
@@ -47,7 +47,7 @@
                 </view>
               </view>
             </block>
-            <view style='height:80rpx;background-color: #eee;'></view> 
+            <view style='height:80rpx;background-color:#f5f5f5;'></view> 
           </scroll-view>
         </view>
       </view>
