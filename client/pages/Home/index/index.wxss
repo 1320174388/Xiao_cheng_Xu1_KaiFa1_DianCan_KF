@@ -132,3 +132,15 @@ swiper image{
 .proList .lists text{
   display: block;
 }
+/*地老天荒售后电话  */
+.dlth{
+  width: 100%;
+  text-align: center;
+  color: #ccc;
+  font-size: 30rpx;
+  padding: 30rpx 0 20rpx 0;
+}
+.dlth_logo{
+  width: 400rpx;
+  margin-bottom: 10rpx;
+}
