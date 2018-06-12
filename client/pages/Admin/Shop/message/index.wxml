@@ -21,8 +21,8 @@
       <view class='pic'>
           <text class='title'>店铺图片</text>
           <view class='pics'>
-              <image bindtap="image" wx:if="{{image_url}}" wx:for="{{image_url}}" wx:key='{{index}}' src='{{item.shop_img}}'></image>
-              <image bindtap="image" wx:if="{{image_url == null}}" src='/icon/uppic.png'></image>
+              <image bindtap="image" wx:if="{{item.shop_img}}" wx:for="{{image_url}}" wx:key='{{index}}' src='{{item.shop_img}}'></image>
+              <image bindtap="image" wx:if="{{!item.shop_img}}" src='{{imgUrl}}uploadImg.png'></image>
           </view>
       </view>
       <button formType="submit" >确定</button>
