@@ -121,7 +121,7 @@ App({
       var price = 0;
       for (var i in arr){
         if (arr[i]) {
-          price += (parseFloat(arr[i].food_price) * parseFloat(arr[i].food_number));
+          price += (((parseFloat(arr[i].food_price)*100)*parseFloat(arr[i].food_number)))/100;
         }
       }
       return price;

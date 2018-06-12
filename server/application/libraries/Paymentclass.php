@@ -44,16 +44,16 @@ class Paymentclass
 
         //统一下单参数构造
         $unifiedorder = [
-            'appid'            => $config['appid'],
-            'mch_id'           => $config['mch_id'],
-            'nonce_str'        => self::getNonceStr(),
-            'body'             => $body,
-            'out_trade_no'     => $order_number,
-            'total_fee'        => $total_fee,
-            'spbill_create_ip' => self::GetIP(),
-            'notify_url'       => 'https://'.$_SERVER['HTTP_HOST'].'/api/home/placeOrder/WxChat_notify',
-            'trade_type'       => 'JSAPI',
-            'openid'           => $openid
+        'appid'            => $config['appid'],
+        'mch_id'           => $config['mch_id'],
+        'nonce_str'        => self::getNonceStr(),
+        'body'             => $body,
+        'out_trade_no'     => $order_number,
+        'total_fee'        => $total_fee,
+        'spbill_create_ip' => self::GetIP(),
+        'notify_url'       => 'https://'.$_SERVER['HTTP_HOST'].'/api/home/placeOrder/WxChat_notify',
+        'trade_type'       => 'JSAPI',
+        'openid'           => $openid
         ];
         $unifiedorder['sign'] = self::makeSign($unifiedorder,$key);
 

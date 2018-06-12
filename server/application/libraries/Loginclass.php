@@ -68,7 +68,8 @@ class Loginclass {
             "errNum"  => 0,
             "retMsg"  => "请求成功,成功返回用户Token令牌",
             "retData" => [
-                "token" => $token
+                "token"  => $token,
+                'userId' => $user_id
             ]
         ];
     }
