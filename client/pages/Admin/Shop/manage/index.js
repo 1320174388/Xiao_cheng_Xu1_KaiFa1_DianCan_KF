@@ -93,21 +93,32 @@ Page({
 // 删除座号
   hidedel: function (e) {
     var del = this;
-    app.post(
-      config.shop.del_tables, {
-        'token': wx.getStorageSync('token'),
-        'table_id': e.currentTarget.dataset.editid
-      }, function (res) {
-        if (res.data.errNum == 0) {
-          app.point(res.data.retMsg, "success");
-          setTimeout(function () {
-            del.onLoad(); 
-          }, 3000);
-        } else {
-          app.point(res.data.retMsg, "none");
-        };
+    wx.showModal({
+      title: '提示',
+      content: '确定要删除吗？',
+      success:function(res){
+        if(res.confirm){
+          // 删除的api
+          app.post(
+            config.shop.del_tables, {
+              'token': wx.getStorageSync('token'),
+              'table_id': e.currentTarget.dataset.editid
+            }, function (res) {
+              if (res.data.errNum == 0) {
+                app.point(res.data.retMsg, "success");
+                setTimeout(function () {
+                  del.onLoad();
+                }, 3000);
+              } else {
+                app.point(res.data.retMsg, "none");
+              };
+            }
+          );
+
+        }
       }
-    );
+    })
+    
   },
 // 二维码
   tap:function(e){

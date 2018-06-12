@@ -16,12 +16,12 @@
             <input hidden name="shop_addr" value="{{shop.shop_addr}}" ></input>
       </view>
       <view class='list'>
-            <text class='key'>电话</text>
+            <text class='key'>联系电话</text>
             <text class='value'>{{shop.shop_phone}}</text>
             <input hidden name="shop_phone" value="{{shop.shop_phone}}" ></input>
       </view>
       <view class='list'>
-            <text class='key'>介绍</text>
+            <text class='key'>店铺介绍</text>
             <text class='values'>{{shop.shop_info}}</text>
             <input hidden name="shop_info" value="{{shop.shop_info}}" ></input>
       </view>
@@ -37,7 +37,7 @@
 <!--座号管理 -->
   <view class='{{select ? "show" : "hide" }}' id='desks'>
     <view class='desk' wx:for="{{desk}}" wx:key="{{index}}" data-tabltnum="{{index}}" 
-    bindtap="tap" bindlongtap="longTap" data-table_number="{{item.table_number}}"
+    bindtap="tap" bindlongpress="longTap" data-table_number="{{item.table_number}}"
     style='background-image:url("{{host}}/uploads/shops/desk.jpg");'>
         <text class='world'>{{item.table_number}}号桌</text>
        
@@ -45,6 +45,8 @@
         data-table_number="{{item.table_number}}"  data-table_id="{{item.id}}">修改</button>
         <button class="del" bindtap="hidedel" hidden="{{item.hidden}}" data-editid="{{item.id}}">删除</button>
     </view>
+    <!--添加  -->
+    <button bindtap='seats' class='add'>添加</button>
 </view>
 
 <!--模态框  -->

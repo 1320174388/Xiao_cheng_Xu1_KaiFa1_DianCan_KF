@@ -6,7 +6,7 @@
           <text>职位名称</text>
         </view>
         <view style="flex:1.5" class='content-prom'>
-          <input name="roleName" placeholder='我是暗提示' value="{{update_value.roleName}}"></input>  
+          <input name="roleName" placeholder='我是暗提示' value="{{update_value.roleName}}" style='color:#666;' placeholder-style='color:#ccc;'></input>  
         </view>
         <view style="flex:1" class='content-ico'>
           >

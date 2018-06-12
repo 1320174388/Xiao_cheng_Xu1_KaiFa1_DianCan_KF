@@ -32,7 +32,7 @@ page{
   left: 17px;  
   right: 0;  
   height: 5rpx;
-  width: 70px;  
+  width: 180rpx;  
   background:RoyalBlue;  
 }  
 

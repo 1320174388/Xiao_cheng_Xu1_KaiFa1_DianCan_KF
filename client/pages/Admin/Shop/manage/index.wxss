@@ -46,13 +46,14 @@ page{
   overflow: hidden;
   text-overflow: ellipsis;
   color:#000;
-  text-align: right;
+  text-align: left;
 }
 .values{
   width:70%;
   color:#000;
+  padding-top: 16rpx;
   line-height: 1.5;
-  text-align: right;
+  text-align: left;
 }
 .pic{
   width:95%;
@@ -126,6 +127,7 @@ page{
 }  
 .add{
   background-color: skyblue;
+  width: 100%;
 }
 /*模态框  */
 #model{

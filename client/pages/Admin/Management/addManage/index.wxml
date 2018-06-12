@@ -8,7 +8,7 @@
               <text>用户ID</text>
             </view>
             <view style="flex:2.5" class='content-prom'>
-              <input name="user_id" placeholder='我是暗提示' value="{{update_value.user_id}}"></input>
+              <input name="user_id" placeholder='我是暗提示' value="{{update_value.user_id}}" placeholder-style='color:#ccc;' style='color:#666;'></input>
             </view>
           </view>
         </view>
@@ -18,7 +18,7 @@
                <text>管理员名称</text>
             </view>
             <view style="flex:1.5" class='content-prom'>
-              <input name="admin_name" placeholder='我是暗提示' value="{{update_value.admin_name}}"></input>
+              <input name="admin_name" placeholder='我是暗提示' value="{{update_value.admin_name}}" placeholder-style='color:#ccc;' style='color:#666;'></input>
             </view>
             <view style="flex:1" class='content-ico'>
               >
